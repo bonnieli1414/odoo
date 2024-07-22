@@ -1,13 +1,10 @@
 from odoo import api, Command, fields, models, _
 from odoo.exceptions import UserError, ValidationError
 from odoo.osv.expression import get_unaccent_wrapper
-from odoo.tools.misc import str2bool
 
 from odoo.addons.base.models.res_bank import sanitize_account_number
 
 from xmlrpc.client import MAXINT
-
-from odoo.tools import create_index
 
 
 class AccountBankStatementLine(models.Model):
@@ -47,7 +44,7 @@ class AccountBankStatementLine(models.Model):
         comodel_name='account.move',
         auto_join=True,
         string='Journal Entry', required=True, readonly=True, ondelete='cascade',
-        index=True,
+        index='btree_not_null',
         check_company=True)
     statement_id = fields.Many2one(
         comodel_name='account.bank.statement',
@@ -154,14 +151,6 @@ class AccountBankStatementLine(models.Model):
 
     # Technical field to store details about the bank statement line
     transaction_details = fields.Json(readonly=True)
-
-    def init(self):
-        super().init()
-        create_index(self.env.cr,
-                     indexname='account_bank_statement_line_internal_index_move_id_amount_idx',
-                     tablename='account_bank_statement_line',
-                     expressions=['internal_index', 'move_id', 'amount'],
-                     where='statement_id IS NULL')
 
     # -------------------------------------------------------------------------
     # COMPUTE METHODS
@@ -449,9 +438,6 @@ class AccountBankStatementLine(models.Model):
 
     def _find_or_create_bank_account(self):
         self.ensure_one()
-        if str2bool(self.env['ir.config_parameter'].sudo().get_param("account.skip_create_bank_account_on_reconcile")):
-            return self.env['res.partner.bank']
-
         # There is a sql constraint on res.partner.bank ensuring an unique pair <partner, account number>.
         # Since it's not dependent of the company, we need to search on others company too to avoid the creation
         # of an extra res.partner.bank raising an error coming from this constraint.
@@ -665,7 +651,7 @@ class AccountBankStatementLine(models.Model):
             else:
                 other_lines += line
         if not liquidity_lines:
-            liquidity_lines = self.move_id.line_ids.filtered(lambda l: l.account_id.account_type in ('asset_cash', 'liability_credit_card'))
+            liquidity_lines = self.move_id.line_ids.filtered(lambda l: l.account_id.account_type == 'asset_cash')
             other_lines -= liquidity_lines
         return liquidity_lines, suspense_lines, other_lines
 

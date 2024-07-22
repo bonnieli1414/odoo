@@ -259,7 +259,7 @@ class ResCompany(models.Model):
             if html:
                 company.invoice_terms_html = html
 
-    @api.depends('tax_lock_date', 'parent_id.max_tax_lock_date')
+    @api.depends('parent_id.max_tax_lock_date')
     def _compute_max_tax_lock_date(self):
         for company in self:
             company.max_tax_lock_date = max(company.tax_lock_date or date.min, company.parent_id.sudo().max_tax_lock_date or date.min)
@@ -283,7 +283,7 @@ class ResCompany(models.Model):
         return new_prefix + current_code.replace(old_prefix, '', 1).lstrip('0').rjust(digits-len(new_prefix), '0')
 
     def reflect_code_prefix_change(self, old_code, new_code):
-        if not old_code or new_code == old_code:
+        if not old_code:
             return
         accounts = self.env['account.account'].search([
             *self.env['account.account']._check_company_domain(self),
@@ -734,18 +734,6 @@ class ResCompany(models.Model):
             results_by_journal['results'].append(rslt)
 
         return results_by_journal
-
-    @api.model
-    def _with_locked_records(self, records):
-        """ To avoid sending the same records multiple times from different transactions,
-        we use this generic method to lock the records passed as parameter.
-
-        :param records: The records to lock.
-        """
-        self._cr.execute(f'SELECT * FROM {records._table} WHERE id IN %s FOR UPDATE SKIP LOCKED', [tuple(records.ids)])
-        available_ids = {r[0] for r in self._cr.fetchall()}
-        if available_ids != set(records.ids):
-            raise UserError(_("Some documents are being sent by another process already."))
 
     def compute_fiscalyear_dates(self, current_date):
         """

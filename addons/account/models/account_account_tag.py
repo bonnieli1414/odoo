@@ -35,16 +35,14 @@ class AccountAccountTag(models.Model):
         in the specified country.
         """
         domain = self._get_tax_tags_domain(tag_name, country_id)
-        original_lang = self._context.get('lang', 'en_US')
-        rslt_tags = self.env['account.account.tag'].with_context(active_test=False, lang='en_US').search(domain)
-        return rslt_tags.with_context(lang=original_lang)  # Restore original language, in case the name of the tags needs to be shown/modified
+        return self.env['account.account.tag'].with_context(active_test=False).search(domain)
 
     @api.model
     def _get_tax_tags_domain(self, tag_name, country_id, sign=None):
         """ Returns a domain to search for all the tax tags corresponding to the tag name given in parameter
         in the specified country.
         """
-        escaped_tag_name = tag_name.replace('\\', '\\\\').replace('%', r'\%').replace('_', r'\_')
+        escaped_tag_name = tag_name.replace('\\', '\\\\').replace('%', '\%').replace('_', '\_')
         return [
             ('name', '=like', (sign or '_') + escaped_tag_name),
             ('country_id', '=', country_id),
