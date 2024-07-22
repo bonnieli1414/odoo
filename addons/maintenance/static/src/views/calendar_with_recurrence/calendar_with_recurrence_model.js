@@ -30,7 +30,6 @@ export class CalendarWithRecurrenceModel extends CalendarModel {
                         records[recordsCounter] = {
                             ...this.normalizeRecord(rawRecordCopy),
                             id: recordsCounter,
-                            isRecurrent: true,
                         };
                         recordsCounter++;
                     }

@@ -4,8 +4,8 @@
 # 
 # Translators:
 # Bayu Indra Kusuma, 2023
-# Abe Manyo, 2024
 # Wil Odoo, 2024
+# Abe Manyo, 2024
 # 
 msgid ""
 msgstr ""
@@ -13,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-05 12:31+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
-"Last-Translator: Wil Odoo, 2024\n"
+"Last-Translator: Abe Manyo, 2024\n"
 "Language-Team: Indonesian (https://app.transifex.com/odoo/teams/41243/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -799,11 +799,6 @@ msgstr "Arsip Operasi"
 #: model_terms:ir.ui.view,arch_db:mrp.view_mrp_workcenter_search
 msgid "Archived"
 msgstr "Diarsipkan"
-
-#. module: mrp
-#: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
-msgid "Are you sure you want to cancel this manufacturing order?"
-msgstr "Apakah Anda yakin ingin membatalkan manufacturing order ini?"
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrporder
@@ -4870,12 +4865,6 @@ msgid "Routing"
 msgstr "Routing"
 
 #. module: mrp
-#: code:addons/mrp/models/stock_quant.py:0
-#, python-format
-msgid "Return to Inventory"
-msgstr "Kembali ke Inventaris"
-
-#. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_workcenter__routing_line_ids
 msgid "Routing Lines"
 msgstr "Routing Lines"
@@ -5194,6 +5183,15 @@ msgid ""
 msgstr ""
 "Beberapa komponen Anda dilacak, Anda harus menentukan manufacturing order "
 "untuk mengambil komponen yang tepat."
+
+#. module: mrp
+#: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
+msgid ""
+"Some product moves have already been confirmed, this manufacturing order "
+"can't be completely cancelled. Are you still sure you want to process?"
+msgstr ""
+"Beberapa pergerakan produk sudah dikonfirmasi, manufacturing order ini tidak"
+" dapat sepenuhnya dibatalkan. Apakah Anda yakin masih Anda ingin memproses?"
 
 #. module: mrp
 #. odoo-python
@@ -7054,17 +7052,6 @@ msgstr "Anda menghasilkan lebih sedikit dari tuntutan awal"
 #, python-format
 msgid "You should provide a lot number for the final product."
 msgstr "Anda harus menyediakan nomor lot untuk produk final."
-
-#. module: mrp
-#. odoo-python
-#: code:addons/mrp/models/stock_quant.py:0
-#, python-format
-msgid ""
-"You should update the components quantity instead of directly updating the "
-"quantity of the kit product."
-msgstr ""
-"Anda harus mengupdate kuantitas komponen alih-alih langsung mengupdate "
-"kuantitas produk kit."
 
 #. module: mrp
 #: model:ir.model.fields.selection,name:mrp.selection__stock_picking_type__done_mrp_lot_label_to_print__zpl

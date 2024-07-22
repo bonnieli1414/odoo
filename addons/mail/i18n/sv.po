@@ -173,10 +173,10 @@ msgid ""
 "Enter%(close_samp)s %(open_em)sto "
 "%(open_save)ssave%(close_save)s%(close_em)s"
 msgstr ""
-"%(open_samp)sEscape%(close_samp)s %(open_em)still "
-"%(open_cancel)savbrytl%(close_cancel)s%(close_em)s, %(open_samp)sCTRL-"
-"Enter%(close_samp)s %(open_em)still "
-"%(open_save)sspara%(close_save)s%(close_em)s"
+"%(open_samp)sEscape%(close_samp)s %(open_em)sto "
+"%(open_cancel)scancel%(close_cancel)s%(close_em)s, %(open_samp)sCTRL-"
+"Enter%(close_samp)s %(open_em)sto "
+"%(open_save)ssave%(close_save)s%(close_em)s"
 
 #. module: mail
 #. odoo-javascript
@@ -2862,7 +2862,7 @@ msgstr "Direktmeddelanden"
 #: model_terms:ir.ui.view,arch_db:mail.mail_blacklist_remove_view_form
 #, python-format
 msgid "Discard"
-msgstr "Avbryt"
+msgstr "Förkasta"
 
 #. module: mail
 #. odoo-javascript
@@ -3679,9 +3679,11 @@ msgstr "Fält"
 #: code:addons/mail/models/mail_tracking_duration_mixin.py:0
 #, python-format
 msgid ""
-"Field “%(field)s” on model “%(model)s” must be of type Many2one and have "
+"Field \"(field)r on model %(model)r must be of type Many2one and have "
 "tracking=True for the computation of duration."
 msgstr ""
+"Fält \"(fält)r på modell %(model)r måste vara av typen Many2one och ha "
+"tracking=True för beräkning av varaktighet."
 
 #. module: mail
 #. odoo-python
@@ -5803,14 +5805,14 @@ msgstr "Meddelande"
 #: code:addons/mail/static/src/core/common/composer.js:0
 #, python-format
 msgid "Message #%(thread name)s…"
-msgstr "Meddelande #%(thread name)..."
+msgstr "Meddelande #%(thread name)s..."
 
 #. module: mail
 #. odoo-javascript
 #: code:addons/mail/static/src/core/common/composer.js:0
 #, python-format
 msgid "Message %(thread name)s…"
-msgstr "Meddelande %(thread name)..."
+msgstr "Meddelande %(thread name)s..."
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_discuss_channel__message_has_error
@@ -7968,7 +7970,7 @@ msgstr "Spara som en ny mall"
 #: code:addons/mail/static/src/core/common/composer.js:0
 #, python-format
 msgid "Save editing"
-msgstr "Spara redigering"
+msgstr ""
 
 #. module: mail
 #: model:ir.model,name:mail.model_discuss_gif_favorite
@@ -8627,7 +8629,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:mail.field_mail_message__starred
 #, python-format
 msgid "Starred"
-msgstr "Stjärnmärkt"
+msgstr "Stärnmärkt"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_res_partner__starred_message_ids
@@ -8668,7 +8670,7 @@ msgstr "Starta ett möte"
 #: model:ir.model.fields,field_description:mail.field_mail_activity__state
 #: model_terms:ir.ui.view,arch_db:mail.discuss_channel_rtc_session_view_form
 msgid "State"
-msgstr "Läge"
+msgstr "Etapp"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_fetchmail_server__state
@@ -9049,7 +9051,7 @@ msgid ""
 "country format. You can use '/' to indicate that the partner is not subject "
 "to tax."
 msgstr ""
-"Skatteredovisningsnummer, värden här kommer att bekräftas baserat på "
+"Skatteidentifikationsnummer. Värden här kommer att valideras baserat på "
 "landsformatet. Du kan använda '/' för att ange att partnern inte är "
 "skattepliktig."
 
@@ -10591,17 +10593,6 @@ msgstr ""
 #, python-format
 msgid "You may not define a template on an abstract model: %s"
 msgstr "Du får inte definiera en mall på en abstrakt modell: %s"
-
-#. module: mail
-#. odoo-python
-#: code:addons/mail/models/ir_attachment.py:0
-#, python-format
-msgid ""
-"You may not unlink or modify the content of attachments from other people's "
-"messages"
-msgstr ""
-"Du får inte ta bort länken eller ändra innehållet i bilagor från andras "
-"meddelanden"
 
 #. module: mail
 #. odoo-javascript

@@ -18,13 +18,13 @@
 # Kristoffer Grundström <lovaren@gmail.com>, 2023
 # Mikael Åkerberg <mikael.akerberg@mariaakerberg.com>, 2023
 # Chrille Hedberg <hedberg.chrille@gmail.com>, 2023
+# Jakob Krabbe <jakob.krabbe@vertel.se>, 2023
 # Lasse L, 2023
 # Martin Trigaux, 2023
 # Kim Asplund <kim.asplund@gmail.com>, 2023
 # Simon S, 2024
 # Anders Wallenquist <anders.wallenquist@vertel.se>, 2024
 # Jaydeep Radadiya, 2024
-# Jakob Krabbe <jakob.krabbe@vertel.se>, 2024
 # 
 msgid ""
 msgstr ""
@@ -32,7 +32,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-05 12:31+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
-"Last-Translator: Jakob Krabbe <jakob.krabbe@vertel.se>, 2024\n"
+"Last-Translator: Jaydeep Radadiya, 2024\n"
 "Language-Team: Swedish (https://app.transifex.com/odoo/teams/41243/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -68,7 +68,7 @@ msgstr " <br/><br/> Komponenterna kommer att hämtas från <b>%s</b>."
 #. module: mrp
 #: model:ir.model.fields.selection,name:mrp.selection__mrp_bom__ready_to_produce__all_available
 msgid " When all components are available"
-msgstr " När alla komponenter är tillgängliga"
+msgstr "När alla komponenter är tillgängliga"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_product_product__bom_count
@@ -102,7 +102,7 @@ msgstr "# Antal BoM Var används"
 #: code:addons/mrp/report/mrp_report_mo_overview.py:0
 #, python-format
 msgid "%(producible_qty)s Ready"
-msgstr "%(producible_qty)s Redo"
+msgstr ""
 
 #. module: mrp
 #. odoo-python
@@ -152,7 +152,7 @@ msgstr "'Färdiga produkter - %s' % object.name"
 #. module: mrp
 #: model:ir.actions.report,print_report_name:mrp.action_report_mrp_mo_overview
 msgid "'MO Overview - %s' % object.display_name"
-msgstr "\"MO-översikt - %s\" % objekt.display_name"
+msgstr ""
 
 #. module: mrp
 #: model:ir.actions.report,print_report_name:mrp.action_report_production_order
@@ -171,7 +171,7 @@ msgstr "'Arbetsorder - %s' % object.name"
 #: model_terms:ir.ui.view,arch_db:mrp.mo_overview_content
 #, python-format
 msgid "(in"
-msgstr "(i"
+msgstr ""
 
 #. module: mrp
 #. odoo-python
@@ -185,7 +185,7 @@ msgstr "+ %d dag(ar)"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mo_overview_content
 msgid "- Overview"
-msgstr "- Översikt"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.exception_on_mo
@@ -205,7 +205,7 @@ msgstr "100"
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrp_production_components
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrp_workorder
 msgid "12345678901"
-msgstr "12345678901"
+msgstr ""
 
 #. module: mrp
 #: model_terms:product.template,description:mrp.product_product_computer_desk_leg_product_template
@@ -215,7 +215,7 @@ msgstr "18″ x 2½″ fyrkantigt ben"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrporder
 msgid "2023-09-15"
-msgstr "2023-09-15"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrp_production_components
@@ -230,22 +230,22 @@ msgstr "50"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrporder
 msgid "58"
-msgstr "58"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrporder
 msgid "60"
-msgstr "60"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrp_production_components
 msgid "8 GB RAM"
-msgstr "8 GB RAM-MINNE"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrporder
 msgid "987654321098"
-msgstr "987654321098"
+msgstr ""
 
 #. module: mrp
 #. odoo-python
@@ -289,12 +289,12 @@ msgstr ""
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
 msgid "<span class=\"fw-bold\">To Produce</span>"
-msgstr "<span class=\"fw-bold\">Att producera</span>"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
 msgid "<span class=\"ms-2\">Generate BOM</span>"
-msgstr "<span class=\"ms-2\">Generera BOM</span>"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
@@ -304,7 +304,7 @@ msgstr "<span class=\"o_stat_text\">Restorder</span>"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_bom_form_view
 msgid "<span class=\"o_stat_text\">BoM Overview</span>"
-msgstr "<span class=\"o_stat_text\">BoM-översikt</span>"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
@@ -345,7 +345,7 @@ msgstr "<span class=\"o_stat_text\">Drift<br/>Prestanda</span>"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
 msgid "<span class=\"o_stat_text\">Overview</span>"
-msgstr "<span class=\"o_stat_text\">Översikt</span>"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_workcenter_view
@@ -356,7 +356,7 @@ msgstr "<span class=\"o_stat_text\">Prestation</span>"
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_unbuild_form_view
 msgid "<span class=\"o_stat_text\">Product Moves</span>"
-msgstr "<span class=\"o_stat_text\">Produktförflyttningar</span>"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
@@ -372,7 +372,7 @@ msgstr "<span class=\"o_stat_text\">Käll-MO</span>"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
 msgid "<span class=\"o_stat_text\">Traceability</span>"
-msgstr "<span class=\"o_stat_text\">Spårbarhet</span>"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
@@ -386,9 +386,6 @@ msgid ""
 "modify the quantities of components to consume for this manufacturing "
 "order.</span>"
 msgstr ""
-"<span class=\"text-muted\">En ändring av kvantiteten som ska produceras "
-"kommer också att ändra kvantiteterna av komponenter som ska förbrukas för "
-"denna tillverkningsorder.</span>"
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrp_production_components
@@ -397,7 +394,7 @@ msgid ""
 "            Components\n"
 "        </span>"
 msgstr ""
-"<span>\n"
+"<span> Komponenter\n"
 "            Komponenter\n"
 "         </span>"
 
@@ -454,12 +451,12 @@ msgstr "<strong class=\"mr8 oe_inline\">till</strong>"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrporder
 msgid "<strong>Actual Duration (minutes)</strong>"
-msgstr "<strong>Faktiskt varaktighet (minuter)</strong>"
+msgstr "<strong>Faktuell varaktighet (minuter)</strong>"
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrporder
 msgid "<strong>Barcode</strong>"
-msgstr "<strong>Streckkod</strong>"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrporder
@@ -479,7 +476,7 @@ msgstr "<strong>Varaktighet (minuter)</strong>"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.view_mrp_workcenter_productivity_loss_kanban
 msgid "<strong>Effectiveness Category: </strong>"
-msgstr "<strong>Effektivitetskategori: </strong>"
+msgstr "<strong>Effektivitetskategori: </strong> </strong"
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrp_workorder
@@ -572,8 +569,6 @@ msgid ""
 "A BoM of type Kit is not produced with a manufacturing order.<br/>\n"
 "                                Instead, it is used to decompose a BoM into its components when:"
 msgstr ""
-"En BoM av typen Kit produceras inte med en tillverkningsorder.<br/>\n"
-"                                Istället används den för att sönderdela en BoM i dess komponenter när:"
 
 #. module: mrp
 #. odoo-python
@@ -696,9 +691,6 @@ msgid ""
 "Lines with 0 quantities can be used as optional lines. \n"
 "You should install the mrp_byproduct module if you want to manage extra products on BoMs!"
 msgstr ""
-"Alla produktkvantiteter måste vara större än eller lika med 0.\n"
-"Rader med 0 kvantiteter kan användas som valfria rader.\n"
-"Du bör installera modulen mrp_byproduct om du vill hantera extra produkter på BoMs!"
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
@@ -708,12 +700,12 @@ msgstr "Tilldelning"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.view_picking_type_form_inherit_mrp
 msgid "Allocation Report"
-msgstr "Allokeringsrapport"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.view_picking_type_form_inherit_mrp
 msgid "Allocation Report Labels"
-msgstr "Etiketter för tilldelningsrapport"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_res_config_settings__group_mrp_reception_report
@@ -823,11 +815,6 @@ msgid "Archived"
 msgstr "Arkiverad"
 
 #. module: mrp
-#: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
-msgid "Are you sure you want to cancel this manufacturing order?"
-msgstr "Är du säker på att du vill avbeställa den här tillverkningsordern?"
-
-#. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrporder
 msgid "Assembling"
 msgstr "Montering"
@@ -878,32 +865,32 @@ msgstr "Attributvärden"
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_stock_picking_type__auto_print_mrp_reception_report
 msgid "Auto Print Allocation Report"
-msgstr "Automatisk utskrift av tilldelningsrapport"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_stock_picking_type__auto_print_mrp_reception_report_labels
 msgid "Auto Print Allocation Report Labels"
-msgstr "Automatisk utskrift av etiketter för tilldelningsrapport"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_stock_picking_type__auto_print_done_production_order
 msgid "Auto Print Done Production Order"
-msgstr "Auto Print Done Produktionsorder"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_stock_picking_type__auto_print_generated_mrp_lot
 msgid "Auto Print Generated Lot/SN Label"
-msgstr "Automatisk utskrift av genererad Lot/SN-etikett"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_stock_picking_type__auto_print_done_mrp_lot
 msgid "Auto Print Produced Lot Label"
-msgstr "Automatisk utskrift av etikett för producerat parti"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_stock_picking_type__auto_print_done_mrp_product_labels
 msgid "Auto Print Produced Product Labels"
-msgstr "Automatisk utskrift av producerade produktetiketter"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_stock_picking_type__auto_print_generated_mrp_lot
@@ -911,8 +898,6 @@ msgid ""
 "Automatically print the lot/SN label when the \"Create a new serial/lot "
 "number\" button is used."
 msgstr ""
-"Skriv automatiskt ut lot/SN-etiketten när knappen \"Skapa ett nytt "
-"serie-/lotnummer\" används."
 
 #. module: mrp
 #. odoo-javascript
@@ -977,7 +962,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:mrp.mo_overview_content
 #, python-format
 msgid "Avg Cost of Components per Unit"
-msgstr "Genomsnittlig kostnad för komponenter per enhet"
+msgstr ""
 
 #. module: mrp
 #. odoo-javascript
@@ -985,7 +970,7 @@ msgstr "Genomsnittlig kostnad för komponenter per enhet"
 #: model_terms:ir.ui.view,arch_db:mrp.mo_overview_content
 #, python-format
 msgid "Avg Cost of Operations per Unit"
-msgstr "Genomsnittlig driftskostnad per enhet"
+msgstr ""
 
 #. module: mrp
 #. odoo-javascript
@@ -993,12 +978,12 @@ msgstr "Genomsnittlig driftskostnad per enhet"
 #: model_terms:ir.ui.view,arch_db:mrp.mo_overview_content
 #, python-format
 msgid "Avg Total Cost per Unit"
-msgstr "Genomsnittlig totalkostnad per enhet"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.view_mrp_production_filter
 msgid "Awaiting Components"
-msgstr "Väntar på komponenter"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model,name:mrp.model_report_mrp_report_bom_structure
@@ -1123,8 +1108,6 @@ msgid ""
 "Bills of Materials, also called recipes, are used to autocomplete components"
 " and work order instructions."
 msgstr ""
-"Materialförteckningar, även kallade recept, används för att autokomplettera "
-"komponenter och arbetsorderinstruktioner."
 
 #. module: mrp
 #: model_terms:ir.actions.act_window,help:mrp.mrp_bom_form_action
@@ -1350,7 +1333,7 @@ msgstr "Kategori"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrporder
 msgid "Center A"
-msgstr "Centrum A"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.view_change_production_qty_wizard
@@ -1506,11 +1489,6 @@ msgid ""
 "                                                       Also note that "
 "purchase security lead times will be added when appropriate."
 msgstr ""
-"Beräkna antalet dagar som krävs för att återanskaffa alla komponenter från "
-"BoM, antingen genom att köpa eller tillverka komponenterna och/eller "
-"underenheterna.                                                       "
-"Observera också att ledtider för inköpssäkerhet kommer att läggas till när "
-"så är lämpligt."
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_routing_workcenter__time_computed_on
@@ -1617,7 +1595,7 @@ msgstr "Kopiera valda operationer"
 #: model_terms:ir.ui.view,arch_db:mrp.mo_overview_content
 #, python-format
 msgid "Cost Breakdown of Products"
-msgstr "Kostnadsfördelning av produkter"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_bom_byproduct__cost_share
@@ -1631,14 +1609,13 @@ msgstr "Kostnadsandel (%)"
 #, python-format
 msgid "Cost based on related replenishments. Otherwise cost from product form"
 msgstr ""
-"Kostnad baserad på relaterade påfyllningar. Annars kostnad från produktform"
 
 #. module: mrp
 #. odoo-javascript
 #: code:addons/mrp/static/src/components/mo_overview/mrp_mo_overview.xml:0
 #, python-format
 msgid "Cost from product form"
-msgstr "Kostnad från produktform"
+msgstr ""
 
 #. module: mrp
 #. odoo-javascript
@@ -1646,7 +1623,7 @@ msgstr "Kostnad från produktform"
 #: model_terms:ir.ui.view,arch_db:mrp.mo_overview_content
 #, python-format
 msgid "Cost of Components per unit"
-msgstr "Kostnad för komponenter per enhet"
+msgstr ""
 
 #. module: mrp
 #. odoo-javascript
@@ -1654,7 +1631,7 @@ msgstr "Kostnad för komponenter per enhet"
 #: model_terms:ir.ui.view,arch_db:mrp.mo_overview_content
 #, python-format
 msgid "Cost of Operations per unit"
-msgstr "Rörelsens kostnader per enhet"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_workcenter__costs_hour
@@ -1829,7 +1806,7 @@ msgstr "Skapar ett nytt serie- / partinummer"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.view_mrp_document_form
 msgid "Creation"
-msgstr "Skapa"
+msgstr "Skapa "
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_workcenter__currency_id
@@ -1876,15 +1853,13 @@ msgstr "Datum"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.view_mrp_production_filter
 msgid "Date by Month"
-msgstr "Datum per månad"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_mrp_production__date_finished
 msgid ""
 "Date you expect to finish production or actual date you finished production."
 msgstr ""
-"Datum då du förväntar dig att produktionen ska vara klar eller det faktiska "
-"datum då du avslutade produktionen."
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_mrp_production__date_start
@@ -1892,13 +1867,11 @@ msgstr ""
 msgid ""
 "Date you plan to start production or date you actually started production."
 msgstr ""
-"Datum då du planerar att starta produktionen eller datum då du faktiskt "
-"startade produktionen."
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.view_mrp_production_filter
 msgid "Date: Last 365 Days"
-msgstr "Datum: Senaste 365 dagarna"
+msgstr ""
 
 #. module: mrp
 #. odoo-javascript
@@ -1989,7 +1962,7 @@ msgstr "Datum för fördröjningsvarning"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.view_mrp_production_filter
 msgid "Delays"
-msgstr "Förseningar"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.view_document_file_kanban_mrp
@@ -2034,7 +2007,7 @@ msgstr "Demonteringsordning"
 #: model_terms:ir.ui.view,arch_db:mrp.view_mrp_production_split_form
 #: model_terms:ir.ui.view,arch_db:mrp.view_mrp_production_split_multi_form
 msgid "Discard"
-msgstr "Avbryt"
+msgstr "Förkasta"
 
 #. module: mrp
 #. odoo-javascript
@@ -2088,7 +2061,7 @@ msgstr "Visar förbrukade Lot/Serienummer."
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
 msgid "Displays the produced Lot/Serial Numbers."
-msgstr "Visar de producerade Lot/Serial Numbers."
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.stock_warn_insufficient_qty_unbuild_form_view
@@ -2224,7 +2197,7 @@ msgstr "Säkerställ spårbarheten för en lagringsförd produkt i ditt lager."
 #. module: mrp
 #: model:mrp.workcenter.productivity.loss,name:mrp.block_reason1
 msgid "Equipment Failure"
-msgstr "Fel på utrustningen"
+msgstr ""
 
 #. module: mrp
 #. odoo-python
@@ -2451,7 +2424,7 @@ msgstr "Fri att använda / finns till hands"
 #: model_terms:ir.ui.view,arch_db:mrp.mo_overview_content
 #, python-format
 msgid "Free to use / On Hand"
-msgstr "Fri att använda/tillgänglig"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
@@ -2466,7 +2439,7 @@ msgstr "Fullt produktiv"
 #. module: mrp
 #: model:mrp.workcenter.productivity.loss,name:mrp.block_reason7
 msgid "Fully Productive Time"
-msgstr "Fullt produktiv tid"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_unbuild_search_view
@@ -2487,12 +2460,12 @@ msgstr "Generera serienummer"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
 msgid "Generate a new BoM from this Manufacturing Order"
-msgstr "Generera en ny BoM från denna tillverkningsorder"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_stock_picking_type__generated_mrp_lot_label_to_print
 msgid "Generated Lot/SN Label to Print"
-msgstr "Genererad Lot/SN-etikett att skriva ut"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.actions.act_window,help:mrp.action_mrp_routing_time
@@ -2579,7 +2552,7 @@ msgstr "Har meddelande"
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_workcenter__has_routing_lines
 msgid "Has Routing Lines"
-msgstr "Har routinglinjer"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields.selection,name:mrp.selection__mrp_document__priority__2
@@ -2685,7 +2658,7 @@ msgid ""
 "If the active field is set to False, it will allow you to hide the resource "
 "record without removing it."
 msgstr ""
-"Om det aktiva fältet är satt till False/Falskt, kommer det att du kan dölja "
+"Om det aktiva fältet är satt till False, kommer det att du kan dölja "
 "resursposten utan att ta bort det."
 
 #. module: mrp
@@ -2694,8 +2667,6 @@ msgid ""
 "If this checkbox is ticked, Odoo will automatically print the allocation "
 "report labels of a MO when it is done."
 msgstr ""
-"Om denna kryssruta är markerad kommer Odoo automatiskt att skriva ut "
-"allokeringsrapportens etiketter för en MO när den är klar."
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_stock_picking_type__auto_print_mrp_reception_report
@@ -2703,8 +2674,6 @@ msgid ""
 "If this checkbox is ticked, Odoo will automatically print the allocation "
 "report of a MO when it is done and has assigned moves."
 msgstr ""
-"Om denna kryssruta är markerad kommer Odoo automatiskt att skriva ut "
-"tilldelningsrapporten för en MO när den är klar och har tilldelat drag."
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_stock_picking_type__auto_print_done_mrp_lot
@@ -2712,8 +2681,6 @@ msgid ""
 "If this checkbox is ticked, Odoo will automatically print the lot/SN label "
 "of a MO when it is done."
 msgstr ""
-"Om denna kryssruta är markerad kommer Odoo automatiskt att skriva ut lot/SN-"
-"etiketten för en MO när den är klar."
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_stock_picking_type__auto_print_done_mrp_product_labels
@@ -2721,8 +2688,6 @@ msgid ""
 "If this checkbox is ticked, Odoo will automatically print the product labels"
 " of a MO when it is done."
 msgstr ""
-"Om denna kryssruta är markerad kommer Odoo automatiskt att skriva ut "
-"produktetiketterna för en MO när den är klar."
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_stock_picking_type__auto_print_done_production_order
@@ -2730,8 +2695,6 @@ msgid ""
 "If this checkbox is ticked, Odoo will automatically print the production "
 "order of a MO when it is done."
 msgstr ""
-"Om denna kryssruta är markerad kommer Odoo automatiskt att skriva ut "
-"produktionsordern för en MO när den är klar."
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_document__image_height
@@ -2793,7 +2756,7 @@ msgstr "Pågående"
 #: code:addons/mrp/report/mrp_report_mo_overview.py:0
 #, python-format
 msgid "In Transit"
-msgstr "I transit"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_document__index_content
@@ -2894,7 +2857,7 @@ msgstr "JSON-data för popover-widgeten"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrporder
 msgid "John Doe"
-msgstr "John Doe"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_document__key
@@ -2913,22 +2876,22 @@ msgstr "Kit"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrp_workorder
 msgid "Laptop"
-msgstr "Bärbar dator"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrporder
 msgid "Laptop Model X"
-msgstr "Bärbar dator modell X"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrp_workorder
 msgid "Laptop model X"
-msgstr "Bärbar dator modell X"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrporder
 msgid "Laptop with 16GB RAM"
-msgstr "Bärbar dator med 16 GB RAM"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_change_production_qty__write_uid
@@ -3007,7 +2970,7 @@ msgstr "Sena aktiviteter"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.view_mrp_production_filter
 msgid "Late Components"
-msgstr "Sena komponenter"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.view_mrp_production_filter
@@ -3066,12 +3029,12 @@ msgstr "Plats där den produkt du vill ta bort finns."
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_mrp_production__location_src_id
 msgid "Location where the system will look for components."
-msgstr "Platser där systemet ska titta efter komponenter."
+msgstr "Platser där systemet ska titta efter komponenter"
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_mrp_production__location_dest_id
 msgid "Location where the system will stock the finished products."
-msgstr "Plats där systemet kommer att lagra de färdiga produkterna."
+msgstr "Location where the system will stock the finished products."
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_mrp_unbuild__location_dest_id
@@ -3105,12 +3068,12 @@ msgstr "Förlust Orsak"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.view_picking_type_form_inherit_mrp
 msgid "Lot/SN Label"
-msgstr "Lot/SN-etikett"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_stock_picking_type__done_mrp_lot_label_to_print
 msgid "Lot/SN Label to Print"
-msgstr "Lot/SN Etikett att skriva ut"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.view_picking_type_form_inherit_mrp
@@ -3156,14 +3119,14 @@ msgstr "MO Backorder"
 #: model_terms:ir.ui.view,arch_db:mrp.mo_overview_content
 #, python-format
 msgid "MO Cost"
-msgstr "MO-kostnad"
+msgstr ""
 
 #. module: mrp
 #. odoo-javascript
 #: code:addons/mrp/static/src/components/mo_overview_display_filter/mrp_mo_overview_display_filter.js:0
 #, python-format
 msgid "MO Costs"
-msgstr "MO-kostnader"
+msgstr ""
 
 #. module: mrp
 #. odoo-python
@@ -3176,12 +3139,12 @@ msgstr "MO Skapad av %s"
 #: model:ir.actions.client,name:mrp.action_report_mo_overview
 #: model:ir.actions.report,name:mrp.action_report_mrp_mo_overview
 msgid "MO Overview"
-msgstr "Översikt över MO"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model,name:mrp.model_report_mrp_report_mo_overview
 msgid "MO Overview Report"
-msgstr "MO Översiktsrapport"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_production__reservation_state
@@ -3191,12 +3154,12 @@ msgstr "MO Beredskap"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.view_mrp_production_filter
 msgid "MO Ready"
-msgstr "MO Ready"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
 msgid "MO Reference"
-msgstr "MO-referens"
+msgstr ""
 
 #. module: mrp
 #: model:ir.actions.client,name:mrp.mrp_reception_action
@@ -3216,7 +3179,7 @@ msgstr "MRP Produktivitetsförluster vid arbetsorder"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrporder
 msgid "MRP-001"
-msgstr "MRP-001"
+msgstr ""
 
 #. module: mrp
 #. odoo-python
@@ -3444,7 +3407,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:mrp.action_picking_tree_mrp_operation
 #: model:ir.ui.menu,name:mrp.mrp_operation_picking
 msgid "Manufacturings"
-msgstr "Tillverkning"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrp_workorder
@@ -3536,7 +3499,7 @@ msgstr "Mrp Varningslinje för konsumtion"
 #. module: mrp
 #: model:ir.actions.client,name:mrp.action_mrp_display
 msgid "Mrp Display"
-msgstr "Mrp Display"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_consumption_warning__mrp_production_ids
@@ -3584,7 +3547,7 @@ msgstr "Ny"
 #: code:addons/mrp/models/mrp_production.py:0
 #, python-format
 msgid "New BoM from %(mo_name)s"
-msgstr "Ny BoM från %(mo_name)s"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_tree_view
@@ -3700,12 +3663,12 @@ msgstr "Inte tillgänglig"
 #: code:addons/mrp/report/mrp_report_mo_overview.py:0
 #, python-format
 msgid "Not Ready"
-msgstr "Inte redo"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
 msgid "Note that another version of this BOM is available."
-msgstr "Observera att en annan version av denna BOM finns tillgänglig."
+msgstr ""
 
 #. module: mrp
 #. odoo-python
@@ -3818,9 +3781,6 @@ msgid ""
 "                                install the IoT App on a computer that is on the same local network as the\n"
 "                                barcode operator and configure the routing of the reports."
 msgstr ""
-"Odoo öppnar en PDF-förhandsgranskning som standard. Om du vill skriva ut direkt,\n"
-"                                installera IoT-appen på en dator som är ansluten till samma lokala nätverk som streckkodsoperatören\n"
-"                                streckkodsoperatören och konfigurera routningen av rapporterna."
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_workcenter__oee
@@ -3955,7 +3915,7 @@ msgstr "Åtgärder som måste slutföras innan denna åtgärd kan påbörjas."
 #: code:addons/mrp/models/mrp_production.py:0
 #, python-format
 msgid "Operator not supported without a value."
-msgstr "Operatören stöds inte utan ett värde."
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_production__orderpoint_id
@@ -3980,7 +3940,7 @@ msgstr "Ursprunglig produktionskvantitet"
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_production__is_outdated_bom
 msgid "Outdated BoM"
-msgstr "Föråldrad BoM"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_mrp_workcenter__oee_target
@@ -4018,7 +3978,7 @@ msgstr "PDF"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrporder
 msgid "Package barcode"
-msgstr "Paket streckkod"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_bom_line__bom_id
@@ -4133,7 +4093,7 @@ msgstr "Plockning före tillverkningsplats"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrp_production_components
 msgid "Pieces"
-msgstr "Stycken"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
@@ -4149,7 +4109,7 @@ msgstr "Planera beställningar"
 #. module: mrp
 #: model:ir.actions.server,name:mrp.action_plan_with_components_availability
 msgid "Plan based on Components Availability"
-msgstr "Plan baserad på komponenternas tillgänglighet"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.res_config_settings_view_form
@@ -4185,21 +4145,21 @@ msgstr "Laminat av plast"
 #: code:addons/mrp/models/mrp_production.py:0
 #, python-format
 msgid "Please set the first Serial Number or a default sequence"
-msgstr "Ange det första serienumret eller en standardsekvens"
+msgstr ""
 
 #. module: mrp
 #. odoo-python
 #: code:addons/mrp/models/mrp_workorder.py:0
 #, python-format
 msgid "Please unblock the work center to start the work order."
-msgstr "Vänligen avblockera arbetscentret för att starta arbetsordern."
+msgstr ""
 
 #. module: mrp
 #. odoo-python
 #: code:addons/mrp/models/mrp_workorder.py:0
 #, python-format
 msgid "Please unblock the work center to validate the work order"
-msgstr "Vänligen avblockera arbetscentret för att validera arbetsordern"
+msgstr ""
 
 #. module: mrp
 #: model:product.template,name:mrp.product_product_wood_ply_product_template
@@ -4261,17 +4221,17 @@ msgstr "Printa Etikett"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.view_picking_type_form_inherit_mrp
 msgid "Print labels as:"
-msgstr "Skriv ut etiketter som:"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.view_picking_type_form_inherit_mrp
 msgid "Print when \"Create new Lot/SN\""
-msgstr "Skriv ut när \"Skapa nytt parti/SN\""
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.view_picking_type_form_inherit_mrp
 msgid "Print when done"
-msgstr "Skriv ut när du är klar"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_document__priority
@@ -4282,17 +4242,17 @@ msgstr "Prioritet"
 #. module: mrp
 #: model:mrp.workcenter.productivity.loss,name:mrp.block_reason5
 msgid "Process Defect"
-msgstr "Processfel"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.res_config_settings_view_form
 msgid "Process manufacturing orders from the barcode application"
-msgstr "Behandla tillverkningsorder från streckkodsapplikationen"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.res_config_settings_view_form
 msgid "Process operations at specific work centers"
-msgstr "Genomför åtgärder på specifika produktionsgrupper"
+msgstr "Genomför åtgärder på specifika produktionsgrupper "
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_unbuild__produce_line_ids
@@ -4309,12 +4269,12 @@ msgstr "Anskaffningsgrupp"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
 msgid "Produce"
-msgstr "Producera"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
 msgid "Produce All"
-msgstr "Producera alla"
+msgstr ""
 
 #. module: mrp
 #: model:res.groups,name:mrp.group_mrp_byproducts
@@ -4324,7 +4284,7 @@ msgstr "Producera restprodukter"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.res_config_settings_view_form
 msgid "Produce residual products (A + B -> C + D)"
-msgstr "Framställning av restprodukter (A + B -> C + D)"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_stock_warehouse__manufacture_steps
@@ -4332,8 +4292,6 @@ msgid ""
 "Produce: Move the components to the production location        directly and start the manufacturing process.\n"
 "Pick / Produce: Unload        the components from the Stock to Input location first, and then        transfer it to the Production location."
 msgstr ""
-"Producera: Flytta komponenterna direkt till produktionsanläggningen och starta tillverkningsprocessen.\n"
-"Plocka/producera: Lasta först av komponenterna från lager till inmatningsplatsen och överför dem sedan till produktionsplatsen."
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
@@ -4406,7 +4364,7 @@ msgstr "Produkt Prognostiserad kvantitet"
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_stock_picking_type__mrp_product_label_to_print
 msgid "Product Label to Print"
-msgstr "Produktetikett att skriva ut"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.view_picking_type_form_inherit_mrp
@@ -4477,7 +4435,7 @@ msgstr "Produktkapaciteten bör vara unik för varje arbetscenter."
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
 msgid "Product to build..."
-msgstr "Produkt att bygga..."
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_picking_label_type__production_ids
@@ -4682,7 +4640,7 @@ msgstr "Kvantitet som kan produceras med nuvarande lager av komponenter"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrp_workorder
 msgid "RAM"
-msgstr "RAM"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_bom__rating_ids
@@ -4721,14 +4679,14 @@ msgstr "Redo att producera"
 #: model_terms:ir.ui.view,arch_db:mrp.mo_overview_content
 #, python-format
 msgid "Real Cost"
-msgstr "Verklig kostnad"
+msgstr ""
 
 #. module: mrp
 #. odoo-javascript
 #: code:addons/mrp/static/src/components/mo_overview_display_filter/mrp_mo_overview_display_filter.js:0
 #, python-format
 msgid "Real Costs"
-msgstr "Verkliga kostnader"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_production__duration
@@ -4761,12 +4719,12 @@ msgstr "Uppskattning av mottagningstid."
 #. module: mrp
 #: model:mrp.workcenter.productivity.loss,name:mrp.block_reason4
 msgid "Reduced Speed"
-msgstr "Reducerad hastighet"
+msgstr ""
 
 #. module: mrp
 #: model:mrp.workcenter.productivity.loss,name:mrp.block_reason6
 msgid "Reduced Yield"
-msgstr "Minskad avkastning"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_bom__code
@@ -4828,7 +4786,7 @@ msgstr "Påfyllning vid beställning (MTO)"
 #: code:addons/mrp/static/src/components/mo_overview_display_filter/mrp_mo_overview_display_filter.js:0
 #, python-format
 msgid "Replenishments"
-msgstr "Återuppfyllnad"
+msgstr ""
 
 #. module: mrp
 #: model:ir.ui.menu,name:mrp.menu_mrp_reporting
@@ -4904,7 +4862,7 @@ msgstr "Rutter"
 #: code:addons/mrp/models/stock_quant.py:0
 #, python-format
 msgid "Return to Inventory"
-msgstr "Återgå till inventering"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_workcenter__routing_line_ids
@@ -4981,7 +4939,7 @@ msgstr "Flyttning av skrot"
 #: code:addons/mrp/models/mrp_workorder.py:0
 #, python-format
 msgid "Scrap Products"
-msgstr "Skrotprodukter"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_production__scrap_ids
@@ -5041,7 +4999,7 @@ msgstr "Välj operationer att kopiera"
 #: code:addons/mrp/models/mrp_production.py:0
 #, python-format
 msgid "Selection not supported."
-msgstr "Valet stöds inte."
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_bom__sequence
@@ -5087,7 +5045,7 @@ msgstr "Ange kvantiteter och validera"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.view_change_production_qty_wizard
 msgid "Set Quantity"
-msgstr "Ställ in kvantitet"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields.selection,name:mrp.selection__mrp_routing_workcenter__time_mode__manual
@@ -5123,7 +5081,7 @@ msgstr "Inställningstid (minuter)"
 #. module: mrp
 #: model:mrp.workcenter.productivity.loss,name:mrp.block_reason2
 msgid "Setup and Adjustments"
-msgstr "Inställningar och justeringar"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_production__show_allocation
@@ -5163,12 +5121,12 @@ msgstr "Visa Popover?"
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_production__show_produce
 msgid "Show Produce"
-msgstr "Visa produkter"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_production__show_produce_all
 msgid "Show Produce All"
-msgstr "Visa Producera Alla"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_unbuild_search_view
@@ -5226,6 +5184,13 @@ msgstr ""
 "för att hämta rätt komponenter."
 
 #. module: mrp
+#: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
+msgid ""
+"Some product moves have already been confirmed, this manufacturing order "
+"can't be completely cancelled. Are you still sure you want to process?"
+msgstr ""
+
+#. module: mrp
 #. odoo-python
 #: code:addons/mrp/models/mrp_production.py:0
 #, python-format
@@ -5234,9 +5199,6 @@ msgid ""
 "\n"
 "It’d be a shame to waste all that progress, right?"
 msgstr ""
-"Vissa arbetsorder är redan klara, så du kan inte avplanera den här tillverkningsordern.\n"
-"\n"
-"Det vore synd att slösa bort alla dessa framsteg, eller hur?"
 
 #. module: mrp
 #. odoo-python
@@ -5247,9 +5209,6 @@ msgid ""
 "\n"
 "It’d be a shame to waste all that progress, right?"
 msgstr ""
-"Vissa arbetsorder har redan startat, så du kan inte avplanera den här tillverkningsordern.\n"
-"\n"
-"Det vore synd att slösa bort alla dessa framsteg, eller hur?"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_production__origin
@@ -5349,7 +5308,7 @@ msgstr "Startdatum"
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_production__state
 msgid "State"
-msgstr "Läge"
+msgstr "Etapp"
 
 #. module: mrp
 #. odoo-javascript
@@ -5511,19 +5470,17 @@ msgstr ""
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_mrp_workcenter__has_routing_lines
 msgid "Technical field for workcenter views"
-msgstr "Tekniskt fält för arbetscentervyer"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_mrp_production__show_produce_all
 msgid "Technical field to check if produce all button can be shown"
 msgstr ""
-"Tekniskt fält för att kontrollera om knappen för att producera allt kan "
-"visas"
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_mrp_production__show_produce
 msgid "Technical field to check if produce button can be shown"
-msgstr "Tekniskt fält för att kontrollera om produktionsknappen kan visas"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_mrp_production__reserve_visible
@@ -5543,7 +5500,7 @@ msgstr "Text"
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_mrp_production__is_outdated_bom
 msgid "The BoM has been updated since creation of the MO"
-msgstr "BoM har uppdaterats sedan MO bildades"
+msgstr ""
 
 #. module: mrp
 #. odoo-python
@@ -5686,7 +5643,7 @@ msgstr "Mängden att producera måste vara positiv!"
 #. module: mrp
 #: model:ir.model.constraint,message:mrp.constraint_mrp_unbuild_qty_positive
 msgid "The quantity to unbuild must be positive!"
-msgstr "Mängden som ska byggas bort måste vara positiv!"
+msgstr ""
 
 #. module: mrp
 #. odoo-python
@@ -5766,7 +5723,7 @@ msgstr ""
 #: code:addons/mrp/models/mrp_workorder.py:0
 #, python-format
 msgid "There is no defined calendar on workcenter %s."
-msgstr "Det finns ingen definierad kalender på arbetscenter %s."
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.actions.act_window,help:mrp.action_mrp_unbuild_moves
@@ -5894,12 +5851,12 @@ msgstr "Tidsuppföljning: %(user)s"
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_mrp_workcenter_capacity__time_stop
 msgid "Time in minutes for the cleaning."
-msgstr "Tid i minuter för rengöringen."
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_mrp_workcenter_capacity__time_start
 msgid "Time in minutes for the setup."
-msgstr "Tid i minuter för installationen."
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_mrp_routing_workcenter__time_cycle_manual
@@ -5991,7 +5948,7 @@ msgstr "Det översta lagret av en träpanel."
 #: model_terms:ir.ui.view,arch_db:mrp.mo_overview_content
 #, python-format
 msgid "Total Cost of Components"
-msgstr "Total kostnad för komponenter"
+msgstr ""
 
 #. module: mrp
 #. odoo-javascript
@@ -5999,7 +5956,7 @@ msgstr "Total kostnad för komponenter"
 #: model_terms:ir.ui.view,arch_db:mrp.mo_overview_content
 #, python-format
 msgid "Total Cost of Operations"
-msgstr "Total kostnad för verksamheten"
+msgstr ""
 
 #. module: mrp
 #. odoo-javascript
@@ -6007,7 +5964,7 @@ msgstr "Total kostnad för verksamheten"
 #: model_terms:ir.ui.view,arch_db:mrp.mo_overview_content
 #, python-format
 msgid "Total Cost of Production"
-msgstr "Total produktionskostnad"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_routing_workcenter_bom_tree_view
@@ -6195,7 +6152,7 @@ msgstr "Styckkostnad"
 #: code:addons/mrp/static/src/components/mo_overview_display_filter/mrp_mo_overview_display_filter.js:0
 #, python-format
 msgid "Unit Costs"
-msgstr "Enhetskostnader"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_stock_move__unit_factor
@@ -6247,8 +6204,6 @@ msgid ""
 "Unlock to adjust component demand during production, or consumed quantities "
 "once the manufacturing order is done."
 msgstr ""
-"Lås upp för att justera efterfrågan på komponenter under produktionen eller "
-"förbrukade kvantiteter när tillverkningsordern är klar."
 
 #. module: mrp
 #: model:res.groups,name:mrp.group_unlocked_by_default
@@ -6275,7 +6230,7 @@ msgstr "Måttenhet"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
 msgid "Update BoM"
-msgstr "Uppdatering BoM"
+msgstr ""
 
 #. module: mrp
 #. odoo-javascript
@@ -6305,8 +6260,6 @@ msgid ""
 "Use Manufacturing Orders (MO) to build finished products while consuming "
 "components: i.e. 1 Table = 4 Table Legs + 1 Table Top"
 msgstr ""
-"Använd tillverkningsorder (MO) för att bygga färdiga produkter samtidigt som"
-" du förbrukar komponenter: t.ex. 1 bord = 4 bordsben + 1 bordsskiva"
 
 #. module: mrp
 #: model:res.groups,name:mrp.group_mrp_workorder_dependencies
@@ -6355,7 +6308,7 @@ msgstr "Bekräfta"
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_stock_assign_serial__mark_as_done
 msgid "Valide all the productions after the split"
-msgstr "Valide alla produktioner efter splittringen"
+msgstr ""
 
 #. module: mrp
 #. odoo-python
@@ -6365,8 +6318,8 @@ msgid ""
 "Values cannot be set and validated because a Lot/Serial Number needs to be specified for a tracked product that is having its consumed amount increased:\n"
 "- "
 msgstr ""
-"Värden kan inte ställas in och bekräftas eftersom ett parti-/serienummer måste anges för en spårad produkt som får sin förbrukade mängd ökad:\n"
-"- "
+"Värden kan inte ställas in och valideras eftersom ett parti-/serienummer måste anges för en spårad produkt som får sin förbrukade mängd ökad:\n"
+"-"
 
 #. module: mrp
 #. odoo-javascript
@@ -6378,7 +6331,7 @@ msgstr "Variant"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrporder
 msgid "Vendor ABC"
-msgstr "Säljare ABC"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields.selection,name:mrp.selection__mrp_document__priority__3
@@ -6565,17 +6518,17 @@ msgstr ""
 #. module: mrp
 #: model:ir.model,name:mrp.model_mrp_production_split_multi
 msgid "Wizard to Split Multiple Productions"
-msgstr "En guide för att dela upp flera produktioner"
+msgstr "Wizard för att dela upp flera produktioner"
 
 #. module: mrp
 #: model:ir.model,name:mrp.model_mrp_production_split
 msgid "Wizard to Split a Production"
-msgstr "En guide för att dela upp en produktion"
+msgstr "Wizard för att dela upp en produktion"
 
 #. module: mrp
 #: model:ir.model,name:mrp.model_mrp_production_backorder
 msgid "Wizard to mark as done or create back order"
-msgstr "En guide för att markera som klar eller skapa restorder"
+msgstr "Wizard för att markera som klar eller skapa restorder"
 
 #. module: mrp
 #: model:product.template,name:mrp.product_product_wood_panel_product_template
@@ -6992,15 +6945,6 @@ msgid ""
 "                            <span invisible=\"mrp_production_count == 1\">these manufacturing orders</span>.\n"
 "                        </b>"
 msgstr ""
-"Du förbrukade en annan mängd än förväntat för följande produkter.\n"
-"                        <b invisible=\"konsumtion == 'strikt'\">\n"
-"                            Vänligen bekräfta att det har gjorts med flit.\n"
-"                        </b>\n"
-"                        <b invisible=\"förbrukning != 'strikt'\">\n"
-"                            Vänligen granska din komponentförbrukning eller be en chef att validera\n"
-"                            <span invisible=\"mrp_production_count != 1\">den här tillverkningsordern</span>\n"
-"                            <span invisible=\"mrp_production_count == 1\">den här tillverkningsordern</span>.\n"
-"                        </b>"
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.view_assign_serial_numbers_production
@@ -7071,7 +7015,7 @@ msgstr "Du måste tillhandahålla mycket för den färdiga produkten."
 #: code:addons/mrp/models/mrp_production.py:0
 #, python-format
 msgid "You need to supply Lot/Serial Number for products and 'consume' them:"
-msgstr "Du måste ange Lot/Serial-nummer för produkter och \"konsumera\" dem:"
+msgstr ""
 
 #. module: mrp
 #: model:ir.actions.act_window,name:mrp.action_mrp_production_backorder
@@ -7093,15 +7037,13 @@ msgid ""
 "You should update the components quantity instead of directly updating the "
 "quantity of the kit product."
 msgstr ""
-"Du bör uppdatera komponentkvantiteten istället för att direkt uppdatera "
-"kvantiteten för kit-produkten."
 
 #. module: mrp
 #: model:ir.model.fields.selection,name:mrp.selection__stock_picking_type__done_mrp_lot_label_to_print__zpl
 #: model:ir.model.fields.selection,name:mrp.selection__stock_picking_type__generated_mrp_lot_label_to_print__zpl
 #: model:ir.model.fields.selection,name:mrp.selection__stock_picking_type__mrp_product_label_to_print__zpl
 msgid "ZPL"
-msgstr "ZPL"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.exception_on_mo
@@ -7117,7 +7059,7 @@ msgstr "dagar"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.view_assign_serial_numbers_production
 msgid "e.g. SN0000001"
-msgstr "t.ex. SN0000001"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_workorder_form_view_inherit
@@ -7142,7 +7084,7 @@ msgstr ""
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_bom_form_view
 msgid "it is added as a component in a manufacturing order"
-msgstr "den läggs till som en komponent i en tillverkningsorder"
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_bom_form_view
@@ -7150,8 +7092,6 @@ msgid ""
 "it is moved via a transfer, such as a receipt or a delivery order for "
 "instance."
 msgstr ""
-"den flyttas via en överföring, som till exempel ett kvitto eller en "
-"leveransorder."
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_routing_workcenter_form_view

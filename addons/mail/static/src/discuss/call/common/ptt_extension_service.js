@@ -1,6 +1,5 @@
 /* @odoo-module */
 
-import { parseVersion } from "@mail/utils/common/misc";
 import { browser } from "@web/core/browser/browser";
 import { registry } from "@web/core/registry";
 
@@ -8,19 +7,12 @@ export const pttExtensionHookService = {
     start(env) {
         const INITIAL_RELEASE_TIMEOUT = 500;
         const COMMON_RELEASE_TIMEOUT = 200;
-        // https://chromewebstore.google.com/detail/discuss-push-to-talk/mdiacebcbkmjjlpclnbcgiepgifcnpmg
-        const EXT_ID = "mdiacebcbkmjjlpclnbcgiepgifcnpmg";
-        const versionPromise =
-            window.chrome?.runtime?.sendMessage(EXT_ID, { type: "ask-version" }) ??
-            Promise.resolve("1.0.0.0");
         let isEnabled = false;
         let voiceActivated = false;
 
-        browser.addEventListener("message", ({ data, origin, source }) => {
+        browser.addEventListener("message", ({ data }) => {
             const rtc = env.services["discuss.rtc"];
             if (
-                source !== window ||
-                origin !== location.origin ||
                 data.from !== "discuss-push-to-talk" ||
                 (!rtc && data.type !== "answer-is-enabled")
             ) {
@@ -56,37 +48,18 @@ export const pttExtensionHookService = {
                     break;
             }
         });
-
-        /**
-         * Send a message to the PTT extension.
-         *
-         * @param {"ask-is-enabled" | "subscribe" | "unsubscribe" | "is-talking"} type
-         * @param {*} value
-         */
-        async function sendMessage(type, value) {
-            if (!isEnabled && type !== "ask-is-enabled") {
-                return;
-            }
-            const version = parseVersion(await versionPromise);
-            if (version.isLowerThan("1.0.0.2")) {
-                window.postMessage({ from: "discuss", type, value }, location.origin);
-                return;
-            }
-            window.chrome?.runtime?.sendMessage(EXT_ID, { type, value });
-        }
-
-        sendMessage("ask-is-enabled");
+        window.postMessage({ from: "discuss", type: "ask-is-enabled" });
 
         return {
             notifyIsTalking(isTalking) {
-                sendMessage("is-talking", isTalking);
+                window.postMessage({ from: "discuss", type: "is-talking", value: isTalking });
             },
             subscribe() {
-                sendMessage("subscribe");
+                window.postMessage({ from: "discuss", type: "subscribe" });
             },
             unsubscribe() {
                 voiceActivated = false;
-                sendMessage("unsubscribe");
+                window.postMessage({ from: "discuss", type: "unsubscribe" });
             },
             get isEnabled() {
                 return isEnabled;

@@ -65,7 +65,7 @@ export function parseAndTransform(htmlString, transformFunction) {
     let children;
     try {
         const div = document.createElement("div");
-        div.innerHTML = string; // /!\ quotes are unescaped
+        div.innerHTML = string;
         children = Array.from(div.childNodes);
     } catch {
         const div = document.createElement("div");

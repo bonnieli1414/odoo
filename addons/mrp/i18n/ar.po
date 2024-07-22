@@ -795,11 +795,6 @@ msgid "Archived"
 msgstr "مؤرشف"
 
 #. module: mrp
-#: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
-msgid "Are you sure you want to cancel this manufacturing order?"
-msgstr "هل أنت متأكد من أنك ترغب في إلغاء أمر التصنيع هذا؟ "
-
-#. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrporder
 msgid "Assembling"
 msgstr "التركيب "
@@ -1156,7 +1151,7 @@ msgstr "سبب الحجب "
 #: model:ir.model.fields,field_description:mrp.field_mrp_routing_workcenter__needed_by_operation_ids
 #: model:ir.model.fields,field_description:mrp.field_mrp_workorder__needed_by_workorder_ids
 msgid "Blocks"
-msgstr "حجب "
+msgstr "كتلة برمجية إنشائية "
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_bom_byproduct__bom_id
@@ -4841,12 +4836,6 @@ msgid "Routing"
 msgstr "المسار "
 
 #. module: mrp
-#: code:addons/mrp/models/stock_quant.py:0
-#, python-format
-msgid "Return to Inventory"
-msgstr "العودة إلى المخزون "
-
-#. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_workcenter__routing_line_ids
 msgid "Routing Lines"
 msgstr "خطوط التوجيه "
@@ -5164,6 +5153,15 @@ msgid ""
 msgstr ""
 "بعض مكوناتك متتبعة، تحتاج لتحديد أمر تصنيع لتتمكن من استعادة المكونات "
 "الصحيحة."
+
+#. module: mrp
+#: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
+msgid ""
+"Some product moves have already been confirmed, this manufacturing order "
+"can't be completely cancelled. Are you still sure you want to process?"
+msgstr ""
+"لقد تم تأكيد بعض حركات المنتجات بالفعل، ولذلك لا يمكن إلغاء أمر التصنيع هذا "
+"تماماً. هل أنت متأكد من رغبتك في المتابعة؟ "
 
 #. module: mrp
 #. odoo-python
@@ -6987,15 +6985,6 @@ msgstr "لقد قمت بإنتاج كمية أقل من الطلب المبدأ�
 #, python-format
 msgid "You should provide a lot number for the final product."
 msgstr "ينبغي تعيين رقم دفعة للمنتج النهائي. "
-
-#. module: mrp
-#. odoo-python
-#: code:addons/mrp/models/stock_quant.py:0
-#, python-format
-msgid ""
-"You should update the components quantity instead of directly updating the "
-"quantity of the kit product."
-msgstr "عليك تحديث كمية المكونات بدلاً من تحديث كمية منتج المجموعة مباشرةً. "
 
 #. module: mrp
 #: model:ir.model.fields.selection,name:mrp.selection__stock_picking_type__done_mrp_lot_label_to_print__zpl

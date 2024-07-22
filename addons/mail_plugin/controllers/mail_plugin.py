@@ -278,7 +278,7 @@ class MailPluginController(http.Controller):
         Returns enrichment data for a given domain, in case an error happens the response will
         contain an enrichment_info key explaining what went wrong
         """
-        if domain in iap_tools._MAIL_PROVIDERS:
+        if domain in iap_tools._MAIL_DOMAIN_BLACKLIST:
             # Can not enrich the provider domain names (gmail.com; outlook.com, etc)
             return {'enrichment_info': {'type': 'missing_data'}}
 

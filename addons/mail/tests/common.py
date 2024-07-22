@@ -400,11 +400,11 @@ class MockEmail(common.BaseCase, MockSmtplibCase):
                 break
         else:
             debug_info = '\n'.join(
-                f'From: {mail.author_id} ({mail.email_from}) - Model {mail.model} / ResId {mail.res_id} (State: {mail.state})'
+                f'From: {mail.author_id} ({mail.email_from}) - Model{mail.model} / ResId {mail.res_id} (State: {mail.state})'
                 for mail in self._new_mails
             )
             raise AssertionError(
-                f'mail.mail not found for message {mail_message} / status {status} / record {record._name}, {record.id} / author {author}\n{debug_info}'
+                f'mail.mail not found for message {mail_message} / status {status} / record {record.model}, {record.id} / author {author}\n{debug_info}'
             )
         return mail
 
@@ -1259,7 +1259,6 @@ class MailCommon(common.TransactionCase, MailCase):
         cls.partner_admin = cls.env.ref('base.partner_admin')
         cls.company_admin = cls.user_admin.company_id
         cls.company_admin.write({
-            'country_id': cls.env.ref("base.be").id,
             'email': 'your.company@example.com',  # ensure email for various fallbacks
             'name': 'YourTestCompany',  # force for reply_to computation
         })

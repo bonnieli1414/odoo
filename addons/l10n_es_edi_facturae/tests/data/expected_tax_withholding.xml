@@ -144,7 +144,6 @@
       </InvoiceTotals>
       <Items>
         <InvoiceLine>
-          <FileDate>2023-01-01</FileDate>
           <ItemDescription>product_a</ItemDescription>
           <Quantity>1.0</Quantity>
           <UnitOfMeasure>01</UnitOfMeasure>
@@ -177,7 +176,6 @@
           </TaxesWithheld>
         </InvoiceLine>
         <InvoiceLine>
-          <FileDate>2023-01-01</FileDate>
           <ItemDescription>product_a</ItemDescription>
           <Quantity>1.0</Quantity>
           <UnitOfMeasure>01</UnitOfMeasure>
@@ -210,7 +208,6 @@
           </TaxesWithheld>
         </InvoiceLine>
         <InvoiceLine>
-          <FileDate>2023-01-01</FileDate>
           <ItemDescription>product_a</ItemDescription>
           <Quantity>1.0</Quantity>
           <UnitOfMeasure>01</UnitOfMeasure>

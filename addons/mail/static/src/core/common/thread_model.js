@@ -6,7 +6,6 @@ import { assignDefined, assignIn } from "@mail/utils/common/misc";
 
 import { deserializeDateTime } from "@web/core/l10n/dates";
 import { _t } from "@web/core/l10n/translation";
-import { pyToJsLocale } from "@web/core/l10n/utils";
 import { Deferred } from "@web/core/utils/concurrency";
 
 /**
@@ -236,7 +235,6 @@ export class Thread extends Record {
     memberCount = 0;
     message_needaction_counter = 0;
     message_unread_counter = 0;
-    message_unread_counter_bus_id = 0;
     /**
      * Contains continuous sequence of messages to show in message list.
      * Messages are ordered from older to most recent.
@@ -284,12 +282,13 @@ export class Thread extends Record {
      * @type {ScrollPosition}
      */
     scrollPosition = new ScrollPosition();
-    /**
-     * Stored scoll position of thread from top in ASC order.
-     *
-     * @type {number|'bottom'}
-     */
-    scrollTop = "bottom";
+    /** @type {number|'bottom'} */
+    scrollTop = Record.attr("bottom", {
+        /** @this {import("models").Thread} */
+        compute() {
+            return this.type === "chatter" ? 0 : "bottom";
+        },
+    });
     showOnlyVideo = false;
     transientMessages = Record.many("Message");
     /** @type {'channel'|'chat'|'chatter'|'livechat'|'group'|'mailbox'} */
@@ -384,8 +383,7 @@ export class Thread extends Record {
         }
         if (this.type === "group" && !this.name) {
             const listFormatter = new Intl.ListFormat(
-                this._store.env.services["user"].lang &&
-                    pyToJsLocale(this._store.env.services["user"].lang),
+                this._store.env.services["user"].lang?.replace("_", "-"),
                 { type: "conjunction", style: "long" }
             );
             return listFormatter.format(

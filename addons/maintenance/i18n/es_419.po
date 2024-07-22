@@ -3,11 +3,10 @@
 # 	* maintenance
 # 
 # Translators:
+# Patricia Gutiérrez Capetillo <pagc@odoo.com>, 2023
 # Lucia Pacheco, 2023
 # Wil Odoo, 2023
 # Iran Villalobos López, 2024
-# Patricia Gutiérrez Capetillo <pagc@odoo.com>, 2024
-# Martin Trigaux, 2024
 # Fernanda Alvarez, 2024
 # 
 msgid ""
@@ -67,12 +66,12 @@ msgstr "<span>Reportes</span>"
 #. module: maintenance
 #: model_terms:ir.ui.view,arch_db:maintenance.maintenance_team_kanban
 msgid "<span>Requests</span>"
-msgstr "<span>Solicitudes</span>"
+msgstr "<span>Peticiones</span>"
 
 #. module: maintenance
 #: model_terms:ir.ui.view,arch_db:maintenance.view_maintenance_equipment_category_kanban
 msgid "<strong>Equipment:</strong>"
-msgstr "<strong>Equipo:</strong>"
+msgstr "<strong>Equipamiento:</strong>"
 
 #. module: maintenance
 #: model_terms:ir.ui.view,arch_db:maintenance.view_maintenance_equipment_category_kanban
@@ -86,7 +85,7 @@ msgid ""
 "creating new records for this alias."
 msgstr ""
 "Un diccionario de Python que se evaluará con el fin de proporcionar valores "
-"predeterminados cuando se creen nuevos registros para este seudónimo."
+"predefinidos cuando se creen nuevos registros para este seudónimo."
 
 #. module: maintenance
 #: model:maintenance.equipment,name:maintenance.equipment_computer3
@@ -157,7 +156,7 @@ msgstr "Agregar una nueva categoría de equipo"
 #: model_terms:ir.actions.act_window,help:maintenance.hr_equipment_todo_request_action_from_dashboard
 #: model_terms:ir.actions.act_window,help:maintenance.maintenance_request_action_reports
 msgid "Add a new maintenance request"
-msgstr "Agregue una nueva solicitud de mantenimiento"
+msgstr "Agregar una nueva solicitud de mantenimiento"
 
 #. module: maintenance
 #: model_terms:ir.actions.act_window,help:maintenance.hr_equipment_stage_action
@@ -597,7 +596,7 @@ msgstr "Tiempo medio estimado entre fallos"
 #: model:ir.model.fields,field_description:maintenance.field_maintenance_equipment_category__fold
 #: model:ir.model.fields,field_description:maintenance.field_maintenance_stage__fold
 msgid "Folded in Maintenance Pipe"
-msgstr "Plegada en el flujo de mantenimiento"
+msgstr "Plegado en el flujo de mantenimiento"
 
 #. module: maintenance
 #: model_terms:ir.actions.act_window,help:maintenance.hr_equipment_request_action
@@ -730,7 +729,8 @@ msgstr ""
 #: model:ir.model.fields,help:maintenance.field_maintenance_equipment_category__message_has_error
 #: model:ir.model.fields,help:maintenance.field_maintenance_request__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr "Si se encuentra seleccionado, algunos mensajes tienen error de envío."
+msgstr ""
+"Si se encuentra seleccionado, algunos mensajes presentan error de entrega."
 
 #. module: maintenance
 #: model:ir.model.fields,help:maintenance.field_maintenance_equipment_category__alias_bounced_content
@@ -738,8 +738,8 @@ msgid ""
 "If set, this content will automatically be sent out to unauthorized users "
 "instead of the default message."
 msgstr ""
-"Si se establece, este contenido se enviará en automático a los usuarios no "
-"autorizados en vez del mensaje predeterminado."
+"Si se establece, este contenido se enviará en automático a usuarios no "
+"autorizados en lugar del mensaje predeterminado."
 
 #. module: maintenance
 #: model:ir.model.fields.selection,name:maintenance.selection__maintenance_request__kanban_state__normal
@@ -1210,10 +1210,10 @@ msgid ""
 "- partners: only authenticated partners\n"
 "- followers: only followers of the related document or members of following channels\n"
 msgstr ""
-"La política sobre cómo publicar un mensaje en el documento con el servidor de correo.\n"
-"- Todos: todos pueden publicar\n"
-"- Contactos: solo los contactos verificados\n"
-"- Seguidores: solo los seguidores del documento relacionado o los miembros de los canales\n"
+"Política sobre cómo publicar un mensaje en el documento utilizando el servidor de correo.\n"
+"- todos: todos pueden publicar\n"
+"- contactos: solo los contactos verificados\n"
+"- seguidores: solo los seguidores del documento relacionado o los miembros de los canales\n"
 
 #. module: maintenance
 #: model:ir.model.fields.selection,name:maintenance.selection__maintenance_request__maintenance_type__preventive
@@ -1408,8 +1408,8 @@ msgstr "Ajustes"
 #: model_terms:ir.ui.view,arch_db:maintenance.hr_equipment_view_search
 msgid "Show all records which has next action date is before today"
 msgstr ""
-"Mostrar todos los registros cuya próxima fecha de acción es antes de la "
-"fecha de hoy."
+"Mostrar todos los registros cuya fecha de siguiente actividad es antes de "
+"hoy"
 
 #. module: maintenance
 #: model:maintenance.equipment.category,name:maintenance.equipment_software
@@ -1506,8 +1506,8 @@ msgid ""
 msgstr ""
 "El modelo (tipo de documento de Odoo) al que corresponde este seudónimo. "
 "Cualquier correo entrante que no sea respuesta a un registro existente "
-"creará un nuevo registro de este modelo (por ejemplo, una tarea de "
-"proyecto)."
+"causará la creación de un nuevo registro de este modelo (por ejemplo, una "
+"tarea de proyecto)."
 
 #. module: maintenance
 #: model:ir.model.fields,help:maintenance.field_maintenance_equipment_category__alias_name
@@ -1515,13 +1515,13 @@ msgid ""
 "The name of the email alias, e.g. 'jobs' if you want to catch emails for "
 "<jobs@example.odoo.com>"
 msgstr ""
-"El nombre del seudónimo de correo electrónico. Por ejemplo, \"trabajos\" si "
-"desea recibir correos electrónicos en <trabajos@ejemplo.odoo.com>."
+"Use el seudónimo del correo electrónico, por ejemplo, 'trabajos' si desea "
+"recibir correos electrónicos en <trabajos@ejemplo.odoo.com>"
 
 #. module: maintenance
 #: model:res.groups,comment:maintenance.group_equipment_manager
 msgid "The user will be able to manage equipment."
-msgstr "El usuario podrá gestionar el equipo."
+msgstr "El usuario será capaz de manejar el equipo"
 
 #. module: maintenance
 #: model:ir.model.fields,help:maintenance.field_maintenance_equipment__effective_date
@@ -1619,7 +1619,7 @@ msgstr "Muy baja"
 #. module: maintenance
 #: model:ir.model.fields,field_description:maintenance.field_maintenance_equipment__warranty_date
 msgid "Warranty Expiration Date"
-msgstr "Fecha de vencimiento de la garantía"
+msgstr "Fecha en la que vence la garantía"
 
 #. module: maintenance
 #: model:ir.model.fields.selection,name:maintenance.selection__maintenance_request__repeat_unit__week
@@ -1639,8 +1639,8 @@ msgid ""
 "You cannot delete an equipment category containing equipment or maintenance "
 "requests."
 msgstr ""
-"No puede eliminar una categoría de equipo con solicitudes de equipo o de "
-"mantenimiento."
+"No puede eliminar una categoría de equipo que incluye solicitudes de equipo "
+"o de mantenimiento."
 
 #. module: maintenance
 #: model_terms:ir.ui.view,arch_db:maintenance.hr_equipment_request_view_form

@@ -6,7 +6,6 @@
 # Wil Odoo, 2023
 # Iran Villalobos López, 2023
 # Patricia Gutiérrez Capetillo <pagc@odoo.com>, 2024
-# Martin Trigaux, 2024
 # Fernanda Alvarez, 2024
 # 
 msgid ""
@@ -118,7 +117,7 @@ msgstr "(si al menos"
 #. module: loyalty
 #: model_terms:ir.ui.view,arch_db:loyalty.loyalty_rule_view_kanban
 msgid "(tax excluded)"
-msgstr "(sin impuestos)"
+msgstr "(incluyendo impuestos)"
 
 #. module: loyalty
 #: model:loyalty.program,name:loyalty.10_percent_coupon
@@ -732,7 +731,7 @@ msgstr "Empresa"
 #: code:addons/loyalty/models/loyalty_card.py:0
 #, python-format
 msgid "Compose Email"
-msgstr "Redactar correo electrónico"
+msgstr "Redactar un correo electrónico"
 
 #. module: loyalty
 #: model:ir.model.fields,field_description:loyalty.field_loyalty_program__rule_ids
@@ -932,7 +931,7 @@ msgstr "Descuento"
 #: model:ir.actions.act_window,name:loyalty.loyalty_program_discount_loyalty_action
 #: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
 msgid "Discount & Loyalty"
-msgstr "Descuento y lealtad"
+msgstr "Descuento y fidelidad"
 
 #. module: loyalty
 #: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__discount_applicability
@@ -1291,17 +1290,19 @@ msgstr "ID"
 #: model:ir.model.fields,help:loyalty.field_loyalty_card__message_needaction
 msgid "If checked, new messages require your attention."
 msgstr ""
-"Si se encuentra seleccionado, hay nuevos mensajes que requieren su atención."
+"Si se encuentra seleccionado, hay nuevos mensajes que requieren de su "
+"atención."
 
 #. module: loyalty
 #: model:ir.model.fields,help:loyalty.field_loyalty_card__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr "Si se encuentra seleccionado, algunos mensajes tienen error de envío."
+msgstr ""
+"Si se encuentra seleccionado, algunos mensajes presentan error de entrega."
 
 #. module: loyalty
 #: model_terms:ir.ui.view,arch_db:loyalty.loyalty_rule_view_kanban
 msgid "If minimum"
-msgstr "Si hay un mínimo de"
+msgstr "si el mínimo"
 
 #. module: loyalty
 #: model_terms:ir.ui.view,arch_db:loyalty.loyalty_reward_view_form
@@ -1316,7 +1317,7 @@ msgstr "Inactivo"
 #. module: loyalty
 #: model:ir.model.fields.selection,name:loyalty.selection__loyalty_rule__minimum_amount_tax_mode__incl
 msgid "Included"
-msgstr "Incluido"
+msgstr "Incluyendo"
 
 #. module: loyalty
 #. odoo-python
@@ -1416,7 +1417,7 @@ msgstr "Comunicación de lealtad"
 #. module: loyalty
 #: model:ir.model,name:loyalty.model_loyalty_card
 msgid "Loyalty Coupon"
-msgstr "Cupón de lealtad"
+msgstr "Cupón de fidelidad"
 
 #. module: loyalty
 #: model:ir.model,name:loyalty.model_loyalty_program
@@ -1431,7 +1432,7 @@ msgstr "Recompensa de lealtad"
 #. module: loyalty
 #: model:ir.model,name:loyalty.model_loyalty_rule
 msgid "Loyalty Rule"
-msgstr "Regla de lealtad"
+msgstr "Regla de fidelidad"
 
 #. module: loyalty
 #. odoo-python

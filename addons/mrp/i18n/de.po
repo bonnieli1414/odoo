@@ -805,12 +805,6 @@ msgid "Archived"
 msgstr "Archiviert"
 
 #. module: mrp
-#: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
-msgid "Are you sure you want to cancel this manufacturing order?"
-msgstr ""
-"Sind Sie sicher, dass Sie diesen Fertigungsauftrag stornieren möchten?"
-
-#. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrporder
 msgid "Assembling"
 msgstr "Montage"
@@ -1300,17 +1294,6 @@ msgstr "Abbrechen"
 #: model_terms:ir.ui.view,arch_db:mrp.view_mrp_production_filter
 msgid "Cancelled"
 msgstr "Abgebrochen"
-
-#. module: mrp
-#. odoo-python
-#: code:addons/mrp/models/mrp_bom.py:0
-#, python-format
-msgid ""
-"Cannot compute days to prepare due to missing route info for at least 1 "
-"component or for the final product."
-msgstr ""
-"Kann keine Tage für die Vorbereitung berechnen, da Routeninformationen für "
-"mindestens 1 Komponente oder für das Endprodukt fehlen."
 
 #. module: mrp
 #. odoo-python
@@ -1927,7 +1910,7 @@ msgstr "Tage bis zur Lieferung von Komponenten"
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_bom__days_to_prepare_mo
 msgid "Days to prepare Manufacturing Order"
-msgstr "Tage zur Vorbereitung des Fertigungsauftrags"
+msgstr "Tage bis Vorbereitung des Fertigungsauftrags"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_production__date_deadline
@@ -5261,6 +5244,16 @@ msgstr ""
 "angeben, um die richtigen Komponenten entnehmen."
 
 #. module: mrp
+#: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
+msgid ""
+"Some product moves have already been confirmed, this manufacturing order "
+"can't be completely cancelled. Are you still sure you want to process?"
+msgstr ""
+"Einige Produktbewegungen wurden schon bestätigt. Daher kann dieser "
+"Fertigungsauftrag nicht mehr abgebrochen werden. Sind Sie sich sicher, dass "
+"Sie fortfahren möchten?"
+
+#. module: mrp
 #. odoo-python
 #: code:addons/mrp/models/mrp_production.py:0
 #, python-format
@@ -7022,13 +7015,6 @@ msgstr "Es ist nicht möglich, dieselbe Seriennummer zweimal zu produzieren."
 
 #. module: mrp
 #. odoo-python
-#: code:addons/mrp/models/mrp_workorder.py:0
-#, python-format
-msgid "You cannot start a work order that is already done or cancelled"
-msgstr ""
-
-#. module: mrp
-#. odoo-python
 #: code:addons/mrp/models/mrp_unbuild.py:0
 #, python-format
 msgid "You cannot unbuild a undone manufacturing order."
@@ -7226,7 +7212,7 @@ msgstr ""
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_routing_workcenter_form_view
 msgid "last"
-msgstr "letzten"
+msgstr "letztes"
 
 #. module: mrp
 #. odoo-python
@@ -7292,4 +7278,4 @@ msgstr "aufgeteilt"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_routing_workcenter_form_view
 msgid "work orders"
-msgstr "Arbeitsaufträgen"
+msgstr "Arbeitsaufträge"

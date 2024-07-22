@@ -17,9 +17,9 @@ export class AttachmentUploader {
         Object.assign(this, { thread, composer, onFileUploaded });
     }
 
-    uploadData({ data, name, type }, options) {
+    uploadData({ data, name, type }) {
         const file = new File([dataUrlToBlob(data, type)], name, { type });
-        return this.uploadFile(file, options);
+        return this.uploadFile(file);
     }
 
     async uploadFile(file, options) {

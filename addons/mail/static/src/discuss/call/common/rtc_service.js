@@ -964,7 +964,7 @@ export class Rtc {
                 );
             },
             3000,
-            { leading: true, trailing: true }
+            true
         );
         this.state.channel.rtcInvitingSession = undefined;
         await this.loadSfuClient();

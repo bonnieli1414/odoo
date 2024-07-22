@@ -229,7 +229,7 @@ patch(ThreadService.prototype, {
         }
         super.unpin(...arguments);
     },
-    _openChatWindow(thread, replaceNewMessageChatWindow, { autofocus = true, openMessagingMenuOnClose } = {}) {
+    _openChatWindow(thread, replaceNewMessageChatWindow, { openMessagingMenuOnClose } = {}) {
         const chatWindow = this.store.ChatWindow.insert(
             assignDefined(
                 {
@@ -242,9 +242,7 @@ patch(ThreadService.prototype, {
                 }
             )
         );
-        if (autofocus) {
-            chatWindow.autofocus++;
-        }
+        chatWindow.autofocus++;
         if (thread) {
             thread.state = "open";
         }

@@ -27,8 +27,11 @@ async function updateAppIcon() {
     chrome.action.setIcon({ path: isTalking ? ACTIVE_APP_ICON : INACTIVE_APP_ICON });
 }
 
-chrome.runtime.onMessageExternal.addListener(async function (request, sender, sendResponse) {
-    const { type, value } = request;
+chrome.runtime.onMessage.addListener(async function (request, sender) {
+    const { from, type, value } = request;
+    if (from !== "discuss") {
+        return;
+    }
     switch (type) {
         case "subscribe":
             {
@@ -59,17 +62,9 @@ chrome.runtime.onMessageExternal.addListener(async function (request, sender, se
                 type: "answer-is-enabled",
             });
             break;
-        case "ask-version":
-            sendResponse(chrome.runtime.getManifest().version);
     }
 });
 
-/**
- * Broadcast commands to all subcribers. Note that anyone can subscribe to the
- * extension thus no sensitive data should be sent.
- *
- * @param {"toggle-voice"|"ptt-pressed"} command
- */
 async function onCommand(command) {
     const isTalkingByTabId = await getIsTalkingByTabId();
     for (const tabId of Object.keys(isTalkingByTabId)) {

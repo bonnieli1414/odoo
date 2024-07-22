@@ -123,6 +123,8 @@
       </TaxesOutputs>
       <InvoiceTotals>
         <TotalGrossAmount>2400.00</TotalGrossAmount>
+        <TotalGeneralDiscounts>100.00</TotalGeneralDiscounts>
+        <TotalGeneralSurcharges>100.00</TotalGeneralSurcharges>
         <TotalGrossAmountBeforeTaxes>2400.00</TotalGrossAmountBeforeTaxes>
         <TotalTaxOutputs>504.00</TotalTaxOutputs>
         <TotalTaxesWithheld>0.00</TotalTaxesWithheld>
@@ -132,7 +134,6 @@
       </InvoiceTotals>
       <Items>
         <InvoiceLine>
-          <FileDate>2023-01-01</FileDate>
           <ItemDescription>product_a</ItemDescription>
           <Quantity>1.0</Quantity>
           <UnitOfMeasure>01</UnitOfMeasure>
@@ -153,7 +154,6 @@
           </TaxesOutputs>
         </InvoiceLine>
         <InvoiceLine>
-          <FileDate>2023-01-01</FileDate>
           <ItemDescription>product_a</ItemDescription>
           <Quantity>1.0</Quantity>
           <UnitOfMeasure>01</UnitOfMeasure>
@@ -174,7 +174,6 @@
           </TaxesOutputs>
         </InvoiceLine>
         <InvoiceLine>
-          <FileDate>2023-01-01</FileDate>
           <ItemDescription>product_a</ItemDescription>
           <Quantity>1.0</Quantity>
           <UnitOfMeasure>01</UnitOfMeasure>
@@ -195,7 +194,6 @@
           </TaxesOutputs>
         </InvoiceLine>
         <InvoiceLine>
-          <FileDate>2023-01-01</FileDate>
           <ItemDescription>product_a</ItemDescription>
           <Quantity>1.0</Quantity>
           <UnitOfMeasure>01</UnitOfMeasure>
@@ -203,7 +201,6 @@
           <TotalCost>1000.00</TotalCost>
           <DiscountsAndRebates>
             <Discount>
-              <DiscountReason>/</DiscountReason>
               <DiscountRate>10.00</DiscountRate>
               <DiscountAmount>100.00</DiscountAmount>
             </Discount>
@@ -223,7 +220,6 @@
           </TaxesOutputs>
         </InvoiceLine>
         <InvoiceLine>
-          <FileDate>2023-01-01</FileDate>
           <ItemDescription>product_a</ItemDescription>
           <Quantity>1.0</Quantity>
           <UnitOfMeasure>01</UnitOfMeasure>
@@ -231,7 +227,6 @@
           <TotalCost>1000.00</TotalCost>
           <Charges>
             <Charge>
-              <ChargeReason>/</ChargeReason>
               <ChargeRate>10.00</ChargeRate>
               <ChargeAmount>100.00</ChargeAmount>
             </Charge>

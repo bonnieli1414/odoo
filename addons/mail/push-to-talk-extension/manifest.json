@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Discuss Push-to-talk",
     "description": "Empowers Odoo Discuss with system-wide Push-to-Talk",
-    "version": "1.0.0.2",
+    "version": "1.0.0.1",
     "permissions": [
         "storage"
     ],
@@ -35,10 +35,5 @@
             "suggested_key": "Alt+Shift+U",
             "description": "Voice Toggle"
         }
-    },
-    "externally_connectable": {
-        "matches": [
-            "<all_urls>"
-        ]
     }
 }

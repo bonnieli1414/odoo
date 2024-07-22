@@ -3,9 +3,9 @@
 # 	* hr_recruitment
 # 
 # Translators:
+# Patricia Gutiérrez Capetillo <pagc@odoo.com>, 2023
 # Iran Villalobos López, 2023
 # Wil Odoo, 2024
-# Patricia Gutiérrez Capetillo <pagc@odoo.com>, 2024
 # Fernanda Alvarez, 2024
 # 
 msgid ""
@@ -635,7 +635,7 @@ msgid ""
 "creating new records for this alias."
 msgstr ""
 "Un diccionario de Python que se evaluará con el fin de proporcionar valores "
-"predeterminados cuando se creen nuevos registros para este seudónimo."
+"predefinidos cuando se creen nuevos registros para este seudónimo."
 
 #. module: hr_recruitment
 #: model:ir.model.fields,field_description:hr_recruitment.field_hr_applicant__message_needaction
@@ -669,7 +669,7 @@ msgstr "Actividades para hoy"
 #. module: hr_recruitment
 #: model:ir.model.fields,field_description:hr_recruitment.field_hr_applicant__activity_exception_decoration
 msgid "Activity Exception Decoration"
-msgstr "Decoración de la actividad de excepción"
+msgstr "Decoración de actividad de excepción"
 
 #. module: hr_recruitment
 #: model:ir.model.fields,field_description:hr_recruitment.field_hr_applicant__activity_state
@@ -1017,7 +1017,7 @@ msgstr "Digitalización del CV (OCR)"
 #. module: hr_recruitment
 #: model_terms:ir.ui.view,arch_db:hr_recruitment.res_config_settings_view_form
 msgid "CV Display"
-msgstr "Mostrar el CV"
+msgstr "Pantalla de CV"
 
 #. module: hr_recruitment
 #: model:ir.model,name:hr_recruitment.model_calendar_event
@@ -1387,7 +1387,7 @@ msgstr ""
 #. module: hr_recruitment
 #: model:hr.applicant.refuse.reason,name:hr_recruitment.refuse_reason_6
 msgid "Duplicate"
-msgstr "Duplicado"
+msgstr "Duplicar"
 
 #. module: hr_recruitment
 #: model:ir.model.fields,field_description:hr_recruitment.field_hr_applicant__email_from
@@ -1515,7 +1515,7 @@ msgstr "Salario adicional esperado"
 #. module: hr_recruitment
 #: model_terms:ir.ui.view,arch_db:hr_recruitment.hr_applicant_view_search
 msgid "Extended Filters"
-msgstr "Filtros avanzados"
+msgstr "Filtro avanzado"
 
 #. module: hr_recruitment
 #: model:ir.model.fields,field_description:hr_recruitment.field_hr_job__extended_interviewer_ids
@@ -1538,8 +1538,8 @@ msgid ""
 "Field used to store sanitized phone number. Helps speeding up searches and "
 "comparisons."
 msgstr ""
-"Campo donde se almacena el número de teléfono válido. Ayuda a acelerar "
-"búsquedas y comparaciones."
+"Campo utilizado para almacenar el número de teléfono válido. Ayuda a "
+"acelerar búsquedas y comparaciones."
 
 #. module: hr_recruitment
 #: model_terms:ir.ui.view,arch_db:hr_recruitment.ir_attachment_hr_recruitment_list_view
@@ -1701,7 +1701,8 @@ msgstr ""
 #: model:ir.model.fields,help:hr_recruitment.field_hr_applicant__message_has_error
 #: model:ir.model.fields,help:hr_recruitment.field_hr_applicant__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
-msgstr "Si se encuentra seleccionado, algunos mensajes tienen error de envío."
+msgstr ""
+"Si se encuentra seleccionado, algunos mensajes presentan un error de envío."
 
 #. module: hr_recruitment
 #: model:ir.model.fields,help:hr_recruitment.field_hr_recruitment_stage__hired_stage
@@ -1726,8 +1727,8 @@ msgid ""
 "If set, this content will automatically be sent out to unauthorized users "
 "instead of the default message."
 msgstr ""
-"Si se establece, este contenido se enviará en automático a los usuarios no "
-"autorizados en vez del mensaje predeterminado."
+"Si se establece, este contenido se enviará de forma automática a usuarios no"
+" autorizados en lugar del mensaje predeterminado."
 
 #. module: hr_recruitment
 #: model:ir.model.fields,help:hr_recruitment.field_hr_applicant__emp_is_active
@@ -1786,9 +1787,9 @@ msgid ""
 "distinguish which number is blacklisted             when there is both a "
 "mobile and phone field in a model."
 msgstr ""
-"Indica si el número de teléfono válido de la lista de exclusión es un "
-"celular. Sirve para distinguir qué número está en la lista de exclusión "
-"cuando hay un campo de celular y otro de teléfono fijo en un modelo."
+"Indica si el número de teléfono depurado de la lista negra es un celular. "
+"Sirve para distinguir qué número está en la lista negra cuando hay un campo "
+"de celular y otro de teléfono fijo en un modelo."
 
 #. module: hr_recruitment
 #: model:ir.model.fields,help:hr_recruitment.field_hr_applicant__phone_blacklisted
@@ -2012,7 +2013,7 @@ msgstr "Actividades atrasadas"
 #: model_terms:ir.actions.act_window,help:hr_recruitment.action_hr_job
 #: model_terms:ir.actions.act_window,help:hr_recruitment.action_hr_job_config
 msgid "Let's create a job position."
-msgstr "Creemos un puesto de trabajo."
+msgstr "Vamos a crear un puesto de trabajo."
 
 #. module: hr_recruitment
 #. odoo-javascript
@@ -2046,7 +2047,7 @@ msgstr "Echemos un vistazo al flujo de postulaciones."
 #: code:addons/hr_recruitment/static/src/js/tours/hr_recruitment.js:0
 #, python-format
 msgid "Let’s create this new employee now."
-msgstr "Creemos a este nuevo empleado ahora mismo."
+msgstr "Vamos a crear este nuevo empleado ahora mismo."
 
 #. module: hr_recruitment
 #. odoo-javascript
@@ -2063,7 +2064,7 @@ msgstr "Perfil de LinkedIn"
 #. module: hr_recruitment
 #: model:ir.model.fields,field_description:hr_recruitment.field_hr_job__alias_incoming_local
 msgid "Local-part based incoming detection"
-msgstr "Detección de entradas según las partes locales"
+msgstr "Detección de entradas basada en partes locales"
 
 #. module: hr_recruitment
 #: model:ir.model.fields,field_description:hr_recruitment.field_applicant_send_mail__template_id
@@ -2293,8 +2294,8 @@ msgid ""
 "Number of applications that are new in the flow (typically at first step of "
 "the flow)"
 msgstr ""
-"Número de postulaciones nuevas en el flujo (por lo general en el primer paso"
-" del flujo)"
+"Número de aplicaciones que son nuevas en el flujo (generalmente en el primer"
+" paso del flujo)"
 
 #. module: hr_recruitment
 #: model:ir.model.fields,help:hr_recruitment.field_hr_applicant__delay_close
@@ -2444,10 +2445,10 @@ msgid ""
 "- partners: only authenticated partners\n"
 "- followers: only followers of the related document or members of following channels\n"
 msgstr ""
-"La política sobre cómo publicar un mensaje en el documento con el servidor de correo.\n"
-"- Todos: todos pueden publicar\n"
-"- Contactos: solo los contactos verificados\n"
-"- Seguidores: solo los seguidores del documento relacionado o los miembros de los canales\n"
+"Política sobre cómo publicar un mensaje en el documento utilizando el servidor de correo.\n"
+"- todos: todos pueden publicar\n"
+"- contactos: solo los contactos verificados\n"
+"- seguidores: solo los seguidores del documento relacionado o los miembros de los canales\n"
 
 #. module: hr_recruitment
 #: model:ir.model.fields,field_description:hr_recruitment.field_hr_applicant__probability
@@ -2690,7 +2691,7 @@ msgstr "El puesto ya ha sido cubierto"
 #. module: hr_recruitment
 #: model_terms:ir.ui.view,arch_db:hr_recruitment.hr_applicant_view_search_bis
 msgid "Running Applicants"
-msgstr "Postulantes activos"
+msgstr "Candidatos en ejecución"
 
 #. module: hr_recruitment
 #: model:ir.model.fields,field_description:hr_recruitment.field_hr_applicant__message_has_sms_error
@@ -2720,7 +2721,7 @@ msgstr "Salario propuesto por la empresa, con ventajas adicionales"
 #. module: hr_recruitment
 #: model:ir.model.fields,field_description:hr_recruitment.field_hr_applicant__partner_mobile_sanitized
 msgid "Sanitized Mobile Number"
-msgstr "Número de celular depurado"
+msgstr "Número de teléfono móvil depurado"
 
 #. module: hr_recruitment
 #: model:ir.model.fields,field_description:hr_recruitment.field_hr_applicant__phone_sanitized
@@ -2765,8 +2766,8 @@ msgid ""
 "Select the location where the applicant will work. Addresses listed here are"
 " defined on the company's contact information."
 msgstr ""
-"Seleccione la ubicación donde trabajará el postulante. Las direcciones que "
-"aparecen aquí están definidas en la información de contacto de la empresa."
+"Seleccione la ubicación donde trabajará el aplicante. Las direcciones que se"
+" enlisten aquí se definirán en la información de contacto de la empresa."
 
 #. module: hr_recruitment
 #: model_terms:ir.ui.view,arch_db:hr_recruitment.applicant_send_mail_view_form
@@ -2851,8 +2852,8 @@ msgstr "Ajustes"
 #: model_terms:ir.ui.view,arch_db:hr_recruitment.hr_applicant_view_search_bis
 msgid "Show all records which has next action date is before today"
 msgstr ""
-"Mostrar todos los registros cuya próxima fecha de acción es antes de la "
-"fecha de hoy."
+"Mostrar todos los registros que tienen la próxima fecha de acción antes de "
+"hoy"
 
 #. module: hr_recruitment
 #: model:ir.model.fields,field_description:hr_recruitment.field_hr_applicant__source_id
@@ -2921,8 +2922,8 @@ msgid ""
 "Stage of the applicant before being in the current stage. Used for lost "
 "cases analysis."
 msgstr ""
-"Etapa del postulante antes de estar en esta. Se utiliza para analizar los "
-"casos perdidos."
+"Etapa del candidato antes de estar en la etapa actual. Se utiliza para el "
+"análisis de los casos perdidos."
 
 #. module: hr_recruitment
 #: model:ir.actions.act_window,name:hr_recruitment.hr_recruitment_stage_act
@@ -3044,8 +3045,8 @@ msgid ""
 msgstr ""
 "El modelo (tipo de documento de Odoo) al que corresponde este seudónimo. "
 "Cualquier correo entrante que no sea respuesta a un registro existente "
-"creará un nuevo registro de este modelo (por ejemplo, una tarea de "
-"proyecto)."
+"causará la creación de un nuevo registro de este modelo (por ejemplo, una "
+"tarea de proyecto)."
 
 #. module: hr_recruitment
 #: model:ir.model.constraint,message:hr_recruitment.constraint_hr_recruitment_degree_name_uniq
@@ -3058,8 +3059,8 @@ msgid ""
 "The name of the email alias, e.g. 'jobs' if you want to catch emails for "
 "<jobs@example.odoo.com>"
 msgstr ""
-"El nombre del seudónimo de correo electrónico. Por ejemplo, \"trabajos\" si "
-"desea recibir correos electrónicos en <trabajos@ejemplo.odoo.com>."
+"Use el seudónimo del correo electrónico, por ejemplo, \"trabajos\" si desea "
+"recibir correos electrónicos en <trabajos@ejemplo.odoo.com>"
 
 #. module: hr_recruitment
 #: model:ir.model.fields,help:hr_recruitment.field_hr_applicant__email_normalized
@@ -3069,7 +3070,7 @@ msgid ""
 msgstr ""
 "Este campo se utiliza para buscar en la dirección de correo electrónico, ya "
 "que el campo de correo electrónico principal puede contener más de una "
-"dirección."
+"dirección de correo electrónico."
 
 #. module: hr_recruitment
 #: model:ir.model.fields,help:hr_recruitment.field_hr_applicant__campaign_id
@@ -3102,8 +3103,8 @@ msgid ""
 "This stage is folded in the kanban view when there are no records in that "
 "stage to display."
 msgstr ""
-"Esta etapa está oculta en la vista de kanban cuando no tiene registros para "
-"mostrar."
+"Esta etapa se pliega en la vista de kanban cuando no hay registros para "
+"mostrar en la misma."
 
 #. module: hr_recruitment
 #: model:digest.tip,name:hr_recruitment.digest_tip_hr_recruitment_0
@@ -3186,7 +3187,8 @@ msgstr "Mensajes sin leer"
 #: model_terms:ir.ui.view,arch_db:hr_recruitment.res_config_settings_view_form
 msgid "Use OCR to fill data from a picture of the CV or the file itself"
 msgstr ""
-"Utilice OCR para completar los datos con una foto del CV o con el archivo"
+"Utilice el OCR para completar los datos a partir de una foto del CV o del "
+"archivo"
 
 #. module: hr_recruitment
 #: model_terms:ir.actions.act_window,help:hr_recruitment.action_hr_job_sources
@@ -3267,7 +3269,7 @@ msgid ""
 "You can define here the labels that will be displayed for the kanban state instead\n"
 "                            of the default labels."
 msgstr ""
-"Aquí puede definir las etiquetas que aparecerán en el estado de kanban en lugar de\n"
+"Aquí puede definir las etiquetas que serán mostradas en el estado de kanban en lugar de\n"
 "                            las etiquetas predeterminadas."
 
 #. module: hr_recruitment

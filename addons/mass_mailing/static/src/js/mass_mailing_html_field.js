@@ -5,7 +5,7 @@ import { _t } from "@web/core/l10n/translation";
 import { useRecordObserver } from "@web/model/relational_model/utils";
 import { standardFieldProps } from "@web/views/fields/standard_field_props";
 import { initializeDesignTabCss } from "@mass_mailing/js/mass_mailing_design_constants"
-import { toInline } from "@web_editor/js/backend/convert_inline";
+import { toInline, getCSSRules } from "@web_editor/js/backend/convert_inline";
 import { loadBundle } from "@web/core/assets";
 import { renderToElement } from "@web/core/utils/render";
 import { useService } from "@web/core/utils/hooks";
@@ -141,11 +141,8 @@ export class MassMailingHtmlField extends HtmlField {
             // Wait for the css and images to be loaded.
             await iframePromise;
             const editableClone = iframe.contentDocument.querySelector('.note-editable');
-            // The jQuery data are lost because of the cloning operations above.
-            // The hacky fix for stable is to simply add it back manually.
-            // TODO in master: Update toInline to use an options parameter.
-            $(editableClone).data("wysiwyg", this.wysiwyg);
-            await toInline($(editableClone), undefined, $(iframe));
+            this.cssRules = this.cssRules || getCSSRules($editable[0].ownerDocument);
+            await toInline($(editableClone), this.cssRules, $(iframe));
             iframe.remove();
             this.wysiwyg.odooEditor.observerActive('toInline');
             const inlineHtml = editableClone.innerHTML;
@@ -384,8 +381,6 @@ export class MassMailingHtmlField extends HtmlField {
             // the Odoo editor before resetting the history.
             setTimeout(() => {
                 this.wysiwyg.historyReset();
-                // Update undo/redo buttons
-                this.wysiwyg.odooEditor.dispatchEvent(new Event('historyStep'));
 
                 // The selection has been lost when switching theme.
                 const document = this.wysiwyg.odooEditor.document;
@@ -442,7 +437,6 @@ export class MassMailingHtmlField extends HtmlField {
         if (this.env.mailingFilterTemplates && this.wysiwyg) {
             this._hideIrrelevantTemplates(this.props.record);
         }
-        this.wysiwyg.odooEditor.activateContenteditable();
     }
     _getCodeViewEl() {
         const codeView = this.wysiwyg &&

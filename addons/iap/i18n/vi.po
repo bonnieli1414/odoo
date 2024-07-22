@@ -235,7 +235,7 @@ msgstr "View My Services"
 #. module: iap
 #: model_terms:ir.ui.view,arch_db:iap.res_config_settings_view_form
 msgid "View your IAP Services and recharge your credits"
-msgstr "Xem Dịch vụ IAP của bạn và nạp lại tín dụng"
+msgstr "View your IAP Services and recharge your credits"
 
 #. module: iap
 #: model:ir.model.fields,field_description:iap.field_iap_account__warn_me
@@ -252,4 +252,4 @@ msgstr "Email cảnh báo"
 #. module: iap
 #: model:ir.model.fields,help:iap.field_iap_account__warn_me
 msgid "We will send you an email when your balance gets below that threshold"
-msgstr "Chúng tôi sẽ gửi email cho bạn khi số dư của bạn dưới ngưỡng đó"
+msgstr ""

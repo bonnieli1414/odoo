@@ -76,8 +76,9 @@ class EtaThumbDrive(models.Model):
             invoice_id = self.env['account.move'].browse(int(key))
             eta_invoice_json = json.loads(invoice_id.l10n_eg_eta_json_doc_id.raw)
 
-            signature = self._generate_cades_bes_signature(eta_invoice_json['request'], invoice_id.l10n_eg_signing_time,
+            cades_bes = self._generate_cades_bes_signature(eta_invoice_json['request'], invoice_id.l10n_eg_signing_time,
                                                            base64.b64decode(value))
+            signature = base64.b64encode(cades_bes.dump()).decode()
 
             eta_invoice_json['request']['signatures'] = [{'signatureType': 'I', 'value': signature}]
             invoice_id.l10n_eg_eta_json_doc_id.raw = json.dumps(eta_invoice_json)
@@ -171,5 +172,4 @@ class EtaThumbDrive(models.Model):
                 self._generate_signer_info(eta_invoice, signing_time, signature),
             ],
         }
-        content_info = cms.ContentInfo({'content_type': cms.ContentType('signed_data'), 'content': cms.SignedData(signed_data)})
-        return base64.b64encode(content_info.dump()).decode()
+        return cms.ContentInfo({'content_type': cms.ContentType('signed_data'), 'content': cms.SignedData(signed_data),})

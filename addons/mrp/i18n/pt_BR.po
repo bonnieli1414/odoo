@@ -804,11 +804,6 @@ msgid "Archived"
 msgstr "Arquivado"
 
 #. module: mrp
-#: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
-msgid "Are you sure you want to cancel this manufacturing order?"
-msgstr "Tem certeza de que deseja cancelar essa ordem de produção?"
-
-#. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrporder
 msgid "Assembling"
 msgstr "Montagem"
@@ -1293,17 +1288,6 @@ msgstr "Cancelar"
 #: model_terms:ir.ui.view,arch_db:mrp.view_mrp_production_filter
 msgid "Cancelled"
 msgstr "Cancelado"
-
-#. module: mrp
-#. odoo-python
-#: code:addons/mrp/models/mrp_bom.py:0
-#, python-format
-msgid ""
-"Cannot compute days to prepare due to missing route info for at least 1 "
-"component or for the final product."
-msgstr ""
-"Não é possível calcular os dias de preparação devido à falta de informações "
-"da rota de pelo menos um componente ou do produto final."
 
 #. module: mrp
 #. odoo-python
@@ -3396,7 +3380,7 @@ msgstr "Ordens de produção com status confirmado."
 #: model:ir.model.fields,field_description:mrp.field_mrp_bom__ready_to_produce
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_bom_form_view
 msgid "Manufacturing Readiness"
-msgstr "Prontidão para fabricação"
+msgstr "Rapidez de fabricação"
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
@@ -4906,12 +4890,6 @@ msgid "Routing"
 msgstr "Roteamento"
 
 #. module: mrp
-#: code:addons/mrp/models/stock_quant.py:0
-#, python-format
-msgid "Return to Inventory"
-msgstr "Retornar ao Inventário"
-
-#. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_workcenter__routing_line_ids
 msgid "Routing Lines"
 msgstr "Linhas de roteamento"
@@ -4987,7 +4965,7 @@ msgstr "Movimentação de sucata"
 #: code:addons/mrp/models/mrp_workorder.py:0
 #, python-format
 msgid "Scrap Products"
-msgstr "Sucatear produtos"
+msgstr "Sucata"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_production__scrap_ids
@@ -5231,6 +5209,16 @@ msgid ""
 msgstr ""
 "Alguns de seus componentes são rastreados, é necessário especificar uma "
 "ordem de produção para receber os componentes corretos."
+
+#. module: mrp
+#: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
+msgid ""
+"Some product moves have already been confirmed, this manufacturing order "
+"can't be completely cancelled. Are you still sure you want to process?"
+msgstr ""
+"Algumas movimentações de produtos já foram confirmadas, essa ordem de "
+"produção não pode ser completamente cancelada. Tem certeza de que deseja "
+"processar?"
 
 #. module: mrp
 #. odoo-python
@@ -6973,15 +6961,6 @@ msgstr "Não é possível produzir o mesmo número de série duas vezes."
 
 #. module: mrp
 #. odoo-python
-#: code:addons/mrp/models/mrp_workorder.py:0
-#, python-format
-msgid "You cannot start a work order that is already done or cancelled"
-msgstr ""
-"Não é possível iniciar uma ordem de serviço que já tenha sido concluída ou "
-"cancelada"
-
-#. module: mrp
-#. odoo-python
 #: code:addons/mrp/models/mrp_unbuild.py:0
 #, python-format
 msgid "You cannot unbuild a undone manufacturing order."
@@ -7104,17 +7083,6 @@ msgstr "Você produziu menos que a demanda inicial"
 #, python-format
 msgid "You should provide a lot number for the final product."
 msgstr "É necessário fornecer um número de lote para o produto final."
-
-#. module: mrp
-#. odoo-python
-#: code:addons/mrp/models/stock_quant.py:0
-#, python-format
-msgid ""
-"You should update the components quantity instead of directly updating the "
-"quantity of the kit product."
-msgstr ""
-"Você deve atualizar a quantidade de componentes em vez de atualizar "
-"diretamente a quantidade do produto kit."
 
 #. module: mrp
 #: model:ir.model.fields.selection,name:mrp.selection__stock_picking_type__done_mrp_lot_label_to_print__zpl

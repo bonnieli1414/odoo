@@ -19,11 +19,6 @@ If you activate this module, you won't be able to access the
 regular Odoo interface anymore.
 
 """,
-    'assets': {
-        'web.assets_backend': [
-            'hw_posbox_homepage/static/img/*',
-        ],
-    },
     'installable': False,
     'license': 'LGPL-3',
 }

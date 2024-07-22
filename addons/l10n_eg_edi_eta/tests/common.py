@@ -27,7 +27,7 @@ class TestEGEdiCommon(AccountEdiTestCommon):
             'country_id': cls.env.ref('base.eg').id,
             'l10n_eg_client_identifier': 'ahuh1pojnbakKK',
             'l10n_eg_client_secret': '1ashiqwhejmasn197',
-            'vat': '123-456-789',
+            'vat': 'EG1103143170L',
         })
 
         # ==== Business ====
@@ -52,7 +52,7 @@ class TestEGEdiCommon(AccountEdiTestCommon):
         })
         cls.partner_c = cls.env['res.partner'].create({
             'name': 'عميل 1',
-            'vat': '123-456-789',
+            'vat': 'EG11231212',
             'country_id': cls.env.ref('base.eg').id,
             'city': 'Iswan',
             'state_id': cls.env.ref('base.state_eg_c').id,
@@ -68,7 +68,7 @@ class TestEGEdiCommon(AccountEdiTestCommon):
         })
         cls.company_branch = cls.env['res.partner'].create({
             'name': 'branch partner',
-            'vat': '456-789-123',
+            'vat': '918KKL1',
             'country_id': cls.env.ref('base.eg').id,
             'city': 'Iswan',
             'state_id': cls.env.ref('base.state_eg_c').id,

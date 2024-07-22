@@ -137,8 +137,7 @@ class TestCIIFR(TestUBLCommon):
         )
 
         pdf_attachment = invoice.ubl_cii_xml_id
-        facturx_filename = self.env['account.edi.xml.cii']._export_invoice_filename(invoice)
-        self.assertEqual(pdf_attachment['name'], facturx_filename)
+        self.assertEqual(pdf_attachment['name'], 'factur-x.xml')
 
     def test_export_import_invoice(self):
         invoice = self._generate_move(
@@ -185,8 +184,7 @@ class TestCIIFR(TestUBLCommon):
             ''',
             expected_file_path='from_odoo/facturx_out_invoice.xml',
         )
-        facturx_filename = self.env['account.edi.xml.cii']._export_invoice_filename(invoice)
-        self.assertEqual(attachment.name, facturx_filename)
+        self.assertEqual(attachment.name, "factur-x.xml")
         self._assert_imported_invoice_from_etree(invoice, attachment)
 
     def test_export_import_refund(self):
@@ -231,8 +229,7 @@ class TestCIIFR(TestUBLCommon):
             ''',
             expected_file_path='from_odoo/facturx_out_refund.xml'
         )
-        facturx_filename = self.env['account.edi.xml.cii']._export_invoice_filename(refund)
-        self.assertEqual(attachment.name, facturx_filename)
+        self.assertEqual(attachment.name, "factur-x.xml")
         self._assert_imported_invoice_from_etree(refund, attachment)
 
     def test_export_tax_included(self):
@@ -293,8 +290,7 @@ class TestCIIFR(TestUBLCommon):
             move_type='out_invoice',
             invoice_line_ids=[{'product_id': self.product_a.id}],
         )
-        facturx_filename = self.env['account.edi.xml.cii']._export_invoice_filename(invoice)
-        self._test_encoding_in_attachment(invoice.ubl_cii_xml_id, facturx_filename)
+        self._test_encoding_in_attachment(invoice.ubl_cii_xml_id, 'factur-x.xml')
 
     def test_export_with_fixed_taxes_case1(self):
         # CASE 1: simple invoice with a recupel tax
