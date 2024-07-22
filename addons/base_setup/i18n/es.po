@@ -155,7 +155,7 @@ msgstr "Permita la integración con los complementos de correo"
 #: model:ir.model.fields,field_description:base_setup.field_res_config_settings__module_google_calendar
 msgid "Allow the users to synchronize their calendar  with Google Calendar"
 msgstr ""
-"Permita a los usuarios sincronizar su calendario con el Google Calendar"
+"Permita a los usuarios sincronizar su calendario con el calendario de Google"
 
 #. module: base_setup
 #: model:ir.model.fields,field_description:base_setup.field_res_config_settings__module_microsoft_calendar
@@ -183,7 +183,8 @@ msgstr "Asterisk (Voz IP)"
 #. module: base_setup
 #: model_terms:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
 msgid "Automatically enrich your contact base with company data"
-msgstr "Mejore automáticamente su base de contactos con datos de la compañía"
+msgstr ""
+"Mejora de forma automática tu base de contactos con datos de la compañía"
 
 #. module: base_setup
 #: model_terms:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
@@ -191,21 +192,21 @@ msgid ""
 "Automatically generate counterpart documents for orders/invoices between "
 "companies"
 msgstr ""
-"Genere automáticamente documentos de contrapartida para pedidos o facturas "
-"entre empresas"
+"Genera de forma automática documentos de contrapartida para pedidos/facturas"
+" entre empresas"
 
 #. module: base_setup
 #: model_terms:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
 msgid ""
 "By default, new users get highest access rights for all installed apps."
 msgstr ""
-"Por defecto, los usuarios nuevos tienen los permisos de acceso más altos "
+"Por defecto, los usuarios nuevos tienen los derechos de acceso más altos "
 "para las aplicaciones instaladas."
 
 #. module: base_setup
 #: model_terms:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
 msgid "Choose the layout of your documents"
-msgstr "Elija el diseño de sus documentos"
+msgstr "Elige el diseño de tus documentos"
 
 #. module: base_setup
 #: model:ir.model.fields,field_description:base_setup.field_res_config_settings__module_website_cf_turnstile
@@ -225,17 +226,17 @@ msgstr "Compañía"
 #. module: base_setup
 #: model:ir.model.fields,field_description:base_setup.field_res_config_settings__company_country_code
 msgid "Company Country Code"
-msgstr "Código de país de la compañía"
+msgstr "Código de país de la empresa"
 
 #. module: base_setup
 #: model:ir.model.fields,field_description:base_setup.field_res_config_settings__company_informations
 msgid "Company Informations"
-msgstr "Información de la compañía"
+msgstr "Información de la empresa"
 
 #. module: base_setup
 #: model:ir.model.fields,field_description:base_setup.field_res_config_settings__company_name
 msgid "Company Name"
-msgstr "Nombre de la compañía"
+msgstr "Nombre de la empresa"
 
 #. module: base_setup
 #: model:ir.model,name:base_setup.model_res_config_settings
@@ -253,9 +254,9 @@ msgid ""
 "Configure company rules to automatically create SO/PO when one of your "
 "company sells/buys to another of your company."
 msgstr ""
-"Configure las reglas de la compañía para crear pedidos de venta o compra "
-"automáticamente cada que una de sus compañías venda o compre a otra de sus "
-"compañías."
+"Configura las reglas de la compañía para crear pedidos de venta o de compra "
+"automáticamente cuando una de tus empresas venda/compre a otra de sus "
+"empresas."
 
 #. module: base_setup
 #: model_terms:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
@@ -271,14 +272,14 @@ msgstr "Pie página de informe personalizado"
 #: model:ir.model.fields,field_description:base_setup.field_res_config_settings__user_default_rights
 #: model_terms:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
 msgid "Default Access Rights"
-msgstr "Permisos de acceso por defecto"
+msgstr "Derechos de aceso por defecto"
 
 #. module: base_setup
 #. odoo-python
 #: code:addons/base_setup/models/res_config_settings.py:0
 #, python-format
 msgid "Default User Template not found."
-msgstr "No se encontró la plantilla de usuario por defecto."
+msgstr "No se ha encontró una plantilla de usuario por defecto."
 
 #. module: base_setup
 #: model_terms:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
@@ -306,13 +307,13 @@ msgid ""
 "Enable the profiling tool. Profiling may impact performance while being "
 "active."
 msgstr ""
-"Habilite la herramienta de análisis de rendimiento. Este análisis puede "
-"afectar el rendimiento mientras se encuentre activo."
+"Habilite la herramienta de creación de perfiles. La creación de perfiles "
+"puede afectar el rendimiento mientras esté activa."
 
 #. module: base_setup
 #: model_terms:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
 msgid "Find free high-resolution images from Unsplash"
-msgstr "Encuentre imágenes gratuitas de alta resolución de Unsplash"
+msgstr "Encuentra imágenes gratuitas de alta resolución de Unsplash"
 
 #. module: base_setup
 #: model:ir.model.fields,help:base_setup.field_res_config_settings__report_footer
@@ -338,7 +339,7 @@ msgstr "Localizar geográficamente "
 #. module: base_setup
 #: model_terms:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
 msgid "GeoLocalize your partners"
-msgstr "Localiza geográficamente sus contactos"
+msgstr "Localiza geográficamente tus contactos"
 
 #. module: base_setup
 #: model:ir.model.fields,field_description:base_setup.field_res_config_settings__module_product_images
@@ -358,7 +359,7 @@ msgstr "Importación y exportación"
 #. module: base_setup
 #: model_terms:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
 msgid "Integrate with mail client plugins"
-msgstr "Integre con los complementos de los clientes de correo"
+msgstr "Integrar con los complementos de los clientes de correo"
 
 #. module: base_setup
 #: model_terms:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
@@ -368,12 +369,12 @@ msgstr "Integraciones"
 #. module: base_setup
 #: model_terms:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
 msgid "Inter-Company Transactions"
-msgstr "Transacciones dentro de la compañía"
+msgstr "Transacciones dentro de la empresa"
 
 #. module: base_setup
 #: model:ir.model.fields,field_description:base_setup.field_res_config_settings__is_root_company
 msgid "Is Root Company"
-msgstr "Es la compañía principal"
+msgstr "Es la empresa principal"
 
 #. module: base_setup
 #: model:ir.model.fields,field_description:base_setup.field_res_config_settings__module_auth_ldap
@@ -404,12 +405,12 @@ msgstr "Gestionar claves API"
 #. module: base_setup
 #: model_terms:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
 msgid "Manage Companies"
-msgstr "Gestionar compañías"
+msgstr "Administrar compañías"
 
 #. module: base_setup
 #: model:ir.model.fields,field_description:base_setup.field_res_config_settings__module_account_inter_company_rules
 msgid "Manage Inter Company"
-msgstr "Gestionar operaciones dentro de la compañía"
+msgstr "Gestionar operaciones dentro de la empresa"
 
 #. module: base_setup
 #: model_terms:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
@@ -424,7 +425,7 @@ msgstr "Gestionar usuarios"
 #. module: base_setup
 #: model:ir.model.fields,field_description:base_setup.field_res_config_settings__group_multi_currency
 msgid "Multi-Currencies"
-msgstr "Multimoneda"
+msgstr "Multi-Moneda"
 
 #. module: base_setup
 #: model:ir.model.fields,field_description:base_setup.field_res_config_settings__active_user_count
@@ -434,7 +435,7 @@ msgstr "Número de usuarios activos"
 #. module: base_setup
 #: model:ir.model.fields,field_description:base_setup.field_res_config_settings__company_count
 msgid "Number of Companies"
-msgstr "Número de compañías"
+msgstr "Número de empresas"
 
 #. module: base_setup
 #: model:ir.model.fields,field_description:base_setup.field_res_config_settings__language_count
@@ -484,7 +485,7 @@ msgstr "Visualizar el documento"
 #. module: base_setup
 #: model:ir.model.fields,field_description:base_setup.field_res_config_settings__profiling_enabled_until
 msgid "Profiling enabled until"
-msgstr "El análisis de rendimiento estará habilitado hasta"
+msgstr "La creación de perfiles estará habilitada hasta"
 
 #. module: base_setup
 #: model_terms:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
@@ -494,7 +495,7 @@ msgstr "Aplicación web progresiva"
 #. module: base_setup
 #: model_terms:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
 msgid "Protect your forms from spam and abuse."
-msgstr "Proteja sus formularios de spam y abusos."
+msgstr "Protege tus formularios de spam y abusos."
 
 #. module: base_setup
 #: model_terms:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
@@ -509,12 +510,12 @@ msgstr "Enviar SMS"
 #. module: base_setup
 #: model_terms:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
 msgid "Send texts to your contacts"
-msgstr "Envíe mensajes de texto a sus contactos"
+msgstr "Envía mensajes de texto a tus contactos"
 
 #. module: base_setup
 #: model_terms:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
 msgid "Set custom access rights for new users"
-msgstr "Configure reglas de acceso personalizadas para usuarios nuevos"
+msgstr "Configura reglas de acceso personalizadas para usuarios nuevos"
 
 #. module: base_setup
 #: model:ir.actions.act_window,name:base_setup.action_general_configuration
@@ -557,17 +558,17 @@ msgstr "Actualizar información"
 #. module: base_setup
 #: model_terms:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
 msgid "Use LDAP credentials to log in"
-msgstr "Use credenciales LDAP para iniciar sesión"
+msgstr "Usa credenciales LDAP para iniciar sesión"
 
 #. module: base_setup
 #: model_terms:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
 msgid "Use external accounts to log in (Google, Facebook, etc.)"
-msgstr "Use cuentas externas (Google, Facebook, etc.) para iniciar sesión"
+msgstr "Usa cuentas externas (Google, Facebook, etc.) para iniciar sesión"
 
 #. module: base_setup
 #: model:ir.model.fields,field_description:base_setup.field_res_config_settings__module_auth_oauth
 msgid "Use external authentication providers (OAuth)"
-msgstr "Use proveedores de autenticación externos (OAuth)"
+msgstr "Usa un proveedor de autenticación externos (OAuth)"
 
 #. module: base_setup
 #: model:ir.model,name:base_setup.model_res_users
@@ -593,9 +594,9 @@ msgid ""
 "companies. When selecting one item, the company data and logo are auto-"
 "filled."
 msgstr ""
-"Cuando termine de crear su libreta de direcciones, Odoo proporcionará una "
-"lista de compañías coincidentes. Si selecciona un elemento, los datos de la "
-"compañía y el logo se completarán automáticamente."
+"Al completar tu directorio, Odoo proporciona una lista de empresas "
+"coincidentes. Al seleccionar un elemento, los datos de la empresa y el "
+"logotipo se completan automáticamente."
 
 #. module: base_setup
 #: model:ir.model.fields,field_description:base_setup.field_res_config_settings__module_google_recaptcha

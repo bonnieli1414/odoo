@@ -9,7 +9,6 @@ from odoo import api, fields, models, _
 from odoo.addons.base.models.res_partner import _tz_get
 from odoo.exceptions import UserError
 from odoo.tools.misc import clean_context
-from odoo.tools import split_every
 
 _logger = logging.getLogger(__name__)
 
@@ -117,26 +116,12 @@ class Attendee(models.Model):
         # get ics file for all meetings
         ics_files = self.mapped('event_id')._get_ics_file()
 
-        # If the mail template has attachments, prepare copies for each attendee (to be added to each attendee's mail)
-        if mail_template.attachment_ids:
-
-            # Setting res_model to ensure attachments are linked to the msg (otherwise only internal users are allowed link attachments)
-            attachments_values = [a.copy_data({'res_id': 0, 'res_model': 'mail.compose.message'})[0] for a in mail_template.attachment_ids]
-            attachments_values *= len(self)
-            attendee_attachment_ids = self.env['ir.attachment'].create(attachments_values).ids
-
-            # Map attendees to their respective attachments
-            template_attachment_count = len(mail_template.attachment_ids)
-            attendee_id_attachment_id_map = dict(zip(self.ids, split_every(template_attachment_count, attendee_attachment_ids, list)))
-
         for attendee in self:
             if attendee.email and attendee._should_notify_attendee():
                 event_id = attendee.event_id.id
                 ics_file = ics_files.get(event_id)
 
-                # Add template attachments copies to the attendee's email, if available
-                attachment_ids = attendee_id_attachment_id_map[attendee.id] if mail_template.attachment_ids else []
-
+                attachment_ids = mail_template.attachment_ids.ids
                 if ics_file:
                     context = {
                         **clean_context(self.env.context),
@@ -146,8 +131,6 @@ class Attendee(models.Model):
                         'datas': base64.b64encode(ics_file),
                         'description': 'invitation.ics',
                         'mimetype': 'text/calendar',
-                        'res_id': 0,
-                        'res_model': 'mail.compose.message',
                         'name': 'invitation.ics',
                     }).ids
 
@@ -173,13 +156,11 @@ class Attendee(models.Model):
     def _should_notify_attendee(self):
         """ Utility method that determines if the attendee should be notified.
             By default, we do not want to notify (aka no message and no mail) the current user
-            if he is part of the attendees. But for reminders, mail_notify_author could be forced
+            if he is part of the attendees.
             (Override in appointment to ignore that rule and notify all attendees if it's an appointment)
         """
         self.ensure_one()
-        partner_not_sender = self.partner_id != self.env.user.partner_id
-        mail_notify_author = self.env.context.get('mail_notify_author')
-        return partner_not_sender or mail_notify_author
+        return self.partner_id != self.env.user.partner_id
 
     def do_tentative(self):
         """ Makes event invitation as Tentative. """

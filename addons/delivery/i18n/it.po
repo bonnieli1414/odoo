@@ -375,13 +375,6 @@ msgstr ""
 "Errore: questo metodo di consegna non è disponibile per questo indirizzo."
 
 #. module: delivery
-#. odoo-python
-#: code:addons/delivery/models/delivery_carrier.py:0
-#, python-format
-msgid "Error: this delivery method is not available."
-msgstr "Errore questo metodo di consegna non è disponibile."
-
-#. module: delivery
 #: model:ir.model.fields,help:delivery.field_delivery_carrier__invoice_policy
 msgid ""
 "Estimated Cost: the customer will be invoiced the estimated cost of the "
@@ -738,7 +731,7 @@ msgstr "Consegna standard"
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier__state_ids
 msgid "States"
-msgstr "Stati/Province"
+msgstr "Condizioni"
 
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier__supports_shipping_insurance

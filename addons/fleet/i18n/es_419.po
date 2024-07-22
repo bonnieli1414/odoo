@@ -5,8 +5,6 @@
 # Translators:
 # Wil Odoo, 2023
 # Iran Villalobos López, 2023
-# Patricia Gutiérrez Capetillo <pagc@odoo.com>, 2024
-# Martin Trigaux, 2024
 # Fernanda Alvarez, 2024
 # 
 msgid ""
@@ -1172,14 +1170,16 @@ msgstr "Icono que indica una actividad de excepción."
 #: model:ir.model.fields,help:fleet.field_fleet_vehicle_log_services__message_needaction
 msgid "If checked, new messages require your attention."
 msgstr ""
-"Si se encuentra seleccionado, hay nuevos mensajes que requieren su atención."
+"Si se encuentra seleccionado, hay nuevos mensajes que requieren de su "
+"atención."
 
 #. module: fleet
 #: model:ir.model.fields,help:fleet.field_fleet_vehicle__message_has_error
 #: model:ir.model.fields,help:fleet.field_fleet_vehicle_log_contract__message_has_error
 #: model:ir.model.fields,help:fleet.field_fleet_vehicle_log_services__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr "Si se encuentra seleccionado, algunos mensajes tienen error de envío."
+msgstr ""
+"Si se encuentra seleccionado, algunos mensajes presentan error de entrega."
 
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_29
@@ -1692,7 +1692,7 @@ msgstr "Cobertura total"
 #: code:addons/fleet/models/fleet_vehicle_model.py:0
 #, python-format
 msgid "Operation not supported."
-msgstr "Operación incompatible."
+msgstr "Operación no compatible."
 
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_service_15
@@ -1998,8 +1998,8 @@ msgstr "Ajustes"
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_search
 msgid "Show all records which has next action date is before today"
 msgstr ""
-"Mostrar todos los registros cuya próxima fecha de acción es antes de la "
-"fecha de hoy."
+"Mostrar todos los registros que tienen la próxima fecha de acción antes de "
+"hoy"
 
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_service_6

@@ -61,27 +61,23 @@ export class TimeOffCalendarController extends CalendarController {
         });
     }
 
-    _deleteRecord(resId, canCancel) {
-        if (!canCancel) {
+    deleteRecord(record) {
+        if (!record.data.can_cancel) {
             this.displayDialog(ConfirmationDialog, {
                 title: _t("Confirmation"),
                 body: _t("Are you sure you want to delete this record?"),
                 confirm: async () => {
-                    await this.model.unlinkRecord(resId);
+                    await this.model.unlinkRecord(record.resId);
                     this.env.timeOffBus.trigger("update_dashboard");
                 },
                 cancel: () => {},
             });
         } else {
-            this.leaveCancelWizard(resId, () => {
+            this.leaveCancelWizard(record.resId, () => {
                 this.model.load();
                 this.env.timeOffBus.trigger("update_dashboard");
             });
         }
-    }
-
-    deleteRecord(record) {
-        this._deleteRecord(record.id, record.rawRecord.can_cancel);
     }
 
     async editRecord(record, context = {}, shouldFetchFormViewId = true) {
@@ -100,7 +96,7 @@ export class TimeOffCalendarController extends CalendarController {
                     title: _t("Time Off Request"),
                     viewId: this.model.formViewId,
                     onRecordSaved: onDialogClosed,
-                    onRecordDeleted: (record) => this._deleteRecord(record.resId, record.data.can_cancel),
+                    onRecordDeleted: (record) => this.deleteRecord(record),
                     onLeaveCancelled: onDialogClosed,
                     size: "md",
                 },

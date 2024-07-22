@@ -55,10 +55,7 @@ export class EventScanView extends Component {
             });
         } else {
             this.registrationId = result.id;
-            this.closeLastDialog?.();
-            this.closeLastDialog = this.dialog.add(EventRegistrationSummaryDialog, {
-                registration: result
-            });
+            this.dialog.add(EventRegistrationSummaryDialog, { registration: result });
         }
     }
 

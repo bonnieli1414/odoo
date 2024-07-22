@@ -286,7 +286,7 @@ class HrExpenseSheet(models.Model):
             else:
                 sheet.selectable_payment_method_line_ids = self.env['account.payment.method.line'].search([
                     ('payment_type', '=', 'outbound'),
-                    ('company_id', 'parent_of', sheet.company_id.id)
+                    ('company_id', '=', sheet.company_id.id)
                 ])
 
     @api.depends('account_move_ids', 'payment_state', 'approval_state')
@@ -657,9 +657,7 @@ class HrExpenseSheet(models.Model):
         self.activity_update()
 
     def _do_refuse(self, reason):
-        if self.account_move_ids:  # Todo: in 17.3+, edit it to allow draft entries
-            raise UserError(_("You cannot cancel an expense sheet linked to a journal entry"))
-        self.approval_state = 'cancel'
+        self.write({'state': 'cancel'})
         subtype_id = self.env['ir.model.data']._xmlid_to_res_id('mail.mt_comment')
         for sheet in self:
             sheet.message_post_with_source(
@@ -713,7 +711,6 @@ class HrExpenseSheet(models.Model):
             'ref': self.name,
             'move_type': 'in_invoice',
             'partner_id': self.employee_id.sudo().work_contact_id.id,
-            'partner_bank_id': self.employee_id.sudo().bank_account_id.id,
             'currency_id': self.currency_id.id,
             'line_ids': [Command.create(expense._prepare_move_lines_vals()) for expense in self.expense_line_ids],
             'attachment_ids': [
@@ -734,7 +731,7 @@ class HrExpenseSheet(models.Model):
 
     def _validate_analytic_distribution(self):
         for line in self.expense_line_ids:
-            line._validate_distribution(account=line.account_id.id, product=line.product_id.id, business_domain='expense', company_id=line.company_id.id)
+            line._validate_distribution(account=line.account_id.id, business_domain='expense', company_id=line.company_id.id)
 
     def _get_responsible_for_approval(self):
         if self.user_id:
@@ -750,7 +747,7 @@ class HrExpenseSheet(models.Model):
         if self.payment_mode == 'company_account':
             journal = self.payment_method_line_id.journal_id
             account_dest = (
-                self.payment_method_line_id.payment_account_id
+                journal.outbound_payment_method_line_ids[:1].payment_account_id
                 or journal.company_id.account_journal_payment_credit_account_id
             )
         else:

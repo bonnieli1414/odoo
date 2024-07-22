@@ -1,8 +1,5 @@
 /** @odoo-module **/
 
-import { registry } from "@web/core/registry";
-import { batchedOrmService } from "@analytic/services/batched_orm_service";
-
 import {
     addRow,
     click,
@@ -118,7 +115,6 @@ QUnit.module("Analytic", (hooks) => {
         };
 
         setupViewRegistries();
-        registry.category("services").add("batchedOrm", batchedOrmService);
     });
 
     QUnit.module("AnalyticDistribution");

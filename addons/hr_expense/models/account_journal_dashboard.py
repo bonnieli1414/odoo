@@ -9,12 +9,8 @@ class AccountJournal(models.Model):
 
     def _prepare_expense_sheet_data_domain(self):
         return [
-            ('journal_id', 'in', self.ids),
-            '|',
             ('state', '=', 'post'),
-            '&',
-            ('state', '=', 'done'),
-            ('payment_state', '=', 'partial'),
+            ('journal_id', 'in', self.ids),
         ]
 
     def _get_expense_to_pay_query(self):
@@ -27,8 +23,7 @@ class AccountJournal(models.Model):
             return
         field_list = [
             "hr_expense_sheet.journal_id",
-            # todo master: "hr_expense_sheet.amount_residual AS amount_total_company",
-            "hr_expense_sheet.total_amount AS amount_total_company",
+            "hr_expense_sheet.total_amount AS amount_total",
             "hr_expense_sheet.currency_id AS currency",
         ]
         query, params = sale_purchase_journals._get_expense_to_pay_query().select(*field_list)

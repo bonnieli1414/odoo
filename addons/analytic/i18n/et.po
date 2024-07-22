@@ -110,7 +110,7 @@ msgstr "Administratiivne"
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_plan__all_account_count
 msgid "All Analytic Accounts Count"
-msgstr "Kõikide analüütiliste kontode arv"
+msgstr ""
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line__amount
@@ -123,7 +123,7 @@ msgstr "Summa"
 #: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.js:0
 #, python-format
 msgid "Amount field"
-msgstr "Summa väli"
+msgstr ""
 
 #. module: analytic
 #. odoo-javascript

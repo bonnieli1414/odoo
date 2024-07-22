@@ -92,7 +92,7 @@ msgstr "Tipo de paquete de Mondial Relay"
 #: code:addons/delivery_mondialrelay/models/delivery_carrier.py:0
 #, python-format
 msgid "Operation not supported"
-msgstr "Operación incompatible"
+msgstr "Operación no compatible"
 
 #. module: delivery_mondialrelay
 #. odoo-python

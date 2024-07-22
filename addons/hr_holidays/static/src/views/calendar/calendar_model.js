@@ -1,12 +1,7 @@
 /** @odoo-module */
 
 import { CalendarModel } from '@web/views/calendar/calendar_model';
-import {
-    deserializeDate,
-    deserializeDateTime,
-    serializeDate,
-    serializeDateTime,
-} from "@web/core/l10n/dates";
+import { deserializeDateTime, serializeDate, serializeDateTime } from "@web/core/l10n/dates";
 
 export class TimeOffCalendarModel extends CalendarModel {
     setup(params, services) {
@@ -36,18 +31,14 @@ export class TimeOffCalendarModel extends CalendarModel {
             context["default_employee_id"] = this.employeeId;
         }
 
-        function deserialize(str) {
-            // "YYYY-MM-DD".length == 10
-            return str.length > 10 ? deserializeDateTime(str) : deserializeDate(str);
-        }
         if ("default_date_from" in context) {
             context["default_date_from"] = serializeDateTime(
-                deserialize(context["default_date_from"]).set({ hours: 7 })
+                deserializeDateTime(context["default_date_from"]).set({ hours: 7 })
             );
         }
         if ("default_date_to" in context) {
             context["default_date_to"] = serializeDateTime(
-                deserialize(context["default_date_to"]).set({ hours: 19 })
+                deserializeDateTime(context["default_date_to"]).set({ hours: 19 })
             );
         }
         return context;

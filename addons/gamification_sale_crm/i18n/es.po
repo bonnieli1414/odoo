@@ -4,7 +4,6 @@
 # 
 # Translators:
 # Wil Odoo, 2023
-# Pedro M. Baeza <pedro.baeza@tecnativa.com>, 2024
 # Larissa Manderfeld, 2024
 # 
 msgid ""
@@ -54,12 +53,12 @@ msgstr "Nuevas oportunidades"
 #. module: gamification_sale_crm
 #: model:gamification.goal.definition,name:gamification_sale_crm.definition_crm_nbr_sale_order_created
 msgid "New Sales Orders"
-msgstr "Nuevos pedidos de venta"
+msgstr "Nuevas órdenes de venta"
 
 #. module: gamification_sale_crm
 #: model:gamification.goal.definition,name:gamification_sale_crm.definition_crm_nbr_paid_sale_order
 msgid "Paid Sales Orders"
-msgstr "Pedidos de venta pagados"
+msgstr "Órdenes de venta pagadas"
 
 #. module: gamification_sale_crm
 #: model:gamification.goal.definition,name:gamification_sale_crm.definition_crm_lead_delay_open
@@ -79,7 +78,7 @@ msgstr "Total facturado"
 #. module: gamification_sale_crm
 #: model:gamification.goal.definition,name:gamification_sale_crm.definition_crm_tot_paid_sale_order
 msgid "Total Paid Sales Orders"
-msgstr "Total de pedidos de venta pagados"
+msgstr "Total de órdenes de venta pagadas"
 
 #. module: gamification_sale_crm
 #: model:gamification.goal.definition,suffix:gamification_sale_crm.definition_crm_lead_delay_close
@@ -106,4 +105,4 @@ msgstr "oportunidades"
 #: model:gamification.goal.definition,suffix:gamification_sale_crm.definition_crm_nbr_paid_sale_order
 #: model:gamification.goal.definition,suffix:gamification_sale_crm.definition_crm_nbr_sale_order_created
 msgid "orders"
-msgstr "pedidos"
+msgstr "órdenes"

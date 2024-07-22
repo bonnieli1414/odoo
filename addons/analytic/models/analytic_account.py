@@ -14,7 +14,7 @@ class AccountAnalyticAccount(models.Model):
     _description = 'Analytic Account'
     _order = 'plan_id, name asc'
     _check_company_auto = True
-    _rec_names_search = ['name', 'code']
+    _rec_names_search = ['name', 'code', 'partner_id']
 
     name = fields.Char(
         string='Analytic Account',
@@ -92,7 +92,7 @@ class AccountAnalyticAccount(models.Model):
     @api.constrains('company_id')
     def _check_company_consistency(self):
         for company, accounts in groupby(self, lambda account: account.company_id):
-            if company and self.env['account.analytic.line'].sudo().search_count([
+            if company and self.env['account.analytic.line'].sudo().search([
                 ('auto_account_id', 'in', [account.id for account in accounts]),
                 '!', ('company_id', 'child_of', company.id),
             ], limit=1):
