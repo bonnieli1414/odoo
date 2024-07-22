@@ -5,8 +5,8 @@
 # Translators:
 # jonas jensen <j.jensen@tcomp.dk>, 2023
 # Martin Trigaux, 2023
-# lhmflexerp <lhm@flexerp.dk>, 2024
 # Sanne Kristensen <sanne@vkdata.dk>, 2024
+# lhmflexerp <lhm@flexerp.dk>, 2024
 # 
 msgid ""
 msgstr ""
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-05 12:31+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
-"Last-Translator: Sanne Kristensen <sanne@vkdata.dk>, 2024\n"
+"Last-Translator: lhmflexerp <lhm@flexerp.dk>, 2024\n"
 "Language-Team: Danish (https://app.transifex.com/odoo/teams/41243/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -231,12 +231,12 @@ msgstr ""
 #. module: account_edi_ubl_cii
 #: model_terms:ir.ui.view,arch_db:account_edi_ubl_cii.account_invoice_pdfa_3_facturx_metadata
 msgid "1.0"
-msgstr "1.0"
+msgstr ""
 
 #. module: account_edi_ubl_cii
 #: model_terms:ir.ui.view,arch_db:account_edi_ubl_cii.account_invoice_facturx_export_22
 msgid "42"
-msgstr "42"
+msgstr ""
 
 #. module: account_edi_ubl_cii
 #: model:ir.model.fields.selection,name:account_edi_ubl_cii.selection__res_partner__peppol_eas__9901
@@ -598,7 +598,7 @@ msgstr ""
 #. module: account_edi_ubl_cii
 #: model:ir.model,name:account_edi_ubl_cii.model_account_edi_xml_ubl_efff
 msgid "E-FFF (BE)"
-msgstr "E-FFF (BE)"
+msgstr ""
 
 #. module: account_edi_ubl_cii
 #: model_terms:ir.ui.view,arch_db:account_edi_ubl_cii.res_partner_view_search
@@ -609,7 +609,7 @@ msgstr ""
 #. module: account_edi_ubl_cii
 #: model_terms:ir.ui.view,arch_db:account_edi_ubl_cii.account_invoice_pdfa_3_facturx_metadata
 msgid "EN 16931"
-msgstr "EN 16931"
+msgstr ""
 
 #. module: account_edi_ubl_cii
 #. odoo-python
@@ -659,7 +659,7 @@ msgstr ""
 #. module: account_edi_ubl_cii
 #: model:ir.model.fields.selection,name:account_edi_ubl_cii.selection__res_partner__ubl_cii_format__facturx
 msgid "Factur-X (CII)"
-msgstr "Factur-X (CII)"
+msgstr ""
 
 #. module: account_edi_ubl_cii
 #: model:ir.model,name:account_edi_ubl_cii.model_account_edi_xml_cii
@@ -721,7 +721,7 @@ msgstr "Journalbilag"
 #. module: account_edi_ubl_cii
 #: model:ir.model.fields.selection,name:account_edi_ubl_cii.selection__res_partner__ubl_cii_format__nlcius
 msgid "NLCIUS"
-msgstr "NLCIUS"
+msgstr ""
 
 #. module: account_edi_ubl_cii
 #. odoo-python
@@ -735,30 +735,6 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:account_edi_ubl_cii.account_invoice_pdfa_3_facturx_metadata
 msgid "Odoo"
 msgstr "Odoo"
-
-#. module: account_edi_ubl_cii
-#. odoo-python
-#: code:addons/account_edi_ubl_cii/models/res_partner.py:0
-#, python-format
-msgid ""
-"Peppol EAS code 9901 is deprecated. Please use a different Danish EAS code "
-"instead."
-msgstr ""
-
-#. module: account_edi_ubl_cii
-#. odoo-python
-#: code:addons/account_edi_ubl_cii/models/res_partner.py:0
-#, python-format
-msgid "Peppol EAS code 9955 is deprecated. Please use 0007 instead."
-msgstr ""
-
-#. module: account_edi_ubl_cii
-#. odoo-python
-#: code:addons/account_edi_ubl_cii/models/res_partner.py:0
-#, python-format
-msgid ""
-"Peppol EAS codes 0212 and 0213 are deprecated. Please use 0216 instead."
-msgstr ""
 
 #. module: account_edi_ubl_cii
 #: model:ir.model.fields,field_description:account_edi_ubl_cii.field_res_partner__peppol_endpoint
@@ -785,7 +761,7 @@ msgstr ""
 #. module: account_edi_ubl_cii
 #: model:ir.model,name:account_edi_ubl_cii.model_account_edi_xml_ubl_nl
 msgid "SI-UBL 2.0 (NLCIUS)"
-msgstr "SI-UBL 2.0 (NLCIUS)"
+msgstr ""
 
 #. module: account_edi_ubl_cii
 #. odoo-python
@@ -823,13 +799,6 @@ msgstr ""
 #: code:addons/account_edi_ubl_cii/models/account_edi_xml_ubl_bis3.py:0
 #, python-format
 msgid "The VAT of the %s should be prefixed with its country code."
-msgstr ""
-
-#. module: account_edi_ubl_cii
-#. odoo-python
-#: code:addons/account_edi_ubl_cii/models/account_edi_xml_ubl_bis3.py:0
-#, python-format
-msgid "The country is required for the %s."
 msgstr ""
 
 #. module: account_edi_ubl_cii
@@ -913,12 +882,12 @@ msgstr ""
 #. module: account_edi_ubl_cii
 #: model:ir.model,name:account_edi_ubl_cii.model_account_edi_xml_ubl_20
 msgid "UBL 2.0"
-msgstr "UBL 2.0"
+msgstr ""
 
 #. module: account_edi_ubl_cii
 #: model:ir.model,name:account_edi_ubl_cii.model_account_edi_xml_ubl_21
 msgid "UBL 2.1"
-msgstr "UBL 2.1"
+msgstr ""
 
 #. module: account_edi_ubl_cii
 #: model:ir.model,name:account_edi_ubl_cii.model_account_edi_xml_ubl_bis3
@@ -977,9 +946,9 @@ msgstr "Falsk"
 #. module: account_edi_ubl_cii
 #: model_terms:ir.ui.view,arch_db:account_edi_ubl_cii.account_invoice_pdfa_3_facturx_metadata
 msgid "fx"
-msgstr "fx"
+msgstr ""
 
 #. module: account_edi_ubl_cii
 #: model_terms:ir.ui.view,arch_db:account_edi_ubl_cii.account_invoice_pdfa_3_facturx_metadata
 msgid "urn:factur-x:pdfa:CrossIndustryDocument:invoice:1p0#"
-msgstr "urn:factur-x:pdfa:CrossIndustryDocument:invoice:1p0#"
+msgstr ""

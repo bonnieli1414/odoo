@@ -4,9 +4,9 @@ from odoo.exceptions import UserError, ValidationError
 from odoo.tools import float_repr, find_xml_value
 from odoo.tools.float_utils import float_round
 from odoo.tools.misc import formatLang
-from odoo.tools.zeep import Client
 
 from markupsafe import Markup
+from zeep import Client
 
 # -------------------------------------------------------------------------
 # UNIT OF MEASURE
@@ -54,7 +54,7 @@ EAS_MAPPING = {
     'DK': {'0184': 'company_registry', '0198': 'vat'},
     'EE': {'9931': 'vat'},
     'ES': {'9920': 'vat'},
-    'FI': {'0216': None},
+    'FI': {'0213': 'vat'},
     'FR': {'0009': 'siret', '9957': 'vat'},
     'SG': {'0195': 'l10n_sg_unique_entity_number'},
     'GB': {'9932': 'vat'},
@@ -82,7 +82,7 @@ EAS_MAPPING = {
     'PT': {'9946': 'vat'},
     'RO': {'9947': 'vat'},
     'RS': {'9948': 'vat'},
-    'SE': {'0007': 'company_registry'},
+    'SE': {'0007': 'vat'},
     'SI': {'9949': 'vat'},
     'SK': {'9950': 'vat'},
     'SM': {'9951': 'vat'},
@@ -349,19 +349,14 @@ class AccountEdiCommon(models.AbstractModel):
 
         return True
 
-    def _import_retrieve_and_fill_partner(self, invoice, name, phone, mail, vat, country_code=False, peppol_eas=False, peppol_endpoint=False):
-        """ Retrieve the partner, if no matching partner is found, create it (only if he has a vat and a name) """
-        if peppol_eas and peppol_endpoint:
-            domain = [('peppol_eas', '=', peppol_eas), ('peppol_endpoint', '=', peppol_endpoint)]
-        else:
-            domain = False
+    def _import_retrieve_and_fill_partner(self, invoice, name, phone, mail, vat, country_code=False):
+        """ Retrieve the partner, if no matching partner is found, create it (only if he has a vat and a name)
+        """
         invoice.partner_id = self.env['res.partner'] \
             .with_company(invoice.company_id) \
-            ._retrieve_partner(name=name, phone=phone, mail=mail, vat=vat, domain=domain)
+            ._retrieve_partner(name=name, phone=phone, mail=mail, vat=vat)
         if not invoice.partner_id and name and vat:
             partner_vals = {'name': name, 'email': mail, 'phone': phone}
-            if peppol_eas and peppol_endpoint:
-                partner_vals.update({'peppol_eas': peppol_eas, 'peppol_endpoint': peppol_endpoint})
             country = self.env.ref(f'base.{country_code.lower()}', raise_if_not_found=False) if country_code else False
             if country:
                 partner_vals['country_id'] = country.id

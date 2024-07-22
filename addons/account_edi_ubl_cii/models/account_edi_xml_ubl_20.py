@@ -578,7 +578,8 @@ class AccountEdiXmlUBL20(models.AbstractModel):
         constraints = self._invoice_constraints_common(invoice)
         constraints.update({
             'ubl20_supplier_name_required': self._check_required_fields(vals['supplier'], 'name'),
-            'ubl20_customer_name_required': self._check_required_fields(vals['customer'].commercial_partner_id, 'name'),
+            'ubl20_customer_name_required': self._check_required_fields(vals['customer'], 'name'),
+            'ubl20_commercial_customer_name_required': self._check_required_fields(vals['customer'].commercial_partner_id, 'name'),
             'ubl20_invoice_name_required': self._check_required_fields(invoice, 'name'),
             'ubl20_invoice_date_required': self._check_required_fields(invoice, 'invoice_date'),
         })
@@ -599,16 +600,6 @@ class AccountEdiXmlUBL20(models.AbstractModel):
     # IMPORT
     # -------------------------------------------------------------------------
 
-    def _import_retrieve_partner_vals(self, tree, role):
-        """ Returns a dict of values that will be used to retrieve the partner """
-        return {
-            'vat': self._find_value(f'.//cac:Accounting{role}Party/cac:Party//cbc:CompanyID[string-length(text()) > 5]', tree),
-            'phone': self._find_value(f'.//cac:Accounting{role}Party/cac:Party//cbc:Telephone', tree),
-            'mail': self._find_value(f'.//cac:Accounting{role}Party/cac:Party//cbc:ElectronicMail', tree),
-            'name': self._find_value(f'.//cac:Accounting{role}Party/cac:Party//cbc:Name', tree),
-            'country_code': self._find_value(f'.//cac:Accounting{role}Party/cac:Party//cac:Country//cbc:IdentificationCode', tree),
-        }
-
     def _import_fill_invoice_form(self, invoice, tree, qty_factor):
         logs = []
 
@@ -618,8 +609,12 @@ class AccountEdiXmlUBL20(models.AbstractModel):
         # ==== partner_id ====
 
         role = "Customer" if invoice.journal_id.type == 'sale' else "Supplier"
-        partner_vals = self._import_retrieve_partner_vals(tree, role)
-        self._import_retrieve_and_fill_partner(invoice, **partner_vals)
+        vat = self._find_value(f'.//cac:Accounting{role}Party/cac:Party//cbc:CompanyID[string-length(text()) > 5]', tree)
+        phone = self._find_value(f'.//cac:Accounting{role}Party/cac:Party//cbc:Telephone', tree)
+        mail = self._find_value(f'.//cac:Accounting{role}Party/cac:Party//cbc:ElectronicMail', tree)
+        name = self._find_value(f'.//cac:Accounting{role}Party/cac:Party//cbc:Name', tree)
+        country_code = self._find_value(f'.//cac:Accounting{role}Party/cac:Party//cac:Country//cbc:IdentificationCode', tree)
+        self._import_retrieve_and_fill_partner(invoice, name=name, phone=phone, mail=mail, vat=vat, country_code=country_code)
 
         # ==== currency_id ====
 

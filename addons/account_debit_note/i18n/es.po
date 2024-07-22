@@ -4,7 +4,6 @@
 # 
 # Translators:
 # Wil Odoo, 2023
-# Pedro M. Baeza <pedro.baeza@tecnativa.com>, 2024
 # Larissa Manderfeld, 2024
 # 
 msgid ""
@@ -24,12 +23,12 @@ msgstr ""
 #. module: account_debit_note
 #: model_terms:ir.ui.view,arch_db:account_debit_note.view_move_form_debit
 msgid "<span class=\"o_stat_text\">Debit Notes</span>"
-msgstr "<span class=\"o_stat_text\">Notas de débito</span>"
+msgstr "<span class=\"o_stat_text\">Nota Débito</span>"
 
 #. module: account_debit_note
 #: model:ir.model,name:account_debit_note.model_account_debit_note
 msgid "Add Debit Note wizard"
-msgstr "Asistente para agregar nota de débito"
+msgstr "Asistente para agregar nota débito"
 
 #. module: account_debit_note
 #: model_terms:ir.ui.view,arch_db:account_debit_note.view_account_debit_note
@@ -82,7 +81,7 @@ msgstr "Fecha de nota de débito"
 #: model:ir.model.fields,field_description:account_debit_note.field_account_payment__debit_note_ids
 #, python-format
 msgid "Debit Notes"
-msgstr "Notas de débito"
+msgstr "Notas débito"
 
 #. module: account_debit_note
 #: model:ir.model.fields,field_description:account_debit_note.field_account_debit_note__display_name
@@ -138,14 +137,14 @@ msgstr "Asiento"
 #. module: account_debit_note
 #: model:ir.model.fields,field_description:account_debit_note.field_account_debit_note__move_type
 msgid "Move Type"
-msgstr "Tipo de asiento"
+msgstr "Tipo de Movimiento"
 
 #. module: account_debit_note
 #: model:ir.model.fields,field_description:account_debit_note.field_account_bank_statement_line__debit_note_count
 #: model:ir.model.fields,field_description:account_debit_note.field_account_move__debit_note_count
 #: model:ir.model.fields,field_description:account_debit_note.field_account_payment__debit_note_count
 msgid "Number of Debit Notes"
-msgstr "Número de notas de débito"
+msgstr "Número de notas débito"
 
 #. module: account_debit_note
 #: model:ir.model.fields,field_description:account_debit_note.field_account_bank_statement_line__debit_origin_id
@@ -195,16 +194,16 @@ msgid ""
 "You can make a debit note only for a Customer Invoice, a Customer Credit "
 "Note, a Vendor Bill or a Vendor Credit Note."
 msgstr ""
-"Puede hacer una nota de débito solo para una factura del cliente, una "
-"factura rectificativa del cliente, una factura del proveedor o una factura "
-"rectificativa del proveedor."
+"Puede hacer una nota de débito solo para una factura del cliente, una nota "
+"de crédito del cliente, una factura del proveedor o una nota de crédito del "
+"proveedor."
 
 #. module: account_debit_note
 #. odoo-python
 #: code:addons/account_debit_note/wizard/account_debit_note.py:0
 #, python-format
 msgid "You can only debit posted moves."
-msgstr "Solo puede debitar asientos publicados."
+msgstr "Solamente puedes debitar movimientos publicados."
 
 #. module: account_debit_note
 #. odoo-python
