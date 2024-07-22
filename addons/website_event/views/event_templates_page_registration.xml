@@ -22,9 +22,7 @@
                     <t t-call="website_event.navbar"/>
                     <!-- Show the button tickets only on mobile -->
                     <div class="container d-lg-none">
-                        <t t-call="website_event.registration_template">
-                            <t t-set="toast_message" t-value=""/>
-                        </t>
+                        <t t-call="website_event.registration_template"/>
                     </div>
                     <!-- Description -->
                     <div id="o_wevent_event_main_col">
@@ -74,7 +72,7 @@
                                 <span t-else="" t-field="event.date_end" t-options="{'tz_name': event.date_tz, 'time_only': 'true', 'format': 'short'}" t-att-datetime="event.date_end"/>
                                 (<span t-out="event.date_tz"/>)
 
-                                <a href="#" role="button" data-bs-toggle="dropdown" class="btn btn-secondary dropdown w-100 mt-3">
+                                <a href="#" role="button" data-bs-toggle="dropdown" class="btn btn-secondary text-bg-secondary dropdown w-100 mt-3">
                                     <p class="mb-0"><i class="fa fa-calendar me-2"/>Add to Calendar</p>
                                 </a>
                                 <div class="dropdown-menu">
@@ -98,7 +96,7 @@
                                     "widget": "contact",
                                     "fields": ["phone", "mobile", "email"]
                                 }'/>
-                                <a t-att-href="event._google_map_link()" target="_blank" class="btn btn-secondary w-100">
+                                <a t-att-href="event._google_map_link()" target="_blank" class="btn btn-secondary text-bg-secondary w-100">
                                     <p class="mb-0"><i class="fa fa-map-marker fa-fw" role="img"/>Get the direction</p>
                                 </a>
                             </div>
@@ -138,9 +136,6 @@
             </t>
         </div>
         <button t-if="event.event_registrations_open" type="button" data-bs-toggle="modal" data-bs-target="#modal_ticket_registration" class="btn btn-primary w-100">Register</button>
-        <div t-if="registration_error_code == 'insufficient_seats'" class="alert alert-danger my-3" role="alert">
-            Registration failed! These tickets are not available anymore.
-        </div>
     </div>
     <div t-if="toast_message" class="o_wevent_register_toaster d-none" t-att-data-message="toast_message"/>
     <div t-if="not event.event_registrations_open" class="mb-3">
@@ -421,7 +416,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer flex-lg-row border-top">
+                        <div class="modal-footer flex-lg-row-reverse border-top">
                             <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary o_wait_lazy_js a-submit" disabled="" t-attf-id="#{event.id}">
                                 Register
@@ -471,7 +466,7 @@
                                 </t>
                             </div>
                         </div>
-                        <div class="modal-footer flex-lg-row border-top">
+                        <div class="modal-footer flex-lg-row-reverse border-top">
                             <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary o_wait_lazy_js a-submit" t-attf-id="#{event.id}" disabled="disabled">
                                 Register

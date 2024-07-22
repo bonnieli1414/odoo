@@ -6,12 +6,12 @@
 # Kristoffer Grundström <lovaren@gmail.com>, 2023
 # Robin Calvin, 2023
 # Mikael Åkerberg <mikael.akerberg@mariaakerberg.com>, 2023
+# Jakob Krabbe <jakob.krabbe@vertel.se>, 2023
 # Lasse L, 2023
 # Chrille Hedberg <hedberg.chrille@gmail.com>, 2023
 # Martin Trigaux, 2023
 # Kim Asplund <kim.asplund@gmail.com>, 2023
 # Anders Wallenquist <anders.wallenquist@vertel.se>, 2023
-# Jakob Krabbe <jakob.krabbe@vertel.se>, 2024
 # 
 msgid ""
 msgstr ""
@@ -19,7 +19,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-26 21:56+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
-"Last-Translator: Jakob Krabbe <jakob.krabbe@vertel.se>, 2024\n"
+"Last-Translator: Anders Wallenquist <anders.wallenquist@vertel.se>, 2023\n"
 "Language-Team: Swedish (https://app.transifex.com/odoo/teams/41243/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,7 +30,7 @@ msgstr ""
 #. module: website_customer
 #: model_terms:ir.ui.view,arch_db:website_customer.details
 msgid "<i class=\"fa fa-chevron-left me-2\"/>Back to references"
-msgstr "<i class=\"fa fa-chevron-left me-2\"/>Tillbaka till referenser"
+msgstr ""
 
 #. module: website_customer
 #: model_terms:ir.ui.view,arch_db:website_customer.opt_country
@@ -38,8 +38,6 @@ msgid ""
 "<i class=\"fa fa-map-marker\" role=\"img\" aria-label=\"Open map\" "
 "title=\"Open map\"/>"
 msgstr ""
-"<i class=\"fa fa-map-marker\" role=\"img\" aria-label=\"Öppna karta\" "
-"title=\"Öppna karta\"/>"
 
 #. module: website_customer
 #: model_terms:ir.ui.view,arch_db:website_customer.index
@@ -50,7 +48,7 @@ msgstr "<span class=\"fa fa-1x fa-tags\"/> Alla"
 #. module: website_customer
 #: model_terms:ir.ui.view,arch_db:website_customer.implemented_by_block
 msgid "<span class=\"small text-muted\">Implemented by</span>"
-msgstr "<span class=\"small text-muted\">Genomförd av</span>"
+msgstr ""
 
 #. module: website_customer
 #: model:ir.model.fields,field_description:website_customer.field_res_partner_tag__active
@@ -79,7 +77,7 @@ msgstr "Arkiverad"
 #. module: website_customer
 #: model_terms:ir.ui.view,arch_db:website_customer.details
 msgid "Back to references list"
-msgstr "Tillbaka till referenslistan"
+msgstr ""
 
 #. module: website_customer
 #: model:ir.model.fields,help:website_customer.field_res_partner_tag__classname
@@ -140,7 +138,7 @@ msgstr "Visningsnamn"
 #. module: website_customer
 #: model_terms:ir.ui.view,arch_db:website_customer.index
 msgid "Enter a short description"
-msgstr "Ange en kort beskrivning"
+msgstr ""
 
 #. module: website_customer
 #: model_terms:ir.ui.view,arch_db:website_customer.index
@@ -150,12 +148,12 @@ msgstr "Filtrera efter land"
 #. module: website_customer
 #: model_terms:ir.ui.view,arch_db:website_customer.index
 msgid "Filter by Industry"
-msgstr "Filtrera efter bransch"
+msgstr ""
 
 #. module: website_customer
 #: model_terms:ir.ui.view,arch_db:website_customer.index
 msgid "Filter by Tags"
-msgstr "Filtrera efter taggar"
+msgstr ""
 
 #. module: website_customer
 #: model_terms:ir.ui.view,arch_db:website_customer.index
@@ -165,7 +163,7 @@ msgstr "Filter"
 #. module: website_customer
 #: model_terms:ir.ui.view,arch_db:website_customer.index
 msgid "Go to customer"
-msgstr "Gå till kund"
+msgstr ""
 
 #. module: website_customer
 #: model:ir.model.fields,field_description:website_customer.field_res_partner_tag__id
@@ -204,22 +202,22 @@ msgstr ""
 #. module: website_customer
 #: model_terms:ir.ui.view,arch_db:website_customer.index
 msgid "No results found for \""
-msgstr "Inga resultat hittades för \""
+msgstr ""
 
 #. module: website_customer
 #: model_terms:ir.ui.view,arch_db:website_customer.opt_country_list
 msgid "Open countries dropdown"
-msgstr "Öppna rullgardinsmeny för länder"
+msgstr ""
 
 #. module: website_customer
 #: model_terms:ir.ui.view,arch_db:website_customer.opt_industry_list
 msgid "Open industries dropdown"
-msgstr "Öppna rullgardinsmeny för branscher"
+msgstr ""
 
 #. module: website_customer
 #: model_terms:ir.ui.view,arch_db:website_customer.index
 msgid "Our references"
-msgstr "Våra referenser"
+msgstr ""
 
 #. module: website_customer
 #: model_terms:ir.ui.view,arch_db:website_customer.view_partner_tag_form
@@ -266,17 +264,17 @@ msgstr "Sök Partner Tag"
 #. module: website_customer
 #: model_terms:ir.ui.view,arch_db:website_customer.index
 msgid "See all customers"
-msgstr "Se alla kunder"
+msgstr ""
 
 #. module: website_customer
 #: model_terms:ir.ui.view,arch_db:website_customer.index
 msgid "See countries filters"
-msgstr "Se filter för länder"
+msgstr ""
 
 #. module: website_customer
 #: model_terms:ir.ui.view,arch_db:website_customer.index
 msgid "See industries filters"
-msgstr "Se filter för industrier"
+msgstr ""
 
 #. module: website_customer
 #: model_terms:ir.ui.view,arch_db:website_customer.snippet_options

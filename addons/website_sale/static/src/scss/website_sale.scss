@@ -419,14 +419,7 @@ a.no-decoration {
     .carousel-outer {
         height: 400px;
         max-height: 90vh;
-        display: flex;
-        align-items: center;
-        @include media-breakpoint-down(md) {
-            height: 300px;
-        }
-        @include media-breakpoint-down(sm) {
-            height: 200px;
-        }
+
         .carousel-inner {
             img {
                 object-fit: contain;
@@ -442,8 +435,8 @@ a.no-decoration {
     }
 
     .carousel-control-prev, .carousel-control-next {
-        top: auto;
-        bottom: auto;
+        height: 70%;
+        top: 15%;
         opacity: 0.5;
         cursor: pointer;
         transition: opacity 0.8s;
@@ -824,8 +817,4 @@ a.no-decoration {
     a.disabled {
         pointer-events: none;
     }
-}
-
-.accordion-button:not(.collapsed).bg-transparent::after {
-    background-image: escape-svg($accordion-button-icon);
 }

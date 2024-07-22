@@ -26,7 +26,7 @@ msgstr ""
 #. module: website_event_booth_exhibitor
 #: model_terms:ir.ui.view,arch_db:website_event_booth_exhibitor.event_booth_booked_template
 msgid "<b>Sponsor</b>:"
-msgstr "<b>Sponsor</b>:"
+msgstr ""
 
 #. module: website_event_booth_exhibitor
 #: model_terms:ir.ui.view,arch_db:website_event_booth_exhibitor.event_booth_registration_details
@@ -34,8 +34,6 @@ msgid ""
 "<span>Company Name</span>\n"
 "                        <span class=\"mandatory_mark\"> *</span>"
 msgstr ""
-"<span>Företagsnamn</span>\n"
-"                        <span class=\"mandatory_mark\"> *</span>"
 
 #. module: website_event_booth_exhibitor
 #: model_terms:ir.ui.view,arch_db:website_event_booth_exhibitor.event_booth_registration_details
@@ -43,24 +41,22 @@ msgid ""
 "<span>Email</span>\n"
 "                        <span class=\"mandatory_mark\"> *</span>"
 msgstr ""
-"<span>E-post</span>\n"
-"                        <span class=\"mandatory_mark\"> *</span>"
 
 #. module: website_event_booth_exhibitor
 #: model_terms:ir.ui.view,arch_db:website_event_booth_exhibitor.event_booth_registration_details
 msgid "<strong>Sponsor Details</strong>"
-msgstr "<strong>Sponsor detaljer</strong>"
+msgstr ""
 
 #. module: website_event_booth_exhibitor
 #: model_terms:ir.ui.view,arch_db:website_event_booth_exhibitor.event_booth_registration_details
 msgid "Contact me through a different email/phone."
-msgstr "Kontakta mig via en annan e-post/telefon."
+msgstr ""
 
 #. module: website_event_booth_exhibitor
 #: model:ir.model.fields,field_description:website_event_booth_exhibitor.field_event_booth__use_sponsor
 #: model:ir.model.fields,field_description:website_event_booth_exhibitor.field_event_booth_category__use_sponsor
 msgid "Create Sponsor"
-msgstr "Skapa sponsor"
+msgstr ""
 
 #. module: website_event_booth_exhibitor
 #: model_terms:ir.ui.view,arch_db:website_event_booth_exhibitor.event_booth_registration_details
@@ -80,7 +76,7 @@ msgstr "Kategori av eventmonter"
 #. module: website_event_booth_exhibitor
 #: model_terms:ir.ui.view,arch_db:website_event_booth_exhibitor.event_booth_category_view_search
 msgid "Exhibitor type"
-msgstr "Typ av utställare"
+msgstr ""
 
 #. module: website_event_booth_exhibitor
 #: model_terms:ir.ui.view,arch_db:website_event_booth_exhibitor.event_booth_category_view_search
@@ -90,15 +86,13 @@ msgstr "Gruppera efter"
 #. module: website_event_booth_exhibitor
 #: model_terms:ir.ui.view,arch_db:website_event_booth_exhibitor.event_booth_registration_details
 msgid "How can we showcase your company ?"
-msgstr "Hur kan vi visa upp ditt företag?"
+msgstr ""
 
 #. module: website_event_booth_exhibitor
 #: model:ir.model.fields,help:website_event_booth_exhibitor.field_event_booth__use_sponsor
 #: model:ir.model.fields,help:website_event_booth_exhibitor.field_event_booth_category__use_sponsor
 msgid "If set, when booking a booth a sponsor will be created for the user"
 msgstr ""
-"Om inställningen är \"Set\" skapas en sponsor för användaren när en monter "
-"bokas"
 
 #. module: website_event_booth_exhibitor
 #: model_terms:ir.ui.view,arch_db:website_event_booth_exhibitor.event_booth_registration_details
@@ -124,43 +118,43 @@ msgstr "Sponsor"
 #. module: website_event_booth_exhibitor
 #: model:ir.model.fields,field_description:website_event_booth_exhibitor.field_event_booth__sponsor_website_description
 msgid "Sponsor Description"
-msgstr "Sponsorbeskrivning"
+msgstr ""
 
 #. module: website_event_booth_exhibitor
 #: model:ir.model.fields,field_description:website_event_booth_exhibitor.field_event_booth__sponsor_email
 msgid "Sponsor Email"
-msgstr "Sponsorns e-post"
+msgstr ""
 
 #. module: website_event_booth_exhibitor
 #: model:ir.model.fields,field_description:website_event_booth_exhibitor.field_event_booth__sponsor_type_id
 #: model:ir.model.fields,field_description:website_event_booth_exhibitor.field_event_booth_category__sponsor_type_id
 msgid "Sponsor Level"
-msgstr "Sponsornivå"
+msgstr ""
 
 #. module: website_event_booth_exhibitor
 #: model:ir.model.fields,field_description:website_event_booth_exhibitor.field_event_booth__sponsor_image_512
 msgid "Sponsor Logo"
-msgstr "Sponsorlogotyp"
+msgstr ""
 
 #. module: website_event_booth_exhibitor
 #: model:ir.model.fields,field_description:website_event_booth_exhibitor.field_event_booth__sponsor_mobile
 msgid "Sponsor Mobile"
-msgstr "Sponsor Mobil"
+msgstr ""
 
 #. module: website_event_booth_exhibitor
 #: model:ir.model.fields,field_description:website_event_booth_exhibitor.field_event_booth__sponsor_name
 msgid "Sponsor Name"
-msgstr "Sponsorns namn"
+msgstr ""
 
 #. module: website_event_booth_exhibitor
 #: model:ir.model.fields,field_description:website_event_booth_exhibitor.field_event_booth__sponsor_phone
 msgid "Sponsor Phone"
-msgstr "Sponsor Telefon"
+msgstr ""
 
 #. module: website_event_booth_exhibitor
 #: model:ir.model.fields,field_description:website_event_booth_exhibitor.field_event_booth__sponsor_subtitle
 msgid "Sponsor Slogan"
-msgstr "Sponsorslogan"
+msgstr ""
 
 #. module: website_event_booth_exhibitor
 #: model:ir.model.fields,field_description:website_event_booth_exhibitor.field_event_booth_category__exhibitor_type
@@ -170,9 +164,9 @@ msgstr "Sponsortyp"
 #. module: website_event_booth_exhibitor
 #: model_terms:ir.ui.view,arch_db:website_event_booth_exhibitor.event_booth_category_view_search
 msgid "Sponsor type"
-msgstr "Sponsortyp"
+msgstr ""
 
 #. module: website_event_booth_exhibitor
 #: model_terms:ir.ui.view,arch_db:website_event_booth_exhibitor.event_booth_category_view_form
 msgid "Sponsorship"
-msgstr "Sponsring"
+msgstr ""

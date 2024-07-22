@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import SUPERUSER_ID, _, _lt, api, fields, models, tools
-from odoo.exceptions import UserError
+from odoo import _, _lt, SUPERUSER_ID, api, fields, models, tools
 from odoo.http import request
 from odoo.osv import expression
 
@@ -362,16 +361,6 @@ class Website(models.Model):
 
         partner_sudo = self.env.user.partner_id
 
-        if partner_sudo.company_id and not partner_sudo.filtered_domain(
-            self.env['res.partner']._check_company_domain(self.company_id)
-        ):
-            raise UserError(_(
-                "Your account is not allowed to pay in company %s."
-                " Please log out and create a new account for this website, or contact the website"
-                " administrator.",
-                self.company_id.name,
-            ))
-
         # cart creation was requested
         if not sale_order_sudo:
             so_data = self._prepare_sale_order_values(partner_sudo)
@@ -434,7 +423,7 @@ class Website(models.Model):
         addr = partner_sudo.address_get(['delivery', 'invoice'])
         if not request.website.is_public_user():
             last_sale_order = self.env['sale.order'].sudo().search(
-                [('partner_id', '=', partner_sudo.id), ('website_id', '=', self.id)],
+                [('partner_id', '=', partner_sudo.id)],
                 limit=1,
                 order="date_order desc, id desc",
             )
