@@ -140,6 +140,7 @@ class AccountEdiProxyClientUser(models.Model):
                         .with_context(
                             default_move_type='in_invoice',
                             default_peppol_move_state=content['state'],
+                            default_extract_can_show_send_button=False,
                             default_peppol_message_uuid=uuid,
                         )\
                         ._create_document_from_attachment(attachment.id)
@@ -156,6 +157,7 @@ class AccountEdiProxyClientUser(models.Model):
                         'move_type': 'in_invoice',
                         'peppol_move_state': 'done',
                         'company_id': company.id,
+                        'extract_can_show_send_button': False,
                         'peppol_message_uuid': uuid,
                     })
                     attachment_vals.update({
@@ -163,8 +165,6 @@ class AccountEdiProxyClientUser(models.Model):
                         'res_id': move.id,
                     })
                     self.env['ir.attachment'].create(attachment_vals)
-                if 'is_in_extractable_state' in move._fields:
-                    move.is_in_extractable_state = False
 
                 proxy_acks.append(uuid)
 
@@ -202,11 +202,6 @@ class AccountEdiProxyClientUser(models.Model):
 
                 move = message_uuids[uuid]
                 if content.get('error'):
-                    # "Peppol request not ready" error:
-                    # thrown when the IAP is still processing the message
-                    if content['error'].get('code') == 702:
-                        continue
-
                     move.peppol_move_state = 'error'
                     move._message_log(body=_("Peppol error: %s", content['error']['message']))
                     continue
@@ -221,7 +216,7 @@ class AccountEdiProxyClientUser(models.Model):
                 )
 
     def _cron_peppol_get_participant_status(self):
-        edi_users = self.search([('company_id.account_peppol_proxy_state', 'in', ['pending', 'not_verified', 'sent_verification'])])
+        edi_users = self.search([('company_id.account_peppol_proxy_state', '=', 'pending')])
         edi_users._peppol_get_participant_status()
 
     def _peppol_get_participant_status(self):
@@ -233,12 +228,5 @@ class AccountEdiProxyClientUser(models.Model):
                 _logger.error('Error while updating Peppol participant status: %s', e)
                 continue
 
-            state_map = {
-                'active': 'active',
-                'verified': 'pending',
-                'rejected': 'rejected',
-                'canceled': 'canceled',
-            }
-
-            if proxy_user['peppol_state'] in state_map:
-                edi_user.company_id.account_peppol_proxy_state = state_map[proxy_user['peppol_state']]
+            if proxy_user['peppol_state'] in {'active', 'rejected', 'canceled'}:
+                edi_user.company_id.account_peppol_proxy_state = proxy_user['peppol_state']

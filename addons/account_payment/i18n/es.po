@@ -4,7 +4,6 @@
 # 
 # Translators:
 # Wil Odoo, 2023
-# Pedro M. Baeza <pedro.baeza@tecnativa.com>, 2024
 # Larissa Manderfeld, 2024
 # 
 msgid ""
@@ -194,7 +193,7 @@ msgid ""
 "Done, your online payment has been successfully processed. Thank you for "
 "your order."
 msgstr ""
-"Hecho, su pago en línea ha sido procesado con éxito. Gracias por su pedido."
+"Hecho, su pago en línea ha sido procesado con éxito. Gracias por su orden."
 
 #. module: account_payment
 #: model:onboarding.onboarding.step,description:account_payment.onboarding_onboarding_step_payment_provider
@@ -424,7 +423,7 @@ msgstr "Reembolso"
 #. module: account_payment
 #: model:ir.model.fields,field_description:account_payment.field_payment_refund_wizard__amount_to_refund
 msgid "Refund Amount"
-msgstr "Importe de reembolso"
+msgstr "Reembolsar importe"
 
 #. module: account_payment
 #: model:ir.model.fields,field_description:account_payment.field_payment_refund_wizard__refunded_amount
@@ -531,7 +530,7 @@ msgstr "El pago de origen de los pagos de reembolsos correspondientes"
 #. module: account_payment
 #: model_terms:ir.ui.view,arch_db:account_payment.portal_invoice_error
 msgid "There was an error processing your payment: invalid invoice."
-msgstr "Se produjo un error al procesar su pago: factura no válida."
+msgstr "Se produjo un error al procesar tu pago: factura no válida."
 
 #. module: account_payment
 #: model_terms:ir.ui.view,arch_db:account_payment.portal_invoice_error
@@ -539,7 +538,7 @@ msgid ""
 "There was an error processing your payment: issue with credit card ID "
 "validation."
 msgstr ""
-"Se produjo un error al procesar su pago: hubo un problema con la validación "
+"Se produjo un error al procesar tu pago: hubo un problema con la validación "
 "de la identificación de la tarjeta de crédito."
 
 #. module: account_payment
@@ -551,8 +550,8 @@ msgstr "Hubo un error al procesar su pago: la transacción falló.<br/>"
 #: model_terms:ir.ui.view,arch_db:account_payment.portal_invoice_error
 msgid "There was en error processing your payment: invalid credit card ID."
 msgstr ""
-"Se produjo un error al procesar su pago: identificación de la tarjeta de "
-"crédito no válida."
+"Hubo un error al procesar tu pago: Identificación de la tarjeta de crédito "
+"invalida."
 
 #. module: account_payment
 #: model:ir.model.fields,field_description:account_payment.field_account_bank_statement_line__transaction_ids
@@ -575,7 +574,7 @@ msgstr "Utilizar métodos de pago electrónicos"
 #. module: account_payment
 #: model_terms:ir.ui.view,arch_db:account_payment.account_invoice_view_form_inherit_payment
 msgid "Void Transaction"
-msgstr "Anular transacción"
+msgstr "Transacción vacía"
 
 #. module: account_payment
 #. odoo-python

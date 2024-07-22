@@ -39,10 +39,6 @@ msgid ""
 "                        The invoice will be sent automatically to PEPPOL\n"
 "                    </span>"
 msgstr ""
-"<span class=\"mx-1\" invisible=\"not peppol_is_demo_uuid\"> (Demo)</span>\n"
-"                    <span class=\"text-muted mx-3\" invisible=\"peppol_move_state != 'to_send'\">\n"
-"                       Arve saadetakse automaatselt PEPPOL-i\n"
-"                    </span>"
 
 #. module: account_peppol
 #: model_terms:ir.ui.view,arch_db:account_peppol.res_config_settings_view_form
@@ -52,10 +48,6 @@ msgid ""
 "                                </span>\n"
 "                                <span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-specific.\"/>"
 msgstr ""
-"<span class=\"o_form_label\">\n"
-"                                    Peppol detailid\n"
-"                                </span>\n"
-"                                <span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-specific.\"/>"
 
 #. module: account_peppol
 #: model_terms:ir.ui.view,arch_db:account_peppol.res_config_settings_view_form
@@ -63,8 +55,6 @@ msgid ""
 "<span class=\"text-info\" invisible=\"not account_peppol_edi_mode == 'demo'\"> (Demo)</span>\n"
 "                                        <span class=\"text-info\" invisible=\"not account_peppol_edi_mode == 'test'\"> (Test)</span>"
 msgstr ""
-"<span class=\"text-info\" invisible=\"not account_peppol_edi_mode == 'demo'\"> (Demo)</span>\n"
-"                                        <span class=\"text-info\" invisible=\"not account_peppol_edi_mode == 'test'\"> (Test)</span>"
 
 #. module: account_peppol
 #: model_terms:ir.ui.view,arch_db:account_peppol.res_config_settings_view_form
@@ -136,7 +126,7 @@ msgstr "Taotluse staatus:"
 #: model_terms:ir.ui.view,arch_db:account_peppol.res_config_settings_view_form
 msgid ""
 "By clicking the button below I accept that Odoo may process my e-invoices."
-msgstr "Nuppu klõpsates nõustud, et Odoo võib töödelda e-arveid. "
+msgstr ""
 
 #. module: account_peppol
 #. odoo-python
@@ -152,7 +142,7 @@ msgstr ""
 #: code:addons/account_peppol/models/res_config_settings.py:0
 #, python-format
 msgid "Can't cancel registration with this status: %s"
-msgstr "Antud staatuses ei ole võimalik registreerimist tühistada: %s"
+msgstr ""
 
 #. module: account_peppol
 #. odoo-python
@@ -189,11 +179,6 @@ msgstr "Tühistatud"
 #: code:addons/account_peppol/models/account_move.py:0
 #, python-format
 msgid "Cannot cancel an entry that has already been sent to PEPPOL"
-msgstr "Ei saa tühistada kannet, mis on juba saadetud PEPPOL-i"
-
-#. module: account_peppol
-#: model:ir.model.fields.selection,name:account_peppol.selection__res_partner__account_peppol_verification_label__not_valid_format
-msgid "Cannot receive this format"
 msgstr ""
 
 #. module: account_peppol
@@ -201,7 +186,7 @@ msgstr ""
 #: code:addons/account_peppol/models/res_config_settings.py:0
 #, python-format
 msgid "Cannot register a user with a %s application"
-msgstr "Ei saa registreerida kasutajat %s taotlusega"
+msgstr ""
 
 #. module: account_peppol
 #: model:ir.model.fields,field_description:account_peppol.field_res_partner__account_peppol_validity_last_check
@@ -239,7 +224,7 @@ msgstr "Kinnitage"
 #: code:addons/account_peppol/models/res_config_settings.py:0
 #, python-format
 msgid "Connection error, please try again later."
-msgstr "Ühenduse viga, palun proovi hiljem uuesti. "
+msgstr ""
 
 #. module: account_peppol
 #: model:ir.model,name:account_peppol.model_res_partner
@@ -251,13 +236,13 @@ msgstr "Kontakt"
 #: code:addons/account_peppol/static/src/components/res_config_settings_buttons/res_config_settings_buttons.js:0
 #, python-format
 msgid "Contact details were updated."
-msgstr "Kontaktandmed on uuendatud. "
+msgstr ""
 
 #. module: account_peppol
 #. odoo-python
 #: code:addons/account_peppol/models/res_config_settings.py:0
 #, python-format
-msgid "Contact email and mobile number are required."
+msgid "Contact email and phone number are required."
 msgstr ""
 
 #. module: account_peppol
@@ -381,7 +366,7 @@ msgstr "Ei ole kontrollitud"
 #. module: account_peppol
 #: model:ir.model.fields.selection,name:account_peppol.selection__res_partner__account_peppol_verification_label__not_verified
 msgid "Not verified yet"
-msgstr "Veel kinnitamata"
+msgstr ""
 
 #. module: account_peppol
 #: model:ir.model.fields.selection,name:account_peppol.selection__account_edi_proxy_client_user__proxy_type__peppol
@@ -397,7 +382,7 @@ msgstr "PEPPOL Osaleja"
 #: model:ir.model.fields,field_description:account_peppol.field_res_company__peppol_purchase_journal_id
 #: model:ir.model.fields,field_description:account_peppol.field_res_config_settings__account_peppol_purchase_journal_id
 msgid "PEPPOL Purchase Journal"
-msgstr "PEPPOL ostuandmik"
+msgstr ""
 
 #. module: account_peppol
 #: model:ir.model.fields,field_description:account_peppol.field_res_partner__account_peppol_is_endpoint_valid
@@ -430,7 +415,7 @@ msgstr ""
 #. module: account_peppol
 #: model:ir.actions.server,name:account_peppol.ir_cron_peppol_get_message_status_ir_actions_server
 msgid "PEPPOL: update message status"
-msgstr "PEPPOL: uuenda sõnumi staatust"
+msgstr ""
 
 #. module: account_peppol
 #: model:ir.actions.server,name:account_peppol.ir_cron_peppol_get_participant_status_ir_actions_server
@@ -478,7 +463,7 @@ msgstr "Peppol Valmis"
 #: code:addons/account_peppol/models/account_journal.py:0
 #, python-format
 msgid "Peppol Ready invoices"
-msgstr "Peppol valmis arved"
+msgstr ""
 
 #. module: account_peppol
 #: model_terms:ir.ui.view,arch_db:account_peppol.res_partner_view_tree
@@ -517,7 +502,7 @@ msgstr ""
 #: code:addons/account_peppol/models/account_edi_proxy_user.py:0
 #, python-format
 msgid "Peppol error: %s"
-msgstr "Peppol viga: %s"
+msgstr ""
 
 #. module: account_peppol
 #: model_terms:ir.ui.view,arch_db:account_peppol.account_journal_dashboard_kanban_view
@@ -538,13 +523,13 @@ msgstr ""
 
 #. module: account_peppol
 #: model_terms:ir.ui.view,arch_db:account_peppol.res_config_settings_view_form
-msgid "Mobile Number"
-msgstr ""
+msgid "Phone Number"
+msgstr "Telefoninumber"
 
 #. module: account_peppol
 #: model:ir.model.fields,field_description:account_peppol.field_res_company__account_peppol_phone_number
 #: model:ir.model.fields,field_description:account_peppol.field_res_config_settings__account_peppol_phone_number
-msgid "Mobile number (for validation)"
+msgid "Phone number (for validation)"
 msgstr ""
 
 #. module: account_peppol
@@ -552,13 +537,13 @@ msgstr ""
 msgid ""
 "Please do not hesitate to contact our support if you need further "
 "assistance."
-msgstr "Kui vajad abi, palun kontakteeru meie kasutajatoega. "
+msgstr ""
 
 #. module: account_peppol
 #. odoo-python
 #: code:addons/account_peppol/models/res_config_settings.py:0
 #, python-format
-msgid "Please enter a mobile number to verify your application."
+msgid "Please enter a phone number to verify your application."
 msgstr ""
 
 #. module: account_peppol
@@ -567,17 +552,19 @@ msgstr ""
 #, python-format
 msgid "Please enter a primary contact email to verify your application."
 msgstr ""
-"Palun sisestage peamine e-maili kontaktaadress, et kinnitada taotlus. "
 
 #. module: account_peppol
 #. odoo-python
 #: code:addons/account_peppol/models/res_company.py:0
 #, python-format
 msgid ""
-"Please enter the mobile number in the correct international format.\n"
+"Please enter the phone number in the correct international format.\n"
 "For example: +32123456789, where +32 is the country code.\n"
 "Currently, only European countries are supported."
 msgstr ""
+"Please enter the phone number in the correct international format.\n"
+"For example: +32123456789, where +32 is the country code.\n"
+"Currently, only European countries are supported."
 
 #. module: account_peppol
 #. odoo-python
@@ -605,7 +592,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:account_peppol.field_res_config_settings__account_peppol_contact_email
 #: model_terms:ir.ui.view,arch_db:account_peppol.res_config_settings_view_form
 msgid "Primary contact email"
-msgstr "Peamine e-maili kontakt"
+msgstr ""
 
 #. module: account_peppol
 #: model:ir.model.fields,help:account_peppol.field_res_company__account_peppol_contact_email
@@ -631,7 +618,7 @@ msgstr "Valmis saatmiseks"
 #. module: account_peppol
 #: model:ir.model.fields,help:account_peppol.field_res_config_settings__is_account_peppol_participant
 msgid "Register as a PEPPOL user"
-msgstr "Registreeri kui PEPPOL-i kasutaja"
+msgstr ""
 
 #. module: account_peppol
 #: model:ir.model.fields.selection,name:account_peppol.selection__res_company__account_peppol_proxy_state__rejected
@@ -654,7 +641,7 @@ msgstr "Saada uuesti"
 #. module: account_peppol
 #: model:ir.model.fields,help:account_peppol.field_account_move_send__checkbox_send_peppol
 msgid "Send the invoice via PEPPOL"
-msgstr "Saada arve PEPPOL-i teel"
+msgstr ""
 
 #. module: account_peppol
 #: model:ir.model.fields,field_description:account_peppol.field_account_move_send__checkbox_send_peppol
@@ -672,8 +659,6 @@ msgid ""
 "Start sending and receiving documents via Peppol as soon as your "
 "registration is complete."
 msgstr ""
-"Alusta dokumentide saatmist ja saamist Peppoli teel nii pea kui "
-"registreerimine on lõpetatud. "
 
 #. module: account_peppol
 #. odoo-javascript
@@ -703,13 +688,6 @@ msgstr ""
 #: code:addons/account_peppol/models/res_company.py:0
 #, python-format
 msgid "The Peppol endpoint identification number is not correct."
-msgstr ""
-
-#. module: account_peppol
-#. odoo-python
-#: code:addons/account_peppol/models/res_config_settings.py:0
-#, python-format
-msgid "The Peppol service that is used is likely to be %s."
 msgstr ""
 
 #. module: account_peppol
@@ -771,7 +749,7 @@ msgstr ""
 #. module: account_peppol
 #: model_terms:ir.ui.view,arch_db:account_peppol.res_config_settings_view_form
 msgid "The rejection reason has been sent to you via email."
-msgstr "Tagasilükkamise põhjus on saadetud e-mailile."
+msgstr ""
 
 #. module: account_peppol
 #: model:ir.model.fields,help:account_peppol.field_res_config_settings__account_peppol_edi_identification
@@ -799,20 +777,6 @@ msgstr "Kinnituskood peab sisaldama kuute numbrit."
 #, python-format
 msgid "This verification code has expired. Please request a new one."
 msgstr "Kinnituskood on aegunud. Palun taotle uus. "
-
-#. module: account_peppol
-#: model_terms:ir.ui.view,arch_db:account_peppol.res_partner_form_account_peppol
-msgid ""
-"To generate complete electronic invoices, also set a country for this "
-"partner."
-msgstr ""
-
-#. module: account_peppol
-#: model_terms:ir.ui.view,arch_db:account_peppol.res_partner_form_account_peppol
-msgid ""
-"To generate electronic invoices, also set a country and a bank account for "
-"this partner."
-msgstr ""
 
 #. module: account_peppol
 #. odoo-python
@@ -899,8 +863,8 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/account_peppol/static/src/components/res_config_settings_buttons/res_config_settings_buttons.xml:0
 #, python-format
-msgid "Verify mobile number"
-msgstr ""
+msgid "Verify phone number"
+msgstr "Kinnita telefoninumber"
 
 #. module: account_peppol
 #: model:ir.model.fields,field_description:account_peppol.field_account_move_send__peppol_warning
@@ -925,7 +889,7 @@ msgstr ""
 #. module: account_peppol
 #: model:ir.model.fields,help:account_peppol.field_res_company__account_peppol_phone_number
 #: model:ir.model.fields,help:account_peppol.field_res_config_settings__account_peppol_phone_number
-msgid "You will receive a verification code to this mobile number"
+msgid "You will receive a verification code to this phone number"
 msgstr ""
 
 #. module: account_peppol
@@ -938,7 +902,7 @@ msgstr ""
 #: code:addons/account_peppol/models/res_config_settings.py:0
 #, python-format
 msgid "Your confirmation code is"
-msgstr "Sinu kinnituskood on"
+msgstr ""
 
 #. module: account_peppol
 #: model_terms:ir.ui.view,arch_db:account_peppol.res_config_settings_view_form
@@ -948,4 +912,4 @@ msgstr ""
 #. module: account_peppol
 #: model_terms:ir.ui.view,arch_db:account_peppol.res_config_settings_view_form
 msgid "Your registration should be activated within a day."
-msgstr "Registreerimine peaks olema aktiveeritud ühe päeva jooksul. "
+msgstr ""

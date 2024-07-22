@@ -49,7 +49,7 @@
                             class="btn btn-primary"
                             t-on-click="sendCode"
                             t-if="proxyState === 'not_verified'">
-                            Verify mobile number
+                            Verify phone number
                     </button>
                 </div>
                 <div class="mt-3">
