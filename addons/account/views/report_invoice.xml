@@ -259,9 +259,6 @@
                                 <div class="mb-3" t-if="o.move_type in ('out_invoice', 'in_refund') and o.payment_reference">
                                     <p name="payment_communication">
                                         Payment Communication: <span class="fw-bold" t-field="o.payment_reference">INV/2023/00001</span>
-                                        <t t-if="o.partner_bank_id">
-                                            <br/> on this account: <span t-field="o.partner_bank_id" class="fw-bold"/>
-                                        </t>
                                     </p>
                                 </div>
                                 <t t-set="show_qr" t-value="o.display_qr_code and o.amount_residual > 0"/>
@@ -346,13 +343,8 @@
             <t t-foreach="tax_totals['groups_by_subtotal'][subtotal_to_show]" t-as="amount_by_group">
                 <t t-set="display_tax_base" t-value="tax_totals['display_tax_base']"/>
                 <tr>
-                    <t t-if="tax_totals['display_tax_base']">
-                        <td>
-                            <span t-esc="amount_by_group['tax_group_name']"/>
-                            <span t-if="not amount_by_group['hide_base_amount']" class="text-nowrap"> on
-                                <t t-esc="amount_by_group['formatted_tax_group_base_amount']"/>
-                            </span>
-                        </td>
+                    <t t-if="not display_tax_base">
+                        <td><span class="text-nowrap" t-out="amount_by_group['tax_group_name']">Tax 15%</span></td>
                         <td class="text-end o_price_total">
                             <span class="text-nowrap" t-out="amount_by_group['formatted_tax_group_amount']">1.05</span>
                         </td>
@@ -360,7 +352,7 @@
                     <t t-else="">
                         <td>
                             <span t-out="amount_by_group['tax_group_name']">Tax 15%</span>
-                            <span> on </span>
+                             on 
                             <span class="text-nowrap" t-out="amount_by_group['formatted_tax_group_base_amount']">27.00</span>
                         </td>
                         <td class="text-end o_price_total">
@@ -396,7 +388,7 @@
                                 <t t-if="tax_totals['display_tax_base']">
                                     <td>
                                         <span t-out="amount_by_group['tax_group_name']">Tax 15%</span>
-                                        <span> on </span>
+                                         on 
                                         <span class="text-nowrap" t-out="amount_by_group['tax_group_base_amount_company_currency']"
                                                t-options='{"widget": "monetary", "display_currency": o.company_currency_id}'>
                                                27.00

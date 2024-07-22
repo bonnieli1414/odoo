@@ -122,12 +122,10 @@ class AccountMoveSend(models.TransientModel):
     def _get_default_mail_partner_ids(self, move, mail_template, mail_lang):
         partners = self.env['res.partner'].with_company(move.company_id)
         if mail_template.email_to:
-            email_to = self._get_mail_default_field_value_from_template(mail_template, mail_lang, move, 'email_to')
-            for mail_data in tools.email_split(email_to):
+            for mail_data in tools.email_split(mail_template.email_to):
                 partners |= partners.find_or_create(mail_data)
         if mail_template.email_cc:
-            email_cc = self._get_mail_default_field_value_from_template(mail_template, mail_lang, move, 'email_cc')
-            for mail_data in tools.email_split(email_cc):
+            for mail_data in tools.email_split(mail_template.email_cc):
                 partners |= partners.find_or_create(mail_data)
         if mail_template.partner_to:
             partner_to = self._get_mail_default_field_value_from_template(mail_template, mail_lang, move, 'partner_to')
@@ -309,7 +307,7 @@ class AccountMoveSend(models.TransientModel):
             if wizard.mode == 'invoice_single':
                 manual_attachments_data = [x for x in wizard.mail_attachments_widget or [] if x.get('manual')]
                 wizard.mail_attachments_widget = (
-                        wizard._get_default_mail_attachments_widget(wizard.move_ids, wizard.mail_template_id)
+                        self._get_default_mail_attachments_widget(wizard.move_ids, wizard.mail_template_id)
                         + manual_attachments_data
                 )
             else:
@@ -475,9 +473,6 @@ class AccountMoveSend(models.TransientModel):
             )
 
         # Prevent duplicated attachments linked to the invoice.
-        new_message.attachment_ids.invalidate_recordset(['res_id', 'res_model'], flush=False)
-        if new_message.attachment_ids.ids:
-            self.env.cr.execute("UPDATE ir_attachment SET res_id = NULL WHERE id IN %s", [tuple(new_message.attachment_ids.ids)])
         new_message.attachment_ids.write({
             'res_model': new_message._name,
             'res_id': new_message.id,

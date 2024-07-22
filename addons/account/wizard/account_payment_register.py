@@ -115,6 +115,9 @@ class AccountPaymentRegister(models.TransientModel):
         copy=False,
         domain="[('deprecated', '=', False)]",
         check_company=True,
+        compute='_compute_writeoff_account_id',
+        store=True,
+        readonly=False,
     )
     writeoff_label = fields.Char(string='Journal Item Label', default='Write-Off',
         help='Change label of the counterpart that will hold the payment difference')
@@ -498,7 +501,7 @@ class AccountPaymentRegister(models.TransientModel):
         moves = batch_result['lines'].mapped('move_id')
         for move in moves:
             if early_payment_discount and move._is_eligible_for_early_payment_discount(move.currency_id, self.payment_date):
-                amount -= move.direction_sign * move.invoice_payment_term_id._get_amount_due_after_discount(move.amount_total, move.amount_tax)
+                amount += move.invoice_payment_term_id._get_amount_due_after_discount(move.amount_total, move.amount_tax)#todo currencies
                 mode = 'early_payment'
             else:
                 for aml in batch_result['lines'].filtered(lambda l: l.move_id.id == move.id):
@@ -665,7 +668,7 @@ class AccountPaymentRegister(models.TransientModel):
             if len(lines.company_id.root_id) > 1:
                 raise UserError(_("You can't create payments for entries belonging to different companies."))
             if len(set(available_lines.mapped('account_type'))) > 1:
-                raise UserError(_("You can't register payments for both inbound and outbound moves at the same time."))
+                raise UserError(_("You can't register payments for journal items being either all inbound, either all outbound."))
 
             res['line_ids'] = [(6, 0, available_lines.ids)]
 
