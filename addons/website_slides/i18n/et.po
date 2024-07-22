@@ -21,9 +21,8 @@
 # Eneli Õigus <enelioigus@gmail.com>, 2023
 # Arma Gedonsky <armagedonsky@hot.ee>, 2023
 # Mihkel avalah, 2023
-# Triine Aavik <triine@avalah.ee>, 2024
-# Siim Raasuke, 2024
 # Anna, 2024
+# Triine Aavik <triine@avalah.ee>, 2024
 # 
 msgid ""
 msgstr ""
@@ -31,7 +30,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-05 12:31+0000\n"
 "PO-Revision-Date: 2023-10-26 23:10+0000\n"
-"Last-Translator: Anna, 2024\n"
+"Last-Translator: Triine Aavik <triine@avalah.ee>, 2024\n"
 "Language-Team: Estonian (https://app.transifex.com/odoo/teams/41243/et/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -330,7 +329,7 @@ msgstr ""
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.user_profile_content
 msgid "<i class=\"fa fa-arrow-right\"/> Start Learning"
-msgstr "<i class=\"fa fa-arrow-right\"/> Alusta õppimist"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_content_detailed
@@ -478,7 +477,7 @@ msgstr "<i class=\"fa fa-flag text-warning\"/> Viktoriin"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_fullscreen_sidebar_category
 msgid "<i class=\"fa fa-flag-checkered text-warning\"/>Quiz"
-msgstr "<i class=\"fa fa-flag-checkered text-warning\"/>Viktoriin"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.course_slides_list
@@ -710,8 +709,6 @@ msgid ""
 "<span class=\"d-none d-sm-inline-block\">Next</span> <i class=\"oi oi-"
 "chevron-right ms-2\"/>"
 msgstr ""
-"<span class=\"d-none d-sm-inline-block\">Järgmine</span> <i class=\"oi oi-"
-"chevron-right ms-2\"/>"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slides_home_user_profile_small
@@ -734,8 +731,6 @@ msgid ""
 "<span class=\"ms-1\">Lessons</span>\n"
 "                                <span class=\"ms-1\">·</span>"
 msgstr ""
-"<span class=\"ms-1\">Tunnid</span>\n"
-"                                <span class=\"ms-1\">·</span>"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.res_config_settings_view_form
@@ -743,8 +738,6 @@ msgid ""
 "<span class=\"o_form_label\">Slides</span>\n"
 "                    <span class=\"fa fa-lg fa-globe\" title=\"Values set here are website-specific.\" groups=\"website.group_multi_website\"/>"
 msgstr ""
-"<span class=\"o_form_label\">Slaidid</span>\n"
-"                    <span class=\"fa fa-lg fa-globe\" title=\"Values set here are website-specific.\" groups=\"website.group_multi_website\"/>"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.view_slide_channel_form
@@ -772,8 +765,6 @@ msgid ""
 "<span class=\"oi oi-arrow-right\"/>\n"
 "                                Create a Google Project and Get a Key"
 msgstr ""
-"<span class=\"oi oi-arrow-right\"/>\n"
-"                                Loo Google'i projekt ja hangi võti"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_aside_training
@@ -802,9 +793,6 @@ msgid ""
 "                        Additional Resources\n"
 "                    </span>"
 msgstr ""
-"<span class=\"text-muted fw-bold col-4 col-md-3\">\n"
-"                        Lisaressursid\n"
-"                    </span>"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_content_detailed
@@ -824,7 +812,7 @@ msgstr "<span class=\"text-muted\">Ühised ülesanded arvutiõpetajatele</span>"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_channel_view_kanban
 msgid "<span class=\"text-muted\">Invited</span>"
-msgstr "<span class=\"text-muted\">Kutsutud</span>"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_channel_view_kanban
@@ -839,7 +827,7 @@ msgstr "<span class=\"text-muted\">Arvutiteaduse osad</span>"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_channel_view_kanban
 msgid "<span class=\"text-muted\">Total</span>"
-msgstr "<span class=\"text-muted\">Kokku</span>"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.embed_slide
@@ -996,14 +984,6 @@ msgid ""
 msgstr ""
 "Heal kursusel peab olema struktuur. Lisa nimi sektsioonile ja klõpsa "
 "<b>Salvesta</b>."
-
-#. module: website_slides
-#. odoo-javascript
-#: code:addons/website_slides/static/src/js/tours/slides_tour.js:0
-#, python-format
-msgid ""
-"A good course has a structure. Pick a name for your first <b>Section</b>."
-msgstr ""
 
 #. module: website_slides
 #: model:slide.slide,name:website_slides.slide_slide_demo_1_4
@@ -1840,13 +1820,6 @@ msgid "Clear filters"
 msgstr "Eemalda filtrid"
 
 #. module: website_slides
-#. odoo-javascript
-#: code:addons/website_slides/static/src/js/tours/slides_tour.js:0
-#, python-format
-msgid "Click <b>Save</b> to create it."
-msgstr ""
-
-#. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.mail_notification_channel_invite
 msgid "Click here to get started"
 msgstr ""
@@ -1874,13 +1847,6 @@ msgstr ""
 #: code:addons/website_slides/static/src/js/tours/slides_tour.js:0
 #, python-format
 msgid "Click on the <b>Create</b> button to create your first course."
-msgstr ""
-
-#. module: website_slides
-#. odoo-javascript
-#: code:addons/website_slides/static/src/js/tours/slides_tour.js:0
-#, python-format
-msgid "Click on the <b>Save</b> button to create your first course."
 msgstr ""
 
 #. module: website_slides
@@ -4753,7 +4719,7 @@ msgstr "Edenemine"
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_main
 #, python-format
 msgid "Progress bar"
-msgstr "Edenemisriba"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__promoted_slide_id

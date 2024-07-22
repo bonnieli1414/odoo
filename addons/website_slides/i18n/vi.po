@@ -1079,15 +1079,6 @@ msgstr ""
 "<b>Lưu</b> để tạo. "
 
 #. module: website_slides
-#. odoo-javascript
-#: code:addons/website_slides/static/src/js/tours/slides_tour.js:0
-#, python-format
-msgid ""
-"A good course has a structure. Pick a name for your first <b>Section</b>."
-msgstr ""
-"Một khóa học hay phải có cấu trúc. Hãy chọn tên cho <b>Phần</b> đầu tiên."
-
-#. module: website_slides
 #: model:slide.slide,name:website_slides.slide_slide_demo_1_4
 msgid "A little chat with Harry Potted"
 msgstr "Trò chuyện một chút với Harry Potted"
@@ -1409,8 +1400,6 @@ msgid ""
 "All questions must have at least one correct answer and one incorrect answer: \n"
 "%s\n"
 msgstr ""
-"Tất cả câu hỏi phải có ít nhất một câu trả lời đúng và một câu trả lời sai:\n"
-"%s\n"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.user_profile_content
@@ -1930,13 +1919,6 @@ msgid "Clear filters"
 msgstr "Bỏ bộ lọc"
 
 #. module: website_slides
-#. odoo-javascript
-#: code:addons/website_slides/static/src/js/tours/slides_tour.js:0
-#, python-format
-msgid "Click <b>Save</b> to create it."
-msgstr "Bấm vào <em>Lưu</em> để tạo."
-
-#. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.mail_notification_channel_invite
 msgid "Click here to get started"
 msgstr "Nhấp vào đây để bắt đầu"
@@ -1967,13 +1949,6 @@ msgstr ""
 #, python-format
 msgid "Click on the <b>Create</b> button to create your first course."
 msgstr "Bấm vào nút <b>Tạo</b> để tạo khóa học đầu tiên của bạn."
-
-#. module: website_slides
-#. odoo-javascript
-#: code:addons/website_slides/static/src/js/tours/slides_tour.js:0
-#, python-format
-msgid "Click on the <b>Save</b> button to create your first course."
-msgstr "Bấm vào nút <b>Lưu</b> để tạo khóa học đầu tiên của bạn."
 
 #. module: website_slides
 #. odoo-javascript
@@ -3317,7 +3292,7 @@ msgstr "Mang đến cho khóa học của bạn một <b>Tiêu đề</b> hấp d
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.user_profile_content
 msgid "Go through all its content to see a Course in this section. <br/>"
-msgstr "Xem qua toàn bộ nội dung để thấy Khóa học trong phần này. <br/>"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_res_config_settings__website_slide_google_app_key
@@ -4692,7 +4667,7 @@ msgstr "Thao tác không được hỗ trợ"
 #: code:addons/website_slides/controllers/mail.py:0
 #, python-format
 msgid "Only a single review can be posted per course."
-msgstr "Chỉ được đăng một một nhận xét duy nhất cho mỗi khóa học."
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,help:website_slides.field_slide_channel_invite__lang
@@ -6179,7 +6154,6 @@ msgid ""
 "This question must have at least one correct answer and one incorrect "
 "answer."
 msgstr ""
-"Câu hỏi này phải có ít nhất một câu trả lời đúng và một câu trả lời sai."
 
 #. module: website_slides
 #. odoo-javascript
@@ -7132,7 +7106,7 @@ msgstr "một khoá học"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.achievement_card
 msgid "achieved"
-msgstr "đã đạt được"
+msgstr "lưu trữ"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.courses_all

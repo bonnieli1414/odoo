@@ -8,7 +8,6 @@
 # Wil Odoo, 2024
 # Martin Trigaux, 2024
 # MAHAMADASIF ANSARI, 2024
-# Damian Ratus, 2024
 # 
 msgid ""
 msgstr ""
@@ -16,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-26 12:42+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
-"Last-Translator: Damian Ratus, 2024\n"
+"Last-Translator: MAHAMADASIF ANSARI, 2024\n"
 "Language-Team: Polish (https://app.transifex.com/odoo/teams/41243/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21465,14 +21464,14 @@ msgstr "Zapisz"
 #: model_terms:ir.ui.view,arch_db:base.res_users_identitycheck_view_form_revokedevices
 #: model_terms:ir.ui.view,arch_db:base.view_users_form_simple_modif
 msgid "Log out from all devices"
-msgstr "Wylogowanie ze wszystkich urządzeń"
+msgstr ""
 
 #. module: base
 #. odoo-python
 #: code:addons/base/models/res_users.py:0
 #, python-format
 msgid "Log out from all devices?"
-msgstr "Wylogować się ze wszystkich urządzeń?"
+msgstr ""
 
 #. module: base
 #: model:ir.actions.act_window,name:base.ir_logging_all_act
@@ -32791,16 +32790,6 @@ msgid ""
 "- 'Send Webhook Notification': send a POST request to an external system, also known as a Webhook\n"
 "- 'Execute Existing Actions': define an action that triggers several other server actions\n"
 msgstr ""
-"Typ akcji serwera. Dostępne są następujące wartości:\n"
-"- „Update a Record”: aktualizacja wartości rekordu.\n"
-"- „Create Activity” (Utwórz aktywność): tworzenie aktywności (Omówienie)\n"
-"- „Send Email”: opublikuj wiadomość, notatkę lub wyślij e-mail (Omówienie)\n"
-"- „Send SMS”: wysyłanie wiadomości SMS, rejestrowanie ich w dokumentach (SMS)- „Add/Remove Followers”: dodawanie lub usuwanie obserwujących do rekordu (Omów)\n"
-"- „Create Record” (Utwórz rekord): tworzenie nowego rekordu z nowymi wartościami\n"
-"- „Execute Code”: blok kodu Python, który zostanie wykonany.\n"
-"- „Send Webhook Notification”: wysyłanie żądania POST do zewnętrznego systemu, znanego również jako Webhook.\n"
-"- „Execute Existing Actions”: definiuje akcję, która uruchamia kilka innych akcji serwera.\n"
-"\n"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_model_constraint__type
@@ -34316,7 +34305,7 @@ msgstr "Po co ten klucz?"
 #. module: base
 #: model:ir.module.category,name:base.module_category_whatsapp
 msgid "WhatsApp"
-msgstr "WhatsApp"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_test_whatsapp

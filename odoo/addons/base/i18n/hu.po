@@ -9,6 +9,7 @@
 # 5768b353f27900ae76ad88cc42dfd5b8_3bb349f, 2023
 # A . <tiboreu@protonmail.com>, 2023
 # Kovács Tibor <kovika@gmail.com>, 2023
+# Tamás Dombos, 2023
 # Csaba Tóth <i3rendszerhaz@gmail.com>, 2023
 # Martin Trigaux, 2023
 # Gergő Kertész <gergo.kertesz@maxflow.hu>, 2023
@@ -16,7 +17,6 @@
 # Daniel Gerstenbrand <daniel.gerstenbrand@gmail.com>, 2023
 # Tamás Németh <ntomasz81@gmail.com>, 2024
 # krnkris, 2024
-# Tamás Dombos, 2024
 # gezza <geza.nagy@oregional.hu>, 2024
 # 
 msgid ""
@@ -7127,12 +7127,12 @@ msgstr ""
 #: model:ir.module.module,description:base.module_l10n_tr
 msgid ""
 "\n"
-"Turkish charts of accounts\n"
-"========================================\n"
-"    * Defines the default chart of accounts\n"
-"    * Defines the default taxes\n"
-"    * Defines default tax report\n"
-"This was done in collaboration with Broadmax Partner in Turkey."
+"Türkiye için Tek düzen hesap planı şablonu Odoo Modülü.\n"
+"==========================================================\n"
+"\n"
+"Bu modül kurulduktan sonra, Muhasebe yapılandırma sihirbazı çalışır\n"
+"    * Sihirbaz sizden hesap planı şablonu, planın kurulacağı şirket, banka hesap\n"
+"      bilgileriniz, ilgili para birimi gibi bilgiler isteyecek.\n"
 msgstr ""
 
 #. module: base
@@ -13113,7 +13113,7 @@ msgstr "Állam/megye"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_loyalty
 msgid "Coupons & Loyalty"
-msgstr "Kuponok és hűség"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_sale_loyalty
@@ -16575,11 +16575,6 @@ msgid "France - Accounting Reports"
 msgstr "Francia könyvelési kimutatások"
 
 #. module: base
-#: model:ir.module.module,shortdesc:base.module_l10n_fr_invoice_addr
-msgid "France - Adding Mandatory Invoice Mentions (Decree no. 2022-1299)"
-msgstr ""
-
-#. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_fr_fec
 msgid "France - FEC Export"
 msgstr ""
@@ -19910,14 +19905,14 @@ msgstr "Napló"
 #: model_terms:ir.ui.view,arch_db:base.res_users_identitycheck_view_form_revokedevices
 #: model_terms:ir.ui.view,arch_db:base.view_users_form_simple_modif
 msgid "Log out from all devices"
-msgstr "Kijelentkezés az összes eszközről"
+msgstr ""
 
 #. module: base
 #. odoo-python
 #: code:addons/base/models/res_users.py:0
 #, python-format
 msgid "Log out from all devices?"
-msgstr "Kijelentkezés az összes eszközről?"
+msgstr ""
 
 #. module: base
 #: model:ir.actions.act_window,name:base.ir_logging_all_act
@@ -25610,7 +25605,7 @@ msgstr "Ajánlások"
 #: model:ir.model.fields,field_description:base.field_res_partner__parent_id
 #: model:ir.model.fields,field_description:base.field_res_users__parent_id
 msgid "Related Company"
-msgstr "Kapcsolódó vállalat"
+msgstr "Kapcsolódó cég"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model_fields__related
@@ -32548,15 +32543,6 @@ msgstr ""
 #: code:addons/base/models/ir_config_parameter.py:0
 #, python-format
 msgid "You cannot delete the %s record."
-msgstr ""
-
-#. module: base
-#. odoo-python
-#: code:addons/base/models/res_users.py:0
-#, python-format
-msgid ""
-"You cannot delete the admin user because it is utilized in various places "
-"(such as security configurations,...). Instead, archive it."
 msgstr ""
 
 #. module: base

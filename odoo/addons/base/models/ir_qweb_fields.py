@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import base64
-import binascii
 from datetime import time
 import logging
 import re
@@ -16,7 +15,6 @@ from odoo import api, fields, models, _, _lt, tools
 from odoo.tools import posix_to_ldml, float_utils, format_date, format_duration, pycompat
 from odoo.tools.mail import safe_attrs
 from odoo.tools.misc import get_lang, babel_locale_parse
-from odoo.tools.mimetypes import guess_mimetype
 
 _logger = logging.getLogger(__name__)
 
@@ -392,21 +390,13 @@ class ImageConverter(models.AbstractModel):
 
     @api.model
     def _get_src_data_b64(self, value, options):
-        try:
-            img_b64 = base64.b64decode(value)
-        except binascii.Error:
-            raise ValueError("Invalid image content") from None
-
-        if img_b64 and guess_mimetype(img_b64, '') == 'image/webp':
-            return self.env["ir.qweb"]._get_converted_image_data_uri(value)
-
-        try:
-            image = Image.open(BytesIO(img_b64))
+        try: # FIXME: maaaaaybe it could also take raw bytes?
+            image = Image.open(BytesIO(base64.b64decode(value)))
             image.verify()
         except IOError:
-            raise ValueError("Non-image binary fields can not be converted to HTML") from None
+            raise ValueError("Non-image binary fields can not be converted to HTML")
         except: # image.verify() throws "suitable exceptions", I have no idea what they are
-            raise ValueError("Invalid image content") from None
+            raise ValueError("Invalid image content")
 
         return "data:%s;base64,%s" % (Image.MIME[image.format], value.decode('ascii'))
 

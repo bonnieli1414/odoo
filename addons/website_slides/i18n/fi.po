@@ -26,12 +26,12 @@
 # Miku Laitinen <miku.laitinen@gmail.com>, 2023
 # Veikko Väätäjä <veikko.vaataja@gmail.com>, 2023
 # Kari Lindgren <kari.lindgren@emsystems.fi>, 2023
+# Jarmo Kortetjärvi <jarmo.kortetjarvi@gmail.com>, 2023
 # Miika Nissi <miika.nissi@tawasta.fi>, 2023
 # Pekko Tuomisto <pekko.tuomisto@web-veistamo.fi>, 2023
 # Martin Trigaux, 2023
+# Ossi Mantylahti <ossi.mantylahti@obs-solutions.fi>, 2023
 # Tuomo Aura <tuomo.aura@web-veistamo.fi>, 2024
-# Jarmo Kortetjärvi <jarmo.kortetjarvi@gmail.com>, 2024
-# Ossi Mantylahti <ossi.mantylahti@obs-solutions.fi>, 2024
 # 
 msgid ""
 msgstr ""
@@ -39,7 +39,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-05 12:31+0000\n"
 "PO-Revision-Date: 2023-10-26 23:10+0000\n"
-"Last-Translator: Ossi Mantylahti <ossi.mantylahti@obs-solutions.fi>, 2024\n"
+"Last-Translator: Tuomo Aura <tuomo.aura@web-veistamo.fi>, 2024\n"
 "Language-Team: Finnish (https://app.transifex.com/odoo/teams/41243/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,7 +50,7 @@ msgstr ""
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__members_engaged_count
 msgid "# Active Attendees"
-msgstr "# Aktiiviset osallistujat"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_channel_view_tree_report
@@ -65,27 +65,27 @@ msgstr "# Valmis"
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__members_completed_count
 msgid "# Completed Attendees"
-msgstr "# Valmistuneet osallistujat"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel_partner__completed_slides_count
 msgid "# Completed Contents"
-msgstr "# Valmistunut sisältö"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__members_count
 msgid "# Enrolled Attendees"
-msgstr "# Ilmoittautuneet osallistujat"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__members_all_count
 msgid "# Enrolled or Invited Attendees"
-msgstr "# Ilmoittautuneet tai kutsutut osallistujat"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__members_invited_count
 msgid "# Invited Attendees"
-msgstr "# Kutsutut osallistujat"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_slide_partner_view_tree
@@ -137,7 +137,7 @@ msgstr "# verkkosivun katselukertoja"
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel_partner__completion
 msgid "% Completed Contents"
-msgstr "% Valmistunut sisältö"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.mail_notification_channel_invite
@@ -220,13 +220,6 @@ msgid ""
 "</div>\n"
 "            "
 msgstr ""
-"<div style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
-"    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
-"        Hei<br><br>\n"
-"        Sinut on kirjattu uudelle kurssille: <t t-out=\"object.channel_id.name or ''\">Puutarhanhoidon perusteet</t>.\n"
-"    </p>\n"
-"</div>\n"
-"            "
 
 #. module: website_slides
 #: model:mail.template,body_html:website_slides.mail_template_slide_channel_invite
@@ -239,13 +232,6 @@ msgid ""
 "</div>\n"
 "            "
 msgstr ""
-"<div style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
-"    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
-"        Hei<br><br>\n"
-"        Sinut on kutsuttu tutustumaan tähän kurssiin: <t t-out=\"object.channel_id.name or ''\">Puutarhanhoidon perusteet</t>.\n"
-"    </p>\n"
-"</div>\n"
-"            "
 
 #. module: website_slides
 #: model:mail.template,body_html:website_slides.mail_template_channel_completed
@@ -434,7 +420,7 @@ msgstr ""
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.user_profile_content
 msgid "<i class=\"fa fa-arrow-right\"/> Start Learning"
-msgstr "<i class=\"fa fa-arrow-right\"/> Aloita oppiminen"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_content_detailed
@@ -582,7 +568,7 @@ msgstr "<i class=\"fa fa-flag text-warning\"/> Koe"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_fullscreen_sidebar_category
 msgid "<i class=\"fa fa-flag-checkered text-warning\"/>Quiz"
-msgstr "<i class=\"fa fa-flag-checkered text-warning\"/>Tietokilpailu"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.course_slides_list
@@ -629,8 +615,6 @@ msgid ""
 "<i class=\"fa fa-lock\"/>\n"
 "                        <span>Course Locked</span>"
 msgstr ""
-"<i class=\"fa fa-lock\"/>\n"
-"                        <span>Kurssi lukittu</span>"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.course_slides_list
@@ -726,7 +710,7 @@ msgstr ""
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.user_profile_content
 msgid "<i class=\"oi oi-arrow-right me-1\"/>All Courses"
-msgstr "<i class=\"oi oi-arrow-right me-1\"/>Kaikki kurssit"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_content_detailed
@@ -734,8 +718,6 @@ msgid ""
 "<i class=\"oi oi-chevron-left me-2\"/> <span class=\"d-none d-sm-inline-"
 "block\">Prev</span>"
 msgstr ""
-"<i class=\"oi oi-chevron-left me-2\"/> <span class=\"d-none d-sm-inline-"
-"block\">Edellinen</span>"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.course_join
@@ -818,8 +800,6 @@ msgid ""
 "<span class=\"d-none d-sm-inline-block\">Next</span> <i class=\"oi oi-"
 "chevron-right ms-2\"/>"
 msgstr ""
-"<span class=\"d-none d-sm-inline-block\">Seuraava</span> <i class=\"oi oi-"
-"chevron-right ms-2\"/>"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slides_home_user_profile_small
@@ -842,8 +822,6 @@ msgid ""
 "<span class=\"ms-1\">Lessons</span>\n"
 "                                <span class=\"ms-1\">·</span>"
 msgstr ""
-"<span class=\"ms-1\">Oppitunnit</span>\n"
-"                                <span class=\"ms-1\">-</span>"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.res_config_settings_view_form
@@ -851,13 +829,11 @@ msgid ""
 "<span class=\"o_form_label\">Slides</span>\n"
 "                    <span class=\"fa fa-lg fa-globe\" title=\"Values set here are website-specific.\" groups=\"website.group_multi_website\"/>"
 msgstr ""
-"<span class=\"o_form_label\">Dioja</span>\n"
-"                    <span class=\"fa fa-lg fa-globe\" title=\"Values set here are website-specific.\" groups=\"website.group_multi_website\"/>"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.view_slide_channel_form
 msgid "<span class=\"o_stat_text\">Attendees</span>"
-msgstr "<span class=\"o_stat_text\">Osallistujat</span>"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.res_partner_view_form
@@ -880,8 +856,6 @@ msgid ""
 "<span class=\"oi oi-arrow-right\"/>\n"
 "                                Create a Google Project and Get a Key"
 msgstr ""
-"<span class=\"oi oi-arrow-right\"/>\n"
-"                                Luo Google-projekti ja hanki avain"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_aside_training
@@ -901,7 +875,7 @@ msgstr "<span class=\"text-bg-danger\">Arkistoitu</span>"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_channel_view_kanban
 msgid "<span class=\"text-bg-success\">Published</span>"
-msgstr "<span class=\"text-bg-success\">Julkaistu</span>"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_content_detailed
@@ -910,14 +884,11 @@ msgid ""
 "                        Additional Resources\n"
 "                    </span>"
 msgstr ""
-"<span class=\"text-muted fw-bold col-4 col-md-3\">\n"
-"                        Lisäresurssit\n"
-"                    </span>"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_content_detailed
 msgid "<span class=\"text-muted fw-bold col-4 col-md-3\">External sources</span>"
-msgstr "<span class=\"text-muted fw-bold col-4 col-md-3\">Ulkoiset lähteet</span>"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_content_detailed
@@ -933,12 +904,12 @@ msgstr ""
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_channel_view_kanban
 msgid "<span class=\"text-muted\">Invited</span>"
-msgstr "<span class=\"text-muted\">Kutsuttu</span>"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_channel_view_kanban
 msgid "<span class=\"text-muted\">Ongoing</span>"
-msgstr "<span class=\"text-muted\">Jatkuva</span>"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.course_slides_list_sample
@@ -948,7 +919,7 @@ msgstr "<span class=\"text-muted\">Tietojenkäsittelytieteen osat</span>"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_channel_view_kanban
 msgid "<span class=\"text-muted\">Total</span>"
-msgstr "<span class=\"text-muted\">Yhteensä</span>"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.embed_slide
@@ -1004,8 +975,6 @@ msgid ""
 "<span name=\"members_completed_count_label\" "
 "class=\"o_stat_text\">Finished</span>"
 msgstr ""
-"<span name=\"members_completed_count_label\" "
-"class=\"o_stat_text\">Valmis</span>"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.view_slide_slide_form
@@ -1036,7 +1005,7 @@ msgstr "<span>Oikeiden kysymysten kysyminen</span>"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_content_detailed
 msgid "<span>Content only accessible to course attendees.</span>"
-msgstr "<span>Sisältö vain kurssilaisille.</span>"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.course_slides_list_sample
@@ -1105,15 +1074,6 @@ msgid ""
 msgstr ""
 "Hyvällä kurssilla on rakenne. Valitse ensimmäiselle osiolle nimi ja luo se "
 "klikkaamalla <b>Tallenna</b>."
-
-#. module: website_slides
-#. odoo-javascript
-#: code:addons/website_slides/static/src/js/tours/slides_tour.js:0
-#, python-format
-msgid ""
-"A good course has a structure. Pick a name for your first <b>Section</b>."
-msgstr ""
-"Hyvällä kurssilla on rakenne. Valitse nimi ensimmäiselle <b>jaksolle</b>."
 
 #. module: website_slides
 #: model:slide.slide,name:website_slides.slide_slide_demo_1_4
@@ -1268,8 +1228,6 @@ msgstr "Aktiivinen"
 #: model:ir.model.fields,help:website_slides.field_slide_channel__members_engaged_count
 msgid "Active attendees include both 'joined' and 'ongoing' attendees."
 msgstr ""
-"Aktiiviset osallistujat sisältävät sekä \"liittyneet\" että \"jatkuvat\" "
-"osallistujat."
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__activity_ids
@@ -1302,7 +1260,7 @@ msgstr "Lisää"
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_channel_view_kanban
 #: model_terms:ir.ui.view,arch_db:website_slides.view_slide_channel_form
 msgid "Add Attendees"
-msgstr "Lisää osallistujia"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__karma_slide_comment
@@ -1369,12 +1327,12 @@ msgstr "Lisää kommentti tähän vastaukseen"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_channel_invite_view_form
 msgid "Add contacts..."
-msgstr "Lisää yhteystietoja..."
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.course_slides_list_slide
 msgid "Add quiz"
-msgstr "Lisää tietokilpailu"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_content_detailed
@@ -1410,7 +1368,7 @@ msgstr "Edistyneet"
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__channel_partner_all_ids
 msgid "All Attendees Information"
-msgstr "Kaikkien osallistujien tiedot"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.actions.act_window,name:website_slides.slide_channel_action_overview
@@ -1424,14 +1382,13 @@ msgstr "Kaikki kurssit"
 #, python-format
 msgid "All progress will be lost until you rejoin this course."
 msgstr ""
-"Kaikki edistyminen menetetään, kunnes liityt uudelleen tälle kurssille."
 
 #. module: website_slides
 #. odoo-javascript
 #: code:addons/website_slides/static/src/js/slides_course_quiz.js:0
 #, python-format
 msgid "All questions must be answered!"
-msgstr "Kaikkiin kysymyksiin on vastattava!"
+msgstr ""
 
 #. module: website_slides
 #. odoo-python
@@ -1441,13 +1398,11 @@ msgid ""
 "All questions must have at least one correct answer and one incorrect answer: \n"
 "%s\n"
 msgstr ""
-"Kaikissa kysymyksissä on oltava vähintään yksi oikea ja yksi väärä vastaus:\n"
-"%s\n"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.user_profile_content
 msgid "All the courses you attend will appear here. <br/>"
-msgstr "Kaikki osallistumisesi kurssit näkyvät täällä. <br/>"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:slide.channel,description:website_slides.slide_channel_demo_5_furn2
@@ -1579,7 +1534,7 @@ msgstr "Arkistoitu"
 #: code:addons/website_slides/static/src/xml/slide_management.xml:0
 #, python-format
 msgid "Are you sure you want to archive this content?"
-msgstr "Haluatko varmasti arkistoida tämän sisällön?"
+msgstr ""
 
 #. module: website_slides
 #. odoo-javascript
@@ -1587,14 +1542,14 @@ msgstr "Haluatko varmasti arkistoida tämän sisällön?"
 #: code:addons/website_slides/static/src/xml/slide_management.xml:0
 #, python-format
 msgid "Are you sure you want to delete this category?"
-msgstr "Haluatko varmasti poistaa tämän kategorian?"
+msgstr ""
 
 #. module: website_slides
 #. odoo-javascript
 #: code:addons/website_slides/static/src/xml/slide_quiz_create.xml:0
 #, python-format
 msgid "Are you sure you want to delete this question:"
-msgstr "Haluatko varmasti poistaa tämän kysymyksen:"
+msgstr ""
 
 #. module: website_slides
 #. odoo-javascript
@@ -1682,7 +1637,7 @@ msgstr "Keskimääräinen arvio"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_content_detailed
 msgid "BUILDING BLOCKS DROPPED HERE WILL BE SHOWN ACROSS ALL LESSONS"
-msgstr "TÄHÄN PUDOTETTUJA LOHKOJA NÄYTETÄÄN KAIKILLA OPPITUNNEILLA"
+msgstr ""
 
 #. module: website_slides
 #. odoo-javascript
@@ -1697,7 +1652,7 @@ msgstr "Takaisin"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_fullscreen
 msgid "Back to course"
-msgstr "Takaisin kurssille"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__website_default_background_image_url
@@ -1954,7 +1909,7 @@ msgstr "Valitse kuva"
 #. module: website_slides
 #: model:slide.channel,name:website_slides.slide_channel_demo_3_furn0
 msgid "Choose your wood!"
-msgstr "Valitse puulajisi!"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.courses_all
@@ -1962,16 +1917,9 @@ msgid "Clear filters"
 msgstr "Nollaa suotimet"
 
 #. module: website_slides
-#. odoo-javascript
-#: code:addons/website_slides/static/src/js/tours/slides_tour.js:0
-#, python-format
-msgid "Click <b>Save</b> to create it."
-msgstr "Luo se napsauttamalla <b>Tallenna</b>."
-
-#. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.mail_notification_channel_invite
 msgid "Click here to get started"
-msgstr "Klikkaa tästä päästäksesi alkuun"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.mail_notification_channel_invite
@@ -1999,13 +1947,6 @@ msgstr ""
 #, python-format
 msgid "Click on the <b>Create</b> button to create your first course."
 msgstr "Klikkaa <b>Luo</b> nappia luodaksesi ensimmäisen kurssisi."
-
-#. module: website_slides
-#. odoo-javascript
-#: code:addons/website_slides/static/src/js/tours/slides_tour.js:0
-#, python-format
-msgid "Click on the <b>Save</b> button to create your first course."
-msgstr "Luo ensimmäinen kurssi napsauttamalla <b>Tallenna-painiketta</b>."
 
 #. module: website_slides
 #. odoo-javascript
@@ -2336,27 +2277,27 @@ msgstr "Kopioi linkki"
 #: model:slide.answer,comment:website_slides.slide_slide_demo_2_0_question_0_1
 #: model:slide.answer,comment:website_slides.slide_slide_demo_2_0_question_1_1
 msgid "Correct!"
-msgstr "Oikein!"
+msgstr ""
 
 #. module: website_slides
 #: model:slide.answer,comment:website_slides.slide_slide_demo_0_4_question_1_0
 msgid "Correct! A shovel is the perfect tool to dig a hole."
-msgstr "Oikein! Lapio on täydellinen työkalu kuopan kaivamiseen."
+msgstr ""
 
 #. module: website_slides
 #: model:slide.answer,comment:website_slides.slide_slide_demo_0_4_question_0_0
 msgid "Correct! A strawberry is a fruit because it's the product of a tree."
-msgstr "Oikein! Mansikka on hedelmä, koska se on puun tuote."
+msgstr ""
 
 #. module: website_slides
 #: model:slide.answer,comment:website_slides.slide_slide_demo_1_4_question_1_0
 msgid "Correct! Congratulations you have time to loose"
-msgstr "Oikein! Onneksi olkoon, sinulla on aikaa hukattavaksi"
+msgstr ""
 
 #. module: website_slides
 #: model:slide.answer,comment:website_slides.slide_slide_demo_5_3_question_0_0
 msgid "Correct! You did it!"
-msgstr "Oikein! Teit sen!"
+msgstr ""
 
 #. module: website_slides
 #. odoo-python
@@ -2387,7 +2328,7 @@ msgstr "Kurssi"
 #. module: website_slides
 #: model:ir.model.fields.selection,name:website_slides.selection__slide_channel__visibility__members
 msgid "Course Attendees"
-msgstr "Kurssin osallistujat"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_res_partner__slide_channel_count
@@ -2400,7 +2341,7 @@ msgstr "Kurssimäärä"
 #: code:addons/website_slides/models/slide_channel.py:0
 #, python-format
 msgid "Course Finished"
-msgstr "Kurssi valmis"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_channel_tag_group_view_form
@@ -2416,12 +2357,12 @@ msgstr "Kurssin ryhmät"
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel_invite__channel_invite_url
 msgid "Course Link"
-msgstr "Kurssin linkki"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_channel_partner_view_search
 msgid "Course Member"
-msgstr "Kurssin osanottaja"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_channel_partner_view_tree
@@ -2438,21 +2379,21 @@ msgstr "Kurssin sivut"
 #: code:addons/website_slides/models/gamification_karma_tracking.py:0
 #, python-format
 msgid "Course Quiz"
-msgstr "Kurssin tietokilpailu"
+msgstr ""
 
 #. module: website_slides
 #. odoo-python
 #: code:addons/website_slides/controllers/mail.py:0
 #, python-format
 msgid "Course Ranked"
-msgstr "Kurssin paremmuusjärjestys"
+msgstr ""
 
 #. module: website_slides
 #. odoo-python
 #: code:addons/website_slides/models/slide_channel.py:0
 #, python-format
 msgid "Course Set Uncompleted"
-msgstr "Kurssikokonaisuus on keskeneräinen"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_channel_tag_view_form
@@ -2546,7 +2487,7 @@ msgstr "Kurssien sivu"
 #. module: website_slides
 #: model:ir.model.fields,help:website_slides.field_slide_channel__prerequisite_of_channel_ids
 msgid "Courses that have this course as prerequisite."
-msgstr "Kurssit, joiden edellytyksenä on tämä kurssi."
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__cover_properties
@@ -2719,7 +2660,7 @@ msgstr "Yksityiskohtainen kuvaus"
 #. module: website_slides
 #: model:slide.question,question:website_slides.slide_slide_demo_1_4_question_1
 msgid "Did you read the whole article?"
-msgstr "Luitko koko artikkelin?"
+msgstr ""
 
 #. module: website_slides
 #. odoo-javascript
@@ -2774,12 +2715,12 @@ msgstr "Näyttönimi"
 #. module: website_slides
 #: model:slide.question,question:website_slides.slide_slide_demo_2_0_question_0
 msgid "Do you make beams out of lemon trees?"
-msgstr "Tehdäänkö sitruunapuista palkkeja?"
+msgstr ""
 
 #. module: website_slides
 #: model:slide.question,question:website_slides.slide_slide_demo_2_0_question_1
 msgid "Do you make lemons out of beams?"
-msgstr "Teetkö sinä palkeista sitruunoita?"
+msgstr ""
 
 #. module: website_slides
 #. odoo-javascript
@@ -2791,7 +2732,7 @@ msgstr "Haluatko varmasti poistua kurssilta?"
 #. module: website_slides
 #: model:slide.question,question:website_slides.slide_slide_demo_1_4_question_0
 msgid "Do you think Harry Potted has a good name?"
-msgstr "Onko Harry Potted mielestäsi hyvä nimi?"
+msgstr ""
 
 #. module: website_slides
 #. odoo-javascript
@@ -2803,14 +2744,14 @@ msgstr "Haluatko asentaa \"%s\" sovelluksen?"
 #. module: website_slides
 #: model:slide.question,question:website_slides.slide_slide_demo_5_3_question_0
 msgid "Do you want to reply correctly?"
-msgstr "Haluatko vastata oikein?"
+msgstr ""
 
 #. module: website_slides
 #. odoo-javascript
 #: code:addons/website_slides/static/src/js/slides_course_enroll_email.js:0
 #, python-format
 msgid "Do you want to request access to this course?"
-msgstr "Haluatko pyytää pääsyä tälle kurssille?"
+msgstr ""
 
 #. module: website_slides
 #. odoo-javascript
@@ -2862,7 +2803,7 @@ msgstr "Koiraystävällinen"
 #: code:addons/website_slides/static/src/xml/slide_quiz.xml:0
 #, python-format
 msgid "Don't have an account?"
-msgstr "Eikö sinulla ole tiliä?"
+msgstr "Rekisteröidy käyttäjäksi"
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__completed
@@ -2895,7 +2836,7 @@ msgstr "Lataa sisältö"
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_slide_resource__download_url
 msgid "Download URL"
-msgstr "Lataa URL-osoite"
+msgstr ""
 
 #. module: website_slides
 #: model:slide.slide,name:website_slides.slide_slide_demo_4_10
@@ -2934,7 +2875,7 @@ msgstr "Muokkaa hallinnassa"
 #. module: website_slides
 #: model:mail.template,name:website_slides.mail_template_slide_channel_enroll
 msgid "Elearning: Add Attendees to Course"
-msgstr "Verkko-oppiminen: Osallistujien lisääminen kurssille"
+msgstr ""
 
 #. module: website_slides
 #: model:mail.template,name:website_slides.mail_template_channel_completed
@@ -2954,7 +2895,7 @@ msgstr "Verkko-oppiminen: Kurssin uuden sisällön ilmoitus"
 #. module: website_slides
 #: model:mail.template,name:website_slides.mail_template_slide_channel_invite
 msgid "Elearning: Promotional Course Invitation"
-msgstr "Verkko-oppiminen: Kutsu kampanjakurssille"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel_partner__partner_email
@@ -2995,7 +2936,7 @@ msgstr "Upota näkymät"
 #: code:addons/website_slides/models/slide_slide.py:0
 #, python-format
 msgid "Embed code"
-msgstr "Upotuskoodi"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_social_embed
@@ -3022,14 +2963,14 @@ msgstr "Energiatehokkuusfaktoja"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.mail_notification_channel_invite
 msgid "Enjoy this exclusive content!"
-msgstr "Nauti tästä ainutlaatuisesta sisällöstä!"
+msgstr ""
 
 #. module: website_slides
 #. odoo-python
 #: code:addons/website_slides/models/slide_channel.py:0
 #, python-format
 msgid "Enroll Attendees to %(course_name)s"
-msgstr "Rekisteröi osallistujat osoitteeseen %(course_name)s"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__enroll_msg
@@ -3045,17 +2986,17 @@ msgstr "Ilmoittautumiskäytäntö"
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel_invite__enroll_mode
 msgid "Enroll partners"
-msgstr "Rekisteröi partnerit"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__channel_partner_ids
 msgid "Enrolled Attendees Information"
-msgstr "Ilmoittautuneiden osallistujien tiedot"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,help:website_slides.field_slide_channel__partner_ids
 msgid "Enrolled partners in the course"
-msgstr "Kurssille ilmoittautuneet partnerit"
+msgstr ""
 
 #. module: website_slides
 #. odoo-javascript
@@ -3074,7 +3015,7 @@ msgstr "Kirjoita <b>kysymyksesi</b>. Ole selkeä ja ytimekäs."
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_question__answers_validation_error
 msgid "Error on Answers"
-msgstr "Virhe vastauksissa"
+msgstr ""
 
 #. module: website_slides
 #. odoo-javascript
@@ -3101,7 +3042,7 @@ msgstr "Harjoitukset"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_fullscreen
 msgid "Exit Fullscreen"
-msgstr "Poistu kokoruututilasta"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_slide__embed_code_external
@@ -3348,7 +3289,7 @@ msgstr "Anna kurssillesi kiinnostava <b>otsikko</b>."
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.user_profile_content
 msgid "Go through all its content to see a Course in this section. <br/>"
-msgstr "Käy läpi kaikki sen sisältö nähdäksesi kurssin tässä osiossa. <br/>"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_res_config_settings__website_slide_google_app_key
@@ -3426,12 +3367,12 @@ msgstr "HTML sisältö"
 #. module: website_slides
 #: model:slide.slide,name:website_slides.slide_category_demo_5_1
 msgid "Hand on!"
-msgstr "Konkreettisesti!"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__prerequisite_user_has_completed
 msgid "Has Completed Prerequisite"
-msgstr "On suorittanut edellytyksen"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_channel_tag_group_view_search
@@ -3514,7 +3455,7 @@ msgstr "Kuinka ladata PowerPoint -esitykset tai Word -asiakirjat?"
 #: code:addons/website_slides/static/src/xml/website_slides_upload.xml:0
 #, python-format
 msgid "How to upload your videos?"
-msgstr "Miten ladata videoita?"
+msgstr ""
 
 #. module: website_slides
 #. odoo-javascript
@@ -3686,42 +3627,42 @@ msgstr ""
 #: model:slide.answer,comment:website_slides.slide_slide_demo_2_0_question_0_0
 #: model:slide.answer,comment:website_slides.slide_slide_demo_2_0_question_1_0
 msgid "Incorrect!"
-msgstr "Väärin!"
+msgstr ""
 
 #. module: website_slides
 #: model:slide.answer,comment:website_slides.slide_slide_demo_0_4_question_0_1
 msgid "Incorrect! A strawberry is not a vegetable."
-msgstr "Väärin! Mansikka ei ole vihannes."
+msgstr ""
 
 #. module: website_slides
 #: model:slide.answer,comment:website_slides.slide_slide_demo_0_4_question_0_2
 msgid "Incorrect! A table is a piece of furniture."
-msgstr "Väärin! Pöytä on huonekalu."
+msgstr ""
 
 #. module: website_slides
 #: model:slide.answer,comment:website_slides.slide_slide_demo_0_4_question_1_1
 msgid "Incorrect! Good luck digging a hole with a spoon..."
-msgstr "Väärin! Onnea kuopan kaivamiseen lusikalla..."
+msgstr ""
 
 #. module: website_slides
 #: model:slide.answer,comment:website_slides.slide_slide_demo_1_4_question_1_2
 msgid "Incorrect! Seriously?"
-msgstr "Väärin! Oletko vakavissasi?"
+msgstr ""
 
 #. module: website_slides
 #: model:slide.answer,comment:website_slides.slide_slide_demo_5_3_question_0_1
 msgid "Incorrect! You better think twice..."
-msgstr "Väärin! Sinun on parasta harkita kahdesti..."
+msgstr ""
 
 #. module: website_slides
 #: model:slide.answer,comment:website_slides.slide_slide_demo_1_4_question_1_1
 msgid "Incorrect! You really should read it."
-msgstr "Väärin! Sinun pitäisi todella lukea se."
+msgstr ""
 
 #. module: website_slides
 #: model:slide.answer,comment:website_slides.slide_slide_demo_2_0_question_1_2
 msgid "Incorrect! of course not ..."
-msgstr "Väärin! ei tietenkään ..."
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__nbr_infographic
@@ -3762,7 +3703,7 @@ msgstr "Mielenkiintoisia faktoja puista"
 #. module: website_slides
 #: model_terms:slide.slide,description:website_slides.slide_slide_demo_0_1
 msgid "Interesting information about home gardening. Keep it close!"
-msgstr "Mielenkiintoista tietoa kotipuutarhanhoidosta. Pidä se lähellä!"
+msgstr ""
 
 #. module: website_slides
 #: model:slide.channel.tag,name:website_slides.slide_channel_tag_level_intermediate
@@ -3803,18 +3744,18 @@ msgstr "Kutsu"
 #: code:addons/website_slides/models/slide_channel.py:0
 #, python-format
 msgid "Invite Attendees to %(course_name)s"
-msgstr "Kutsu osallistujat %(course_name)s"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields.selection,name:website_slides.selection__slide_channel_partner__member_status__invited
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_channel_partner_view_search
 msgid "Invite Sent"
-msgstr "Kutsu lähetetty"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_slide__user_has_completed_category
 msgid "Is Category Completed"
-msgstr "On valmis kategoria"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel_invite__is_mail_template_editor
@@ -3824,7 +3765,7 @@ msgstr "On muokkaaja"
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__is_member
 msgid "Is Enrolled Attendee"
-msgstr "Onko rekisteröity osallistuja"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__message_is_follower
@@ -3835,7 +3776,7 @@ msgstr "On seuraaja"
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__is_member_invited
 msgid "Is Invited Attendee"
-msgstr "On kutsuttu osallistuja"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_slide__user_has_completed
@@ -3868,12 +3809,12 @@ msgstr "On oikea vastaus"
 #. module: website_slides
 #: model:ir.model.fields,help:website_slides.field_slide_channel__is_member
 msgid "Is the attendee actively enrolled."
-msgstr "Onko osallistuja aktiivisesti kirjoilla."
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,help:website_slides.field_slide_channel__is_member_invited
 msgid "Is the invitation for this attendee pending."
-msgstr "Onko kutsu tälle osallistujalle vireillä."
+msgstr ""
 
 #. module: website_slides
 #. odoo-javascript
@@ -3930,7 +3871,7 @@ msgstr "Liity tälle kurssille"
 #: model:ir.model.fields.selection,name:website_slides.selection__slide_channel_partner__member_status__joined
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_channel_partner_view_search
 msgid "Joined"
-msgstr "Liittynyt"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:slide.slide,description:website_slides.slide_slide_demo_1_2
@@ -4008,12 +3949,12 @@ msgstr "Viimeisin toimenpide"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_channel_partner_view_tree
 msgid "Last Invitation"
-msgstr "Viimeinen kutsu"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel_partner__last_invitation_date
 msgid "Last Invitation Date"
-msgstr "Viimeinen kutsupäivä"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__slide_last_update
@@ -4083,7 +4024,7 @@ msgstr ""
 #: model_terms:slide.channel,description:website_slides.slide_channel_demo_0_gard_0
 #: model_terms:slide.channel,description_short:website_slides.slide_channel_demo_0_gard_0
 msgid "Learn the basics of gardening!"
-msgstr "Opi puutarhanhoidon perusteet!"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:slide.slide,description:website_slides.slide_slide_demo_5_1
@@ -4446,7 +4387,7 @@ msgstr "Seuraavan toimenpiteen tyyppi"
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel_partner__next_slide_id
 msgid "Next Lesson"
-msgstr "Seuraava oppitunti"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slides_home_user_profile_small
@@ -4533,12 +4474,12 @@ msgstr "Ei tulostaulukkoa tällä hetkellä :("
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.course_slides_list_placeholder
 msgid "No lessons are available yet."
-msgstr "Oppitunteja ei ole vielä saatavilla."
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.user_profile_content
 msgid "No ongoing courses yet!"
-msgstr "Ei meneillään olevia kursseja vielä!"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_aside_documentation
@@ -4705,7 +4646,7 @@ msgstr "Jatkuva"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.user_profile_content
 msgid "Ongoing Courses"
-msgstr "Käynnissä olevat kurssit"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields.selection,name:website_slides.selection__slide_channel__enroll__public
@@ -4724,7 +4665,7 @@ msgstr "Toiminto ei ole tuettu"
 #: code:addons/website_slides/controllers/mail.py:0
 #, python-format
 msgid "Only a single review can be posted per course."
-msgstr "Kurssia kohti voi lähettää vain yhden arvostelun."
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,help:website_slides.field_slide_channel_invite__lang
@@ -4868,18 +4809,17 @@ msgstr "Järjestelmää pyörittää"
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__prerequisite_of_channel_ids
 msgid "Prerequisite Of"
-msgstr "Edellytyksenä"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,help:website_slides.field_slide_channel__prerequisite_channel_ids
 msgid "Prerequisite courses to complete before accessing this one."
 msgstr ""
-"Edeltävät kurssit, jotka on suoritettava ennen tämän kurssin aloittamista."
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__prerequisite_channel_ids
 msgid "Prerequisites"
-msgstr "Ennakkovaatimukset"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_embed__slide_id
@@ -4924,7 +4864,7 @@ msgstr "Edistyminen"
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_main
 #, python-format
 msgid "Progress bar"
-msgstr "Edistymispalkki"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__promoted_slide_id
@@ -5013,7 +4953,7 @@ msgstr "Kysely"
 #: code:addons/website_slides/models/slide_slide.py:0
 #, python-format
 msgid "Quiz Completed"
-msgstr "Koe suoritettu"
+msgstr ""
 
 #. module: website_slides
 #. odoo-javascript
@@ -5027,7 +4967,7 @@ msgstr "Kyselyn demo data"
 #: code:addons/website_slides/models/slide_slide.py:0
 #, python-format
 msgid "Quiz Set Uncompleted"
-msgstr "Keskeneräinen tietokilpailuryhmä"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_slide_partner__quiz_attempts_count
@@ -5167,7 +5107,7 @@ msgstr "Pyydä pääsy."
 #: code:addons/website_slides/static/src/js/slides_course_enroll_email.js:0
 #, python-format
 msgid "Request sent!"
-msgstr "Pyyntö lähetty!"
+msgstr ""
 
 #. module: website_slides
 #. odoo-javascript
@@ -5275,7 +5215,7 @@ msgstr "Arvostelut"
 #: code:addons/website_slides/static/src/js/portal_chatter.js:0
 #, python-format
 msgid "Reviews (%s)"
-msgstr "Arvostelut (%s)"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_slide__quiz_fourth_attempt_reward
@@ -5437,7 +5377,7 @@ msgstr "Valitse käsin"
 #: code:addons/website_slides/static/src/xml/slide_quiz_create.xml:0
 #, python-format
 msgid "Select the correct answer below:"
-msgstr "Valitse oikea vastaus:"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.res_config_settings_view_form
@@ -5480,7 +5420,7 @@ msgstr "Lähetetään osallistujille, kun heidät lisätään kurssille"
 #. module: website_slides
 #: model:mail.template,description:website_slides.mail_template_slide_channel_invite
 msgid "Sent to potential attendees to check out the course."
-msgstr "Lähetetään mahdollisille osallistujille tutustumaan kurssiin."
+msgstr ""
 
 #. module: website_slides
 #: model:mail.template,description:website_slides.slide_template_shared
@@ -5634,19 +5574,19 @@ msgstr "Lyhyt kuvaus"
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel_invite__channel_visibility
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel_partner__channel_visibility
 msgid "Show Course To"
-msgstr "Näytä kurssi"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:slide.slide,description:website_slides.slide_slide_demo_0_4
 msgid "Show your newly mastered knowledge!"
-msgstr "Näytä äskettäin hallitsemasi tiedot!"
+msgstr ""
 
 #. module: website_slides
 #. odoo-javascript
 #: code:addons/website_slides/static/src/xml/slide_quiz.xml:0
 #, python-format
 msgid "Sign Up!"
-msgstr "Rekisteröidy!"
+msgstr ""
 
 #. module: website_slides
 #. odoo-javascript
@@ -5686,7 +5626,7 @@ msgstr "Dia / Kumppani m2m kenttä"
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_slide__slide_icon_class
 msgid "Slide Icon fa-class"
-msgstr "Dia-kuvake fa-class"
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model,name:website_slides.model_slide_answer
@@ -5769,7 +5709,7 @@ msgstr "Aloita kurssi"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.course_join
 msgid "Start this Course"
-msgstr "Aloita tämä kurssi"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:slide.slide,html_content:website_slides.slide_slide_demo_1_4
@@ -5955,7 +5895,7 @@ msgstr "Testaa tietosi"
 #: model:slide.slide,name:website_slides.slide_slide_demo_5_3
 #: model_terms:slide.slide,description:website_slides.slide_slide_demo_5_3
 msgid "Test your knowledge!"
-msgstr "Testaa tietosi!"
+msgstr ""
 
 #. module: website_slides
 #. odoo-javascript
@@ -5995,8 +5935,6 @@ msgid ""
 "The Enroll Policy should be set to 'On Invitation' when visibility is set to"
 " 'Course Attendees'"
 msgstr ""
-"Ilmoittautumiskäytäntö tulisi asettaa arvoon 'Kutsusta', kun näkyvyys on "
-"asetettu arvoon 'Kurssin osallistujat'"
 
 #. module: website_slides
 #. odoo-javascript
@@ -6033,7 +5971,7 @@ msgstr ""
 #: code:addons/website_slides/controllers/main.py:0
 #, python-format
 msgid "The contact associated with this invitation does not seem to be valid."
-msgstr "Tähän kutsuun liittyvä yhteyshenkilö ei näytä olevan voimassa."
+msgstr ""
 
 #. module: website_slides
 #: model:ir.model.fields,help:website_slides.field_slide_slide__is_preview
@@ -6145,7 +6083,7 @@ msgstr ""
 #: code:addons/website_slides/controllers/main.py:0
 #, python-format
 msgid "This course does not exist."
-msgstr "Tätä kurssia ei ole olemassa."
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_channel_invite_view_form
@@ -6153,8 +6091,6 @@ msgid ""
 "This course is not published. Attendees may not be able to access its "
 "contents."
 msgstr ""
-"Tätä kurssia ei julkaista. Osallistujat eivät välttämättä pääse tutustumaan "
-"sen sisältöön."
 
 #. module: website_slides
 #. odoo-javascript
@@ -6168,28 +6104,28 @@ msgstr "Tämä kurssi on yksityinen."
 #: code:addons/website_slides/controllers/main.py:0
 #, python-format
 msgid "This identification link does not seem to be valid."
-msgstr "Tämä tunnistuslinkki ei näytä olevan voimassa."
+msgstr ""
 
 #. module: website_slides
 #. odoo-python
 #: code:addons/website_slides/controllers/main.py:0
 #, python-format
 msgid "This invitation link has an invalid hash."
-msgstr "Tällä kutsulinkillä on virheellinen tunniste."
+msgstr ""
 
 #. module: website_slides
 #. odoo-python
 #: code:addons/website_slides/controllers/main.py:0
 #, python-format
 msgid "This invitation link has expired."
-msgstr "Tämä kutsulinkki on vanhentunut."
+msgstr ""
 
 #. module: website_slides
 #. odoo-python
 #: code:addons/website_slides/controllers/main.py:0
 #, python-format
 msgid "This invitation link is not for this contact."
-msgstr "Tämä kutsulinkki ei koske tätä kontaktia."
+msgstr ""
 
 #. module: website_slides
 #. odoo-javascript
@@ -6213,7 +6149,6 @@ msgid ""
 "This question must have at least one correct answer and one incorrect "
 "answer."
 msgstr ""
-"Tässä kysymyksessä on oltava vähintään yksi oikea ja yksi väärä vastaus."
 
 #. module: website_slides
 #. odoo-javascript
@@ -6515,7 +6450,7 @@ msgstr "Käyttäjän ääni"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_question_view_form
 msgid "Validation error"
-msgstr "Validointivirhe"
+msgstr ""
 
 #. module: website_slides
 #. odoo-javascript
@@ -6649,8 +6584,6 @@ msgid ""
 "We had a little chat with Harry Potted, sure he had interesting things to "
 "say!"
 msgstr ""
-"Juttelimme hieman Harry Pottin kanssa, ja hänellä oli varmasti "
-"mielenkiintoista sanottavaa!"
 
 #. module: website_slides
 #: model:ir.model,name:website_slides.model_website
@@ -6731,12 +6664,12 @@ msgstr "Mitä tekee"
 #. module: website_slides
 #: model:slide.question,question:website_slides.slide_slide_demo_0_4_question_0
 msgid "What is a strawberry?"
-msgstr "Mikä on mansikka?"
+msgstr ""
 
 #. module: website_slides
 #: model:slide.question,question:website_slides.slide_slide_demo_0_4_question_1
 msgid "What is the best tool to dig a hole for your plants?"
-msgstr "Mikä on paras työkalu, jolla voit kaivaa kuoppia kasveillesi?"
+msgstr ""
 
 #. module: website_slides
 #. odoo-javascript
@@ -6749,7 +6682,7 @@ msgstr "Minkä tyyppisiä asiakirjoja me tuemme?"
 #. module: website_slides
 #: model:slide.answer,text_value:website_slides.slide_slide_demo_1_4_question_1_2
 msgid "What was the question again?"
-msgstr "Mikä olikaan kysymys?"
+msgstr ""
 
 #. module: website_slides
 #. odoo-javascript
@@ -6764,8 +6697,6 @@ msgid ""
 "Whether invited partners will be added as enrolled. Otherwise, they will be "
 "added as invited."
 msgstr ""
-"Lisätäänkö kutsutut kumppanit ilmoittautuneiksi. Muussa tapauksessa heidät "
-"lisätään kutsuttuina."
 
 #. module: website_slides
 #: model_terms:slide.slide,description:website_slides.slide_slide_demo_4_1
@@ -6773,8 +6704,6 @@ msgid ""
 "Which wood type is best for my solid wood furniture? That's the question we "
 "help you answer in this video!"
 msgstr ""
-"Mikä puulaji sopii parhaiten massiivipuuhuonekaluihini? Tähän kysymykseen "
-"autamme sinua vastaamaan tällä videolla!"
 
 #. module: website_slides
 #. odoo-javascript
@@ -6975,7 +6904,7 @@ msgstr "Teit sen!"
 #: code:addons/website_slides/controllers/main.py:0
 #, python-format
 msgid "You do not have permission to access this course."
-msgstr "Sinulla ei ole lupaa käyttää tätä kurssia."
+msgstr ""
 
 #. module: website_slides
 #. odoo-javascript
@@ -7008,7 +6937,7 @@ msgstr "Olet jo liittynyt tähän kanavaan"
 #. module: website_slides
 #: model:mail.template,subject:website_slides.mail_template_slide_channel_invite
 msgid "You have been invited to check out {{ object.channel_id.name }}"
-msgstr "Sinut on kutsuttu katsomaan {{ object.channel_id.name }}"
+msgstr ""
 
 #. module: website_slides
 #: model:mail.template,subject:website_slides.mail_template_slide_channel_enroll
@@ -7018,7 +6947,7 @@ msgstr "Sinut on kutsuttu liittymään {{ object.channel_id.name }}"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.course_main
 msgid "You have been invited to this course."
-msgstr "Sinut on kutsuttu tälle kurssille."
+msgstr ""
 
 #. module: website_slides
 #. odoo-python
@@ -7151,7 +7080,7 @@ msgstr ""
 #: code:addons/website_slides/models/slide_channel.py:0
 #, python-format
 msgid "a course"
-msgstr "kurssi"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.achievement_card
@@ -7167,7 +7096,7 @@ msgstr "ja liittyä tähän yhteisöön"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.course_join
 msgid "anyway"
-msgstr "joka tapauksessa"
+msgstr ""
 
 #. module: website_slides
 #. odoo-javascript
@@ -7200,12 +7129,12 @@ msgstr "kurssit"
 #: code:addons/website_slides/static/src/xml/slide_course_join.xml:0
 #, python-format
 msgid "create an account"
-msgstr "luo tili"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.course_join
 msgid "direct access"
-msgstr "suora pääsy"
+msgstr ""
 
 #. module: website_slides
 #. odoo-javascript
@@ -7282,7 +7211,7 @@ msgstr "esim. tietokoneen käyttöönotto"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_question_view_form
 msgid "e.g. What powers a computer?"
-msgstr "esimerkiksi: Mikä antaa tietokoneelle virtaa?"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_channel_tag_group_view_form
@@ -7353,7 +7282,7 @@ msgstr "https://vimeo.com/558907555"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.course_join
 msgid "join"
-msgstr "liity"
+msgstr ""
 
 #. module: website_slides
 #. odoo-javascript
@@ -7408,7 +7337,7 @@ msgstr "tai poistu kurssilta"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.course_join
 msgid "request"
-msgstr " pyyntö"
+msgstr ""
 
 #. module: website_slides
 #. odoo-javascript
@@ -7421,7 +7350,7 @@ msgstr "kirjaudu sisään"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.course_join
 msgid "start"
-msgstr "alku"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.course_card
@@ -7441,12 +7370,12 @@ msgstr "olla ensimmäinen, joka jättää kommentin."
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.course_main
 msgid "to browse preview content and enroll."
-msgstr "selaa esikatselusisältöä ja ilmoittaudu."
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.course_join
 msgid "to contact responsible"
-msgstr "ota yhteyttä vastuulliseen"
+msgstr ""
 
 #. module: website_slides
 #. odoo-javascript
@@ -7462,12 +7391,12 @@ msgstr "ilmoittautuaksesi."
 #: code:addons/website_slides/static/src/xml/slide_course_join.xml:0
 #, python-format
 msgid "to join this course"
-msgstr "osallistuaksesi tälle kurssille"
+msgstr ""
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.course_join
 msgid "to request access"
-msgstr "pyydä pääsyä"
+msgstr ""
 
 #. module: website_slides
 #. odoo-javascript
@@ -7480,7 +7409,7 @@ msgstr "jakaaksesi tämän"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.course_join
 msgid "to unlock"
-msgstr "avaa lukitus"
+msgstr ""
 
 #. module: website_slides
 #. odoo-javascript

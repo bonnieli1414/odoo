@@ -21,7 +21,7 @@ import babel.core
 import pytz
 from lxml import etree
 from lxml.builder import E
-from passlib.context import CryptContext as _CryptContext
+from passlib.context import CryptContext
 from psycopg2 import sql
 
 from odoo import api, fields, models, tools, SUPERUSER_ID, _, Command
@@ -33,44 +33,6 @@ from odoo.service.db import check_super
 from odoo.tools import is_html_empty, partition, collections, frozendict, lazy_property
 
 _logger = logging.getLogger(__name__)
-
-class CryptContext:
-    def __init__(self, *args, **kwargs):
-        self.__obj__ = _CryptContext(*args, **kwargs)
-
-    @property
-    def encrypt(self):
-        # deprecated alias
-        return self.hash
-
-    @property
-    def copy(self):
-        return self.__obj__.copy
-
-    @property
-    def hash(self):
-        return self.__obj__.hash
-
-    @property
-    def identify(self):
-        return self.__obj__.identify
-
-    @property
-    def verify(self):
-        return self.__obj__.verify
-
-    @property
-    def verify_and_update(self):
-        return self.__obj__.verify_and_update
-
-    def schemes(self):
-        return self.__obj__.schemes()
-
-    def update(self, **kwargs):
-        if kwargs.get("schemes"):
-            assert isinstance(kwargs["schemes"], str) or all(isinstance(s, str) for s in kwargs["schemes"])
-        return self.__obj__.update(**kwargs)
-
 
 # Only users who can modify the user (incl. the user herself) see the real contents of these fields
 USER_PRIVATE_FIELDS = []
@@ -211,7 +173,7 @@ class Groups(models.Model):
     def _search_full_name(self, operator, operand):
         lst = True
         if isinstance(operand, bool):
-            return [('name', operator, operand)]
+            return [[('name', operator, operand)]]
         if isinstance(operand, str):
             lst = False
             operand = [operand]
@@ -409,7 +371,7 @@ class Users(models.Model):
         # automatically encrypted at startup: look for passwords which don't
         # match the "extended" MCF and pass those through passlib.
         # Alternative: iterate on *all* passwords and use CryptContext.identify
-        cr.execute(r"""
+        cr.execute("""
         SELECT id, password FROM res_users
         WHERE password IS NOT NULL
           AND password !~ '^\$[^$]+\$[^$]+\$.'
@@ -710,15 +672,13 @@ class Users(models.Model):
                     user.partner_id.write({'company_id': user.company_id.id})
 
         if 'company_id' in values or 'company_ids' in values:
-            # Reset lazy properties `company` & `companies` on all envs,
-            # and also their _cache_key, which may depend on them.
+            # Reset lazy properties `company` & `companies` on all envs
             # This is unlikely in a business code to change the company of a user and then do business stuff
             # but in case it happens this is handled.
             # e.g. `account_test_savepoint.py` `setup_company_data`, triggered by `test_account_invoice_report.py`
             for env in list(self.env.transaction.envs):
                 if env.user in self:
                     lazy_property.reset_all(env)
-                    env._cache_key.clear()
 
         # clear caches linked to the users
         if self.ids and 'groups_id' in values:

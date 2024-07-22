@@ -2704,7 +2704,7 @@ class BaseModel(metaclass=MetaModel):
                 continue
 
             if name not in self._fields:
-                raise ValueError(f"Invalid field {name!r} on model {self._name!r}")
+                raise ValueError(f"Invalid field {field_name!r} on model {self._name!r}")
             field = self._fields[name]
             if field.base_field.store and field.base_field.column_type and field.group_operator and field_spec not in annoted_groupby:
                 annoted_aggregates[name] = f"{name}:{field.group_operator}"
@@ -2878,16 +2878,15 @@ class BaseModel(metaclass=MetaModel):
             else:
                 comodel = self.env.get(definition.get('comodel'))
                 if comodel is None or comodel._transient or comodel._abstract:
-                    raise UserError(_(
-                                            "You cannot use %(property_name)r because the linked %(model_name)r model doesn't exist or is invalid",
-                        property_name=definition.get('string', property_name), model_name=definition.get('comodel'),
-                    ))
-
-                # check the existences of the many2many
-                condition = SQL(
-                    "%s::int IN (SELECT id FROM %s)",
-                    SQL.identifier(property_alias), SQL.identifier(comodel._table),
-                )
+                    # all value are false, because the model does not exist anymore
+                    # (or is a transient model e.g.)
+                    condition = SQL("FALSE")
+                else:
+                    # check the existences of the many2many
+                    condition = SQL(
+                        "%s::int IN (SELECT id FROM %s)",
+                        SQL.identifier(property_alias), SQL.identifier(comodel._table),
+                    )
 
             query.add_join(
                 "LEFT JOIN",
@@ -2915,10 +2914,9 @@ class BaseModel(metaclass=MetaModel):
         elif property_type == 'many2one':
             comodel = self.env.get(definition.get('comodel'))
             if comodel is None or comodel._transient or comodel._abstract:
-                raise UserError(_(
-                    "You cannot use %(property_name)r because the linked %(model_name)r model doesn't exist or is invalid",
-                    property_name=definition.get('string', property_name), model_name=definition.get('comodel'),
-                ))
+                # all value are false, because the model does not exist anymore
+                # (or is a transient model e.g.)
+                return SQL('FALSE')
 
             return SQL(
                 """ CASE
@@ -3895,16 +3893,11 @@ class BaseModel(metaclass=MetaModel):
             (column_fields if field.column_type else other_fields).add(field)
 
         # necessary to retrieve the en_US value of fields without a translation
+        translated_field_names = [field.name for field in column_fields if field.translate]
+        if translated_field_names:
+            self.flush_model(translated_field_names)
+
         context = self.env.context
-        field_names_to_flush = [
-            field.name for field in column_fields
-            if field.translate or (
-                field.type == 'binary'
-                and (context.get('bin_size') or context.get('bin_size_' + field.name))
-            )
-        ]
-        if field_names_to_flush:
-            self.flush_model(field_names_to_flush)
 
         if column_fields:
             # the query may involve several tables: we need fully-qualified names
@@ -4804,14 +4797,13 @@ class BaseModel(metaclass=MetaModel):
             ids.extend(id_ for id_, in cr.fetchall())
 
         # put the new records in cache, and update inverse fields, for many2one
-        # (using bin_size=False to put binary values in the right place)
         #
         # cachetoclear is an optimization to avoid modified()'s cost until other_fields are processed
         cachetoclear = []
         records = self.browse(ids)
         inverses_update = defaultdict(list)     # {(field, value): ids}
         common_set_vals = set(LOG_ACCESS_COLUMNS + ['id', 'parent_path'])
-        for data, record in zip(data_list, records.with_context(bin_size=False)):
+        for data, record in zip(data_list, records):
             data['record'] = record
             # DLE P104: test_inherit.py, test_50_search_one2many
             vals = dict({k: v for d in data['inherited'].values() for k, v in d.items()}, **data['stored'])
@@ -5925,7 +5917,7 @@ class BaseModel(metaclass=MetaModel):
             return self
 
         company_id = int(company)
-        allowed_company_ids = self.env.context.get('allowed_company_ids') or []
+        allowed_company_ids = self.env.context.get('allowed_company_ids', [])
         if allowed_company_ids and company_id == allowed_company_ids[0]:
             return self
         # Copy the allowed_company_ids list
@@ -6319,14 +6311,14 @@ class BaseModel(metaclass=MetaModel):
             self._flush(fnames)
 
     def _flush(self, fnames=None):
+        def process(model, id_vals):
+            # group record ids by vals, to update in batch when possible
+            updates = defaultdict(list)
+            for id_, vals in id_vals.items():
+                updates[frozendict(vals)].append(id_)
 
-        def convert(record, field, value):
-            if field.translate:
-                return field._convert_from_cache_to_column(value)
-            return field.convert_to_column(
-                field.convert_to_write(value, record),
-                record,
-            )
+            for vals, ids in updates.items():
+                model.browse(ids)._write(vals)
 
         # DLE P76: test_onchange_one2many_with_domain_on_related_field
         # ```
@@ -6349,62 +6341,34 @@ class BaseModel(metaclass=MetaModel):
 
         for model_name, fields_ in model_fields.items():
             dirty_fields = self.env.cache.get_dirty_fields()
-            if not any(field in dirty_fields for field in fields_):
-                continue
-
-            # if any field is context-dependent, the values to flush should
-            # be found with a context where the context keys are all None
-            context_none = dict.fromkeys(
-                key
-                for field in fields_
-                for key in self.pool.field_depends_context[field]
-            )
-            model = self.env(context=context_none)[model_name]
-
-            # pop dirty fields and their corresponding record ids from cache
-            dirty_field_ids = {
-                field: self.env.cache.clear_dirty_field(field)
-                for field in model._fields.values()
-                if field in dirty_fields
-            }
-            # Memory optimization: get a reference to each dirty field's cache.
-            # This avoids allocating extra memory for storing the data taken
-            # from cache. Beware that this breaks the cache abstraction!
-            dirty_field_cache = {
-                field: self.env.cache._get_field_cache(model, field)
-                for field in dirty_field_ids
-            }
-
-            # build a mapping {vals: ids} of field updates and their record ids
-            vals_ids = defaultdict(list)
-            while dirty_field_ids:
-                some_field, some_ids = next(iter(dirty_field_ids.items()))
-                try:
-                    for id_ in some_ids:
-                        record = model.browse(id_)
-                        vals = {
-                            f.name: convert(record, f, dirty_field_cache[f][id_])
-                            for f, ids in dirty_field_ids.items()
-                            if id_ in ids
-                        }
-                        vals_ids[frozendict(vals)].append(id_)
-                except KeyError:
-                    raise AssertionError(
-                        f"Could not find all values of {record} to flush them\n"
-                        f"    Context: {self.env.context}\n"
-                        f"    Cache: {self.env.cache!r}"
-                    )
-
-                # discard some_ids from all dirty ids sets
-                dirty_field_ids.pop(some_field)
-                for field, ids in list(dirty_field_ids.items()):
-                    ids.difference_update(some_ids)
+            if any(field in dirty_fields for field in fields_):
+                # if any field is context-dependent, the values to flush should
+                # be found with a context where the context keys are all None
+                context_none = dict.fromkeys(
+                    key
+                    for field in fields_
+                    for key in self.pool.field_depends_context[field]
+                )
+                model = self.env(context=context_none)[model_name]
+                id_vals = defaultdict(dict)
+                for field in model._fields.values():
+                    ids = self.env.cache.clear_dirty_field(field)
                     if not ids:
-                        dirty_field_ids.pop(field)
-
-            # apply the field updates to their corresponding records
-            for vals, ids in vals_ids.items():
-                model.browse(ids)._write(vals)
+                        continue
+                    records = model.browse(ids)
+                    values = list(self.env.cache.get_values(records, field))
+                    assert len(values) == len(records), \
+                        f"Could not find all values of {field} to flush them\n" \
+                        f"    Context: {self.env.context}\n" \
+                        f"    Cache: {self.env.cache!r}"
+                    for record, value in zip(records, values):
+                        if not field.translate:
+                            value = field.convert_to_write(value, record)
+                            value = field.convert_to_column(value, record)
+                        else:
+                            value = field._convert_from_cache_to_column(value)
+                        id_vals[record.id][field.name] = value
+                process(model, id_vals)
 
         # flush the inverse of one2many fields, too
         for field in fields:
@@ -6865,8 +6829,7 @@ class BaseModel(metaclass=MetaModel):
                     records = model.search([(field.name, 'in', real_records.ids)], order='id')
                 if new_records:
                     cache_records = self.env.cache.get_records(model, field)
-                    new_ids = set(self._ids)
-                    records |= cache_records.filtered(lambda r: not set(r[field.name]._ids).isdisjoint(new_ids))
+                    records |= cache_records.filtered(lambda r: set(r[field.name]._ids) & set(self._ids))
 
             yield from records._modified_triggers(subtree)
 

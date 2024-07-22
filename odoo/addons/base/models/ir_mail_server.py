@@ -36,31 +36,6 @@ class MailDeliveryException(Exception):
     """Specific exception subclass for mail delivery errors"""
 
 
-def make_wrap_property(name):
-    return property(
-        lambda self: getattr(self.__obj__, name),
-        lambda self, value: setattr(self.__obj__, name, value),
-    )
-
-
-class SMTPConnection:
-    """Wrapper around smtplib.SMTP and smtplib.SMTP_SSL"""
-    def __init__(self, server, port, encryption, context=None):
-        if encryption == 'ssl':
-            self.__obj__ = smtplib.SMTP_SSL(server, port, timeout=SMTP_TIMEOUT, context=context)
-        else:
-            self.__obj__ = smtplib.SMTP(server, port, timeout=SMTP_TIMEOUT)
-
-
-SMTP_ATTRIBUTES = [
-    'auth', 'auth_cram_md5', 'auth_login', 'auth_plain', 'close', 'data', 'docmd', 'ehlo', 'ehlo_or_helo_if_needed',
-    'expn', 'from_filter', 'getreply', 'has_extn', 'login', 'mail', 'noop', 'putcmd', 'quit', 'rcpt', 'rset',
-    'send_message', 'sendmail', 'set_debuglevel', 'smtp_from', 'starttls', 'verify', '_host',
-]
-for name in SMTP_ATTRIBUTES:
-    setattr(SMTPConnection, name, make_wrap_property(name))
-
-
 # Python 3: patch SMTP's internal printer/debugger
 def _print_debug(self, *args):
     _logger.debug(' '.join(str(a) for a in args))
@@ -179,14 +154,14 @@ class IrMailServer(models.Model):
             else:
                 server.smtp_authentication = False
 
-    @api.constrains('smtp_authentication', 'smtp_ssl_certificate', 'smtp_ssl_private_key')
+    @api.constrains('smtp_ssl_certificate', 'smtp_ssl_private_key')
     def _check_smtp_ssl_files(self):
+        """We must provided both files or none."""
         for mail_server in self:
-            if mail_server.smtp_authentication == 'certificate':
-                if not mail_server.smtp_ssl_private_key:
-                    raise UserError(_('SSL private key is missing for %s.', mail_server.name))
-                if not mail_server.smtp_ssl_certificate:
-                    raise UserError(_('SSL certificate is missing for %s.', mail_server.name))
+            if mail_server.smtp_ssl_certificate and not mail_server.smtp_ssl_private_key:
+                raise UserError(_('SSL private key is missing for %s.', mail_server.name))
+            elif mail_server.smtp_ssl_private_key and not mail_server.smtp_ssl_certificate:
+                raise UserError(_('SSL certificate is missing for %s.', mail_server.name))
 
     def write(self, vals):
         """Ensure we cannot archive a server in-use"""
@@ -263,36 +238,36 @@ class IrMailServer(models.Model):
                 # Testing the MAIL FROM step should detect sender filter problems
                 (code, repl) = smtp.mail(email_from)
                 if code != 250:
-                    raise UserError(_('The server refused the sender address (%(email_from)s) with error %(repl)s', email_from=email_from, repl=repl))  # noqa: TRY301
+                    raise UserError(_('The server refused the sender address (%(email_from)s) with error %(repl)s', email_from=email_from, repl=repl))
                 # Testing the RCPT TO step should detect most relaying problems
                 (code, repl) = smtp.rcpt(email_to)
                 if code not in (250, 251):
-                    raise UserError(_('The server refused the test recipient (%(email_to)s) with error %(repl)s', email_to=email_to, repl=repl))  # noqa: TRY301
+                    raise UserError(_('The server refused the test recipient (%(email_to)s) with error %(repl)s', email_from=email_from, repl=repl))
                 # Beginning the DATA step should detect some deferred rejections
                 # Can't use self.data() as it would actually send the mail!
                 smtp.putcmd("data")
                 (code, repl) = smtp.getreply()
                 if code != 354:
-                    raise UserError(_('The server refused the test connection with error %(repl)s', repl=repl))  # noqa: TRY301
+                    raise UserError(_('The server refused the test connection with error %(repl)s', repl=repl))
+            except UserError as e:
+                # let UserErrors (messages) bubble up
+                raise e
             except (UnicodeError, idna.core.InvalidCodepoint) as e:
-                raise UserError(_("Invalid server name!\n %s", e)) from e
+                raise UserError(_("Invalid server name!\n %s", ustr(e)))
             except (gaierror, timeout) as e:
-                raise UserError(_("No response received. Check server address and port number.\n %s", e)) from e
+                raise UserError(_("No response received. Check server address and port number.\n %s", ustr(e)))
             except smtplib.SMTPServerDisconnected as e:
-                raise UserError(_("The server has closed the connection unexpectedly. Check configuration served on this port number.\n %s", e)) from e
+                raise UserError(_("The server has closed the connection unexpectedly. Check configuration served on this port number.\n %s", ustr(e.strerror)))
             except smtplib.SMTPResponseException as e:
-                raise UserError(_("Server replied with following exception:\n %s", e)) from e
+                raise UserError(_("Server replied with following exception:\n %s", ustr(e.smtp_error)))
             except smtplib.SMTPNotSupportedError as e:
-                raise UserError(_("An option is not supported by the server:\n %s", e)) from e
+                raise UserError(_("An option is not supported by the server:\n %s", e.strerror))
             except smtplib.SMTPException as e:
-                raise UserError(_("An SMTP exception occurred. Check port number and connection security type.\n %s", e)) from e
-            except (ssl.SSLError, SSLError) as e:
-                raise UserError(_("An SSL exception occurred. Check connection security type.\n %s", e)) from e
-            except UserError:
-                raise
+                raise UserError(_("An SMTP exception occurred. Check port number and connection security type.\n %s", ustr(e)))
+            except SSLError as e:
+                raise UserError(_("An SSL exception occurred. Check connection security type.\n %s", ustr(e)))
             except Exception as e:
-                _logger.warning("Connection test on %s failed with a generic error.", server, exc_info=True)
-                raise UserError(_("Connection Test Failed! Here is what we got instead:\n %s", e)) from e
+                raise UserError(_("Connection Test Failed! Here is what we got instead:\n %s", ustr(e)))
             finally:
                 try:
                     if smtp:
@@ -363,7 +338,9 @@ class IrMailServer(models.Model):
             smtp_encryption = mail_server.smtp_encryption
             smtp_debug = smtp_debug or mail_server.smtp_debug
             from_filter = mail_server.from_filter
-            if mail_server.smtp_authentication == "certificate":
+            if (mail_server.smtp_authentication == "certificate"
+               and mail_server.smtp_ssl_certificate
+               and mail_server.smtp_ssl_private_key):
                 try:
                     ssl_context = PyOpenSSLContext(ssl.PROTOCOL_TLS)
                     smtp_ssl_certificate = base64.b64decode(mail_server.smtp_ssl_certificate)
@@ -420,7 +397,10 @@ class IrMailServer(models.Model):
                       "You could use STARTTLS instead. "
                        "If SSL is needed, an upgrade to Python 2.6 on the server-side "
                        "should do the trick."))
-        connection = SMTPConnection(smtp_server, smtp_port, smtp_encryption, context=ssl_context)
+            connection = smtplib.SMTP_SSL(smtp_server, smtp_port, timeout=SMTP_TIMEOUT)
+        else:
+            connection = smtplib.SMTP(smtp_server, smtp_port, timeout=SMTP_TIMEOUT)
+
         connection.set_debuglevel(smtp_debug)
         if smtp_encryption == 'starttls':
             # starttls() will perform ehlo() if needed first

@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
-
-from __future__ import annotations
-
 import codecs
 import fnmatch
 import functools
@@ -160,7 +157,7 @@ TRANSLATED_ELEMENTS = {
 TRANSLATED_ATTRS = dict.fromkeys({
     'string', 'add-label', 'help', 'sum', 'avg', 'confirm', 'placeholder', 'alt', 'title', 'aria-label',
     'aria-keyshortcuts', 'aria-placeholder', 'aria-roledescription', 'aria-valuetext',
-    'value_label', 'data-tooltip', 'data-editor-message', 'label',
+    'value_label', 'data-tooltip', 'data-editor-message',
 }, lambda e: True)
 
 def translate_attrib_value(node):
@@ -180,7 +177,6 @@ TRANSLATED_ATTRS.update(
 )
 
 avoid_pattern = re.compile(r"\s*<!DOCTYPE", re.IGNORECASE | re.MULTILINE | re.UNICODE)
-space_pattern = re.compile(r"[\s\uFEFF]*")  # web_editor uses \uFEFF as ZWNBSP
 
 
 def translate_xml_node(node, callback, parse, serialize):
@@ -194,7 +190,7 @@ def translate_xml_node(node, callback, parse, serialize):
 
     def nonspace(text):
         """ Return whether ``text`` is a string with non-space characters. """
-        return bool(text) and not space_pattern.fullmatch(text)
+        return bool(text) and not text.isspace()
 
     def translatable(node):
         """ Return whether the given node can be translated as a whole. """
@@ -390,7 +386,7 @@ def html_translate(callback, value):
         root = parse_html("<div>%s</div>" % value)
         result = translate_xml_node(root, callback, parse_html, serialize_html)
         # remove tags <div> and </div> from result
-        value = serialize_html(result)[5:-6].replace('\xa0', '&nbsp;')
+        value = serialize_html(result)[5:-6]
     except ValueError:
         _logger.exception("Cannot translate malformed HTML, using source value instead")
 
@@ -948,7 +944,7 @@ def _extract_translatable_qweb_terms(element, callback):
             # https://www.w3schools.com/html/html5_syntax.asp
             # https://github.com/odoo/owl/blob/master/doc/reference/component.md#composition
             if not el.tag[0].isupper() and 't-component' not in el.attrib and 't-set-slot' not in el.attrib:
-                for att in TRANSLATED_ATTRS:
+                for att in ('title', 'alt', 'label', 'placeholder', 'aria-label'):
                     if att in el.attrib:
                         _push(callback, el.attrib[att], el.sourceline)
             _extract_translatable_qweb_terms(el, callback)
@@ -1376,7 +1372,7 @@ class TranslationImporter:
                      the language must be present and activated in the database
         :param xmlids: if given, only translations for records with xmlid in xmlids will be loaded
         """
-        with suppress(FileNotFoundError), file_open(filepath, mode='rb', env=self.env) as fileobj:
+        with suppress(FileNotFoundError), file_open(filepath, mode='rb') as fileobj:
             _logger.info('loading base translation file %s for language %s', filepath, lang)
             fileformat = os.path.splitext(filepath)[-1][1:].lower()
             self.load(fileobj, fileformat, lang, xmlids=xmlids)
@@ -1615,25 +1611,27 @@ def load_language(cr, lang):
     installer.lang_install()
 
 
+
 def get_po_paths(module_name: str, lang: str):
-    return get_po_paths_env(module_name, lang)
-
-
-def get_po_paths_env(module_name: str, lang: str, env: odoo.api.Environment | None = None):
     lang_base = lang.split('_')[0]
-    # Load the base as a fallback in case a translation is missing:
-    po_names = [lang_base, lang]
-    # Exception for Spanish locales: they have two bases, es and es_419:
-    if lang_base == 'es' and lang not in ('es_ES', 'es_419'):
-        po_names.insert(1, 'es_419')
+    if lang_base == 'es' and lang != 'es_ES':
+        # force es_419 as fallback language for the spanish variations
+        if lang == 'es_419':
+            langs = ['es_419']
+        else:
+            langs = ['es_419', lang]
+    else:
+        langs = [lang_base, lang]
+
     po_paths = [
-        join(module_name, dir_, filename + '.po')
-        for filename in po_names
+        path
+        for lang_ in langs
         for dir_ in ('i18n', 'i18n_extra')
+        if (path := join(module_name, dir_, lang_ + '.po'))
     ]
     for path in po_paths:
         with suppress(FileNotFoundError):
-            yield file_path(path, env=env)
+            yield file_path(path)
 
 
 class CodeTranslations:
@@ -1722,7 +1720,6 @@ def _get_translation_upgrade_queries(cr, field):
     cleanup_queries = []
 
     if field.translate is True:
-        emtpy_src = """'{"en_US": ""}'::jsonb"""
         query = f"""
             WITH t AS (
                 SELECT it.res_id as res_id, jsonb_object_agg(it.lang, it.value) AS value, bool_or(imd.noupdate) AS noupdate
@@ -1733,8 +1730,7 @@ def _get_translation_upgrade_queries(cr, field):
               GROUP BY it.res_id
             )
             UPDATE {Model._table} m
-               SET "{field.name}" = CASE WHEN m."{field.name}" IS NULL THEN {emtpy_src} || t.value
-                                         WHEN t.noupdate IS FALSE THEN t.value || m."{field.name}"
+               SET "{field.name}" = CASE WHEN t.noupdate IS FALSE THEN t.value || m."{field.name}"
                                          ELSE m."{field.name}" || t.value
                                      END
               FROM t

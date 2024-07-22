@@ -2406,18 +2406,18 @@ class Binary(Field):
             for record_no_bin_size, record in zip(records_no_bin_size, records):
                 try:
                     value = cache.get(record_no_bin_size, self)
-                    # don't decode non-attachments to be consistent with pg_size_pretty
-                    if not (self.store and self.column_type):
-                        with contextlib.suppress(TypeError, binascii.Error):
-                            value = base64.b64decode(value)
+                    try:
+                        value = base64.b64decode(value)
+                    except (TypeError, binascii.Error):
+                        pass
                     try:
                         if isinstance(value, (bytes, _BINARY)):
                             value = human_size(len(value))
                     except (TypeError):
                         pass
                     cache_value = self.convert_to_cache(value, record)
-                    # the dirty flag is independent from this assignment
-                    cache.set(record, self, cache_value, check_dirty=False)
+                    dirty = self.column_type and self.store and any(records._ids)
+                    cache.set(record, self, cache_value, dirty=dirty)
                 except CacheMiss:
                     pass
         else:
@@ -2458,7 +2458,6 @@ class Binary(Field):
         ])
 
     def write(self, records, value):
-        records = records.with_context(bin_size=False)
         if not self.attachment:
             super().write(records, value)
             return
@@ -2538,11 +2537,10 @@ class Image(Binary):
     def create(self, record_values):
         new_record_values = []
         for record, value in record_values:
+            # strange behavior when setting related image field, when `self`
+            # does not resize the same way as its related field
             new_value = self._image_process(value, record.env)
             new_record_values.append((record, new_value))
-            # when setting related image field, keep the unprocessed image in
-            # cache to let the inverse method use the original image; the image
-            # will be resized once the inverse has been applied
             cache_value = self.convert_to_cache(value if self.related else new_value, record)
             record.env.cache.update(record, self, itertools.repeat(cache_value))
         super(Image, self).create(new_record_values)
@@ -2564,16 +2562,6 @@ class Image(Binary):
         cache_value = self.convert_to_cache(value if self.related else new_value, records)
         dirty = self.column_type and self.store and any(records._ids)
         records.env.cache.update(records, self, itertools.repeat(cache_value), dirty=dirty)
-
-    def _inverse_related(self, records):
-        super()._inverse_related(records)
-        if not (self.max_width and self.max_height):
-            return
-        # the inverse has been applied with the original image; now we fix the
-        # cache with the resized value
-        for record in records:
-            value = self._process_related(record[self.name], record.env)
-            record.env.cache.set(record, self, value, dirty=(self.store and self.column_type))
 
     def _image_process(self, value, env):
         if self.readonly and not self.max_width and not self.max_height:
@@ -4203,9 +4191,8 @@ class _RelationalMulti(_Relational):
                 browse = lambda it: comodel.browse((it and NewId(it),))
             else:
                 browse = comodel.browse
-            # determine the value ids: in case of a real record or a new record
-            # with origin, take its current value
-            ids = OrderedSet(record[self.name]._ids if record._origin else ())
+            # determine the value ids
+            ids = OrderedSet(record[self.name]._ids if validate else ())
             # modify ids with the commands
             for command in value:
                 if isinstance(command, (tuple, list)):

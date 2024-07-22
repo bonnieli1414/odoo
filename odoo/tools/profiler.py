@@ -176,7 +176,7 @@ class PeriodicCollector(Collector):
         super().__init__()
         self.active = False
         self.frame_interval = interval
-        self.__thread = threading.Thread(target=self.run)
+        self.thread = threading.Thread(target=self.run)
         self.last_frame = None
 
     def run(self):
@@ -208,11 +208,11 @@ class PeriodicCollector(Collector):
             init_thread.profile_hooks = []
         init_thread.profile_hooks.append(self.add)
 
-        self.__thread.start()
+        self.thread.start()
 
     def stop(self):
         self.active = False
-        self.__thread.join()
+        self.thread.join()
         self.profiler.init_thread.profile_hooks.remove(self.add)
 
     def add(self, entry=None, frame=None):

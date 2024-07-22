@@ -187,7 +187,7 @@ class Company(models.Model):
         def make_delegated_fields_readonly(node):
             for child in node.iterchildren():
                 if child.tag == 'field' and child.get('name') in delegated_fnames:
-                    child.set('readonly', "parent_id != False")
+                    child.set('attrs', "{'readonly': [('parent_id', '!=', False)]}")
                 else:
                     make_delegated_fields_readonly(child)
             return node
@@ -308,10 +308,6 @@ class Company(models.Model):
                 currency.write({'active': True})
 
         res = super(Company, self).write(values)
-
-        # Archiving a company should also archive all of its branches
-        if values.get('active') is False:
-            self.child_ids.active = False
 
         for company in self:
             # Copy modified delegated fields from root to branches

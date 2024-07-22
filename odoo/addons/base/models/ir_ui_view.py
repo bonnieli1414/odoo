@@ -542,7 +542,6 @@ actual arch.
         # if in uninstall mode and has children views, emulate an ondelete cascade
         if self.env.context.get('_force_unlink', False) and self.inherit_children_ids:
             self.inherit_children_ids.unlink()
-        self.env.registry.clear_cache('templates')
         return super(View, self).unlink()
 
     def _update_field_translations(self, fname, translations, digest=None):
@@ -1658,13 +1657,13 @@ actual arch.
                     name_manager.must_have_fields(node, vnames, f"context ({expr})")
                 for key, val_ast in get_dict_asts(expr).items():
                     if key == 'group_by':  # only in context
-                        if not isinstance(val_ast, ast.Constant) or not isinstance(val_ast.value, str):
+                        if not isinstance(val_ast, ast.Str):
                             msg = _(
                                 '"group_by" value must be a string %(attribute)s=%(value)r',
                                 attribute=attr, value=expr,
                             )
                             self._raise_view_error(msg, node)
-                        group_by = val_ast.value
+                        group_by = val_ast.s
                         fname = group_by.split(':')[0]
                         if fname not in name_manager.model._fields:
                             msg = _(
@@ -2705,16 +2704,15 @@ class Model(models.AbstractModel):
         """ Return an action to open given records.
             If there's more than one record, it will be a List, otherwise it's a Form.
             Given keyword arguments will overwrite default ones. """
-        match self.ids:  # `self.ids` will silently filter out new records (`NewId`s)
-            case []:
-                length_dependent = {'views': [(False, 'form')]}
-            case [res_id]:
-                length_dependent = {'views': [(False, 'form')], 'res_id': res_id}
-            case ids:
-                length_dependent = {
-                    'views': [(False, 'list'), (False, 'form')],
-                    'domain': [('id', 'in', ids)]
-                }
+        if len(self) == 0:
+            length_dependent = {'views': [(False, 'form')]}
+        elif len(self) == 1:
+            length_dependent = {'views': [(False, 'form')], 'res_id': self.id}
+        else:
+            length_dependent = {
+                'views': [(False, 'list'), (False, 'form')],
+                'domain': [('id', 'in', self.ids)]
+            }
         return {
             'type': 'ir.actions.act_window',
             'res_model': self._name,

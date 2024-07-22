@@ -20,7 +20,6 @@ class WebsiteSlidesSurvey(WebsiteProfile):
 
         domain = expression.AND([
             [('survey_id.certification', '=', True)],
-            [('state', '=', 'done')],
             expression.OR([
                 [('email', '=', values['user'].email)],
                 [('partner_id', '=', values['user'].partner_id.id)]
