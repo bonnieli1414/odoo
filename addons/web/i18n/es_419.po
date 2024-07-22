@@ -6,8 +6,8 @@
 # allen_infante <allen.infante@outlook.com>, 2023
 # Iran Villalobos López, 2024
 # Lucia Pacheco, 2024
-# Patricia Gutiérrez Capetillo <pagc@odoo.com>, 2024
 # Wil Odoo, 2024
+# Patricia Gutiérrez Capetillo <pagc@odoo.com>, 2024
 # Fernanda Alvarez, 2024
 # 
 msgid ""
@@ -1830,12 +1830,12 @@ msgstr "Se puede hacer clic"
 
 #. module: web
 #. odoo-javascript
-#: code:addons/web/static/src/core/datetime/datetime_picker_popover.xml:0
 #: code:addons/web/static/src/core/debug/debug_menu_items.xml:0
 #: code:addons/web/static/src/core/debug/debug_menu_items.xml:0
 #: code:addons/web/static/src/core/dialog/dialog.xml:0
 #: code:addons/web/static/src/core/dialog/dialog.xml:0
 #: code:addons/web/static/src/core/domain_selector_dialog/domain_selector_dialog.xml:0
+#: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
@@ -2317,7 +2317,7 @@ msgstr "Base de datos"
 #: model_terms:ir.ui.view,arch_db:web.neutralize_banner
 msgid "Database neutralized for testing: no emails sent, etc."
 msgstr ""
-"Base de datos neutralizada para pruebas: no se envían correos electrónicos, "
+"Base de datos neutralizada para pruebas: ningún correo electrónico enviado, "
 "etc."
 
 #. module: web
@@ -2370,7 +2370,7 @@ msgstr "Desactivar modo de solución de bugs"
 #: code:addons/web/static/src/webclient/settings_form_view/widgets/res_config_dev_tool.xml:0
 #, python-format
 msgid "Deactivate the developer mode"
-msgstr "Desactivar el modo de desarrollador"
+msgstr "Desactivar modo desarrollador"
 
 #. module: web
 #. odoo-javascript
@@ -2487,7 +2487,7 @@ msgstr "Eliminar"
 #: code:addons/web/static/src/search/search_bar_menu/search_bar_menu.js:0
 #, python-format
 msgid "Delete Filter"
-msgstr "Eliminar filtro"
+msgstr "Borrar el filtro"
 
 #. module: web
 #. odoo-javascript
@@ -2696,7 +2696,7 @@ msgstr "Dominio"
 #: code:addons/web/static/src/core/domain_selector_dialog/domain_selector_dialog.js:0
 #, python-format
 msgid "Domain is invalid. Please correct it"
-msgstr "El dominio no es válido, corríjalo."
+msgstr "El dominio no es válido, por favor corríjalo"
 
 #. module: web
 #. odoo-javascript
@@ -3011,7 +3011,7 @@ msgstr "No se permite exportar datos agrupados a csv."
 #: code:addons/web/static/src/core/expression_editor_dialog/expression_editor_dialog.js:0
 #, python-format
 msgid "Expression is invalid. Please correct it"
-msgstr "La expresión no es válida, corríjala."
+msgstr "La expresión no es válida, por favor corríjala."
 
 #. module: web
 #. odoo-javascript
@@ -3145,7 +3145,7 @@ msgstr "Tipo de campo"
 #: code:addons/web/static/src/core/expression_editor/expression_editor.js:0
 #, python-format
 msgid "Field properties not supported"
-msgstr "Propiedades de campo incompatibles"
+msgstr "Propiedades de campo no admitidas"
 
 #. module: web
 #. odoo-javascript
@@ -3471,7 +3471,7 @@ msgstr ""
 #: code:addons/web/static/src/views/fields/many2many_tags/many2many_tags_field.xml:0
 #, python-format
 msgid "Hide in kanban"
-msgstr "Ocultar en kanban"
+msgstr "Ocultar en el kanban"
 
 #. module: web
 #. odoo-javascript
@@ -3520,7 +3520,7 @@ msgid ""
 "golden."
 msgstr ""
 "El nombre de su base de datos solo puede contener letras, números, guiones "
-"bajos, guiones y puntos."
+"bajos, guiones, o puntos."
 
 #. module: web
 #. odoo-javascript
@@ -3572,7 +3572,7 @@ msgstr "Te amo (ILY)"
 #: code:addons/web/static/src/views/fields/datetime/datetime_field.js:0
 #, python-format
 msgid "ISO-formatted date (e.g. \"2018-12-31\") or \"%s\"."
-msgstr "Fecha con formato ISO (por ejemplo, \"2018-12-31\") o \"%s\"."
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -3683,7 +3683,8 @@ msgid ""
 "Install Odoo on your device to access it easily. Here are the steps to "
 "follow:"
 msgstr ""
-"Instale Odoo en su dispositivo para acceder con facilidad. Siga estos pasos:"
+"Instale Odoo en su dispositivo para acceder a él sin problemas. Siga estos "
+"pasos:"
 
 #. module: web
 #. odoo-javascript
@@ -5340,7 +5341,7 @@ msgstr "Solo usted"
 #: code:addons/web/static/src/core/install_prompt/install_prompt.xml:0
 #, python-format
 msgid "Open \"File\" menu from your browser"
-msgstr "Abra el menú \"Archivo\" desde su sitio web"
+msgstr "Abrir el menú \"archivo\" desde su sitio web"
 
 #. module: web
 #. odoo-javascript
@@ -5384,7 +5385,7 @@ msgstr "Abrir: %s"
 #: code:addons/web/static/src/core/tree_editor/tree_editor_operator_editor.js:0
 #, python-format
 msgid "Operator not supported"
-msgstr "Operador incompatible"
+msgstr "El operador no es compatible"
 
 #. module: web
 #. odoo-javascript
@@ -6491,14 +6492,14 @@ msgstr "Seleccionar"
 #: code:addons/web/static/src/core/install_prompt/install_prompt.xml:0
 #, python-format
 msgid "Select \"Add to dock\""
-msgstr "Seleccione \"Agregar al dock\""
+msgstr "Seleccione \"agregar a dock\""
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/install_prompt/install_prompt.xml:0
 #, python-format
 msgid "Select \"Add to home screen\""
-msgstr "Seleccione \"Agregar a la pantalla de inicio\""
+msgstr "Seleccione \"agregar a la pantalla de inicio\""
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.login
@@ -6932,7 +6933,6 @@ msgstr "Playera"
 
 #. module: web
 #. odoo-javascript
-#: code:addons/web/static/src/core/commands/command_items.xml:0
 #: code:addons/web/static/src/webclient/user_menu/user_menu_items.xml:0
 #, python-format
 msgid "TIP"
@@ -7014,7 +7014,7 @@ msgstr "Taoísta"
 #: code:addons/web/static/src/core/install_prompt/install_prompt.xml:0
 #, python-format
 msgid "Tap on the share icon"
-msgstr "Haga clic en el icono \"Compartir\""
+msgstr "Hacer clic en el icono para compartir"
 
 #. module: web
 #. odoo-javascript
@@ -7132,6 +7132,19 @@ msgstr ""
 "administrador o desarrollador que se debe arreglar para que la base de datos"
 " siga funcionando. Consulte la consola del navegador o el registro del "
 "servidor para más detalles."
+
+#. module: web
+#. odoo-javascript
+#: code:addons/web/static/src/core/errors/error_dialogs.xml:0
+#, python-format
+msgid ""
+"The style compilation failed, see the error below. This is an administrator "
+"or developer error that must be fixed for the entire database before "
+"continuing working."
+msgstr ""
+"La compilación de estilos falló, consulte el error a continuación. Este es "
+"un error de administrador o desarrollador que se debe corregir para toda la "
+"base de datos antes de continuar trabajando."
 
 #. module: web
 #. odoo-python
@@ -7960,7 +7973,7 @@ msgstr "Pruebas web"
 #. module: web
 #: model:ir.model.fields,field_description:web.field_base_document_layout__website
 msgid "Website Link"
-msgstr "Enlace del sitio web"
+msgstr "Enlace a sitio web"
 
 #. module: web
 #. odoo-javascript
@@ -8611,7 +8624,6 @@ msgstr "ancla"
 
 #. module: web
 #. odoo-javascript
-#: code:addons/web/static/src/core/commands/command_items.xml:0
 #: code:addons/web/static/src/core/domain_selector/utils.js:0
 #: code:addons/web/static/src/core/tree_editor/utils.js:0
 #, python-format
@@ -11777,7 +11789,7 @@ msgstr "niño"
 #: code:addons/web/static/src/core/tree_editor/tree_editor_operator_editor.js:0
 #, python-format
 msgid "child of"
-msgstr "secundario de"
+msgstr "hijo de"
 
 #. module: web
 #. odoo-javascript
@@ -12361,7 +12373,7 @@ msgstr "bolsa de mano "
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "coaster"
-msgstr "montaña rusa"
+msgstr "posavasos"
 
 #. module: web
 #. odoo-javascript
@@ -13263,7 +13275,7 @@ msgstr "piedra de curling "
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "curly hair"
-msgstr "cabello rizado "
+msgstr "pelo rizado "
 
 #. module: web
 #. odoo-javascript
@@ -13271,7 +13283,7 @@ msgstr "cabello rizado "
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "curly loop"
-msgstr "bucle "
+msgstr "bucle rizado "
 
 #. module: web
 #. odoo-javascript
@@ -13707,7 +13719,7 @@ msgstr "escritorio "
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "desktop computer"
-msgstr "computadora de escritorio"
+msgstr "escritorio de computadora "
 
 #. module: web
 #. odoo-javascript
@@ -13792,7 +13804,7 @@ msgstr "diamante"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "diamond suit"
-msgstr "palo de diamantes"
+msgstr "diamante de naipe "
 
 #. module: web
 #. odoo-javascript
@@ -16333,7 +16345,7 @@ msgstr "volar "
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "flying disc"
-msgstr "disco volador"
+msgstr "frisbee"
 
 #. module: web
 #. odoo-javascript
@@ -18562,7 +18574,7 @@ msgstr "bebida caliente "
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "hot dog"
-msgstr "hot dog"
+msgstr "perrito caliente "
 
 #. module: web
 #. odoo-javascript
@@ -20659,7 +20671,7 @@ msgstr "brillo bajo"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "lowercase"
-msgstr "minúsculas"
+msgstr "letras latinas minúsculas"
 
 #. module: web
 #. odoo-javascript
@@ -20674,7 +20686,7 @@ msgstr "buzón con la bandera bajada"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "luck"
-msgstr "suerte"
+msgstr "dedos cruzados"
 
 #. module: web
 #. odoo-javascript
@@ -21462,28 +21474,28 @@ msgstr "hombre: calvo"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "man: blond hair"
-msgstr "hombre: cabello rubio"
+msgstr "hombre: pelo rubio"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "man: curly hair"
-msgstr "hombre: cabello rizado"
+msgstr "hombre: pelo rizado"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "man: red hair"
-msgstr "hombre: cabello pelirrojo"
+msgstr "hombre: pelo pelirrojo"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "man: white hair"
-msgstr "hombre: cabello blanco "
+msgstr "hombre: pelo blanco "
 
 #. module: web
 #. odoo-javascript
@@ -21513,7 +21525,7 @@ msgstr "mango"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "manicure"
-msgstr "manicura"
+msgstr "manicure"
 
 #. module: web
 #. odoo-javascript
@@ -21772,7 +21784,7 @@ msgstr "símbolo de medicina"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "medicine"
-msgstr "medicina"
+msgstr "píldora"
 
 #. module: web
 #. odoo-javascript
@@ -21788,7 +21800,7 @@ msgstr "meditación"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "medium"
-msgstr "medio"
+msgstr "altavoz a volumen medio"
 
 #. module: web
 #. odoo-javascript
@@ -21945,7 +21957,7 @@ msgstr "persona sirena"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "merry-go-round"
-msgstr "carrusel"
+msgstr "caballo de carrusel"
 
 #. module: web
 #. odoo-javascript
@@ -22111,14 +22123,14 @@ msgstr "estatua moái"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "mobile"
-msgstr "móvil"
+msgstr "teléfono móvil"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "mobile phone"
-msgstr "celular"
+msgstr "teléfono móvil"
 
 #. module: web
 #. odoo-javascript
@@ -22257,7 +22269,7 @@ msgstr "cara con monóculo"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "monorail"
-msgstr "monorriel"
+msgstr "monorraíl"
 
 #. module: web
 #. odoo-javascript
@@ -22403,7 +22415,7 @@ msgstr "barco a motor"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "motorcycle"
-msgstr "motocicleta"
+msgstr "moto"
 
 #. module: web
 #. odoo-javascript
@@ -22672,7 +22684,7 @@ msgstr "partitura musical"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "mute"
-msgstr "silenciar"
+msgstr "campana con signo de cancelación"
 
 #. module: web
 #. odoo-javascript
@@ -24131,7 +24143,7 @@ msgstr "barco de pasajeros"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "passport"
-msgstr "pasaporte"
+msgstr "control de pasaportes"
 
 #. module: web
 #. odoo-javascript
@@ -24222,7 +24234,7 @@ msgstr "pc"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "peace"
-msgstr "paz"
+msgstr "símbolo de la paz"
 
 #. module: web
 #. odoo-javascript
@@ -24765,7 +24777,7 @@ msgstr "persona: barba"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "person: blond hair"
-msgstr "persona: cabello rubio"
+msgstr "persona: pelo rubio"
 
 #. module: web
 #. odoo-javascript
@@ -26634,7 +26646,7 @@ msgstr "derecha"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "right anger bubble"
-msgstr "burbuja de enfado por la derecha"
+msgstr "burbuja de enfada por la derecha"
 
 #. module: web
 #. odoo-javascript
@@ -27465,7 +27477,7 @@ msgstr "ver"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "see-no-evil monkey"
-msgstr "mono con los ojos tapados"
+msgstr "Mono con los ojos tapados"
 
 #. module: web
 #. odoo-javascript
@@ -27585,7 +27597,7 @@ msgstr "aguja de coser"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "shaka"
-msgstr "mano haciendo el gesto de llamar"
+msgstr "Mano haciendo el gesto de llamar"
 
 #. module: web
 #. odoo-javascript
@@ -27621,7 +27633,7 @@ msgstr "paella"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "shampoo"
-msgstr "champú"
+msgstr "bote de crema"
 
 #. module: web
 #. odoo-javascript
@@ -28220,7 +28232,7 @@ msgstr "rebanada"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "slider"
-msgstr "control deslizante"
+msgstr "control de volumen"
 
 #. module: web
 #. odoo-javascript
@@ -28454,7 +28466,7 @@ msgstr "burlón"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "smirking face"
-msgstr "cara con sonrisa burlona"
+msgstr "Cara con sonrisa burlona"
 
 #. module: web
 #. odoo-javascript
@@ -30513,7 +30525,7 @@ msgstr "inclinando"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "tipping hand"
-msgstr "mano inclinada"
+msgstr "empleada/o de un mostrador de inormación"
 
 #. module: web
 #. odoo-javascript
@@ -32229,7 +32241,7 @@ msgstr "flor blanca "
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "white hair"
-msgstr "cabello blanco "
+msgstr "pelo blanco "
 
 #. module: web
 #. odoo-javascript
@@ -33080,14 +33092,14 @@ msgstr "mujer: calva "
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "woman: blond hair"
-msgstr "mujer: cabello rubio "
+msgstr "mujer: pelo rubio "
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "woman: curly hair"
-msgstr "mujer: cabello rizado "
+msgstr "mujer: pelo rizado "
 
 #. module: web
 #. odoo-javascript
@@ -33101,7 +33113,7 @@ msgstr "mujer: pelirroja "
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "woman: white hair"
-msgstr "mujer: cabello blanco "
+msgstr "mujer: pelo blanco "
 
 #. module: web
 #. odoo-javascript
@@ -33335,7 +33347,7 @@ msgstr "luchador "
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "write"
-msgstr "escribir"
+msgstr "editar"
 
 #. module: web
 #. odoo-javascript
@@ -33593,13 +33605,6 @@ msgstr "— presione"
 
 #. module: web
 #. odoo-javascript
-#: code:addons/web/static/src/core/commands/command_items.xml:0
-#, python-format
-msgid "— search for"
-msgstr "— busque"
-
-#. module: web
-#. odoo-javascript
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "“acceptable”"
@@ -33722,4 +33727,4 @@ msgstr "“vacante”"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "ココ"
-msgstr "aquí"
+msgstr "ココ"

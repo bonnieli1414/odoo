@@ -1184,11 +1184,6 @@ msgid "Archived"
 msgstr "เก็บถาวรแล้ว"
 
 #. module: stock
-#: model_terms:ir.ui.view,arch_db:stock.view_picking_form
-msgid "Are you sure you want to cancel this transfer?"
-msgstr "คุณแน่ใจหรือไม่ว่าต้องการยกเลิกการโอนนี้"
-
-#. module: stock
 #: model:ir.model.fields.selection,name:stock.selection__stock_picking__move_type__direct
 msgid "As soon as possible"
 msgstr "เร็วที่สุดเท่าที่เป็นไปได้"
@@ -3487,7 +3482,7 @@ msgstr "สร้างหมายเลขซีเรียล"
 #: code:addons/stock/static/src/widgets/lots_dialog.xml:0
 #, python-format
 msgid "Generate Serials/Lots"
-msgstr "สร้างหมายเลขซีเรียล/ล็อต"
+msgstr ""
 
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.res_config_settings_view_form
@@ -4789,7 +4784,7 @@ msgstr "รูปแบบฉลากล็อตที่จะพิมพ์
 #. module: stock
 #: model:ir.model,name:stock.model_report_stock_label_lot_template_view
 msgid "Lot Label Report"
-msgstr "รายงานป้ายกำกับล็อต"
+msgstr ""
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_product_product__lot_properties_definition
@@ -5370,12 +5365,6 @@ msgstr "ไม่มีการดำเนินการในล็อตน
 #: model_terms:ir.actions.act_window,help:stock.action_get_picking_type_operations
 msgid "No operations found. Let's create a transfer!"
 msgstr "ไม่พบการดำเนินการ มาสร้างการโอนย้ายกันเถอะ!"
-
-#. module: stock
-#. odoo-python
-#: code:addons/stock/models/stock_move.py:0
-msgid "No product found to generate Serials/Lots for."
-msgstr ""
 
 #. module: stock
 #: model_terms:ir.actions.act_window,help:stock.product_template_action_product
@@ -7631,7 +7620,7 @@ msgstr ""
 #: code:addons/stock/models/stock_rule.py:0
 #, python-format
 msgid "Rule %s belongs to %s while the route belongs to %s."
-msgstr "กฎ %s เป็นของ %s ในขณะที่เส้นทางเป็นของ %s"
+msgstr ""
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_rule__rule_message
@@ -10416,14 +10405,10 @@ msgstr "คุณไม่สามารถเปลี่ยนประเภ
 
 #. module: stock
 #. odoo-python
-#. module: stock
-#. odoo-python
 #: code:addons/stock/models/stock_move.py:0
-#: code:addons/stock/models/stock_orderpoint.py:0
-#, python-format, python-format
-msgid ""
-"You can not create a snoozed orderpoint that is not manually triggered."
-msgstr ""
+#, python-format
+msgid "You can not delete moves linked to another operation"
+msgstr "คุณไม่สามารถลบการย้ายที่เชื่อมโยงกับการดำเนินการอื่นได้"
 
 #. module: stock
 #. odoo-python
@@ -10477,15 +10462,6 @@ msgstr ""
 msgid "You can only process 1.0 %s of products with unique serial number."
 msgstr ""
 "คุณสามารถดำเนินการได้เพียง 1.0 %s ของสินค้าที่มีหมายเลขซีเรียลที่ไม่ซ้ำกัน"
-
-#. module: stock
-#. odoo-python
-#: code:addons/stock/models/stock_orderpoint.py:0
-#, python-format
-msgid ""
-"You can only snooze manual orderpoints. You should rather archive 'auto-"
-"trigger' orderpoints if you do not want them to be triggered."
-msgstr ""
 
 #. module: stock
 #. odoo-python
@@ -10591,16 +10567,6 @@ msgstr "คุณไม่สามารถลบเศษสินค้าท
 
 #. module: stock
 #. odoo-python
-#: code:addons/stock/models/stock_move_line.py:0
-#, python-format
-msgid ""
-"You cannot directly pack quantities from different transfers into the same "
-"package through this view. Try adding them to a batch picking and pack it "
-"there."
-msgstr ""
-
-#. module: stock
-#. odoo-python
 #: code:addons/stock/models/stock_quant.py:0
 #, python-format
 msgid "You cannot modify inventory loss quantity"
@@ -10625,7 +10591,6 @@ msgid ""
 "You cannot pack products into the same package when they are from different "
 "transfers with different operation types."
 msgstr ""
-"คุณไม่สามารถบรรจุผลิตภัณฑ์ลงในบรรจุภัณฑ์เดียวกันได้เมื่อมาจากการโอนที่แตกต่างกันและมีประเภทการดำเนินการต่างกัน"
 
 #. module: stock
 #. odoo-python

@@ -2,11 +2,7 @@
 
 import { OdooEditor } from '../src/OdooEditor.js';
 import { sanitize } from '../src/utils/sanitize.js';
-import {
-    closestElement,
-    makeZeroWidthCharactersVisible,
-    insertSelectionChars,
-} from '../src/utils/utils.js';
+import { closestElement } from '../src/utils/utils.js';
 
 export const Direction = {
     BACKWARD: 'BACKWARD',
@@ -94,6 +90,13 @@ export function parseTextualSelection(testContainer) {
         node = next;
     }
     if (anchorNode && focusNode) {
+        // Correct for the addition of the link ZWS start characters.
+        if (anchorNode.nodeName === 'A' && anchorOffset) {
+            anchorOffset += 1;
+        }
+        if (focusNode.nodeName === 'A' && focusOffset) {
+            focusOffset += 1;
+        }
         return {
             anchorNode: anchorNode,
             anchorOffset: anchorOffset,
@@ -173,6 +176,33 @@ export async function setTestSelection(selection, doc = document) {
 }
 
 /**
+ * Inserts the given characters at the given offset of the given node.
+ *
+ * @param {string} chars
+ * @param {Node} node
+ * @param {number} offset
+ */
+export function insertCharsAt(chars, node, offset) {
+    if (node.nodeType === Node.TEXT_NODE) {
+        const startValue = node.nodeValue;
+        if (offset < 0 || offset > startValue.length) {
+            throw new Error(`Invalid ${chars} insertion in text node`);
+        }
+        node.nodeValue = startValue.slice(0, offset) + chars + startValue.slice(offset);
+    } else {
+        if (offset < 0 || offset > node.childNodes.length) {
+            throw new Error(`Invalid ${chars} insertion in non-text node`);
+        }
+        const textNode = document.createTextNode(chars);
+        if (offset < node.childNodes.length) {
+            node.insertBefore(textNode, node.childNodes[offset]);
+        } else {
+            node.appendChild(textNode);
+        }
+    }
+}
+
+/**
  * Return the deepest child of a given container at a given offset, and its
  * adapted offset.
  *
@@ -221,23 +251,38 @@ export function nodeLength(node) {
  *
  * This is used in the function `testEditor`.
  */
-export function renderTextualSelection(editor) {
-    const selection = editor.document.getSelection();
+export function renderTextualSelection(doc = document) {
+    const selection = doc.getSelection();
     if (selection.rangeCount === 0) {
         return;
     }
-    editor.observerUnactive('renderTextualSelection');
-    insertSelectionChars(selection.anchorNode, selection.anchorOffset, selection.focusNode, selection.focusOffset);
-    editor.observerActive('renderTextualSelection');
+
+    const anchor = targetDeepest(selection.anchorNode, selection.anchorOffset);
+    const focus = targetDeepest(selection.focusNode, selection.focusOffset);
+
+    // If the range characters have to be inserted within the same parent and
+    // the anchor range character has to be before the focus range character,
+    // the focus offset needs to be adapted to account for the first insertion.
+    const [anchorNode, anchorOffset] = anchor;
+    const [focusNode, baseFocusOffset] = focus;
+    let focusOffset = baseFocusOffset;
+    if (anchorNode === focusNode && anchorOffset <= focusOffset) {
+        focusOffset++;
+    }
+    insertCharsAt('[', ...anchor);
+    insertCharsAt(']', focusNode, focusOffset);
 }
 
 /**
  * Return a more readable test error messages
  */
 export function customErrorMessage(assertLocation, value, expected) {
+    const zws = '//zws//';
+    value = value.replaceAll('\u200B', zws);
+    expected = expected.replaceAll('\u200B', zws);
     const tab = '//TAB//';
-    value = makeZeroWidthCharactersVisible(value).replaceAll('\u0009', tab);
-    expected = makeZeroWidthCharactersVisible(expected).replaceAll('\u0009', tab);
+    value = value.replaceAll('\u0009', tab);
+    expected = expected.replaceAll('\u0009', tab);
 
     return `${(isMobileTest ? '[MOBILE VERSION: ' : '[')}${assertLocation}]\nactual  : '${value}'\nexpected: '${expected}'\n\nStackTrace `;
 }
@@ -247,17 +292,6 @@ export function customErrorMessage(assertLocation, value, expected) {
  */
 export function _isMobile(){
     return matchMedia('(max-width: 767px)').matches;
-}
-
-/**
- * Remove all check-ids from the test container (checklists, stars)
- *
- * @param {Element} testContainer
- */
-function removeCheckIds(testContainer) {
-    for (const li of testContainer.querySelectorAll('li[id^="checkId-"]')) {
-        li.removeAttribute('id');
-    }
 }
 
 export async function testEditor(Editor = OdooEditor, spec, options = {}) {
@@ -288,8 +322,6 @@ export async function testEditor(Editor = OdooEditor, spec, options = {}) {
     });
     const selection = parseTextualSelection(testNode);
 
-    // We disable the `toSanitize` option so we set the test selection on the
-    // raw, unsanitized HTML. We'll sanitize after having set the selection.
     const editor = new Editor(testNode, Object.assign({ toSanitize: false }, options));
     let error = false;
     try {
@@ -297,32 +329,17 @@ export async function testEditor(Editor = OdooEditor, spec, options = {}) {
         editor.testMode = true;
         if (selection) {
             await setTestSelection(selection);
+            editor._recordHistorySelection();
         } else {
             document.getSelection().removeAllRanges();
         }
+        editor.observerUnactive('beforeUnitTests');
 
-        // Now the selection is set we can finally sanitize.
+        // we have to sanitize after having put the cursor
         sanitize(editor.editable);
 
-        // In normal circumstances the editor sanitizes its content in its
-        // constructor, before initializing the history. For the purposes of
-        // setting the test's selection, we only sanitize now, which means the
-        // changes made by `sanitize` are included in a step (which could well
-        // be rolled back if what the step function does triggers it), and the
-        // sanitization can be undone. This is not how the editor normally
-        // behaves. To make it closer to reality, we now reset the history.
-        editor.historyReset();
-        editor.historyStep();
-
-        if (selection) {
-            editor._recordHistorySelection();
-        }
-
         if (spec.contentBeforeEdit) {
-            if (spec.removeCheckIds) {
-                removeCheckIds(testContainer);
-            }
-            renderTextualSelection(editor);
+            renderTextualSelection();
             const beforeEditValue = testNode.innerHTML;
             window.chai.expect(beforeEditValue).to.be.equal(
                 spec.contentBeforeEdit,
@@ -334,19 +351,18 @@ export async function testEditor(Editor = OdooEditor, spec, options = {}) {
         }
 
         if (spec.stepFunction) {
+            editor.observerActive('beforeUnitTests');
             try {
                 await spec.stepFunction(editor);
             } catch (e) {
                 e.message = (isMobileTest ? '[MOBILE VERSION] ' : '') + e.message;
                 throw e;
             }
+            editor.observerUnactive('afterUnitTests');
         }
 
         if (spec.contentAfterEdit) {
-            renderTextualSelection(editor);
-            if (spec.removeCheckIds) {
-                removeCheckIds(testContainer);
-            }
+            renderTextualSelection();
             const afterEditValue = testNode.innerHTML;
             window.chai.expect(afterEditValue).to.be.equal(
                 spec.contentAfterEdit,
@@ -368,10 +384,15 @@ export async function testEditor(Editor = OdooEditor, spec, options = {}) {
     if (!error) {
         try {
             if (spec.contentAfter) {
-                renderTextualSelection(editor);
+                renderTextualSelection();
+
+                // remove all check-ids (checklists, stars)
                 if (spec.removeCheckIds) {
-                    removeCheckIds(testContainer);
+                    for (const li of document.querySelectorAll('#editor-test-container li[id^=checkId-')) {
+                        li.removeAttribute('id');
+                    }
                 }
+
                 const value = testNode.innerHTML;
                 window.chai.expect(value).to.be.equal(
                     spec.contentAfter,

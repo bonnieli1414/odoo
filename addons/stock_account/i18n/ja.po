@@ -4,8 +4,7 @@
 # 
 # Translators:
 # Wil Odoo, 2023
-# Ryoko Tsuda <ryoko@quartile.co>, 2024
-# Yoshi Tashiro (Quartile) <tashiro@roomsfor.hk>, 2024
+# Ryoko Tsuda <ryoko@quartile.co>, 2023
 # Junko Augias, 2024
 # 
 msgid ""
@@ -167,7 +166,7 @@ msgstr "分析勘定明細"
 #. module: stock_account
 #: model:ir.model,name:stock_account.model_account_analytic_plan
 msgid "Analytic Plans"
-msgstr "分析計画"
+msgstr "分析プラン"
 
 #. module: stock_account
 #: model:ir.model.fields.selection,name:stock_account.selection__product_category__property_valuation__real_time
@@ -283,7 +282,7 @@ msgstr "プロダクトカテゴリ%sの原価計算法を %sから %sに変更�
 #. module: stock_account
 #: model:ir.model.fields,field_description:stock_account.field_stock_valuation_layer_revaluation__account_id
 msgid "Counterpart Account"
-msgstr "相手勘定"
+msgstr "相手方口座"
 
 #. module: stock_account
 #: model:ir.model.fields,help:stock_account.field_product_category__property_stock_account_input_categ_id
@@ -327,7 +326,7 @@ msgstr "現在の数量"
 #: model:ir.model.fields,field_description:stock_account.field_stock_valuation_layer_revaluation__current_value_svl
 #: model_terms:ir.ui.view,arch_db:stock_account.stock_valuation_layer_revaluation_form_view
 msgid "Current Value"
-msgstr "現在価値"
+msgstr "実際の数値"
 
 #. module: stock_account
 #: model_terms:ir.ui.view,arch_db:stock_account.stock_valuation_layer_form
@@ -834,7 +833,7 @@ msgstr "移動明細が一貫していません。同じ移動元または移動
 msgid ""
 "The value of a stock valuation layer cannot be negative. Landed cost could "
 "be use to correct a specific transfer."
-msgstr "在庫評価レイヤーの値をマイナスにすることはできません。仕入諸掛を使用して個別に運送を修正してください。"
+msgstr "在庫評価レイヤーの値を負にすることはできません。陸上原価は、特定の譲渡を修正するために使用できます。"
 
 #. module: stock_account
 #: model_terms:ir.actions.act_window,help:stock_account.inventory_aging_action
@@ -1056,15 +1055,6 @@ msgid ""
 "You don't have any stock input account defined on your product category. You"
 " must define one before processing this operation."
 msgstr "プロダクトカテゴリに在庫入力アカウントが定義されていません。このオペレーションを行う前に定義する必要があります。"
-
-#. module: stock_account
-#. odoo-python
-#: code:addons/stock_account/models/product.py:0
-#, python-format
-msgid ""
-"You don't have any output valuation account defined on your product "
-"category. You must define one before processing this operation."
-msgstr "プロダクトカテゴリに出庫評価勘定が定義されていません。この操作を行う前に、出庫評価勘定を定義する必要があります。"
 
 #. module: stock_account
 #. odoo-python

@@ -23,7 +23,6 @@ import {
 } from "@spreadsheet/global_filters/helpers";
 import { RELATIVE_DATE_RANGE_TYPES } from "@spreadsheet/helpers/constants";
 import { getItemId } from "../../helpers/model";
-import { serializeDateTime, serializeDate } from "@web/core/l10n/dates";
 
 const { DateTime } = luxon;
 
@@ -432,17 +431,14 @@ export class GlobalFiltersUIPlugin extends spreadsheet.UIPlugin {
         const now = DateTime.local();
 
         if (filter.rangeType === "from_to") {
-            const serialize = type === "datetime" ? serializeDateTime : serializeDate;
-            const from = value.from && serialize(DateTime.fromISO(value.from).startOf("day"));
-            const to = value.to && serialize(DateTime.fromISO(value.to).endOf("day"));
-            if (from && to) {
-                return new Domain(["&", [field, ">=", from], [field, "<=", to]]);
+            if (value.from && value.to) {
+                return new Domain(["&", [field, ">=", value.from], [field, "<=", value.to]]);
             }
-            if (from) {
-                return new Domain([[field, ">=", from]]);
+            if (value.from) {
+                return new Domain([[field, ">=", value.from]]);
             }
-            if (to) {
-                return new Domain([[field, "<=", to]]);
+            if (value.to) {
+                return new Domain([[field, "<=", value.to]]);
             }
             return new Domain();
         }
@@ -558,9 +554,6 @@ export class GlobalFiltersUIPlugin extends spreadsheet.UIPlugin {
                 numberOfCols = Math.max(numberOfCols, Number(colIndex) + 2);
                 for (const rowIndex in result[colIndex]) {
                     const cell = result[colIndex][rowIndex];
-                    if (cell.value === undefined) {
-                        continue;
-                    }
                     const xc = toXC(Number(colIndex) + 1, Number(rowIndex) + filterRowIndex);
                     cells[xc] = { content: cell.value.toString() };
                     if (cell.format) {

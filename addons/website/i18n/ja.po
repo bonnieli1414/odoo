@@ -52,25 +52,6 @@ msgstr "\"URL from\" は空にすることはできません"
 #. odoo-python
 #: code:addons/website/models/website_rewrite.py:0
 #, python-format
-msgid ""
-"\"URL to\" cannot be set to \"/\". To change the homepage content, use the "
-"\"Homepage URL\" field in the website settings or the page properties on any"
-" custom page."
-msgstr ""
-"\"次へのURL\"に \"/\"を設定することはできません。ホームページの内容を変更するには、ウェブサイト設定の\"ホームページURL\" "
-"フィールド、またはカスタムページのページプロパティを使用します。"
-
-#. module: website
-#. odoo-python
-#: code:addons/website/models/website_rewrite.py:0
-#, python-format
-msgid "\"URL to\" cannot be set to an existing page."
-msgstr "\"次へのURL\"に既存のページを設定することはできません。"
-
-#. module: website
-#. odoo-python
-#: code:addons/website/models/website_rewrite.py:0
-#, python-format
 msgid "\"URL to\" can not be empty."
 msgstr "「URL to」は空にすることはできません。"
 
@@ -278,6 +259,8 @@ msgid "...and switch the timeline contents to fit your needs."
 msgstr "...そして必要に応じてタイムラインの内容を切り替えます。"
 
 #. module: website
+#: model:website,contact_us_button_url:website.default_website
+#: model:website,contact_us_button_url:website.website2
 #: model_terms:ir.ui.view,arch_db:website.layout
 #: model_terms:ir.ui.view,arch_db:website.snippets
 msgid "/contactus"
@@ -1617,6 +1600,11 @@ msgstr "アクセストークン"
 #: model_terms:ir.ui.view,arch_db:website.protected_403
 msgid "Access to this page"
 msgstr "このページへのアクセス"
+
+#. module: website
+#: model:ir.model.constraint,message:website.constraint_website_visitor_access_token_unique
+msgid "Access token should be unique."
+msgstr "アクセストークンは一意である必要があります。"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_mega_menu_menus_logos
@@ -5908,13 +5896,6 @@ msgid "Hide For"
 msgstr "次のものに非表示: "
 
 #. module: website
-#. odoo-javascript
-#: code:addons/website/static/src/snippets/s_popup/000.js:0
-#, python-format
-msgid "Hide the cookies bar"
-msgstr "クッキーバーを非表示"
-
-#. module: website
 #: model_terms:ir.ui.view,arch_db:website.website_page_properties_view_form
 msgid "Hide this page from search results"
 msgstr "このページを検索結果から非表示"
@@ -6184,6 +6165,15 @@ msgid ""
 "If you need to add analytics or marketing tags, inject code in your <head> "
 "or <body> instead."
 msgstr "アナリティクスやマーケティングタグを追加する必要がある場合は、代わりに <head> または <body> にコードを挿入して下さい。"
+
+#. module: website
+#. odoo-javascript
+#: code:addons/website/static/src/components/resource_editor/resource_editor_warning.xml:0
+#, python-format
+msgid ""
+"If you need to add analytics or marketing tags, inject code in your header "
+"or body instead."
+msgstr "アナリティクスやマーケティングタグを追加する必要がある場合は、代わりにヘッダーや本文にコードを挿入して下さい。"
 
 #. module: website
 #. odoo-javascript
@@ -6795,6 +6785,7 @@ msgstr "空白の場合はデフォルト値が適用される"
 #. module: website
 #: model:ir.model.fields,field_description:website.field_ir_asset__key
 #: model:ir.model.fields,field_description:website.field_ir_attachment__key
+#: model:ir.model.fields,field_description:website.field_product_document__key
 #: model:ir.model.fields,field_description:website.field_theme_ir_asset__key
 #: model:ir.model.fields,field_description:website.field_theme_ir_attachment__key
 #: model:ir.model.fields,field_description:website.field_theme_ir_ui_view__key
@@ -8137,6 +8128,12 @@ msgid "None"
 msgstr "なし"
 
 #. module: website
+#: model:website,prevent_zero_price_sale_text:website.default_website
+#: model:website,prevent_zero_price_sale_text:website.website2
+msgid "Not Available For Sale"
+msgstr "未発売"
+
+#. module: website
 #: model_terms:ir.ui.view,arch_db:website.website_pages_kanban_view
 msgid "Not Published"
 msgstr "未公開"
@@ -8691,10 +8688,7 @@ msgid "Page Layout"
 msgstr "ページレイアウト"
 
 #. module: website
-#. odoo-javascript
-#: code:addons/website/static/src/components/dialog/page_properties.xml:0
 #: model_terms:ir.ui.view,arch_db:website.website_page_properties_view_form
-#, python-format
 msgid "Page Name"
 msgstr "ページ名"
 
@@ -9038,13 +9032,6 @@ msgstr "Prepend"
 #: model_terms:ir.ui.view,arch_db:website.color_combinations_debug_view
 msgid "Preset"
 msgstr "プリセット"
-
-#. module: website
-#. odoo-javascript
-#: code:addons/website/static/src/components/fullscreen_indication/fullscreen_indication.js:0
-#, python-format
-msgid "Press %(key)s to exit full screen"
-msgstr "%(key)sを押してフルスクリーンを終了します。"
 
 #. module: website
 #. odoo-javascript
@@ -10257,13 +10244,6 @@ msgid "Show site map"
 msgstr "サイトマップを表示"
 
 #. module: website
-#. odoo-javascript
-#: code:addons/website/static/src/snippets/s_popup/000.js:0
-#, python-format
-msgid "Show the cookies bar"
-msgstr "クッキーバーを表示"
-
-#. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
 msgid "Show/Hide on Desktop"
 msgstr "デスクトップに表示・非表示"
@@ -11208,6 +11188,7 @@ msgstr "テーマ色"
 #: model:ir.model.fields,field_description:website.field_ir_asset__theme_template_id
 #: model:ir.model.fields,field_description:website.field_ir_attachment__theme_template_id
 #: model:ir.model.fields,field_description:website.field_ir_ui_view__theme_template_id
+#: model:ir.model.fields,field_description:website.field_product_document__theme_template_id
 #: model:ir.model.fields,field_description:website.field_website_controller_page__theme_template_id
 #: model:ir.model.fields,field_description:website.field_website_menu__theme_template_id
 #: model:ir.model.fields,field_description:website.field_website_page__theme_template_id
@@ -12533,6 +12514,7 @@ msgstr "Web訪問者"
 #: model:ir.model.fields,field_description:website.field_ir_asset__website_id
 #: model:ir.model.fields,field_description:website.field_ir_attachment__website_id
 #: model:ir.model.fields,field_description:website.field_ir_ui_view__website_id
+#: model:ir.model.fields,field_description:website.field_product_document__website_id
 #: model:ir.model.fields,field_description:website.field_res_company__website_id
 #: model:ir.model.fields,field_description:website.field_res_partner__website_id
 #: model:ir.model.fields,field_description:website.field_res_users__website_id
@@ -12578,6 +12560,11 @@ msgstr "サイトコンフィグレータ機能"
 #: model:ir.model.fields,field_description:website.field_website__domain
 msgid "Website Domain"
 msgstr "サイトドメイン"
+
+#. module: website
+#: model:ir.model.constraint,message:website.constraint_website_domain_unique
+msgid "Website Domain should be unique."
+msgstr "サイトドメインは一意であることが必要です。"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website__favicon
@@ -12987,6 +12974,7 @@ msgstr "編集したり、複製したりできます..."
 #. module: website
 #. odoo-python
 #: code:addons/website/models/res_users.py:0
+#: model:ir.model.constraint,message:website.constraint_res_users_login_key
 #, python-format
 msgid "You can not have two users with the same login!"
 msgstr "同じログインに二人のユーザが同時に使えるようになりました!"
@@ -13021,21 +13009,19 @@ msgid ""
 msgstr "デフォルトウェブサイト%sを削除することはできません。代わりにセッティングで変更してみて下さい。"
 
 #. module: website
-#. odoo-python
+#. odoo-javascript
+#: code:addons/website/static/src/snippets/s_website_form/options.js:0
+#, python-format
+msgid "You cannot duplicate this field."
+msgstr "このフィールドを複製することはできません。"
+
+#. module: website
 #: code:addons/website/models/website_menu.py:0
 #, python-format
 msgid ""
 "You cannot delete this website menu as this serves as the default parent "
 "menu for new websites (e.g., /shop, /event, ...)."
 msgstr ""
-"このウェブサイトメニューは、新しいウェブサイト(/shop、/event、...など)のデフォルトの親メニューとして機能するため、削除することはできません。"
-
-#. module: website
-#. odoo-javascript
-#: code:addons/website/static/src/snippets/s_website_form/options.js:0
-#, python-format
-msgid "You cannot duplicate this field."
-msgstr "このフィールドを複製することはできません。"
 
 #. module: website
 #. odoo-python
@@ -13059,6 +13045,13 @@ msgid ""
 "You have hidden this page from search results. It won't be indexed by search"
 " engines."
 msgstr "検索結果からこのページを非表示しました。検索エンジンにインデックスされません。"
+
+#. module: website
+#. odoo-python
+#: code:addons/website/models/res_config_settings.py:0
+#, python-format
+msgid "You haven't defined your domain"
+msgstr "ドメインはまだ定義されていません"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.cookie_policy

@@ -133,12 +133,7 @@ export class ProductTemplateAttributeLine extends Component {
             ptav => this.props.selected_attribute_value_ids.includes(ptav.id)
         )?.is_custom;
     }
-
-    get showValuesChoice() {
-        return this.props.attribute_values.length > 1
-            || this.props.attribute.display_type == 'multi'
-    }
-
+    
     /**
      * Check if the line has a custom ptav or not.
      *

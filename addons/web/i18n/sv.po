@@ -17,6 +17,7 @@
 # Martin Wilderoth <martin.wilderoth@linserv.se>, 2023
 # lynnliuying <lynn.liu1971@gmail.com>, 2023
 # Björn Hayer, 2023
+# Jakob Krabbe <jakob.krabbe@vertel.se>, 2023
 # Martin Trigaux, 2023
 # Chrille Hedberg <hedberg.chrille@gmail.com>, 2023
 # Mikael Åkerberg <mikael.akerberg@mariaakerberg.com>, 2023
@@ -25,9 +26,8 @@
 # Lasse L, 2024
 # Kristoffer Grundström <lovaren@gmail.com>, 2024
 # Claes-Johan Dahlin, 2024
-# Simon S, 2024
-# Jakob Krabbe <jakob.krabbe@vertel.se>, 2024
 # Anders Wallenquist <anders.wallenquist@vertel.se>, 2024
+# Simon S, 2024
 # 
 msgid ""
 msgstr ""
@@ -35,7 +35,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-29 10:46+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
-"Last-Translator: Anders Wallenquist <anders.wallenquist@vertel.se>, 2024\n"
+"Last-Translator: Simon S, 2024\n"
 "Language-Team: Swedish (https://app.transifex.com/odoo/teams/41243/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1847,12 +1847,12 @@ msgstr "Klickbar"
 
 #. module: web
 #. odoo-javascript
-#: code:addons/web/static/src/core/datetime/datetime_picker_popover.xml:0
 #: code:addons/web/static/src/core/debug/debug_menu_items.xml:0
 #: code:addons/web/static/src/core/debug/debug_menu_items.xml:0
 #: code:addons/web/static/src/core/dialog/dialog.xml:0
 #: code:addons/web/static/src/core/dialog/dialog.xml:0
 #: code:addons/web/static/src/core/domain_selector_dialog/domain_selector_dialog.xml:0
+#: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
@@ -3586,7 +3586,7 @@ msgstr "ILY"
 #: code:addons/web/static/src/views/fields/datetime/datetime_field.js:0
 #, python-format
 msgid "ISO-formatted date (e.g. \"2018-12-31\") or \"%s\"."
-msgstr "ISO-formaterat datum (t.ex. \"2024-12-31\") eller \"%s\"."
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -5097,7 +5097,7 @@ msgstr "Inte aktiv status, klicka för att ändra"
 #: code:addons/web/static/src/views/fields/many2many_binary/many2many_binary_field.js:0
 #, python-format
 msgid "Number of files"
-msgstr "Antalet filer"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -6946,7 +6946,6 @@ msgstr "T-shirt"
 
 #. module: web
 #. odoo-javascript
-#: code:addons/web/static/src/core/commands/command_items.xml:0
 #: code:addons/web/static/src/webclient/user_menu/user_menu_items.xml:0
 #, python-format
 msgid "TIP"
@@ -7145,6 +7144,19 @@ msgstr ""
 "Stilkompileringen misslyckades. Detta är ett administratörs- eller "
 "utvecklarfel som måste åtgärdas för hela databasen innan du kan fortsätta "
 "arbeta. Se webbläsarkonsolen eller serverloggar för mer information."
+
+#. module: web
+#. odoo-javascript
+#: code:addons/web/static/src/core/errors/error_dialogs.xml:0
+#, python-format
+msgid ""
+"The style compilation failed, see the error below. This is an administrator "
+"or developer error that must be fixed for the entire database before "
+"continuing working."
+msgstr ""
+"Stilkompileringen misslyckades, se felet nedan. Detta är ett administratörs-"
+" eller utvecklarfel som måste åtgärdas för hela databasen innan arbetet kan "
+"fortsätta."
 
 #. module: web
 #. odoo-python
@@ -8620,7 +8632,6 @@ msgstr "ankare"
 
 #. module: web
 #. odoo-javascript
-#: code:addons/web/static/src/core/commands/command_items.xml:0
 #: code:addons/web/static/src/core/domain_selector/utils.js:0
 #: code:addons/web/static/src/core/tree_editor/utils.js:0
 #, python-format
@@ -33599,13 +33610,6 @@ msgstr "zombie"
 #, python-format
 msgid "— press"
 msgstr "- tryck"
-
-#. module: web
-#. odoo-javascript
-#: code:addons/web/static/src/core/commands/command_items.xml:0
-#, python-format
-msgid "— search for"
-msgstr "— leta efter"
 
 #. module: web
 #. odoo-javascript

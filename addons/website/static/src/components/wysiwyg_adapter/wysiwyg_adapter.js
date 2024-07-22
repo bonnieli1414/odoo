@@ -179,10 +179,6 @@ export class WysiwygAdapterComponent extends Wysiwyg {
     async startEdition() {
         this.props.removeWelcomeMessage();
 
-        // Bind the _onPageClick handler to click event: to close the dropdown if clicked outside.
-        this.__onPageClick = this._onPageClick.bind(this);
-        this.$editable[0].addEventListener("click", this.__onPageClick, { capture: true });
-
         this.options.toolbarHandler = $('#web_editor-top-edit');
         // Do not insert a paragraph after each column added by the column commands:
         this.options.insertParagraphAfterColumns = false;
@@ -424,7 +420,6 @@ export class WysiwygAdapterComponent extends Wysiwyg {
         const formOptionsMod = await odoo.loader.modules.get('@website/snippets/s_website_form/options')[Symbol.for('default')];
         formOptionsMod.clearAllFormsInfo();
 
-        this.$editable[0].removeEventListener("click", this.__onPageClick, { capture: true });
         return super.destroy(...arguments);
     }
 
@@ -502,16 +497,6 @@ export class WysiwygAdapterComponent extends Wysiwyg {
 
                 const $savable = $(record.target).closest(this.savableSelector);
                 if (!$savable.length) {
-                    continue;
-                }
-
-                // Do not mark the editable dirty when simply adding/removing
-                // link zwnbsp since these are just technical nodes that aren't
-                // part of the user's editing of the document.
-                if (record.type === 'childList' &&
-                    [...record.addedNodes, ...record.removedNodes].every(node => (
-                        node.nodeType === Node.TEXT_NODE && node.textContent === '\ufeff')
-                    )) {
                     continue;
                 }
 
@@ -938,7 +923,7 @@ export class WysiwygAdapterComponent extends Wysiwyg {
      * @private
      * @param {HTMLElement} editable
      */
-    async _saveCoverProperties($elementToSave) {
+    _saveCoverProperties($elementToSave) {
         var el = $elementToSave.closest('.o_record_cover_container')[0];
         if (!el) {
             return;
@@ -965,31 +950,7 @@ export class WysiwygAdapterComponent extends Wysiwyg {
         }
         this.__savedCovers[resModel].push(resID);
 
-        const imageEl = el.querySelector('.o_record_cover_image');
-        let cssBgImage = imageEl.style.backgroundImage;
-        if (imageEl.classList.contains("o_b64_image_to_save")) {
-            imageEl.classList.remove("o_b64_image_to_save");
-            const groups = cssBgImage.match(/url\("data:(?<mimetype>.*);base64,(?<imageData>.*)"\)/)?.groups;
-            if (!groups.imageData) {
-                // Checks if the image is in base64 format for RPC call. Relying
-                // only on the presence of the class "o_b64_image_to_save" is not
-                // robust enough.
-                return;
-            }
-            const modelName = await this.websiteService.getUserModelName(resModel);
-            const recordNameEl = imageEl.closest("body").querySelector(`[data-oe-model="${resModel}"][data-oe-id="${resID}"][data-oe-field="name"]`);
-            const recordName = recordNameEl ? `'${recordNameEl.textContent}'` : resID;
-            const attachment = await this.rpc(
-                '/web_editor/attachment/add_data',
-                {
-                    name: `${modelName} ${recordName} cover image.${groups.mimetype.split("/")[1]}`,
-                    data: groups.imageData,
-                    is_image: true,
-                    res_model: 'ir.ui.view',
-                },
-            );
-            cssBgImage = `url(${attachment.image_src})`;
-        }
+        var cssBgImage = $(el.querySelector('.o_record_cover_image')).css('background-image');
         var coverProps = {
             'background-image': cssBgImage.replace(/"/g, '').replace(window.location.protocol + "//" + window.location.host, ''),
             'background_color_class': el.dataset.bgColorClass,
@@ -1109,16 +1070,6 @@ export class WysiwygAdapterComponent extends Wysiwyg {
             field: $editable.data('oe-field'),
             type: $editable.data('oe-type'),
         };
-    }
-    /**
-     * Hides all opened dropdowns.
-     *
-     * @private
-     */
-    _hideDropdowns() {
-        for (const toggleEl of this.$editable[0].querySelectorAll(".dropdown-toggle.show")) {
-            Dropdown.getOrCreateInstance(toggleEl).hide();
-        }
     }
 
     //--------------------------------------------------------------------------
@@ -1334,18 +1285,5 @@ export class WysiwygAdapterComponent extends Wysiwyg {
             input.setAttribute('value', input.closest('we-input').dataset.selectStyle || '');
         });
         return dummySnippetsEl;
-    }
-    /**
-     * Called when the page is clicked anywhere.
-     * Closes the shown dropdown if the click is outside of it.
-     *
-     * @private
-     * @param {Event} ev
-     */
-    _onPageClick(ev) {
-        if (ev.target.closest(".dropdown-menu.show, .dropdown-toggle.show")) {
-            return;
-        }
-        this._hideDropdowns();
     }
 }

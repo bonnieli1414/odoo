@@ -34,7 +34,6 @@ export class Group extends DataPoint {
         /** @type {import("./dynamic_group_list").DynamicGroupList | import("./dynamic_record_list").DynamicRecordList} */
         this.list = new List(this.model, config.list, data);
         if (config.record) {
-            config.record.context = { ...config.record.context, ...config.context };
             this.record = new this.model.constructor.Record(this.model, config.record, data.values);
         }
     }
@@ -118,7 +117,7 @@ export class Group extends DataPoint {
 
     async _removeRecords(recordIds) {
         const idsToRemove = recordIds.filter((id) => this.list.records.some((r) => r.id === id));
-        this.list._removeRecords(idsToRemove);
+        await this.list._removeRecords(idsToRemove);
         this.count -= idsToRemove.length;
     }
 }

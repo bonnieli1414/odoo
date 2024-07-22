@@ -120,7 +120,7 @@ class Product(models.Model):
     @api.depends('stock_move_ids.product_qty', 'stock_move_ids.state', 'stock_move_ids.quantity')
     @api.depends_context(
         'lot_id', 'owner_id', 'package_id', 'from_date', 'to_date',
-        'location', 'warehouse', 'allowed_company_ids'
+        'location', 'warehouse',
     )
     def _compute_quantities(self):
         products = self.with_context(prefetch_fields=False).filtered(lambda p: p.type != 'service').with_context(prefetch_fields=True)
@@ -294,9 +294,7 @@ class Product(models.Model):
             if location:
                 location_ids = _search_ids('stock.location', location)
             else:
-                location_ids = set(Warehouse.search(
-                    [('company_id', 'in', self.env.companies.ids)]
-                ).mapped('view_location_id').ids)
+                location_ids = set(Warehouse.search([]).mapped('view_location_id').ids)
 
         return self._get_domain_locations_new(location_ids)
 
@@ -307,9 +305,11 @@ class Product(models.Model):
         # this optimizes [('location_id', 'child_of', locations.ids)]
         # by avoiding the ORM to search for children locations and injecting a
         # lot of location ids into the main query
-        paths_domain = expression.OR([[('parent_path', '=like', loc.parent_path + '%')] for loc in locations])
-        loc_domain = [('location_id', 'any', paths_domain)]
-        dest_loc_domain = [('location_dest_id', 'any', paths_domain)]
+        for location in locations:
+            loc_domain = loc_domain and ['|'] + loc_domain or loc_domain
+            loc_domain.append(('location_id.parent_path', '=like', location.parent_path + '%'))
+            dest_loc_domain = dest_loc_domain and ['|'] + dest_loc_domain or dest_loc_domain
+            dest_loc_domain.append(('location_dest_id.parent_path', '=like', location.parent_path + '%'))
 
         return (
             loc_domain,
@@ -916,10 +916,7 @@ class ProductTemplate(models.Model):
 
     # Be aware that the exact same function exists in product.product
     def action_open_quants(self):
-        if (self.env.context.get('default_product_id')):
-            return self.env['product.product'].browse(self.env.context['default_product_id']).action_open_quants()
-        else:
-            return self.product_variant_ids.filtered(lambda p: p.active or p.qty_available != 0).action_open_quants()
+        return self.product_variant_ids.filtered(lambda p: p.active or p.qty_available != 0).action_open_quants()
 
     def action_update_quantity_on_hand(self):
         advanced_option_groups = [

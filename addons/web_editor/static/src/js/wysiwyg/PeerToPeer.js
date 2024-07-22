@@ -131,16 +131,7 @@ const baseNotificationMethods = {
             console.log(`%cisOfferRacing: ${isOfferRacing}`, 'background: red;');
             console.log(`%c SETREMOTEDESCRIPTION`, 'background: navy; color:white;');
         }
-        try {
-            await pc.setRemoteDescription(description);
-        } catch (e) {
-            if (e instanceof DOMException && e.name === 'InvalidStateError') {
-                console.error(e);
-                return;
-            } else {
-                throw e;
-            }
-        }
+        await pc.setRemoteDescription(description);
         if (clientInfos.iceCandidateBuffer.length) {
             for (const candidate of clientInfos.iceCandidateBuffer) {
                 await this._addIceCandidate(clientInfos, candidate);
@@ -149,16 +140,7 @@ const baseNotificationMethods = {
         }
         if (description.type === 'offer') {
             const answerDescription = await pc.createAnswer();
-            try {
-                await pc.setLocalDescription(answerDescription);
-            } catch (e) {
-                if (e instanceof DOMException && e.name === 'InvalidStateError') {
-                    console.error(e);
-                    return;
-                } else {
-                    throw e;
-                }
-            }
+            await pc.setLocalDescription(answerDescription);
             this.notifyClient(
                 notification.fromClientId,
                 'rtc_signal_description',

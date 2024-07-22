@@ -1,5 +1,5 @@
 /** @odoo-module */
-import { makeDeferred, nextTick } from "@web/../tests/helpers/utils";
+import { nextTick } from "@web/../tests/helpers/utils";
 
 import { selectCell } from "@spreadsheet/../tests/utils/commands";
 import { doMenuAction, getActionMenu } from "@spreadsheet/../tests/utils/ui";
@@ -182,39 +182,4 @@ QUnit.test("Can see records on ODOO.PIVOT.TABLE cells", async function (assert) 
     // set the function in A3 such as the data cells matches the ones in the first sheet
     setCellContent(model, "A3", `=ODOO.PIVOT.TABLE("1",,,FALSE)`, "42");
     await checkCells(data_cells);
-});
-
-QUnit.test(
-    "See records is not visible if the pivot is not loaded, even if the cell has a value",
-    async function (assert) {
-        let deferred = undefined;
-        const { env, model } = await createSpreadsheetWithPivot({
-            arch: /*xml*/ `
-            <pivot>
-                <field name="probability" type="measure"/>
-            </pivot>
-        `,
-            mockRPC: async function (route, args) {
-                if (deferred && args.method === "read_group" && args.model === "partner") {
-                    await deferred;
-                }
-            },
-        });
-        setCellContent(model, "A1", '=IFERROR(ODOO.PIVOT("1","probability"), 42)');
-        deferred = makeDeferred();
-        model.dispatch("REFRESH_ALL_DATA_SOURCES");
-        const action = cellMenuRegistry.getAll().find((item) => item.id === "pivot_see_records");
-        assert.strictEqual(action.isVisible(env), false);
-        deferred.resolve();
-        await nextTick();
-        assert.strictEqual(action.isVisible(env), true);
-    }
-);
-
-QUnit.test("See records is not visible on an empty cell", async function (assert) {
-    const { env, model } = await createSpreadsheetWithPivot();
-    assert.strictEqual(getCell(model, "A21"), undefined);
-    selectCell(model, "A21");
-    const action = cellMenuRegistry.getAll().find((item) => item.id === "pivot_see_records");
-    assert.strictEqual(action.isVisible(env), false);
 });

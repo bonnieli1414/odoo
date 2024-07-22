@@ -11,7 +11,6 @@ import werkzeug.urls
 import werkzeug.utils
 import werkzeug.wrappers
 
-from hashlib import md5
 from itertools import islice
 from lxml import etree, html
 from textwrap import shorten
@@ -219,9 +218,6 @@ class Website(Home):
 
     @http.route(['/robots.txt'], type='http', auth="public", website=True, multilang=False, sitemap=False)
     def robots(self, **kwargs):
-        # Don't use `request.website.domain` here, the template is in charge of
-        # detecting if the current URL is the domain one and add a `Disallow: /`
-        # if it's not the case to prevent the crawler to continue.
         return request.render('website.robots', {'url_root': request.httprequest.url_root}, mimetype='text/plain')
 
     @http.route('/sitemap.xml', type='http', auth="public", website=True, multilang=False, sitemap=False)
@@ -231,10 +227,6 @@ class Website(Home):
         View = request.env['ir.ui.view'].sudo()
         mimetype = 'application/xml;charset=utf-8'
         content = None
-        url_root = request.httprequest.url_root
-        # For a same website, each domain has its own sitemap (cache)
-        hashed_url_root = md5(url_root.encode()).hexdigest()[:8]
-        sitemap_base_url = '/sitemap-%d-%s' % (current_website.id, hashed_url_root)
 
         def create_sitemap(url, content):
             return Attachment.create({
@@ -244,7 +236,7 @@ class Website(Home):
                 'name': url,
                 'url': url,
             })
-        dom = [('url', '=', '%s.xml' % sitemap_base_url), ('type', '=', 'binary')]
+        dom = [('url', '=', '/sitemap-%d.xml' % current_website.id), ('type', '=', 'binary')]
         sitemap = Attachment.search(dom, limit=1)
         if sitemap:
             # Check if stored version is still valid
@@ -255,8 +247,8 @@ class Website(Home):
 
         if not content:
             # Remove all sitemaps in ir.attachments as we're going to regenerated them
-            dom = [('type', '=', 'binary'), '|', ('url', '=like', '%s-%%.xml' % sitemap_base_url),
-                   ('url', '=', '%s.xml' % sitemap_base_url)]
+            dom = [('type', '=', 'binary'), '|', ('url', '=like', '/sitemap-%d-%%.xml' % current_website.id),
+                   ('url', '=', '/sitemap-%d.xml' % current_website.id)]
             sitemaps = Attachment.search(dom)
             sitemaps.unlink()
 
@@ -265,13 +257,13 @@ class Website(Home):
             while True:
                 values = {
                     'locs': islice(locs, 0, LOC_PER_SITEMAP),
-                    'url_root': url_root[:-1],
+                    'url_root': request.httprequest.url_root[:-1],
                 }
                 urls = View._render_template('website.sitemap_locs', values)
                 if urls.strip():
                     content = View._render_template('website.sitemap_xml', {'content': urls})
                     pages += 1
-                    last_sitemap = create_sitemap('%s-%d.xml' % (sitemap_base_url, pages), content)
+                    last_sitemap = create_sitemap('/sitemap-%d-%d.xml' % (current_website.id, pages), content)
                 else:
                     break
 
@@ -280,21 +272,19 @@ class Website(Home):
             elif pages == 1:
                 # rename the -id-page.xml => -id.xml
                 last_sitemap.write({
-                    'url': "%s.xml" % sitemap_base_url,
-                    'name': "%s.xml" % sitemap_base_url,
+                    'url': "/sitemap-%d.xml" % current_website.id,
+                    'name': "/sitemap-%d.xml" % current_website.id,
                 })
             else:
                 # TODO: in master/saas-15, move current_website_id in template directly
-                pages_with_website = ["%d-%s-%d" % (current_website.id, hashed_url_root, p) for p in range(1, pages + 1)]
+                pages_with_website = ["%d-%d" % (current_website.id, p) for p in range(1, pages + 1)]
 
                 # Sitemaps must be split in several smaller files with a sitemap index
                 content = View._render_template('website.sitemap_index_xml', {
                     'pages': pages_with_website,
-                    # URLs inside the sitemap index have to be on the same
-                    # domain as the sitemap index itself
-                    'url_root': url_root,
+                    'url_root': request.httprequest.url_root,
                 })
-                create_sitemap('%s.xml' % sitemap_base_url, content)
+                create_sitemap('/sitemap-%d.xml' % current_website.id, content)
 
         return request.make_response(content, [('Content-Type', mimetype)])
 
@@ -648,14 +638,6 @@ class Website(Home):
             website._force()
         page = request.env['website'].new_page(path, add_menu=add_menu, sections_arch=kwargs.get('sections_arch'), **template)
         url = page['url']
-        # In case the page is created through the 404 "Create Page" button, the
-        # URL may use special characters which are slugified on page creation.
-        # If that URL is also a menu, we update it accordingly.
-        # NB: we don't want to slugify on menu creation as it could redirect
-        # towards files (with spaces, apostrophes, etc.).
-        menu = request.env['website.menu'].search([('url', '=', '/' + path)])
-        if menu:
-            menu.page_id = page['page_id']
 
         if redirect:
             if ext_special_case:  # redirect non html pages to backend to edit
@@ -766,10 +748,11 @@ class Website(Home):
         res = {'can_edit_seo': True}
         record = request.env[res_model].browse(res_id)
         try:
-            request.website._check_user_can_modify(record)
+            record.check_access_rights('write')
+            record.check_access_rule('write')
         except AccessError:
+            record = record.sudo()
             res['can_edit_seo'] = False
-        record = record.sudo()
 
         res.update(record.read(fields)[0])
         res['has_social_default_image'] = request.website.has_social_default_image
@@ -779,22 +762,6 @@ class Website(Home):
             res['seo_name'] = record.seo_name and slugify(record.seo_name) or ''
 
         return res
-
-    @http.route(['/website/check_can_modify_any'], type='json', auth="user", website=True)
-    def check_can_modify_any(self, records):
-        if not request.env.user.has_group('website.group_website_restricted_editor'):
-            raise werkzeug.exceptions.Forbidden()
-        first_error = None
-        for rec in records:
-            try:
-                record = request.env[rec['res_model']].browse(rec['res_id'])
-                request.website._check_user_can_modify(record)
-                return True
-            except AccessError as e:
-                if not first_error:
-                    first_error = e
-                continue
-        raise first_error
 
     @http.route(['/google<string(length=16):key>.html'], type='http', auth="public", website=True, sitemap=False)
     def google_console_search(self, key, **kwargs):
@@ -852,9 +819,6 @@ class Website(Home):
 
         if enable:
             records = self._get_customize_data(enable, is_view_data)
-            if 'website_blog.opt_blog_cover_post' in enable:
-                # TODO: In master, set the priority in XML directly.
-                records.filtered_domain([('key', '=', 'website_blog.opt_blog_cover_post')]).priority = 17
             records.filtered(lambda x: not x.active).write({'active': True})
 
     @http.route(['/website/theme_customize_bundle_reload'], type='json', auth='user', website=True)

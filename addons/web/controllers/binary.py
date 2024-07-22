@@ -19,7 +19,7 @@ from odoo import SUPERUSER_ID, _, http
 from odoo.addons.base.models.assetsbundle import ANY_UNIQUE
 from odoo.exceptions import AccessError, UserError
 from odoo.http import request, Response
-from odoo.tools import file_open, file_path, replace_exceptions, str2bool
+from odoo.tools import file_open, file_path, replace_exceptions
 from odoo.tools.image import image_guess_size_from_field_name
 from odoo.tools.mimetypes import guess_mimetype
 
@@ -72,10 +72,7 @@ class Binary(http.Controller):
         with replace_exceptions(UserError, by=request.not_found()):
             record = request.env['ir.binary']._find_record(xmlid, model, id and int(id), access_token)
             stream = request.env['ir.binary']._get_stream_from(record, field, filename, filename_field, mimetype)
-            if request.httprequest.args.get('access_token'):
-                stream.public = True
-
-        send_file_kwargs = {'as_attachment': str2bool(download)}
+        send_file_kwargs = {'as_attachment': download}
         if unique:
             send_file_kwargs['immutable'] = True
             send_file_kwargs['max_age'] = http.STATIC_CACHE_LONG
@@ -174,8 +171,6 @@ class Binary(http.Controller):
                 record, field, filename=filename, filename_field=filename_field,
                 mimetype=mimetype, width=int(width), height=int(height), crop=crop,
             )
-            if request.httprequest.args.get('access_token'):
-                stream.public = True
         except UserError as exc:
             if download:
                 raise request.not_found() from exc
@@ -186,9 +181,8 @@ class Binary(http.Controller):
             stream = request.env['ir.binary']._get_image_stream_from(
                 record, 'raw', width=int(width), height=int(height), crop=crop,
             )
-            stream.public = False
 
-        send_file_kwargs = {'as_attachment': str2bool(download)}
+        send_file_kwargs = {'as_attachment': download}
         if unique:
             send_file_kwargs['immutable'] = True
             send_file_kwargs['max_age'] = http.STATIC_CACHE_LONG

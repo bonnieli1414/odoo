@@ -5,7 +5,6 @@
 # Translators:
 # FLNerea, 2023
 # Wil Odoo, 2023
-# Pedro M. Baeza <pedro.baeza@tecnativa.com>, 2024
 # Larissa Manderfeld, 2024
 # 
 msgid ""
@@ -39,19 +38,19 @@ msgstr "(Máx"
 #: code:addons/sale_loyalty_delivery/models/loyalty_program.py:0
 #, python-format
 msgid "Automatic promotion: free shipping on orders higher than $50"
-msgstr "Promoción automática: envío gratuito en pedidos superiores a 50 "
+msgstr "Promoción automática: envío gratuito en órdenes superiores a 50 $"
 
 #. module: sale_loyalty_delivery
 #: model:ir.model.fields.selection,name:sale_loyalty_delivery.selection__loyalty_reward__reward_type__shipping
 msgid "Free Shipping"
-msgstr "Envío gratuito"
+msgstr "Envío gratis"
 
 #. module: sale_loyalty_delivery
 #. odoo-python
 #: code:addons/sale_loyalty_delivery/models/sale_order.py:0
 #, python-format
 msgid "Free Shipping - %s"
-msgstr "Envío gratuito - %s"
+msgstr "Envío gratis - %s"
 
 #. module: sale_loyalty_delivery
 #. odoo-python
@@ -80,9 +79,9 @@ msgstr "Tipo de recompensa"
 #. module: sale_loyalty_delivery
 #: model:ir.model,name:sale_loyalty_delivery.model_sale_order
 msgid "Sales Order"
-msgstr "Pedido de venta"
+msgstr "Orden de venta"
 
 #. module: sale_loyalty_delivery
 #: model:ir.model,name:sale_loyalty_delivery.model_sale_order_line
 msgid "Sales Order Line"
-msgstr "Línea de pedido de venta"
+msgstr "Línea de orden de venta"

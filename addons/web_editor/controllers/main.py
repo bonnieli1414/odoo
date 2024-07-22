@@ -120,17 +120,11 @@ class Web_Editor(http.Controller):
         image = Image.new("RGBA", (width, height), color)
         draw = ImageDraw.Draw(image)
 
-        if hasattr(draw, 'textbbox'):
-            box = draw.textbbox((0, 0), icon, font=font_obj)
-            left = box[0]
-            top = box[1]
-            boxw = box[2] - box[0]
-            boxh = box[3] - box[1]
-        else:  # pillow < 8.00 (Focal)
-            left, top, _right, _bottom = image.getbbox()
-            boxw, boxh = draw.textsize(icon, font=font_obj)
-
+        box = draw.textbbox((0, 0), icon, font=font_obj)
+        boxw = box[2] - box[0]
+        boxh = box[3] - box[1]
         draw.text((0, 0), icon, font=font_obj)
+        left, top, right, bottom = image.getbbox()
 
         # Create an alpha mask
         imagemask = Image.new("L", (boxw, boxh), 0)
@@ -457,7 +451,7 @@ class Web_Editor(http.Controller):
 
         # Compile regex outside of the loop
         # This will used to exclude library scss files from the result
-        excluded_url_matcher = re.compile(r"^(.+/lib/.+)|(.+import_bootstrap.+\.scss)$")
+        excluded_url_matcher = re.compile("^(.+/lib/.+)|(.+import_bootstrap.+\.scss)$")
 
         # First check the t-call-assets used in the related views
         url_infos = dict()
@@ -609,17 +603,6 @@ class Web_Editor(http.Controller):
         return '%s?access_token=%s' % (attachment.image_src, attachment.access_token)
 
     def _get_shape_svg(self, module, *segments):
-        Module = request.env['ir.module.module'].sudo()
-        # Avoid creating a bridge module just for this check.
-        if 'imported' in Module._fields and Module.search([('name', '=', module)]).imported:
-            attachment = request.env['ir.attachment'].sudo().search([
-                ('url', '=', f"/{module.replace('.', '_')}/static/{'/'.join(segments)}"),
-                ('public', '=', True),
-                ('type', '=', 'binary'),
-            ], limit=1)
-            if attachment:
-                return b64decode(attachment.datas)
-            raise werkzeug.exceptions.NotFound()
         shape_path = opj(module, 'static', *segments)
         try:
             with file_open(shape_path, 'r', filter_ext=('.svg',)) as file:
@@ -774,20 +757,16 @@ class Web_Editor(http.Controller):
         for id, url in response.json().items():
             req = requests.get(url)
             name = '_'.join([media[id]['query'], url.split('/')[-1]])
-            IrAttachment = request.env['ir.attachment']
-            attachment_data = {
+            # Need to bypass security check to write image with mimetype image/svg+xml
+            # ok because svgs come from whitelisted origin
+            attachment = request.env['ir.attachment'].with_user(SUPERUSER_ID).create({
                 'name': name,
                 'mimetype': req.headers['content-type'],
                 'public': True,
                 'raw': req.content,
                 'res_model': 'ir.ui.view',
                 'res_id': 0,
-            }
-            attachment = get_existing_attachment(IrAttachment, attachment_data)
-            # Need to bypass security check to write image with mimetype image/svg+xml
-            # ok because svgs come from whitelisted origin
-            if not attachment:
-                attachment = IrAttachment.with_user(SUPERUSER_ID).create(attachment_data)
+            })
             if media[id]['is_dynamic_svg']:
                 colorParams = werkzeug.urls.url_encode(media[id]['dynamic_colors'])
                 attachment['url'] = '/web_editor/shape/illustration/%s?%s' % (slug(attachment), colorParams)
@@ -827,6 +806,7 @@ class Web_Editor(http.Controller):
             response = iap_tools.iap_jsonrpc(olg_api_endpoint + "/api/olg/1/chat", params={
                 'prompt': prompt,
                 'conversation_history': conversation_history or [],
+                'version': release.version,
                 'database_id': database_id,
             }, timeout=30)
             if response['status'] == 'success':

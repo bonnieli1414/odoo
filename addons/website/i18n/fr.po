@@ -8,7 +8,6 @@
 # Wil Odoo, 2024
 # Asia Ba, 2024
 # Larissa Manderfeld, 2024
-# Manon Rondou, 2024
 # 
 msgid ""
 msgstr ""
@@ -16,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-29 10:44+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
-"Last-Translator: Manon Rondou, 2024\n"
+"Last-Translator: Larissa Manderfeld, 2024\n"
 "Language-Team: French (https://app.transifex.com/odoo/teams/41243/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,27 +48,6 @@ msgstr "\"soumission du formulaire %s\" <%s>"
 #, python-format
 msgid "\"URL from\" can not be empty."
 msgstr "\"URL de\" ne peut pas être vide."
-
-#. module: website
-#. odoo-python
-#: code:addons/website/models/website_rewrite.py:0
-#, python-format
-msgid ""
-"\"URL to\" cannot be set to \"/\". To change the homepage content, use the "
-"\"Homepage URL\" field in the website settings or the page properties on any"
-" custom page."
-msgstr ""
-"L'URL ne peut pas être remplacée par \" / \". Pour modifier le contenu de la"
-" page d'accueil, utilisez le champ \" URL de la page d'accueil \" dans les "
-"paramètres du site web ou les propriétés de la page pour n'importe quelle "
-"page personnalisée."
-
-#. module: website
-#. odoo-python
-#: code:addons/website/models/website_rewrite.py:0
-#, python-format
-msgid "\"URL to\" cannot be set to an existing page."
-msgstr "L'URL ne peut pas être attribuée à une page existante."
 
 #. module: website
 #. odoo-python
@@ -287,6 +265,8 @@ msgstr ""
 "...et changez le contenu de la chronologie pour l'adapter à vos besoins."
 
 #. module: website
+#: model:website,contact_us_button_url:website.default_website
+#: model:website,contact_us_button_url:website.website2
 #: model_terms:ir.ui.view,arch_db:website.layout
 #: model_terms:ir.ui.view,arch_db:website.snippets
 msgid "/contactus"
@@ -1668,6 +1648,11 @@ msgid "Access to this page"
 msgstr "Accéder à cette page"
 
 #. module: website
+#: model:ir.model.constraint,message:website.constraint_website_visitor_access_token_unique
+msgid "Access token should be unique."
+msgstr "Le jeton d'accès doit être unique."
+
+#. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_mega_menu_menus_logos
 #: model_terms:ir.ui.view,arch_db:website.s_mega_menu_odoo_menu
 msgid "Accessories"
@@ -1906,7 +1891,7 @@ msgstr "Ajouter nouveau %s"
 #: code:addons/website/static/src/components/dialog/add_page_dialog.xml:0
 #, python-format
 msgid "Add page template"
-msgstr "Ajouter un modèle de page"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.external_snippets
@@ -2496,7 +2481,7 @@ msgstr "Forme d'arrière-plan"
 #: code:addons/website/static/src/xml/website.background.video.xml:0
 #, python-format
 msgid "Background video"
-msgstr "Vidéo d'arrière-plan"
+msgstr ""
 
 #. module: website
 #. odoo-javascript
@@ -3995,7 +3980,7 @@ msgstr "Droits d'accès par défaut"
 #: code:addons/website/static/src/snippets/s_searchbar/options.js:0
 #, python-format
 msgid "Default Input Style"
-msgstr "Style de saisie par défaut"
+msgstr ""
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website__default_lang_id
@@ -5088,7 +5073,7 @@ msgstr "Extra large"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.layout
 msgid "Extra items button"
-msgstr "Bouton d'éléments supplémentaires"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.searchbar_input_snippet_options
@@ -5098,7 +5083,7 @@ msgstr "Lien supplémentaire"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.footer_custom
 msgid "Extra page"
-msgstr "Page supplémentaire"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
@@ -6098,13 +6083,6 @@ msgid "Hide For"
 msgstr "Masquer pour"
 
 #. module: website
-#. odoo-javascript
-#: code:addons/website/static/src/snippets/s_popup/000.js:0
-#, python-format
-msgid "Hide the cookies bar"
-msgstr "Masquer la barre de cookies"
-
-#. module: website
 #: model_terms:ir.ui.view,arch_db:website.website_page_properties_view_form
 msgid "Hide this page from search results"
 msgstr "Masquer cette page des résultats de recherche"
@@ -6394,6 +6372,17 @@ msgid ""
 msgstr ""
 "Si vous devez ajouter des étiquettes d'analyse ou de marketing, injectez "
 "plutôt du code dans votre <head> ou <body>."
+
+#. module: website
+#. odoo-javascript
+#: code:addons/website/static/src/components/resource_editor/resource_editor_warning.xml:0
+#, python-format
+msgid ""
+"If you need to add analytics or marketing tags, inject code in your header "
+"or body instead."
+msgstr ""
+"Si vous avez besoin d'ajouter des étiquettes d'analyse ou de marketing, "
+"injectez plutôt du code dans l'en-tête ou le corps du texte."
 
 #. module: website
 #. odoo-javascript
@@ -7020,6 +7009,7 @@ msgstr "Laisser vide pour utiliser la valeur par défaut"
 #. module: website
 #: model:ir.model.fields,field_description:website.field_ir_asset__key
 #: model:ir.model.fields,field_description:website.field_ir_attachment__key
+#: model:ir.model.fields,field_description:website.field_product_document__key
 #: model:ir.model.fields,field_description:website.field_theme_ir_asset__key
 #: model:ir.model.fields,field_description:website.field_theme_ir_attachment__key
 #: model:ir.model.fields,field_description:website.field_theme_ir_ui_view__key
@@ -7691,7 +7681,7 @@ msgstr "Titre média"
 #: code:addons/website/static/src/js/content/snippets.animation.js:0
 #, python-format
 msgid "Media video"
-msgstr "Média vidéo"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_three_columns_menu
@@ -7734,7 +7724,7 @@ msgstr "Contenu Méga Menu"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_mega_menu_menu_image_menu
 msgid "Mega menu default image"
-msgstr "Image par défaut du méga menu"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_mega_menu_menus_logos
@@ -8385,6 +8375,12 @@ msgid "None"
 msgstr "Aucun"
 
 #. module: website
+#: model:website,prevent_zero_price_sale_text:website.default_website
+#: model:website,prevent_zero_price_sale_text:website.website2
+msgid "Not Available For Sale"
+msgstr "Pas disponible à la vente"
+
+#. module: website
 #: model_terms:ir.ui.view,arch_db:website.website_pages_kanban_view
 msgid "Not Published"
 msgstr "Non publié"
@@ -8729,7 +8725,7 @@ msgstr "Autres informations :"
 #: code:addons/website/static/src/snippets/s_social_media/options.js:0
 #, python-format
 msgid "Other social network"
-msgstr "Autre réseau social"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.new_page_template_landing_s_text_image
@@ -8966,10 +8962,7 @@ msgid "Page Layout"
 msgstr "Agencement page"
 
 #. module: website
-#. odoo-javascript
-#: code:addons/website/static/src/components/dialog/page_properties.xml:0
 #: model_terms:ir.ui.view,arch_db:website.website_page_properties_view_form
-#, python-format
 msgid "Page Name"
 msgstr "Nom de la page"
 
@@ -9196,7 +9189,7 @@ msgstr "Boutons carrés"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_share
 msgid "Pinterest"
-msgstr "Pinterest"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_website_form_options
@@ -9319,13 +9312,6 @@ msgstr "Prepend"
 #: model_terms:ir.ui.view,arch_db:website.color_combinations_debug_view
 msgid "Preset"
 msgstr "Préréglage"
-
-#. module: website
-#. odoo-javascript
-#: code:addons/website/static/src/components/fullscreen_indication/fullscreen_indication.js:0
-#, python-format
-msgid "Press %(key)s to exit full screen"
-msgstr "Appuyez sur %(key)s pour quitter le mode plein écran"
 
 #. module: website
 #. odoo-javascript
@@ -10552,13 +10538,6 @@ msgid "Show site map"
 msgstr "Afficher le plan du site"
 
 #. module: website
-#. odoo-javascript
-#: code:addons/website/static/src/snippets/s_popup/000.js:0
-#, python-format
-msgid "Show the cookies bar"
-msgstr "Afficher la barre de cookies"
-
-#. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
 msgid "Show/Hide on Desktop"
 msgstr "Afficher/Masquer sur le bureau"
@@ -11323,8 +11302,6 @@ msgid ""
 "The company %(company_name)r cannot be archived because it has a linked website %(website_name)r.\n"
 "Change that website's company first."
 msgstr ""
-"La société %(company_name)r ne peut pas être archivée car elle est liée à un site web %(website_name)r.\n"
-"Veuillez d'abord modifier la société de ce site web."
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.res_config_settings_view_form
@@ -11534,6 +11511,7 @@ msgstr "Couleurs de thème"
 #: model:ir.model.fields,field_description:website.field_ir_asset__theme_template_id
 #: model:ir.model.fields,field_description:website.field_ir_attachment__theme_template_id
 #: model:ir.model.fields,field_description:website.field_ir_ui_view__theme_template_id
+#: model:ir.model.fields,field_description:website.field_product_document__theme_template_id
 #: model:ir.model.fields,field_description:website.field_website_controller_page__theme_template_id
 #: model:ir.model.fields,field_description:website.field_website_menu__theme_template_id
 #: model:ir.model.fields,field_description:website.field_website_page__theme_template_id
@@ -11751,12 +11729,12 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,website_meta_description:website.contactus
 msgid "This is the contact us page of the website"
-msgstr "Voici la page contact du site web"
+msgstr ""
 
 #. module: website
 #: model:ir.ui.view,website_meta_description:website.homepage
 msgid "This is the homepage of the website"
-msgstr "Voici la page d'accueil du site web"
+msgstr ""
 
 #. module: website
 #. odoo-python
@@ -12947,6 +12925,7 @@ msgstr "Visiteurs web"
 #: model:ir.model.fields,field_description:website.field_ir_asset__website_id
 #: model:ir.model.fields,field_description:website.field_ir_attachment__website_id
 #: model:ir.model.fields,field_description:website.field_ir_ui_view__website_id
+#: model:ir.model.fields,field_description:website.field_product_document__website_id
 #: model:ir.model.fields,field_description:website.field_res_company__website_id
 #: model:ir.model.fields,field_description:website.field_res_partner__website_id
 #: model:ir.model.fields,field_description:website.field_res_users__website_id
@@ -12992,6 +12971,11 @@ msgstr "Fonctionnalité configurateur site web"
 #: model:ir.model.fields,field_description:website.field_website__domain
 msgid "Website Domain"
 msgstr "Domaine du site web"
+
+#. module: website
+#: model:ir.model.constraint,message:website.constraint_website_domain_unique
+msgid "Website Domain should be unique."
+msgstr "Le domaine du site web devrait être unique."
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website__favicon
@@ -13429,6 +13413,7 @@ msgstr "Vous pouvez modifier, dupliquer..."
 #. module: website
 #. odoo-python
 #: code:addons/website/models/res_users.py:0
+#: model:ir.model.constraint,message:website.constraint_res_users_login_key
 #, python-format
 msgid "You can not have two users with the same login!"
 msgstr "Vous ne pouvez pas avoir deux utilisateurs avec le même login ! "
@@ -13466,22 +13451,19 @@ msgstr ""
 "changer ses paramètres."
 
 #. module: website
-#. odoo-python
+#. odoo-javascript
+#: code:addons/website/static/src/snippets/s_website_form/options.js:0
+#, python-format
+msgid "You cannot duplicate this field."
+msgstr "Vous ne pouvez pas dupliquer ce champ."
+
+#. module: website
 #: code:addons/website/models/website_menu.py:0
 #, python-format
 msgid ""
 "You cannot delete this website menu as this serves as the default parent "
 "menu for new websites (e.g., /shop, /event, ...)."
 msgstr ""
-"Vous ne pouvez pas supprimer le menu de ce site web car il sert de menu "
-"parent par défaut pour les nouveaux sites web (par ex. /shop, /event, ...)."
-
-#. module: website
-#. odoo-javascript
-#: code:addons/website/static/src/snippets/s_website_form/options.js:0
-#, python-format
-msgid "You cannot duplicate this field."
-msgstr "Vous ne pouvez pas dupliquer ce champ."
 
 #. module: website
 #. odoo-python
@@ -13507,6 +13489,13 @@ msgid ""
 msgstr ""
 "Vous avez caché cette page des résultats de recherche. Elle ne sera pas "
 "indexée par les moteurs de recherche."
+
+#. module: website
+#. odoo-python
+#: code:addons/website/models/res_config_settings.py:0
+#, python-format
+msgid "You haven't defined your domain"
+msgstr "Vous n'avez pas défini votre domaine"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.cookie_policy

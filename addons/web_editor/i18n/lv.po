@@ -9,8 +9,8 @@
 # Martin Trigaux, 2023
 # JanisJanis <jbojars@gmail.com>, 2023
 # Arnis Putniņš <arnis@allegro.lv>, 2023
+# ievaputnina <ievai.putninai@gmail.com>, 2023
 # Will Sensors, 2024
-# ievaputnina <ievai.putninai@gmail.com>, 2024
 # 
 msgid ""
 msgstr ""
@@ -18,7 +18,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-29 10:46+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
-"Last-Translator: ievaputnina <ievai.putninai@gmail.com>, 2024\n"
+"Last-Translator: Will Sensors, 2024\n"
 "Language-Team: Latvian (https://app.transifex.com/odoo/teams/41243/lv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -241,12 +241,12 @@ msgstr ""
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippets
 msgid "<span>Blocks</span>"
-msgstr " <span>Bloki</span> "
+msgstr ""
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippets
 msgid "<span>Customize</span>"
-msgstr " <span>Pielāgot</span> "
+msgstr ""
 
 #. module: web_editor
 #. odoo-javascript
@@ -579,7 +579,7 @@ msgstr "Bāze"
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "Basic blocks"
-msgstr "Pamata bloki"
+msgstr ""
 
 #. module: web_editor
 #. odoo-javascript
@@ -781,7 +781,7 @@ msgstr "Krāsa"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_background_options
 msgid "Color filter"
-msgstr "Krāsas filtrs"
+msgstr ""
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options
@@ -883,13 +883,9 @@ msgid "Could not install module %s"
 msgstr ""
 
 #. module: web_editor
-#. odoo-javascript
-#. module: web_editor
-#: code:addons/web_editor/static/src/components/upload_progress_toast/upload_service.js:0
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_background_options
-#, python-format
 msgid "Cover"
-msgstr "Nosegt"
+msgstr ""
 
 #. module: web_editor
 #. odoo-javascript
@@ -1744,7 +1740,7 @@ msgstr ""
 #: code:addons/web_editor/static/src/js/editor/snippets.editor.js:0
 #, python-format
 msgid "Inline Text"
-msgstr "Teksts"
+msgstr ""
 
 #. module: web_editor
 #. odoo-javascript
@@ -2393,7 +2389,7 @@ msgstr ""
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_image_optimization_widgets
 msgid "Quality"
-msgstr "Kvalitāte"
+msgstr ""
 
 #. module: web_editor
 #. odoo-javascript
@@ -3178,7 +3174,7 @@ msgstr "Tēma"
 #: code:addons/web_editor/static/src/xml/wysiwyg_colorpicker.xml:0
 #, python-format
 msgid "Theme colors"
-msgstr "Tēmas krāsas"
+msgstr ""
 
 #. module: web_editor
 #. odoo-javascript
@@ -3601,15 +3597,6 @@ msgstr ""
 msgid ""
 "You can upload documents with the button located in the top left of the "
 "screen."
-msgstr ""
-
-#. module: web_editor
-#. odoo-python
-#: code:addons/web_editor/controllers/main.py:0
-#, python-format
-msgid ""
-"You have reached the maximum number of requests for this service. Try again "
-"later."
 msgstr ""
 
 #. module: web_editor

@@ -147,7 +147,7 @@ options.registry.StepsConnector = options.Class.extend({
      * @returns {object}
      */
     _getStepMainElementRect(stepEl) {
-        const iconEl = stepEl.querySelector(".s_process_step_icon > *");
+        const iconEl = stepEl.querySelector('i');
         if (iconEl) {
             return iconEl.getBoundingClientRect();
         }

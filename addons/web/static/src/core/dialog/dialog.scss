@@ -16,11 +16,11 @@
             display: flex;
             flex-wrap: wrap;
             flex: 1 1 auto;
-            justify-content: space-around;
+            justify-content: flex-start;
             gap: map-get($spacers, 1);
 
-            @include media-breakpoint-up(md) {
-                justify-content: flex-start;
+            @include media-breakpoint-down(md) {
+                justify-content: space-around;
             }
         }
 

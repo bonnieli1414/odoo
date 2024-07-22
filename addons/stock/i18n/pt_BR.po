@@ -1198,11 +1198,6 @@ msgid "Archived"
 msgstr "Arquivado"
 
 #. module: stock
-#: model_terms:ir.ui.view,arch_db:stock.view_picking_form
-msgid "Are you sure you want to cancel this transfer?"
-msgstr "Tem certeza de que deseja cancelar essa transferência?"
-
-#. module: stock
 #: model:ir.model.fields.selection,name:stock.selection__stock_picking__move_type__direct
 msgid "As soon as possible"
 msgstr "O mais rápido possível"
@@ -4823,7 +4818,7 @@ msgstr "Locais"
 #: code:addons/stock/models/stock_picking.py:0
 #, python-format
 msgid "Locations to update"
-msgstr "Locais a atualizar"
+msgstr ""
 
 #. module: stock
 #: model:ir.actions.server,name:stock.action_toggle_is_locked
@@ -4979,7 +4974,7 @@ msgstr "Estoque baixo? Vamos reabastecer."
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_warehouse__mto_pull_id
 msgid "MTO rule"
-msgstr "Regra de PSE"
+msgstr "Regra de MTO"
 
 #. module: stock
 #: model:res.groups,name:stock.group_tracking_owner
@@ -5437,12 +5432,6 @@ msgstr "Nenhuma operação feita neste lote."
 #: model_terms:ir.actions.act_window,help:stock.action_get_picking_type_operations
 msgid "No operations found. Let's create a transfer!"
 msgstr "Nenhuma operação encontrada. Vamos criar uma transferência!"
-
-#. module: stock
-#. odoo-python
-#: code:addons/stock/models/stock_move.py:0
-msgid "No product found to generate Serials/Lots for."
-msgstr "Não foi encontrado nenhum produto para o qual gerar Nº de série/Lote."
 
 #. module: stock
 #: model_terms:ir.actions.act_window,help:stock.product_template_action_product
@@ -7863,7 +7852,7 @@ msgstr "Pedidos de sucata"
 #: model_terms:ir.ui.view,arch_db:stock.stock_scrap_form_view2
 #, python-format
 msgid "Scrap Products"
-msgstr "Sucatear produtos"
+msgstr "Sucata"
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_move__scrap_id
@@ -7873,7 +7862,7 @@ msgstr "Operação de sucata"
 #. module: stock
 #: model_terms:ir.actions.act_window,help:stock.action_stock_scrap
 msgid "Scrap products"
-msgstr "Sucatear produtos"
+msgstr "Produtos de sucata"
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_move__scrapped
@@ -10557,14 +10546,10 @@ msgstr "Não é possível alterar o tipo de um produto que já foi usado."
 
 #. module: stock
 #. odoo-python
-#. module: stock
-#. odoo-python
 #: code:addons/stock/models/stock_move.py:0
-#: code:addons/stock/models/stock_orderpoint.py:0
-#, python-format, python-format
-msgid ""
-"You can not create a snoozed orderpoint that is not manually triggered."
-msgstr ""
+#, python-format
+msgid "You can not delete moves linked to another operation"
+msgstr "Não é possível excluir movimentações vinculadas a outra operação"
 
 #. module: stock
 #. odoo-python
@@ -10620,15 +10605,6 @@ msgstr ""
 msgid "You can only process 1.0 %s of products with unique serial number."
 msgstr ""
 "Só é possível processar 1,0 %s de produtos com número de série exclusivo."
-
-#. module: stock
-#. odoo-python
-#: code:addons/stock/models/stock_orderpoint.py:0
-#, python-format
-msgid ""
-"You can only snooze manual orderpoints. You should rather archive 'auto-"
-"trigger' orderpoints if you do not want them to be triggered."
-msgstr ""
 
 #. module: stock
 #. odoo-python
@@ -10738,16 +10714,6 @@ msgstr ""
 #, python-format
 msgid "You cannot delete a scrap which is done."
 msgstr "Não é possível excluir uma sucata concluída."
-
-#. module: stock
-#. odoo-python
-#: code:addons/stock/models/stock_move_line.py:0
-#, python-format
-msgid ""
-"You cannot directly pack quantities from different transfers into the same "
-"package through this view. Try adding them to a batch picking and pack it "
-"there."
-msgstr ""
 
 #. module: stock
 #. odoo-python

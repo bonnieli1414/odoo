@@ -246,9 +246,7 @@ export const PublicRoot = publicWidget.RootWidget.extend({
         this._startWidgets(ev.data.$target, ev.data.options)
             .then(ev.data.onSuccess)
             .catch((e) => {
-                if (ev.data.onFailure) {
-                    ev.data.onFailure(e);
-                }
+                ev.data.onFailure(e);
                 if (!(e instanceof RPCError)) {
                     return Promise.reject(e);
                 }

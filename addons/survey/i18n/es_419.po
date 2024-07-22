@@ -6,7 +6,6 @@
 # Wil Odoo, 2023
 # Lucia Pacheco, 2023
 # Fernanda Alvarez, 2024
-# Martin Trigaux, 2024
 # Patricia Gutiérrez Capetillo <pagc@odoo.com>, 2024
 # 
 msgid ""
@@ -211,7 +210,7 @@ msgid ""
 "                                    <span class=\"text-muted\">Registered</span>"
 msgstr ""
 "<br/>\n"
-"                                    <span class=\"text-muted\">Registradas</span>"
+"                                    <span class=\"text-muted\">Registrada</span>"
 
 #. module: survey
 #: model_terms:ir.ui.view,arch_db:survey.survey_survey_view_kanban
@@ -1319,7 +1318,7 @@ msgstr "Bruselas, Bélgica"
 #. module: survey
 #: model:survey.survey,title:survey.survey_demo_burger_quiz
 msgid "Burger Quiz"
-msgstr "Saber y ganar"
+msgstr "Prueba sobre hamburguesas"
 
 #. module: survey
 #. odoo-python
@@ -2471,7 +2470,8 @@ msgstr ""
 #: model:ir.model.fields,help:survey.field_survey_user_input__message_has_error
 #: model:ir.model.fields,help:survey.field_survey_user_input__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
-msgstr "Si se encuentra seleccionado, algunos mensajes tienen error de envío."
+msgstr ""
+"Si se encuentra seleccionado, algunos mensajes presentan un error de envío."
 
 #. module: survey
 #: model:ir.model.fields,help:survey.field_survey_question__save_as_email
@@ -4034,7 +4034,7 @@ msgstr "Resumen de resultados"
 #. module: survey
 #: model_terms:ir.ui.view,arch_db:survey.survey_button_retake
 msgid "Retry"
-msgstr "Volver a intentar"
+msgstr "Reintentar"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_survey__session_speed_rating
@@ -4330,8 +4330,8 @@ msgstr "Mostrar tabla de clasificación de la sesión"
 #: model_terms:ir.ui.view,arch_db:survey.survey_survey_view_search
 msgid "Show all records which has next action date is before today"
 msgstr ""
-"Mostrar todos los registros cuya próxima fecha de acción es antes de la "
-"fecha de hoy."
+"Mostrar todos los registros cuya fecha de siguiente actividad es antes de "
+"hoy"
 
 #. module: survey
 #. odoo-python
@@ -4688,7 +4688,7 @@ msgstr "Volver a responder"
 #: model_terms:ir.ui.view,arch_db:survey.survey_survey_view_form
 #: model_terms:ir.ui.view,arch_db:survey.survey_survey_view_kanban
 msgid "Test"
-msgstr "Probar"
+msgstr "Prueba"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_user_input__test_entry

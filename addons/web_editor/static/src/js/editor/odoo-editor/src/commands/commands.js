@@ -51,9 +51,6 @@ import {
     resetOuids,
     FONT_SIZE_CLASSES,
     TEXT_STYLE_CLASSES,
-    padLinkWithZws,
-    isLinkEligibleForZwnbsp,
-    paragraphRelatedElements,
 } from '../utils/utils.js';
 
 const TEXT_CLASSES_REGEX = /\btext-[^\s]*\b/;
@@ -290,9 +287,6 @@ export const editorCommands = {
                     }
                 }
             }
-            // Contenteditable false property changes to true after the node is
-            // inserted into DOM.
-            const isNodeToInsertContentEditable = nodeToInsert.isContentEditable;
             if (insertBefore) {
                 currentNode.before(nodeToInsert);
                 insertBefore = false;
@@ -302,32 +296,14 @@ export const editorCommands = {
             if (currentNode.tagName !== 'BR' && isShrunkBlock(currentNode)) {
                 currentNode.remove();
             }
-            // If the first child of editable is contenteditable false element
-            // a chromium bug prevents selecting the container. Prepend a
-            // zero-width space so it's no longer the first child.
-            if (
-                !isNodeToInsertContentEditable &&
-                editor.editable.firstChild === nodeToInsert &&
-                nodeToInsert.nodeName === 'DIV'
-            ) {
-                const zws = document.createTextNode('\u200B');
-                nodeToInsert.before(zws);
-            }
             currentNode = nodeToInsert;
         }
 
         currentNode = lastChildNode || currentNode;
         selection.removeAllRanges();
         const newRange = new Range();
-        let lastPosition;
-        if (currentNode.nodeName === 'A' && isLinkEligibleForZwnbsp(editor.editable, currentNode)) {
-            padLinkWithZws(editor.editable, currentNode);
-            currentNode = currentNode.nextSibling;
-            lastPosition = getDeepestPosition(...rightPos(currentNode));
-        } else {
-            lastPosition = rightPos(currentNode);
-        }
-        if (!editor.options.allowInlineAtRoot && lastPosition[0] === editor.editable) {
+        let lastPosition = rightPos(currentNode);
+        if (lastPosition[0] === editor.editable) {
             // Correct the position if it happens to be in the editable root.
             lastPosition = getDeepestPosition(...lastPosition);
         }
@@ -594,14 +570,6 @@ export const editorCommands = {
         }
 
         let target = [...(blocks.size ? blocks : li)];
-        if (blocks.size) {
-            // Remove hardcoded padding to have default padding of list element 
-            for (const block of blocks) {
-                if (block.style) {
-                    block.style.padding = "";
-                }
-            }
-        }
         while (target.length) {
             const node = target.pop();
             // only apply one li per ul
@@ -667,7 +635,7 @@ export const editorCommands = {
                     } else {
                         font = [];
                     }
-                } else if ((node.nodeType === Node.TEXT_NODE && !isWhitespace(node) && node.textContent !== '\ufeff')
+                } else if ((node.nodeType === Node.TEXT_NODE && !isWhitespace(node))
                         || (node.nodeName === 'BR' && isEmptyBlock(node.parentNode))
                         || (node.nodeType === Node.ELEMENT_NODE &&
                             node.nodeName !== 'FIGURE' &&
@@ -993,7 +961,10 @@ export const editorCommands = {
     insertHorizontalRule(editor) {
         const selection = editor.document.getSelection();
         const range = selection.getRangeAt(0);
-        const element = closestElement(range.startContainer, paragraphRelatedElements) || closestBlock(range.startContainer);
+        const element = closestElement(
+            range.startContainer,
+            'P, PRE, H1, H2, H3, H4, H5, H6, BLOCKQUOTE',
+        );
 
         if (element && ancestors(element).includes(editor.editable)) {
             element.before(editor.document.createElement('hr'));

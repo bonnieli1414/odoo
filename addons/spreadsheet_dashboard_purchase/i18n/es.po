@@ -4,7 +4,6 @@
 # 
 # Translators:
 # Wil Odoo, 2023
-# Pedro M. Baeza <pedro.baeza@tecnativa.com>, 2024
 # Larissa Manderfeld, 2024
 # 
 msgid ""
@@ -91,7 +90,7 @@ msgstr "Líneas"
 #: code:addons/spreadsheet_dashboard_purchase/data/files/vendors_dashboard.json:0
 #, python-format
 msgid "Order"
-msgstr "Pedido"
+msgstr "Orden"
 
 #. module: spreadsheet_dashboard_purchase
 #. odoo-javascript
@@ -109,7 +108,7 @@ msgstr "Pedido"
 #: code:addons/spreadsheet_dashboard_purchase/data/files/vendors_dashboard.json:0
 #, python-format
 msgid "Orders"
-msgstr "Pedidos"
+msgstr "Órdenes"
 
 #. module: spreadsheet_dashboard_purchase
 #. odoo-javascript
@@ -152,7 +151,7 @@ msgstr "Análisis de compras por proveedor"
 #: code:addons/spreadsheet_dashboard_purchase/data/files/vendors_dashboard.json:0
 #, python-format
 msgid "Purchase Orders by Untaxed Amount"
-msgstr "Pedidos de compra por base imponible"
+msgstr "Órdenes de compra por base imponible"
 
 #. module: spreadsheet_dashboard_purchase
 #. odoo-javascript
@@ -166,7 +165,7 @@ msgstr "Comprado"
 #: code:addons/spreadsheet_dashboard_purchase/data/files/vendors_dashboard.json:0
 #, python-format
 msgid "Qty ordered"
-msgstr "Ctd. pedida"
+msgstr "Cantidad ordenada"
 
 #. module: spreadsheet_dashboard_purchase
 #. odoo-javascript
@@ -201,7 +200,7 @@ msgstr "Compradores principales"
 #: code:addons/spreadsheet_dashboard_purchase/data/files/vendors_dashboard.json:0
 #, python-format
 msgid "Top Orders"
-msgstr "Pedidos principales"
+msgstr "Órdenes principales"
 
 #. module: spreadsheet_dashboard_purchase
 #. odoo-javascript

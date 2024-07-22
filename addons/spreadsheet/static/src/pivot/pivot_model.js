@@ -289,11 +289,7 @@ export class SpreadsheetPivotModel extends PivotModel {
         const { cols, rows } = this._getColsRowsValuesFromDomain(domain);
         const group = JSON.stringify([rows, cols]);
         const values = this.data.measurements[group];
-
-        if (values && (values[0][measure] || values[0][measure] === 0)) {
-            return values[0][measure];
-        }
-        return "";
+        return (values && values[0][measure]) ?? "";
     }
 
     /**
@@ -558,7 +554,7 @@ export class SpreadsheetPivotModel extends PivotModel {
      */
     _getSpreadsheetRows(tree) {
         /**@type {Row[]}*/
-        const rows = [];
+        let rows = [];
         const group = tree.root;
         const indent = group.labels.length;
         const rowGroupBys = this.metaData.fullRowGroupBys;
@@ -572,7 +568,7 @@ export class SpreadsheetPivotModel extends PivotModel {
         const subTreeKeys = tree.sortedKeys || [...tree.directSubTrees.keys()];
         subTreeKeys.forEach((subTreeKey) => {
             const subTree = tree.directSubTrees.get(subTreeKey);
-            rows.push(...this._getSpreadsheetRows(subTree));
+            rows = rows.concat(this._getSpreadsheetRows(subTree));
         });
         return rows;
     }

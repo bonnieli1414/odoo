@@ -58,7 +58,7 @@ class StockQuant(models.Model):
     location_id = fields.Many2one(
         'stock.location', 'Location',
         domain=lambda self: self._domain_location_id(),
-        auto_join=True, ondelete='restrict', required=True, index=True)
+        auto_join=True, ondelete='restrict', required=True, index=True, check_company=True)
     warehouse_id = fields.Many2one('stock.warehouse', related='location_id.warehouse_id')
     storage_category_id = fields.Many2one(related='location_id.storage_category_id', store=True)
     cyclic_inventory_frequency = fields.Integer(related='location_id.cyclic_inventory_frequency')
@@ -815,8 +815,6 @@ class StockQuant(models.Model):
         else:
             availaible_quantities = {lot_id: 0.0 for lot_id in list(set(quants.mapped('lot_id'))) + ['untracked']}
             for quant in quants:
-                if not quant.lot_id and strict and lot_id:
-                    continue
                 if not quant.lot_id:
                     availaible_quantities['untracked'] += quant.quantity - quant.reserved_quantity
                 else:
@@ -863,7 +861,7 @@ class StockQuant(models.Model):
             quantity = uom_id._compute_quantity(quantity_move_uom, product_id.uom_id, rounding_method='HALF-UP')
 
         if self.product_id.tracking == 'serial':
-            if float_compare(quantity, int(quantity), precision_rounding=rounding) != 0:
+            if float_compare(quantity, int(quantity), precision_digits=rounding) != 0:
                 quantity = 0
 
         reserved_quants = []
@@ -1075,7 +1073,7 @@ class StockQuant(models.Model):
             if reserved_quantity:
                 vals['reserved_quantity'] = reserved_quantity
             self.create(vals)
-        return self._get_available_quantity(product_id, location_id, lot_id=lot_id, package_id=package_id, owner_id=owner_id, strict=True, allow_negative=True), in_date
+        return self._get_available_quantity(product_id, location_id, lot_id=lot_id, package_id=package_id, owner_id=owner_id, strict=False, allow_negative=True), in_date
 
     @api.model
     def _update_reserved_quantity(self, product_id, location_id, quantity, lot_id=None, package_id=None, owner_id=None, strict=True):

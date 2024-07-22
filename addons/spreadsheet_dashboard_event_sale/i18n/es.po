@@ -69,7 +69,7 @@ msgstr "Evento por modelo"
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Event by Venue"
-msgstr "Evento por lugar"
+msgstr "Evento por lugar de encuentro"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
@@ -182,7 +182,7 @@ msgstr "Plantillas principales"
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Top Venues"
-msgstr "Lugares principales"
+msgstr "top lugares de encuentro"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
@@ -190,7 +190,7 @@ msgstr "Lugares principales"
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Venue"
-msgstr "Lugar"
+msgstr "Sede"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript

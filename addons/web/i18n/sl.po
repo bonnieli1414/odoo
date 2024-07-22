@@ -17,7 +17,6 @@
 # Jasmina Macur <jasmina@hbs.si>, 2024
 # Matjaz Mozetic <m.mozetic@matmoz.si>, 2024
 # Katja Deržič, 2024
-# Gregor Flajs, 2024
 # 
 msgid ""
 msgstr ""
@@ -25,7 +24,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-29 10:46+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
-"Last-Translator: Gregor Flajs, 2024\n"
+"Last-Translator: Katja Deržič, 2024\n"
 "Language-Team: Slovenian (https://app.transifex.com/odoo/teams/41243/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -81,28 +80,28 @@ msgstr "Pred %d leti"
 #: code:addons/web/static/src/core/file_upload/file_upload_service.js:0
 #, python-format
 msgid "%s Files"
-msgstr "%s Datoteke"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/views/fields/remaining_days/remaining_days_field.js:0
 #, python-format
 msgid "%s days ago"
-msgstr "Pred %s dnevi"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/views/fields/formatters.js:0
 #, python-format
 msgid "%s records"
-msgstr "%s zapisov"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/l10n/dates.js:0
 #, python-format
 msgid "'%s' is not a correct date or datetime"
-msgstr "'%s' ni pravilen datum ali čas"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -130,14 +129,14 @@ msgstr "(spremeni)"
 #: code:addons/web/static/src/core/debug/debug_menu_items.xml:0
 #, python-format
 msgid "(create)"
-msgstr "(ustvariti)"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/webclient/burger_menu/mobile_switch_company_menu/mobile_switch_company_menu.xml:0
 #, python-format
 msgid "(current)"
-msgstr "(trenutno)"
+msgstr ""
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.external_layout_boxed
@@ -152,7 +151,7 @@ msgstr ""
 #: code:addons/web/static/src/search/search_bar/search_bar.js:0
 #, python-format
 msgid "(no result)"
-msgstr "(ni rezultata)"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -649,7 +648,7 @@ msgstr ""
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.report_invoice_wizard_preview
 msgid "<span>Payment terms: 30 Days</span>"
-msgstr "<span>Plačilni pogoji: 30 dni</span>"
+msgstr ""
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.report_invoice_wizard_preview
@@ -724,7 +723,7 @@ msgstr "<strong>Skupaj</strong>"
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.report_invoice_wizard_preview
 msgid "<strong>Untaxed Amount</strong>"
-msgstr "<strong>Neobdavčeni znesek</strong>"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -763,7 +762,7 @@ msgstr ""
 #: code:addons/web/static/src/search/custom_favorite_item/custom_favorite_item.js:0
 #, python-format
 msgid "A filter with same name already exists."
-msgstr "Filter z istim imenom že obstaja."
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -780,8 +779,6 @@ msgid ""
 "A popup window has been blocked. You may need to change your browser "
 "settings to allow popup windows for this page."
 msgstr ""
-"Popup okno je bilo blokirano. Morda boste morali spremeniti nastavitve "
-"brskalnika, da bo ta stran omogočala pojavna okna."
 
 #. module: web
 #. odoo-javascript
@@ -980,14 +977,14 @@ msgstr ""
 #: code:addons/web/static/src/views/fields/properties/properties_field.xml:0
 #, python-format
 msgid "Add a Property"
-msgstr "Dodajte lastnost"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/views/fields/properties/property_definition_selection.xml:0
 #, python-format
 msgid "Add a Value"
-msgstr "Dodajte vrednost"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -1003,7 +1000,7 @@ msgstr "Dodaj postavko"
 #: code:addons/web/static/src/core/tree_editor/tree_editor.xml:0
 #, python-format
 msgid "Add branch"
-msgstr "Dodajte branch"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -1047,14 +1044,14 @@ msgstr ""
 #: code:addons/web/static/src/views/fields/boolean_favorite/boolean_favorite_field.xml:0
 #, python-format
 msgid "Add to Favorites"
-msgstr "Dodajte med priljubljene"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/views/fields/x2many/x2many_field.js:0
 #, python-format
 msgid "Add: %s"
-msgstr "Dodaj: %s"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -1135,14 +1132,14 @@ msgstr ""
 #: code:addons/web/static/src/views/list/list_confirmation_dialog.xml:0
 #, python-format
 msgid "Among the"
-msgstr "Med"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/file_upload/file_upload_service.js:0
 #, python-format
 msgid "An error occured while uploading."
-msgstr "Pri nalaganju se je pojavila napaka"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -1156,7 +1153,7 @@ msgstr "Pojavila se je napaka"
 #: code:addons/web/static/src/webclient/settings_form_view/fields/upgrade_dialog.xml:0
 #, python-format
 msgid "And more"
-msgstr "In več"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -1226,21 +1223,21 @@ msgstr "Ali ste prepričani, da želite arhivirati izbrani zapis?"
 #: code:addons/web/static/src/search/search_bar_menu/search_bar_menu.js:0
 #, python-format
 msgid "Are you sure that you want to remove this filter?"
-msgstr "Ste prepričani, da želite odstraniti ta filter?"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/views/list/list_controller.js:0
 #, python-format
 msgid "Are you sure you want to delete these records?"
-msgstr "Ali ste prepričani, da želite izbrisati te zapise?"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/views/kanban/kanban_header.js:0
 #, python-format
 msgid "Are you sure you want to delete this column?"
-msgstr "Ste prepričani, da želite izbrisati ta stolpec?"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -1319,7 +1316,7 @@ msgstr "Dodelitev"
 #: code:addons/web/static/src/views/fields/many2many_binary/many2many_binary_field.xml:0
 #, python-format
 msgid "Attach"
-msgstr "Priložite"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -1731,7 +1728,7 @@ msgstr "Potrditvena polja"
 #: code:addons/web/static/src/core/file_input/file_input.xml:0
 #, python-format
 msgid "Choose File"
-msgstr "Izberite datoteko"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -1802,12 +1799,12 @@ msgstr ""
 
 #. module: web
 #. odoo-javascript
-#: code:addons/web/static/src/core/datetime/datetime_picker_popover.xml:0
 #: code:addons/web/static/src/core/debug/debug_menu_items.xml:0
 #: code:addons/web/static/src/core/debug/debug_menu_items.xml:0
 #: code:addons/web/static/src/core/dialog/dialog.xml:0
 #: code:addons/web/static/src/core/dialog/dialog.xml:0
 #: code:addons/web/static/src/core/domain_selector_dialog/domain_selector_dialog.xml:0
+#: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
@@ -1862,7 +1859,7 @@ msgstr "Barve"
 #: code:addons/web/static/src/views/kanban/kanban_renderer.js:0
 #, python-format
 msgid "Column %s"
-msgstr "Stolpec %s"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -1983,7 +1980,7 @@ msgstr "Potrditev"
 #: code:addons/web/static/src/core/errors/error_handlers.js:0
 #, python-format
 msgid "Connection lost. Trying to reconnect..."
-msgstr "Povezava je izgubljena. Poskušam ponovno vzpostaviti povezavo..."
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -2049,28 +2046,28 @@ msgstr "Kopirano"
 #: code:addons/web/static/src/views/fields/copy_clipboard/copy_clipboard_field.js:0
 #, python-format
 msgid "Copy"
-msgstr "Kopiraj"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/views/fields/copy_clipboard/copy_clipboard_field.js:0
 #, python-format
 msgid "Copy Multiline Text to Clipboard"
-msgstr "Kopiranje večvrstičnega besedila v odložišče"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/views/fields/copy_clipboard/copy_clipboard_field.js:0
 #, python-format
 msgid "Copy Text to Clipboard"
-msgstr "Kopiranje besedila v odložišče"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/views/fields/copy_clipboard/copy_clipboard_field.js:0
 #, python-format
 msgid "Copy URL to Clipboard"
-msgstr "Kopiranje URL-ja v odložišče"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -2084,7 +2081,7 @@ msgstr ""
 #: code:addons/web/static/src/views/fields/copy_clipboard/copy_clipboard_field.js:0
 #, python-format
 msgid "Copy to Clipboard"
-msgstr "Kopiranje v odložišče"
+msgstr ""
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.frontend_layout
@@ -2104,14 +2101,14 @@ msgstr "Avtorske pravice © 2004"
 #: code:addons/web/static/src/views/fields/signature/signature_field.js:0
 #, python-format
 msgid "Could not display the selected image"
-msgstr "Izbrane slike ni mogoče prikazati"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/views/fields/pdf_viewer/pdf_viewer_field.js:0
 #, python-format
 msgid "Could not display the selected pdf"
-msgstr "Izbranega PDF-ja ni bilo mogoče prikazati"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -2165,7 +2162,7 @@ msgstr "Ustvari"
 #: code:addons/web/static/src/views/fields/relational_utils.js:0
 #, python-format
 msgid "Create \"%s\""
-msgstr "Ustvari \"%s\""
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -2173,14 +2170,14 @@ msgstr "Ustvari \"%s\""
 #: code:addons/web/static/src/views/fields/relational_utils.js:0
 #, python-format
 msgid "Create %s"
-msgstr "Ustvari %s"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/views/fields/many2one/many2one_field.js:0
 #, python-format
 msgid "Create <strong>%s</strong> as a new %s?"
-msgstr "Ustvari<strong>%s</strong>kot novo%s?"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -2479,7 +2476,7 @@ msgstr ""
 #: code:addons/web/static/src/views/list/list_renderer.xml:0
 #, python-format
 msgid "Delete row"
-msgstr "Izbrišite vrstico"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -2569,7 +2566,7 @@ msgstr "Opusti"
 #: code:addons/web/static/src/views/form/form_status_indicator/form_status_indicator.xml:0
 #, python-format
 msgid "Discard changes"
-msgstr "Zavrnite spremembe"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -2619,7 +2616,7 @@ msgstr ""
 #: code:addons/web/static/src/core/file_upload/file_upload_progress_bar.js:0
 #, python-format
 msgid "Do you really want to cancel the upload of %s?"
-msgstr "Ali res želite preklicati nalaganje %s?"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -2679,7 +2676,7 @@ msgstr "Domena:"
 #: code:addons/web/static/src/core/ui/block_ui.js:0
 #, python-format
 msgid "Don't leave yet,"
-msgstr "Ne odhajajte še,"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -2707,7 +2704,7 @@ msgstr ""
 #: code:addons/web/static/src/views/pivot/pivot_controller.xml:0
 #, python-format
 msgid "Download xlsx"
-msgstr "Prenesi xlsx"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -2944,7 +2941,7 @@ msgstr "Izvozi"
 #: code:addons/web/static/src/views/list/export_all/export_all.xml:0
 #, python-format
 msgid "Export All"
-msgstr "Izvozi vse"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -2989,7 +2986,7 @@ msgstr "Zunanji ID"
 #: code:addons/web/static/src/search/search_panel/search_panel.xml:0
 #, python-format
 msgid "FILTER"
-msgstr "FILTER"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -3190,7 +3187,7 @@ msgstr ""
 #: code:addons/web/static/src/core/model_field_selector/model_field_selector.xml:0
 #, python-format
 msgid "Followed by"
-msgstr "Sledi"
+msgstr ""
 
 #. module: web
 #: model:ir.model.fields,field_description:web.field_base_document_layout__font
@@ -3202,7 +3199,7 @@ msgstr "Pisava"
 #: code:addons/web/static/src/views/fields/font_selection/font_selection_field.js:0
 #, python-format
 msgid "Font Selection"
-msgstr "Izbira pisave"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -3587,7 +3584,7 @@ msgstr "Slika"
 #: code:addons/web/static/src/views/fields/remaining_days/remaining_days_field.js:0
 #, python-format
 msgid "In %s days"
-msgstr "V%s dneh"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -3629,7 +3626,7 @@ msgstr "Celo število"
 #: code:addons/web/static/src/views/fields/properties/property_value.xml:0
 #, python-format
 msgid "Internal link"
-msgstr "Notranja povezava"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -3650,7 +3647,7 @@ msgstr ""
 #: code:addons/web/static/src/views/graph/graph_controller.xml:0
 #, python-format
 msgid "Invalid data"
-msgstr "Neveljavni podatki"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -3702,7 +3699,7 @@ msgstr ""
 #: code:addons/web/static/src/views/kanban/kanban_record_quick_create.js:0
 #, python-format
 msgid "Invalid fields: "
-msgstr "Neveljavna polja:"
+msgstr ""
 
 #. module: web
 #. odoo-python
@@ -4578,7 +4575,7 @@ msgstr ""
 #: code:addons/web/static/src/views/fields/statusbar/statusbar_field.js:0
 #, python-format
 msgid "Move to %s..."
-msgstr "Premaknite na %s ...."
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -4724,7 +4721,7 @@ msgstr ""
 #: code:addons/web/static/src/webclient/settings_form_view/fields/upgrade_dialog.xml:0
 #, python-format
 msgid "New design"
-msgstr "Nov dizajn"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -4732,7 +4729,7 @@ msgstr "Nov dizajn"
 #: code:addons/web/static/src/views/view_dialogs/export_data_dialog.xml:0
 #, python-format
 msgid "New template"
-msgstr "Nova predloga"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -4746,7 +4743,7 @@ msgstr ""
 #: code:addons/web/static/src/views/fields/many2one/many2one_field.js:0
 #, python-format
 msgid "New: %s"
-msgstr "Novo:%s"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -4810,7 +4807,7 @@ msgstr "Ne"
 #: code:addons/web/static/src/views/fields/properties/property_value.xml:0
 #, python-format
 msgid "No Access"
-msgstr "Brez dostopa"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -4824,14 +4821,14 @@ msgstr ""
 #: code:addons/web/static/src/core/debug/debug_menu_items.xml:0
 #, python-format
 msgid "No Update:"
-msgstr "Brez posodobitve:"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/webclient/actions/client_actions.js:0
 #, python-format
 msgid "No action with id '%s' could be found"
-msgstr "Ni bilo mogoče najti nobene akcije z id  '%s'  "
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -4880,7 +4877,7 @@ msgstr ""
 #: code:addons/web/static/src/webclient/barcode/barcode_scanner.js:0
 #, python-format
 msgid "No device can be found."
-msgstr "Ni mogoče najti nobene naprave."
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -4918,14 +4915,14 @@ msgstr "Ni zapisov"
 #: code:addons/web/static/src/views/view_dialogs/select_create_dialog.js:0
 #, python-format
 msgid "No records found!"
-msgstr "Ni najdenih zapisov!"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/views/fields/properties/property_tags.js:0
 #, python-format
 msgid "No result"
-msgstr "Ni rezultatov"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -4941,7 +4938,7 @@ msgstr "Ni najdenih rezultatov"
 #: code:addons/web/static/src/model/relational_model/record.js:0
 #, python-format
 msgid "No valid record to save"
-msgstr "Ni veljavnega zapisa za shranjevanje"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -4978,7 +4975,7 @@ msgstr "Brez"
 #: code:addons/web/models/models.py:0
 #, python-format
 msgid "Not Set"
-msgstr "Ni nastavljeno"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -5166,7 +5163,7 @@ msgstr ""
 #: code:addons/web/static/src/webclient/barcode/barcode_scanner.js:0
 #, python-format
 msgid "Odoo needs your authorization first."
-msgstr "Odoo najprej potrebuje vaše pooblastilo."
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -5282,7 +5279,7 @@ msgstr ""
 #: code:addons/web/static/src/views/fields/relational_utils.js:0
 #, python-format
 msgid "Open:"
-msgstr "Odpri:"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -5291,7 +5288,7 @@ msgstr "Odpri:"
 #: code:addons/web/static/src/views/fields/relational_utils.js:0
 #, python-format
 msgid "Open: %s"
-msgstr "Odpri: %s"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -5500,21 +5497,21 @@ msgstr ""
 #: code:addons/web/static/src/views/pivot/pivot_controller.xml:0
 #, python-format
 msgid "Pivot settings"
-msgstr "Pivot nastavitve"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/ui/block_ui.js:0
 #, python-format
 msgid "Please be patient."
-msgstr "Prosimo, bodite potrpežljivi."
+msgstr ""
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/views/list/list_renderer.js:0
 #, python-format
 msgid "Please click on the \"save\" button first"
-msgstr "Najprej kliknite gumb \"Shrani\"."
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -5716,7 +5713,7 @@ msgstr "Prioriteta"
 #: code:addons/web/static/src/core/file_upload/file_upload_progress_record.js:0
 #, python-format
 msgid "Processing..."
-msgstr "Obdelava..."
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -5744,7 +5741,7 @@ msgstr "Lastnosti"
 #: code:addons/web/static/src/views/fields/properties/properties_field.js:0
 #, python-format
 msgid "Property %s"
-msgstr "Lastnost %s"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -5818,7 +5815,7 @@ msgstr "Hitro dodajanje"
 #: code:addons/web/static/src/views/fields/relational_utils.js:0
 #, python-format
 msgid "Quick search: %s"
-msgstr "Hitro iskanje: %s"
+msgstr ""
 
 #. module: web
 #: model:ir.model,name:web.model_ir_qweb_field_image
@@ -5881,9 +5878,9 @@ msgstr ""
 #: code:addons/web/static/src/core/confirmation_dialog/confirmation_dialog.js:0
 #, python-format
 msgid ""
-"Ready to make your record disappear into thin air? Are you sure?\r\n"
-"It will be gone forever!\r\n"
-"\r\n"
+"Ready to make your record disappear into thin air? Are you sure?\n"
+"It will be gone forever!\n"
+"\n"
 "Think twice before you click that 'Delete' button!"
 msgstr ""
 
@@ -5913,7 +5910,7 @@ msgstr ""
 #: code:addons/web/static/src/core/debug/profiling/profiling_item.xml:0
 #, python-format
 msgid "Recording..."
-msgstr "Snemanje..."
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -5935,7 +5932,7 @@ msgstr "Referenca"
 #: code:addons/web/static/src/views/fields/domain/domain_field.xml:0
 #, python-format
 msgid "Refresh"
-msgstr "Osvežite"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -5964,7 +5961,7 @@ msgstr "Relacija:"
 #: code:addons/web/static/src/views/fields/x2many/x2many_field.js:0
 #, python-format
 msgid "Relational table"
-msgstr "Relacijska tabela"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -6011,7 +6008,7 @@ msgstr ""
 #: code:addons/web/static/src/views/view_dialogs/export_data_dialog.js:0
 #, python-format
 msgid "Remove field"
-msgstr "Odstrani polje"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -6129,7 +6126,7 @@ msgstr "Zaženi JS teste"
 #: code:addons/web/static/src/search/search_panel/search_panel.xml:0
 #, python-format
 msgid "SEE RESULT"
-msgstr "OGLEJTE SI REZULTATE"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -6240,7 +6237,7 @@ msgstr "Shrani & Novo"
 #: code:addons/web/static/src/views/view_dialogs/export_data_dialog.xml:0
 #, python-format
 msgid "Save as:"
-msgstr "Shrani kot:"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -6364,7 +6361,7 @@ msgstr "Iskanje..."
 #: code:addons/web/static/src/views/fields/relational_utils.js:0
 #, python-format
 msgid "Search: %s"
-msgstr "Iskanje: %s"
+msgstr ""
 
 #. module: web
 #: model:ir.model.fields,field_description:web.field_base_document_layout__secondary_color
@@ -6383,7 +6380,7 @@ msgstr "Glej podrobnosti"
 #: code:addons/web/static/src/views/kanban/kanban_column_quick_create.xml:0
 #, python-format
 msgid "See examples"
-msgstr "Oglejte si primere"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -6442,7 +6439,7 @@ msgstr ""
 #: code:addons/web/static/src/views/list/list_controller.xml:0
 #, python-format
 msgid "Select all"
-msgstr "Izberite vse"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -6463,7 +6460,7 @@ msgstr ""
 #: code:addons/web/static/src/views/view_dialogs/export_data_dialog.xml:0
 #, python-format
 msgid "Select field"
-msgstr "Izberite polje"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -6477,7 +6474,7 @@ msgstr ""
 #: code:addons/web/static/src/views/fields/relational_utils.js:0
 #, python-format
 msgid "Select records"
-msgstr "Izberite zapise"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -6672,7 +6669,7 @@ msgstr ""
 #: code:addons/web/controllers/binary.py:0
 #, python-format
 msgid "Something horrible happened"
-msgstr "Zgodilo se je nekaj groznega"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -6837,7 +6834,6 @@ msgstr ""
 
 #. module: web
 #. odoo-javascript
-#: code:addons/web/static/src/core/commands/command_items.xml:0
 #: code:addons/web/static/src/webclient/user_menu/user_menu_items.xml:0
 #, python-format
 msgid "TIP"
@@ -6891,7 +6887,7 @@ msgstr "Ključne besede"
 #: code:addons/web/static/src/core/ui/block_ui.js:0
 #, python-format
 msgid "Take a minute to get a coffee,"
-msgstr "Vzemite si minuto časa in si privoščite kavo,"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -6951,7 +6947,7 @@ msgstr ""
 #: code:addons/web/static/src/views/view_dialogs/export_data_dialog.xml:0
 #, python-format
 msgid "Template:"
-msgstr "Predloga:"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -7015,7 +7011,6 @@ msgstr ""
 #, python-format
 msgid "The selected file (%sB) is over the maximum allowed file size (%sB)."
 msgstr ""
-"Izbrana datoteka (%s) presega največjo dovoljeno velikost datoteke (%sB)."
 
 #. module: web
 #. odoo-javascript
@@ -7025,6 +7020,16 @@ msgid ""
 "The style compilation failed. This is an administrator or developer error "
 "that must be fixed for the entire database before continuing working. See "
 "browser console or server logs for details."
+msgstr ""
+
+#. module: web
+#. odoo-javascript
+#: code:addons/web/static/src/core/errors/error_dialogs.xml:0
+#, python-format
+msgid ""
+"The style compilation failed, see the error below. This is an administrator "
+"or developer error that must be fixed for the entire database before "
+"continuing working."
 msgstr ""
 
 #. module: web
@@ -7041,14 +7046,14 @@ msgstr ""
 #: code:addons/web/static/src/views/kanban/kanban_cover_image_dialog.xml:0
 #, python-format
 msgid "There is no available image to be set as cover."
-msgstr "Na voljo ni slike, ki bi  jo lahko nastavili kot naslovnico."
+msgstr ""
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/views/fields/file_handler.js:0
 #, python-format
 msgid "There was a problem while uploading your file."
-msgstr "Med nalaganjem datoteke je prišlo do težave."
+msgstr ""
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.address_layout
@@ -7096,7 +7101,7 @@ msgstr ""
 #: code:addons/web/static/src/core/signature/name_and_signature.xml:0
 #, python-format
 msgid "This file is invalid. Please select an image."
-msgstr "Ta datoteka je neveljavna. Izberite sliko."
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -7129,7 +7134,7 @@ msgstr ""
 #: code:addons/web/static/src/views/fields/properties/property_tags.js:0
 #, python-format
 msgid "This tag is already available"
-msgstr "Ta oznaka je že na voljo"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -7331,7 +7336,7 @@ msgstr "Tip"
 #: code:addons/web/static/src/views/fields/dynamic_placeholder_popover.xml:0
 #, python-format
 msgid "Type a default text or press ENTER"
-msgstr "Vnesite privzeto besedilo ali pritisnite ENTER"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -7890,7 +7895,7 @@ msgstr "Čarovnik:"
 #: code:addons/web/static/src/webclient/settings_form_view/settings_form_controller.js:0
 #, python-format
 msgid "Would you like to save your changes?"
-msgstr "Želite shraniti spremembe?"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -7975,7 +7980,7 @@ msgstr ""
 #: code:addons/web/static/src/views/fields/properties/property_definition.js:0
 #, python-format
 msgid "You do not have access to the model \"%s\"."
-msgstr "Nimata dostopa do modela \"%s\"."
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -8033,7 +8038,7 @@ msgstr ""
 #: code:addons/web/static/src/public/error_notifications.js:0
 #, python-format
 msgid "Your Odoo session expired. The current page is about to be refreshed."
-msgstr "Vaša seja na Odoo-ju je potekla. Trenutna stran se bo osvežila."
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -8471,7 +8476,6 @@ msgstr ""
 
 #. module: web
 #. odoo-javascript
-#: code:addons/web/static/src/core/commands/command_items.xml:0
 #: code:addons/web/static/src/core/domain_selector/utils.js:0
 #: code:addons/web/static/src/core/tree_editor/utils.js:0
 #, python-format
@@ -9567,7 +9571,7 @@ msgstr ""
 #: code:addons/web/static/src/core/ui/block_ui.js:0
 #, python-format
 msgid "because it's loading..."
-msgstr "ker se nalaga..."
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -10837,7 +10841,7 @@ msgstr ""
 #: code:addons/web/static/src/core/ui/block_ui.js:0
 #, python-format
 msgid "but the application is actually loading..."
-msgstr "vendar se aplikacija dejansko nalaga"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -13914,7 +13918,7 @@ msgstr "dokument"
 #: code:addons/web/static/src/core/tree_editor/tree_editor_operator_editor.js:0
 #, python-format
 msgid "does not contain"
-msgstr "ne vsebuje"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -14091,7 +14095,7 @@ msgstr ""
 #: code:addons/web/static/src/core/network/download.js:0
 #, python-format
 msgid "downloading..."
-msgstr "prenos..."
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -16369,7 +16373,7 @@ msgstr ""
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "forward"
-msgstr "naprej"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -18487,7 +18491,7 @@ msgstr ""
 #: code:addons/web/static/src/views/calendar/calendar_common/calendar_common_popover.js:0
 #, python-format
 msgid "hour"
-msgstr "ura"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -19132,7 +19136,7 @@ msgstr ""
 #: code:addons/web/static/src/core/ui/block_ui.js:0
 #, python-format
 msgid "it's still loading..."
-msgstr "še vedno se nalaga..."
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -21351,7 +21355,7 @@ msgstr ""
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "manager"
-msgstr "manager"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -22721,7 +22725,7 @@ msgstr ""
 #: code:addons/web/static/src/core/commands/command_palette.xml:0
 #, python-format
 msgid "new tab"
-msgstr "nov zavihek"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -23114,7 +23118,7 @@ msgstr "od naslednjih pravil:"
 #: code:addons/web/static/src/core/tree_editor/tree_editor.xml:0
 #, python-format
 msgid "of:"
-msgstr "od:"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -27341,14 +27345,14 @@ msgstr ""
 #: code:addons/web/static/src/views/list/list_controller.xml:0
 #, python-format
 msgid "selected"
-msgstr "izbrani"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/views/list/list_confirmation_dialog.xml:0
 #, python-format
 msgid "selected records,"
-msgstr "izbrani zapisi,"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -27401,7 +27405,7 @@ msgstr ""
 #: code:addons/web/static/src/core/tree_editor/utils.js:0
 #, python-format
 msgid "set"
-msgstr "nastavljeno"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -30319,7 +30323,7 @@ msgstr ""
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "ticket"
-msgstr "zahtevek"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -33449,13 +33453,6 @@ msgstr ""
 #: code:addons/web/static/src/webclient/user_menu/user_menu_items.xml:0
 #, python-format
 msgid "— press"
-msgstr ""
-
-#. module: web
-#. odoo-javascript
-#: code:addons/web/static/src/core/commands/command_items.xml:0
-#, python-format
-msgid "— search for"
 msgstr ""
 
 #. module: web

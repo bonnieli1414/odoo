@@ -46,14 +46,10 @@ export class StockMoveX2ManyField extends X2ManyField {
 
 
     async openRecord(record) {
-        if (this.canOpenRecord && !record.isNew) {
+        if (this.canOpenRecord) {
             const dirty = await record.isDirty();
             if (dirty && 'quantity' in record._changes) {
-                await record._parentRecord.save({ reload: true });
-                record = record._parentRecord.data[this.props.name].records.find(e => e.resId === record.resId);
-                if (!record) {
-                    return;
-                }
+                await record.model.root.save({ reload: true });
             }
         }
         return super.openRecord(record);

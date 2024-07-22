@@ -5,11 +5,12 @@
 # Translators:
 # 何彬 <vnsoft.he@gmail.com>, 2023
 # 山西清水欧度(QQ:54773801) <54773801@qq.com>, 2023
+# Etren Leo <475851879@qq.com>, 2024
 # 湘子 南 <1360857908@qq.com>, 2024
-# Martin Trigaux, 2024
 # Chloe Wang, 2024
-# Wil Odoo, 2024
 # Jeffery CHEN <jeffery9@gmail.com>, 2024
+# Martin Trigaux, 2024
+# Wil Odoo, 2024
 # 
 msgid ""
 msgstr ""
@@ -17,7 +18,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-29 10:46+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
-"Last-Translator: Jeffery CHEN <jeffery9@gmail.com>, 2024\n"
+"Last-Translator: Wil Odoo, 2024\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/odoo/teams/41243/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -873,7 +874,7 @@ msgstr "访问全部企业版应用"
 #: code:addons/web/static/src/views/fields/ace/ace_field.js:0
 #, python-format
 msgid "Ace Editor"
-msgstr "王牌编辑器"
+msgstr "王牌编辑"
 
 #. module: web
 #. odoo-javascript
@@ -1559,7 +1560,7 @@ msgstr ""
 #: code:addons/web/static/src/views/list/list_controller.js:0
 #, python-format
 msgid "Bye-bye, record!"
-msgstr "永别了，记录！"
+msgstr "再见，唱片！"
 
 #. module: web
 #. odoo-javascript
@@ -1814,12 +1815,12 @@ msgstr "可点击"
 
 #. module: web
 #. odoo-javascript
-#: code:addons/web/static/src/core/datetime/datetime_picker_popover.xml:0
 #: code:addons/web/static/src/core/debug/debug_menu_items.xml:0
 #: code:addons/web/static/src/core/debug/debug_menu_items.xml:0
 #: code:addons/web/static/src/core/dialog/dialog.xml:0
 #: code:addons/web/static/src/core/dialog/dialog.xml:0
 #: code:addons/web/static/src/core/domain_selector_dialog/domain_selector_dialog.xml:0
+#: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
@@ -2294,7 +2295,7 @@ msgstr "数据库"
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.neutralize_banner
 msgid "Database neutralized for testing: no emails sent, etc."
-msgstr "对数据库进行中和测试：不发送电子邮件等。"
+msgstr "对数据库进行中性化测试：不发送电子邮件等。"
 
 #. module: web
 #. odoo-javascript
@@ -3534,7 +3535,7 @@ msgstr "ILY"
 #: code:addons/web/static/src/views/fields/datetime/datetime_field.js:0
 #, python-format
 msgid "ISO-formatted date (e.g. \"2018-12-31\") or \"%s\"."
-msgstr "ISO 格式日期（例如：2018-12-31）或 \"%s\"。"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -5032,7 +5033,7 @@ msgstr "处於非启用状态，单击以更改它"
 #: code:addons/web/static/src/views/fields/many2many_binary/many2many_binary_field.js:0
 #, python-format
 msgid "Number of files"
-msgstr "文件的数量"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -5109,7 +5110,7 @@ msgstr "对象:"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "Objects"
-msgstr "对象"
+msgstr "物体"
 
 #. module: web
 #. odoo-javascript
@@ -5257,7 +5258,7 @@ msgstr "只有前%s条记录被删除(在所选的%s条中)"
 msgid ""
 "Only types %(supported_types)s are supported for category (found type "
 "%(field_type)s)"
-msgstr "只有类型 %(supported_types)s 支持于类别 (找到类型 %(field_type)s)"
+msgstr "只有类别 %(supported_types)s 支持于类别 (找到类别 %(field_type)s)"
 
 #. module: web
 #. odoo-python
@@ -5911,11 +5912,10 @@ msgid ""
 "\n"
 "Think twice before you click that 'Delete' button!"
 msgstr ""
-"准备好让你的记录消失得无影无踪了吗？确定吗？\n"
-"\n"
+"准备好彻底删除你的记录了吗？确定吗？\n"
 "一旦删除，它将永远消失！\n"
 "\n"
-"在点击‘删除’按钮之前请三思！"
+"在点击 “删除” 按钮之前请三思！"
 
 #. module: web
 #. odoo-javascript
@@ -6865,7 +6865,6 @@ msgstr "T恤"
 
 #. module: web
 #. odoo-javascript
-#: code:addons/web/static/src/core/commands/command_items.xml:0
 #: code:addons/web/static/src/webclient/user_menu/user_menu_items.xml:0
 #, python-format
 msgid "TIP"
@@ -7053,6 +7052,16 @@ msgid ""
 "that must be fixed for the entire database before continuing working. See "
 "browser console or server logs for details."
 msgstr "样式编译失败。这是管理员或开发人员的错误，必须修复整个数据库的错误后才能继续工作。有关详情，请查看浏览器控制台或服务器日志。"
+
+#. module: web
+#. odoo-javascript
+#: code:addons/web/static/src/core/errors/error_dialogs.xml:0
+#, python-format
+msgid ""
+"The style compilation failed, see the error below. This is an administrator "
+"or developer error that must be fixed for the entire database before "
+"continuing working."
+msgstr "样式编译失败，请参阅以下错误描述。这是管理员或开发人员的错误，必须修复整个数据库的错误后才能继续工作。"
 
 #. module: web
 #. odoo-python
@@ -7282,7 +7291,7 @@ msgstr "明天"
 #: code:addons/web/models/models.py:0
 #, python-format
 msgid "Too many items to display."
-msgstr "有太多的项目需要展示。"
+msgstr "有太多的物品需要展示。"
 
 #. module: web
 #. odoo-javascript
@@ -8502,7 +8511,6 @@ msgstr "锚"
 
 #. module: web
 #. odoo-javascript
-#: code:addons/web/static/src/core/commands/command_items.xml:0
 #: code:addons/web/static/src/core/domain_selector/utils.js:0
 #: code:addons/web/static/src/core/tree_editor/utils.js:0
 #, python-format
@@ -33481,13 +33489,6 @@ msgstr "僵尸"
 #, python-format
 msgid "— press"
 msgstr "— 按下"
-
-#. module: web
-#. odoo-javascript
-#: code:addons/web/static/src/core/commands/command_items.xml:0
-#, python-format
-msgid "— search for"
-msgstr "— 搜寻："
 
 #. module: web
 #. odoo-javascript

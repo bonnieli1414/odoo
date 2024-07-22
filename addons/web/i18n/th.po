@@ -3,9 +3,9 @@
 # 	* web
 # 
 # Translators:
+# Rasareeyar Lappiam, 2024
 # Khwunchai Jaengsawang <khwunchai.j@ku.th>, 2024
 # gsong <gsong2014@foxmail.com>, 2024
-# Rasareeyar Lappiam, 2024
 # Wil Odoo, 2024
 # 
 msgid ""
@@ -1823,12 +1823,12 @@ msgstr "คลิกได้"
 
 #. module: web
 #. odoo-javascript
-#: code:addons/web/static/src/core/datetime/datetime_picker_popover.xml:0
 #: code:addons/web/static/src/core/debug/debug_menu_items.xml:0
 #: code:addons/web/static/src/core/debug/debug_menu_items.xml:0
 #: code:addons/web/static/src/core/dialog/dialog.xml:0
 #: code:addons/web/static/src/core/dialog/dialog.xml:0
 #: code:addons/web/static/src/core/domain_selector_dialog/domain_selector_dialog.xml:0
+#: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
@@ -3555,7 +3555,7 @@ msgstr "ILY"
 #: code:addons/web/static/src/views/fields/datetime/datetime_field.js:0
 #, python-format
 msgid "ISO-formatted date (e.g. \"2018-12-31\") or \"%s\"."
-msgstr "วันที่ในรูปแบบ ISO (เช่น \"2018-12-31\") หรือ \"%s\""
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -5061,7 +5061,7 @@ msgstr "สถานะไม่ใช้งาน คลิกเพื่อ�
 #: code:addons/web/static/src/views/fields/many2many_binary/many2many_binary_field.js:0
 #, python-format
 msgid "Number of files"
-msgstr "จำนวนไฟล์"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -5793,7 +5793,7 @@ msgstr "แถบความคืบหน้า"
 #: code:addons/web/static/src/views/view_components/column_progress.xml:0
 #, python-format
 msgid "Progress bar"
-msgstr "แถบความคืบหน้า"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -6906,7 +6906,6 @@ msgstr "เสื้อเชิ้ต"
 
 #. module: web
 #. odoo-javascript
-#: code:addons/web/static/src/core/commands/command_items.xml:0
 #: code:addons/web/static/src/webclient/user_menu/user_menu_items.xml:0
 #, python-format
 msgid "TIP"
@@ -7103,6 +7102,18 @@ msgstr ""
 "การรวบรวมสไตล์ล้มเหลว "
 "นี่เป็นข้อผิดพลาดของผู้ดูแลระบบหรือนักพัฒนาที่ต้องแก้ไขสำหรับฐานข้อมูลทั้งหมดก่อนที่จะทำงานต่อ"
 " ดูคอนโซลของเบราว์เซอร์หรือบันทึกเซิร์ฟเวอร์เพื่อดูรายละเอียดเพิ่มเติม"
+
+#. module: web
+#. odoo-javascript
+#: code:addons/web/static/src/core/errors/error_dialogs.xml:0
+#, python-format
+msgid ""
+"The style compilation failed, see the error below. This is an administrator "
+"or developer error that must be fixed for the entire database before "
+"continuing working."
+msgstr ""
+"การรวบรวมสไตล์ล้มเหลว ดูข้อผิดพลาดด้านล่าง "
+"นี่เป็นข้อผิดพลาดของผู้ดูแลระบบหรือนักพัฒนาที่ต้องแก้ไขสำหรับฐานข้อมูลทั้งหมดก่อนที่จะดำเนินการต่อ"
 
 #. module: web
 #. odoo-python
@@ -8565,7 +8576,6 @@ msgstr "สมอ"
 
 #. module: web
 #. odoo-javascript
-#: code:addons/web/static/src/core/commands/command_items.xml:0
 #: code:addons/web/static/src/core/domain_selector/utils.js:0
 #: code:addons/web/static/src/core/tree_editor/utils.js:0
 #, python-format
@@ -33544,13 +33554,6 @@ msgstr "ซอมบี้"
 #, python-format
 msgid "— press"
 msgstr "— กด"
-
-#. module: web
-#. odoo-javascript
-#: code:addons/web/static/src/core/commands/command_items.xml:0
-#, python-format
-msgid "— search for"
-msgstr "— ค้นหา"
 
 #. module: web
 #. odoo-javascript

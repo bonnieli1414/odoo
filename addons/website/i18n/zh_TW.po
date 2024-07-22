@@ -6,7 +6,6 @@
 # 敬雲 林 <chingyun@yuanchih-consult.com>, 2023
 # Martin Trigaux, 2024
 # Wil Odoo, 2024
-# Pak Wai Ho, 2024
 # Tony Ng, 2024
 # 
 msgid ""
@@ -53,25 +52,8 @@ msgstr "“來源網址”不可留空。"
 #. odoo-python
 #: code:addons/website/models/website_rewrite.py:0
 #, python-format
-msgid ""
-"\"URL to\" cannot be set to \"/\". To change the homepage content, use the "
-"\"Homepage URL\" field in the website settings or the page properties on any"
-" custom page."
-msgstr "「前往網址」不可設為「/」。若要變更主頁內容，請在網站設定中的「主頁網址」欄位，或任何自訂頁面的頁面屬性內設定。"
-
-#. module: website
-#. odoo-python
-#: code:addons/website/models/website_rewrite.py:0
-#, python-format
-msgid "\"URL to\" cannot be set to an existing page."
-msgstr "「前往網址」不可設為現有頁面。"
-
-#. module: website
-#. odoo-python
-#: code:addons/website/models/website_rewrite.py:0
-#, python-format
 msgid "\"URL to\" can not be empty."
-msgstr "「前往網址」不可留空。"
+msgstr "\"網址到\" 不能為空."
 
 #. module: website
 #. odoo-python
@@ -277,6 +259,8 @@ msgid "...and switch the timeline contents to fit your needs."
 msgstr "...並切換時間線內容以滿足您的需求。"
 
 #. module: website
+#: model:website,contact_us_button_url:website.default_website
+#: model:website,contact_us_button_url:website.website2
 #: model_terms:ir.ui.view,arch_db:website.layout
 #: model_terms:ir.ui.view,arch_db:website.snippets
 msgid "/contactus"
@@ -1405,17 +1389,17 @@ msgstr "<span>/model/</span>"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_timeline
 msgid "<span><b>2015</b></span>"
-msgstr "<span><b>2015</b></span>"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_timeline
 msgid "<span><b>2018</b></span>"
-msgstr "<span><b>2018</b></span>"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_timeline
 msgid "<span><b>2019</b></span>"
-msgstr "<span><b>2019</b></span>"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippets
@@ -1607,6 +1591,11 @@ msgstr "存取代碼(token)"
 #: model_terms:ir.ui.view,arch_db:website.protected_403
 msgid "Access to this page"
 msgstr "訪問此頁面"
+
+#. module: website
+#: model:ir.model.constraint,message:website.constraint_website_visitor_access_token_unique
+msgid "Access token should be unique."
+msgstr "存取代碼(token)應是唯一的."
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_mega_menu_menus_logos
@@ -3605,7 +3594,7 @@ msgstr "打造您的數碼成功故事"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.bs_debug_view
 msgid "Cras justo odio"
-msgstr "Cras justo odio"
+msgstr ""
 
 #. module: website
 #. odoo-javascript
@@ -5906,13 +5895,6 @@ msgid "Hide For"
 msgstr "關閉後隱藏"
 
 #. module: website
-#. odoo-javascript
-#: code:addons/website/static/src/snippets/s_popup/000.js:0
-#, python-format
-msgid "Hide the cookies bar"
-msgstr "隱藏 Cookie 通知列"
-
-#. module: website
 #: model_terms:ir.ui.view,arch_db:website.website_page_properties_view_form
 msgid "Hide this page from search results"
 msgstr "在搜尋結果中隱藏該頁面"
@@ -6181,6 +6163,15 @@ msgid ""
 "If you need to add analytics or marketing tags, inject code in your <head> "
 "or <body> instead."
 msgstr "如需要加入分析或行銷標籤，請在 <head> 或 <body> 注入程式碼。"
+
+#. module: website
+#. odoo-javascript
+#: code:addons/website/static/src/components/resource_editor/resource_editor_warning.xml:0
+#, python-format
+msgid ""
+"If you need to add analytics or marketing tags, inject code in your header "
+"or body instead."
+msgstr ""
 
 #. module: website
 #. odoo-javascript
@@ -6796,6 +6787,7 @@ msgstr "保留空以使用預設值"
 #. module: website
 #: model:ir.model.fields,field_description:website.field_ir_asset__key
 #: model:ir.model.fields,field_description:website.field_ir_attachment__key
+#: model:ir.model.fields,field_description:website.field_product_document__key
 #: model:ir.model.fields,field_description:website.field_theme_ir_asset__key
 #: model:ir.model.fields,field_description:website.field_theme_ir_attachment__key
 #: model:ir.model.fields,field_description:website.field_theme_ir_ui_view__key
@@ -8135,6 +8127,12 @@ msgid "None"
 msgstr "無"
 
 #. module: website
+#: model:website,prevent_zero_price_sale_text:website.default_website
+#: model:website,prevent_zero_price_sale_text:website.website2
+msgid "Not Available For Sale"
+msgstr "沒有可供出售"
+
+#. module: website
 #: model_terms:ir.ui.view,arch_db:website.website_pages_kanban_view
 msgid "Not Published"
 msgstr "未發佈"
@@ -8686,10 +8684,7 @@ msgid "Page Layout"
 msgstr "排版佈局"
 
 #. module: website
-#. odoo-javascript
-#: code:addons/website/static/src/components/dialog/page_properties.xml:0
 #: model_terms:ir.ui.view,arch_db:website.website_page_properties_view_form
-#, python-format
 msgid "Page Name"
 msgstr "頁面名稱"
 
@@ -9032,13 +9027,6 @@ msgstr "前置"
 #: model_terms:ir.ui.view,arch_db:website.color_combinations_debug_view
 msgid "Preset"
 msgstr "預設組合"
-
-#. module: website
-#. odoo-javascript
-#: code:addons/website/static/src/components/fullscreen_indication/fullscreen_indication.js:0
-#, python-format
-msgid "Press %(key)s to exit full screen"
-msgstr "按 %(key)s 離開全螢幕"
 
 #. module: website
 #. odoo-javascript
@@ -10252,13 +10240,6 @@ msgid "Show site map"
 msgstr "顯示網站地圖"
 
 #. module: website
-#. odoo-javascript
-#: code:addons/website/static/src/snippets/s_popup/000.js:0
-#, python-format
-msgid "Show the cookies bar"
-msgstr "顯示 Cookie 通知列"
-
-#. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
 msgid "Show/Hide on Desktop"
 msgstr "在桌面電腦上顯示/隱藏"
@@ -11195,6 +11176,7 @@ msgstr "主題色彩組合"
 #: model:ir.model.fields,field_description:website.field_ir_asset__theme_template_id
 #: model:ir.model.fields,field_description:website.field_ir_attachment__theme_template_id
 #: model:ir.model.fields,field_description:website.field_ir_ui_view__theme_template_id
+#: model:ir.model.fields,field_description:website.field_product_document__theme_template_id
 #: model:ir.model.fields,field_description:website.field_website_controller_page__theme_template_id
 #: model:ir.model.fields,field_description:website.field_website_menu__theme_template_id
 #: model:ir.model.fields,field_description:website.field_website_page__theme_template_id
@@ -11832,7 +11814,7 @@ msgstr "符合這些篩選條件的網址會用 CDN 根網址改寫"
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_rewrite__url_to
 msgid "URL to"
-msgstr "前往網址"
+msgstr "網址到"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
@@ -12515,6 +12497,7 @@ msgstr "網絡訪客"
 #: model:ir.model.fields,field_description:website.field_ir_asset__website_id
 #: model:ir.model.fields,field_description:website.field_ir_attachment__website_id
 #: model:ir.model.fields,field_description:website.field_ir_ui_view__website_id
+#: model:ir.model.fields,field_description:website.field_product_document__website_id
 #: model:ir.model.fields,field_description:website.field_res_company__website_id
 #: model:ir.model.fields,field_description:website.field_res_partner__website_id
 #: model:ir.model.fields,field_description:website.field_res_users__website_id
@@ -12560,6 +12543,11 @@ msgstr "網站設置精靈特色功能"
 #: model:ir.model.fields,field_description:website.field_website__domain
 msgid "Website Domain"
 msgstr "網站域名"
+
+#. module: website
+#: model:ir.model.constraint,message:website.constraint_website_domain_unique
+msgid "Website Domain should be unique."
+msgstr "網站域名應獨一無二。"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website__favicon
@@ -12965,6 +12953,7 @@ msgstr "您可以編輯、複製..."
 #. module: website
 #. odoo-python
 #: code:addons/website/models/res_users.py:0
+#: model:ir.model.constraint,message:website.constraint_res_users_login_key
 #, python-format
 msgid "You can not have two users with the same login!"
 msgstr "不能有兩個使用者同時登入！"
@@ -12999,20 +12988,19 @@ msgid ""
 msgstr "不可刪除預設網站 %s。請嘗試更改其設定"
 
 #. module: website
-#. odoo-python
+#. odoo-javascript
+#: code:addons/website/static/src/snippets/s_website_form/options.js:0
+#, python-format
+msgid "You cannot duplicate this field."
+msgstr "不可複製此欄位。"
+
+#. module: website
 #: code:addons/website/models/website_menu.py:0
 #, python-format
 msgid ""
 "You cannot delete this website menu as this serves as the default parent "
 "menu for new websites (e.g., /shop, /event, ...)."
 msgstr "你不可刪除此網站選單，因為它用作新網站的預設母項選單（例如 /shop、/event 等）。"
-
-#. module: website
-#. odoo-javascript
-#: code:addons/website/static/src/snippets/s_website_form/options.js:0
-#, python-format
-msgid "You cannot duplicate this field."
-msgstr "不可複製此欄位。"
 
 #. module: website
 #. odoo-python
@@ -13036,6 +13024,13 @@ msgid ""
 "You have hidden this page from search results. It won't be indexed by search"
 " engines."
 msgstr "您已將此頁面從搜尋結果中隱藏.此頁面將不會被搜尋引擎收錄."
+
+#. module: website
+#. odoo-python
+#: code:addons/website/models/res_config_settings.py:0
+#, python-format
+msgid "You haven't defined your domain"
+msgstr "尚未設定網域名稱"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.cookie_policy
@@ -13763,7 +13758,7 @@ msgstr "此頁"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippets
 msgid "valuation, rank"
-msgstr "評價, 評分, 品評, 點評, 排名"
+msgstr "評價, 品評, 點評, 排名"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippets

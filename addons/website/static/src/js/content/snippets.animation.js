@@ -138,7 +138,7 @@ var AnimationEffect = Class.extend(mixins.ParentedMixin, {
         this.startEvents = startEvents || 'scroll';
         const modalEl = options.enableInModal ? parent.target.closest('.modal') : null;
         const mainScrollingElement = modalEl ? modalEl : $().getScrollingElement()[0];
-        const mainScrollingTarget = $().getScrollingTarget(mainScrollingElement)[0];
+        const mainScrollingTarget = mainScrollingElement === document.documentElement ? window : mainScrollingElement;
         this.$startTarget = $($startTarget ? $startTarget : this.startEvents === 'scroll' ? mainScrollingTarget : window);
         if (options.getStateCallback) {
             this._getStateCallback = options.getStateCallback;
@@ -1289,9 +1289,8 @@ registry.BottomFixedElement = publicWidget.Widget.extend({
      */
     async start() {
         this.$scrollingElement = $().getScrollingElement();
-        this.$scrollingTarget = $().getScrollingTarget(this.$scrollingElement);
         this.__hideBottomFixedElements = debounce(() => this._hideBottomFixedElements(), 100);
-        this.$scrollingTarget.on('scroll.bottom_fixed_element', this.__hideBottomFixedElements);
+        this.$scrollingElement.on('scroll.bottom_fixed_element', this.__hideBottomFixedElements);
         $(window).on('resize.bottom_fixed_element', this.__hideBottomFixedElements);
         return this._super(...arguments);
     },
@@ -1300,8 +1299,7 @@ registry.BottomFixedElement = publicWidget.Widget.extend({
      */
     destroy() {
         this._super(...arguments);
-        this.$scrollingElement.off('.bottom_fixed_element'); // TODO remove in master
-        this.$scrollingTarget.off('.bottom_fixed_element');
+        this.$scrollingElement.off('.bottom_fixed_element');
         $(window).off('.bottom_fixed_element');
         this._restoreBottomFixedElements($('.o_bottom_fixed_element'));
     },
@@ -1387,7 +1385,6 @@ registry.WebsiteAnimate = publicWidget.Widget.extend({
     start() {
         this.lastScroll = 0;
         this.$scrollingElement = $().getScrollingElement();
-        this.$scrollingTarget = $().getScrollingTarget(this.$scrollingElement);
         this.$animatedElements = this.$('.o_animate');
 
         // Fix for "transform: none" not overriding keyframe transforms on
@@ -1425,7 +1422,7 @@ registry.WebsiteAnimate = publicWidget.Widget.extend({
         // for events that otherwise don’t support it. (e.g. useful when
         // scrolling a modal)
         this.__onScrollWebsiteAnimate = throttleForAnimation(this._onScrollWebsiteAnimate.bind(this));
-        this.$scrollingTarget[0].addEventListener('scroll', this.__onScrollWebsiteAnimate, {capture: true});
+        this.$scrollingElement[0].addEventListener('scroll', this.__onScrollWebsiteAnimate, {capture: true});
 
         $(window).on('resize.o_animate, shown.bs.modal.o_animate, slid.bs.carousel.o_animate, shown.bs.tab.o_animate, shown.bs.collapse.o_animate', () => {
             this.windowsHeight = $(window).height();
@@ -1448,7 +1445,7 @@ registry.WebsiteAnimate = publicWidget.Widget.extend({
             });
         $(window).off('.o_animate');
         this.__onScrollWebsiteAnimate.cancel();
-        this.$scrollingTarget[0].removeEventListener('scroll', this.__onScrollWebsiteAnimate, {capture: true});
+        this.$scrollingElement[0].removeEventListener('scroll', this.__onScrollWebsiteAnimate, {capture: true});
         this.$scrollingElement[0].classList.remove('o_wanim_overflow_xy_hidden');
     },
 
@@ -1607,8 +1604,7 @@ registry.WebsiteAnimate = publicWidget.Widget.extend({
      * @param {Event} ev
      */
     _onScrollWebsiteAnimate(ev) {
-        // Note: Do not rely on ev.currentTarget which might be lost by Chrome.
-        this._scrollWebsiteAnimate(this.$scrollingElement[0]);
+        this._scrollWebsiteAnimate(ev.currentTarget);
     },
 });
 
@@ -1641,7 +1637,10 @@ registry.ImagesLazyLoading = publicWidget.Widget.extend({
         // the image intrinsic min-height.
         const imgEls = this.el.querySelectorAll('img[loading="lazy"]');
         for (const imgEl of imgEls) {
-            this._updateImgMinHeight(imgEl);
+            // Write initial min-height on the dataset, so that it can also
+            // be properly restored on widget destroy.
+            imgEl.dataset.lazyLoadingInitialMinHeight = imgEl.style.minHeight;
+            imgEl.style.minHeight = '1px';
             wUtils.onceAllImagesLoaded($(imgEl)).then(() => {
                 if (this.isDestroyed()) {
                     return;
@@ -1671,34 +1670,8 @@ registry.ImagesLazyLoading = publicWidget.Widget.extend({
      * @param {HTMLImageElement} imgEl
      */
     _restoreImage(imgEl) {
-        this._updateImgMinHeight(imgEl, true);
-    },
-    /**
-     * Updates the image element style with the corresponding min-height.
-     * If the editor is enabled, it deactivates the observer during the CSS
-     * update.
-     *
-     * @param {HTMLElement} imgEl - The image element to update the minimum
-     *        height of.
-     * @param {boolean} [reset=false] - Whether to remove the minimum height
-     *        and restore the initial value.
-     */
-    _updateImgMinHeight(imgEl, reset = false) {
-        if (this.options.wysiwyg) {
-            this.options.wysiwyg.odooEditor.observerUnactive('_updateImgMinHeight');
-        }
-        if (reset) {
-            imgEl.style.minHeight = imgEl.dataset.lazyLoadingInitialMinHeight;
-            delete imgEl.dataset.lazyLoadingInitialMinHeight;
-        } else {
-            // Write initial min-height on the dataset, so that it can also
-            // be properly restored on widget destroy.
-            imgEl.dataset.lazyLoadingInitialMinHeight = imgEl.style.minHeight;
-            imgEl.style.minHeight = '1px';
-        }
-        if (this.options.wysiwyg) {
-            this.options.wysiwyg.odooEditor.observerActive('_updateImgMinHeight');
-        }
+        imgEl.style.minHeight = imgEl.dataset.lazyLoadingInitialMinHeight;
+        delete imgEl.dataset.lazyLoadingInitialMinHeight;
     },
 });
 
@@ -1813,14 +1786,9 @@ registry.ImageShapeHoverEffet = publicWidget.Widget.extend({
      */
     destroy() {
         this._super(...arguments);
-        if (this.el.dataset.originalSrcBeforeHover && !this.el.classList.contains("o_modified_image_to_save")) {
-            // Replace the image source by its original one if it has not been
-            // modified in edit mode.
-            this.el.src = this.el.dataset.originalSrcBeforeHover;
-        } else if (this.originalImgSrc && (this.lastImgSrc === this.el.getAttribute("src"))) {
+        if (this.originalImgSrc && (this.lastImgSrc === this.el.getAttribute('src'))) {
             this.el.src = this.originalImgSrc;
         }
-        delete this.el.dataset.originalSrcBeforeHover;
     },
 
     //--------------------------------------------------------------------------
@@ -1917,9 +1885,6 @@ registry.ImageShapeHoverEffet = publicWidget.Widget.extend({
                 return;
             }
             this.options.wysiwyg && this.options.wysiwyg.odooEditor.observerUnactive("setImgHoverEffectSrc");
-            if (this.editableMode && !this.el.dataset.originalSrcBeforeHover) {
-                this.el.dataset.originalSrcBeforeHover = this.originalImgSrc;
-            }
             this.el.src = preloadedImg.getAttribute('src');
             this.options.wysiwyg && this.options.wysiwyg.odooEditor.observerActive("setImgHoverEffectSrc");
             this.lastImgSrc = preloadedImg.getAttribute('src');

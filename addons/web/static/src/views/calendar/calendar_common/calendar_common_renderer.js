@@ -69,7 +69,7 @@ export class CalendarCommonRenderer extends Component {
 
     get options() {
         return {
-            allDaySlot: true,
+            allDaySlot: this.props.model.hasAllDaySlot,
             allDayText: _t(""),
             columnHeaderFormat: this.env.isSmall
                 ? SHORT_SCALE_TO_HEADER_FORMAT[this.props.model.scale]
@@ -154,9 +154,9 @@ export class CalendarCommonRenderer extends Component {
             title: record.title,
             start: record.start.toISO(),
             end:
-                (["week", "month"].includes(this.props.model.scale) && allDay) ||
-                record.isAllDay ||
-                (allDay && record.end.toMillis() !== record.end.startOf("day").toMillis())
+                ["week", "month"].includes(this.props.model.scale) &&
+                (record.isAllDay ||
+                    (allDay && record.end.toMillis() !== record.end.startOf("day").toMillis()))
                     ? record.end.plus({ days: 1 }).toISO()
                     : record.end.toISO(),
             allDay: allDay,
@@ -195,7 +195,7 @@ export class CalendarCommonRenderer extends Component {
         this.highlightEvent(info.event, "o_cw_custom_highlight");
     }
     onDateClick(info) {
-        if (info?.jsEvent?.defaultPrevented) {
+        if (info.jsEvent.defaultPrevented) {
             return;
         }
         this.props.createRecord(this.fcEventToRecord(info));

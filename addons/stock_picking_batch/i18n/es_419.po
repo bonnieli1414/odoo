@@ -5,8 +5,6 @@
 # Translators:
 # Iran Villalobos López, 2023
 # Wil Odoo, 2024
-# Fernanda Alvarez, 2024
-# Martin Trigaux, 2024
 # Patricia Gutiérrez Capetillo <pagc@odoo.com>, 2024
 # 
 msgid ""
@@ -103,7 +101,7 @@ msgstr "Actividades"
 #. module: stock_picking_batch
 #: model:ir.model.fields,field_description:stock_picking_batch.field_stock_picking_batch__activity_exception_decoration
 msgid "Activity Exception Decoration"
-msgstr "Decoración de la actividad de excepción"
+msgstr "Decoración de actividad de excepción"
 
 #. module: stock_picking_batch
 #: model:ir.model.fields,field_description:stock_picking_batch.field_stock_picking_batch__activity_state
@@ -460,7 +458,8 @@ msgstr ""
 #: model:ir.model.fields,help:stock_picking_batch.field_stock_picking_batch__message_has_error
 #: model:ir.model.fields,help:stock_picking_batch.field_stock_picking_batch__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
-msgstr "Si se encuentra seleccionado, algunos mensajes tienen error de envío."
+msgstr ""
+"Si se encuentra seleccionado, algunos mensajes presentan un error de envío."
 
 #. module: stock_picking_batch
 #. odoo-python
@@ -779,8 +778,8 @@ msgstr "Mostrar botón de establecer cantidades"
 #: model_terms:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_filter
 msgid "Show all records which has next action date is before today"
 msgstr ""
-"Mostrar todos los registros cuya próxima fecha de acción es antes de la "
-"fecha de hoy."
+"Mostrar todos los registros cuya fecha de siguiente actividad es antes de "
+"hoy"
 
 #. module: stock_picking_batch
 #: model:ir.model.fields,field_description:stock_picking_batch.field_stock_picking_type__batch_group_by_src_loc
@@ -870,8 +869,8 @@ msgid ""
 "            help the timing management of operations (tasks to be done at 1pm)."
 msgstr ""
 "El objetivo del traslado por lote es agrupar operaciones que pueden\n"
-"            (deben) hacerse juntas para poder incrementar la eficiencia.\n"
-"            También es útil para asignar trabajos (una persona por lote) o\n"
+"            (deben) hacerse juntas con el fin de incrementar su eficiencia.\n"
+"            También puede ser útil para asignar trabajos (una persona = un lote) o\n"
 "            ayudar a gestionar el tiempo de las operaciones (por ejemplo, tareas que se deben realizar a la 1 p. m.)."
 
 #. module: stock_picking_batch
@@ -968,7 +967,7 @@ msgstr "Tipo de operación"
 #. module: stock_picking_batch
 #: model:ir.model.fields,help:stock_picking_batch.field_stock_picking_batch__activity_exception_decoration
 msgid "Type of the exception activity on record."
-msgstr "Tipo de la actividad de excepción registrada."
+msgstr "Tipo de actividad de excepción registrada."
 
 #. module: stock_picking_batch
 #: model_terms:ir.ui.view,arch_db:stock_picking_batch.report_picking_batch

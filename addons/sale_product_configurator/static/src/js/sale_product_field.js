@@ -3,7 +3,6 @@
 import { SaleOrderLineProductField } from '@sale/js/sale_product_field';
 import { serializeDateTime } from "@web/core/l10n/dates";
 import { x2ManyCommands } from "@web/core/orm_service";
-import { WarningDialog } from "@web/core/errors/error_dialogs";
 import { useService } from "@web/core/utils/hooks";
 import { patch } from "@web/core/utils/patch";
 import { ProductConfiguratorDialog } from "./product_configurator_dialog/product_configurator_dialog";
@@ -28,7 +27,7 @@ async function applyProduct(record, product) {
     }
 
     const noVariantPTAVIds = product.attribute_lines.filter(
-        ptal => ptal.create_variant === "no_variant"
+        ptal => ptal.create_variant === "no_variant" && ptal.attribute_values.length > 1
     ).flatMap(ptal => ptal.selected_attribute_value_ids);
 
     await record.update({
@@ -45,7 +44,6 @@ patch(SaleOrderLineProductField.prototype, {
         super.setup(...arguments);
 
         this.dialog = useService("dialog");
-        this.notification = useService("notification");
         this.orm = useService("orm");
     },
 
@@ -71,21 +69,6 @@ patch(SaleOrderLineProductField.prototype, {
                 }
             }
         } else {
-            if (result && result.sale_warning) {
-                const {type, title, message} = result.sale_warning
-                if (type === 'block') {
-                    // display warning block, and remove blocking product
-                    this.dialog.add(WarningDialog, { title, message });
-                    this.props.record.update({'product_template_id': false})
-                    return
-                } else if (type == 'warning') {
-                    // show the warning but proceed with the configurator opening
-                    this.notification.add(message, {
-                        title,
-                        type: "warning",
-                    });
-                }
-            }
             if (!result.mode || result.mode === 'configurator') {
                 this._openProductConfigurator();
             } else {

@@ -24,11 +24,7 @@ export class DynamicPlaceholderPopover extends Component {
         return !["one2many", "boolean", "many2many"].includes(fieldDef.type) && fieldDef.searchable;
     }
     closeFieldSelector() {
-        if (this.state.path) {
-            this.state.isPathSelected = true;
-            return;
-        }
-        this.props.close();
+        this.state.isPathSelected = true;
     }
     setPath(path) {
         this.state.path = path;

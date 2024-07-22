@@ -73,16 +73,14 @@ class StockMove(models.Model):
             move.origin = move.name
             move.picking_type_id = move.repair_id.picking_type_id.id
             repair_moves |= move
-        no_repair_moves = moves - repair_moves
-        draft_repair_moves = repair_moves.filtered(lambda m: m.state == 'draft' and m.repair_id.state in ('confirmed', 'under_repair'))
-        other_repair_moves = repair_moves - draft_repair_moves
-        draft_repair_moves._check_company()
-        draft_repair_moves._adjust_procure_method()
-        res = draft_repair_moves._action_confirm()
-        res._trigger_scheduler()
-        confirmed_repair_moves = (res | other_repair_moves)
-        confirmed_repair_moves._create_repair_sale_order_line()
-        return (confirmed_repair_moves | no_repair_moves)
+
+            if move.state == 'draft' and move.repair_id.state in ('confirmed', 'under_repair'):
+                move._check_company()
+                move._adjust_procure_method()
+                move._action_confirm()
+                move._trigger_scheduler()
+        repair_moves._create_repair_sale_order_line()
+        return moves
 
     def write(self, vals):
         res = super().write(vals)
@@ -92,7 +90,7 @@ class StockMove(models.Model):
             if not move.repair_id:
                 continue
             # checks vals update
-            if 'repair_line_type' in vals or 'picking_type_id' in vals and move.repair_line_type:
+            if 'repair_line_type' in vals or 'picking_type_id' in vals and move.product_id != move.repair_id.product_id:
                 move.location_id, move.location_dest_id = move._get_repair_locations(move.repair_line_type)
             if not move.sale_line_id and 'sale_line_id' not in vals and move.repair_line_type == 'add':
                 moves_to_create_so_line |= move
@@ -191,9 +189,3 @@ class StockMove(models.Model):
         if self.repair_id:
             return []
         return super(StockMove, self)._split(qty, restrict_partner_id)
-
-    def action_show_details(self):
-        action = super().action_show_details()
-        if self.repair_line_type == 'recycle':
-            action['context'].update({'show_quant': False, 'show_destination_location': True})
-        return action

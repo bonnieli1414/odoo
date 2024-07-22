@@ -1,7 +1,6 @@
 /** @odoo-module **/
 
 import { _t } from "@web/core/l10n/translation";
-import { registry } from "@web/core/registry";
 import { getBorderWhite, DEFAULT_BG, getColor, hexToRGBA } from "@web/core/colors/colors";
 import { formatFloat } from "@web/views/fields/formatters";
 import { SEP } from "./graph_model";
@@ -16,7 +15,6 @@ import { DropdownItem } from "@web/core/dropdown/dropdown_item";
 import { cookie } from "@web/core/browser/cookie";
 
 const NO_DATA = _t("No data");
-const formatters = registry.category("formatters");
 
 export const LINE_FILL_TRANSPARENCY = 0.4;
 
@@ -195,11 +193,8 @@ export class GraphRenderer extends Component {
      * @param {boolean} [allIntegers=true]
      * @returns {string}
      */
-    formatValue(value, allIntegers = true, formatType = "") {
+    formatValue(value, allIntegers = true) {
         const largeNumber = Math.abs(value) >= 1000;
-        if (formatType) {
-            return formatters.get(formatType)(value);
-        }
         if (allIntegers && !largeNumber) {
             return String(value);
         }
@@ -309,20 +304,21 @@ export class GraphRenderer extends Component {
         if (mode === "pie") {
             legendOptions.labels = {
                 generateLabels: (chart) => {
-                    return chart.data.labels.map((label, index) => {
-                        const hidden = !chart.getDataVisibility(index);
+                    const { data } = chart;
+                    const metaData = data.datasets.map(
+                        (_, index) => chart.getDatasetMeta(index).data
+                    );
+                    const labels = data.labels.map((label, index) => {
+                        const hidden = metaData.some((data) => data[index] && data[index].hidden);
                         const fullText = label;
                         const text = shortenLabel(fullText);
                         const fillStyle =
                             label === NO_DATA
                                 ? DEFAULT_BG
                                 : getColor(index, cookie.get("color_scheme"));
-                        const fontColor =
-                            cookie.get("color_scheme") === "dark"
-                                ? getColor(15, cookie.get("color_scheme"))
-                                : null;
-                        return { text, fullText, fillStyle, hidden, index, fontColor };
+                        return { text, fullText, fillStyle, hidden, index };
                     });
+                    return labels;
                 },
             };
         } else {
@@ -344,10 +340,6 @@ export class GraphRenderer extends Component {
                             strokeStyle: dataset[referenceColor],
                             pointStyle: dataset.pointStyle,
                             datasetIndex: index,
-                            fontColor:
-                                cookie.get("color_scheme") === "dark"
-                                    ? getColor(15, cookie.get("color_scheme"))
-                                    : null,
                         };
                     });
                     return labels;
@@ -381,13 +373,6 @@ export class GraphRenderer extends Component {
             } else {
                 dataset.borderColor = getColor(index, cookie.get("color_scheme"));
             }
-            if (cumulated) {
-                let accumulator = dataset.cumulatedStart;
-                dataset.data = dataset.data.map((value) => {
-                    accumulator += value;
-                    return accumulator;
-                });
-            }
             if (data.labels.length === 1) {
                 // shift of the real value to right. This is done to
                 // center the points in the chart. See data.labels below in
@@ -400,6 +385,13 @@ export class GraphRenderer extends Component {
             dataset.pointBorderColor = "rgba(0,0,0,0.2)";
             if (stacked) {
                 dataset.backgroundColor = hexToRGBA(dataset.borderColor, LINE_FILL_TRANSPARENCY);
+            }
+            if (cumulated) {
+                let accumulator = dataset.cumulatedStart;
+                dataset.data = dataset.data.map((value) => {
+                    accumulator += value;
+                    return accumulator;
+                });
             }
         }
         if (data.datasets.length === 1 && data.datasets[0].originIndex === 0) {
@@ -463,7 +455,7 @@ export class GraphRenderer extends Component {
      */
     getScaleOptions() {
         const labels = this.model.data.labels;
-        const { allIntegers, fieldAttrs, fields, groupBy, measure, measures, mode, stacked } =
+        const { allIntegers, fields, groupBy, measure, measures, mode, stacked } =
             this.model.metaData;
         if (mode === "pie") {
             return {};
@@ -473,38 +465,21 @@ export class GraphRenderer extends Component {
             title: {
                 display: Boolean(groupBy.length),
                 text: groupBy.length ? fields[groupBy[0].fieldName].string : "",
-                color:
-                    cookie.get("color_scheme") === "dark"
-                        ? getColor(15, cookie.get("color_scheme"))
-                        : null,
             },
             ticks: {
                 callback: (val, index) => {
                     const value = labels[index];
                     return shortenLabel(value);
                 },
-                color:
-                    cookie.get("color_scheme") === "dark"
-                        ? getColor(15, cookie.get("color_scheme"))
-                        : null,
             },
         };
         const yAxe = {
             type: "linear",
             title: {
                 text: measures[measure].string,
-                color:
-                    cookie.get("color_scheme") === "dark"
-                        ? getColor(15, cookie.get("color_scheme"))
-                        : null,
             },
             ticks: {
-                callback: (value) =>
-                    this.formatValue(value, allIntegers, fieldAttrs[measure]?.widget),
-                color:
-                    cookie.get("color_scheme") === "dark"
-                        ? getColor(15, cookie.get("color_scheme"))
-                        : null,
+                callback: (value) => this.formatValue(value, allIntegers),
             },
             suggestedMax: 0,
             suggestedMin: 0,
@@ -524,7 +499,7 @@ export class GraphRenderer extends Component {
      * @returns {Object[]}
      */
     getTooltipItems(data, metaData, tooltipModel) {
-        const { allIntegers, domains, mode, groupBy, measure } = metaData;
+        const { allIntegers, domains, mode, groupBy } = metaData;
         const sortedDataPoints = sortBy(tooltipModel.dataPoints, "raw", "desc");
         const items = [];
         for (const item of sortedDataPoints) {
@@ -532,14 +507,12 @@ export class GraphRenderer extends Component {
             // If `datasetIndex` is not found in the `datasets`, then it refers to the `lineOverlayDataset`.
             const dataset = data.datasets[item.datasetIndex] || this.model.lineOverlayDataset;
             let label = dataset.trueLabels[index];
-            let value = dataset.data[index];
-            const measureWidget = metaData.fieldAttrs[measure]?.widget;
-            value = this.formatValue(value, allIntegers, measureWidget);
+            let value = this.formatValue(dataset.data[index], allIntegers);
             let boxColor;
             let percentage;
             if (mode === "pie") {
                 if (label === NO_DATA) {
-                    value = this.formatValue(0, allIntegers, measureWidget);
+                    value = this.formatValue(0, allIntegers);
                 }
                 if (domains.length > 1) {
                     label = `${dataset.label} / ${label}`;
@@ -620,7 +593,6 @@ export class GraphRenderer extends Component {
      * @param {Object} legendItem
      */
     onlegendHover(ev, legendItem) {
-        ev = ev.native;
         this.canvasRef.el.style.cursor = "pointer";
         /**
          * The string legendItem.text is an initial segment of legendItem.fullText.
@@ -632,7 +604,7 @@ export class GraphRenderer extends Component {
         if (this.legendTooltip || text === fullText) {
             return;
         }
-        const viewContentTop = this.canvasRef.el.getBoundingClientRect().top;
+        const viewContentTop = this.rootRef.el.getBoundingClientRect().top;
         const legendTooltip = Object.assign(document.createElement("div"), {
             className: "o_tooltip_legend popover p-3 pe-none",
             innerText: fullText,

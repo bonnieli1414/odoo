@@ -406,17 +406,6 @@ $-header-nav-link-height: $nav-link-height;
     }
 }
 
-hr {
-    // Move the set up color as a border color. Indeed, we may use color-mix to
-    // define that color as a function of currentColor, in which case
-    // Safari 16.5 is known to crash when using that to set the color property.
-    border-top: $hr-height solid $hr-color;
-    color: inherit;
-    // Bootstrap sets up a "background-color" on the hr tag. As we may use a
-    // transparent color as $hr-color, we do not want that.
-    background-color: transparent;
-}
-
 h2 {
     color: map-get($colors, 'o-cc1-h2');
 }
@@ -519,19 +508,7 @@ p {
 
 font[style*='background']:not(.text-gradient),
 font[class*='bg-'] {
-    // Not adding any horizontal padding is important as it ensures that several
-    // features work:
-    // - Highlighting part of a word -> you don't want the word to be split
-    // - Coloring a word inside a highlighted sentence -> in this case, the DOM
-    //   is a succession of 3 <font> elements, the word one with both the
-    //   background-color and the color.
-    // - Even in the good cases, you might just not want the padding, to align
-    //   the highlighted element with the general layout.
-    // => The user can still add surrounding spaces if needed anyway which is
-    //    actually both technically and functionally intuitive.
-    $-base-padding: 0.05em;
-    $-bottom-factor: 2;
-    padding: MAX($-base-padding, 1px) 0 MAX(($-bottom-factor * $-base-padding), ($-bottom-factor * 1px));
+    padding: 2px 6px 4px;
 }
 
 // Icons
@@ -1341,20 +1318,17 @@ header {
 }
 
 #wrapwrap.o_header_overlay {
-    > header:not(.o_header_affixed):not(.o_header_sidebar) {
+    > header:not(.o_header_affixed):not(.o_top_menu_collapse_shown):not(.o_header_sidebar) {
         @include o-position-absolute(0, 0, auto, 0);
         z-index: 1000;
 
         > .navbar {
+            @include o-apply-colors(1); // Reset to default colored components
             // Prevent the nav color/gradient to impact the header color.
             background-color: transparent !important;
             background-image: none !important;
             border-color: transparent;
-            color: inherit !important;
-        }
-
-        &:not(.o_top_menu_collapse_shown) > .navbar {
-            @include o-apply-colors(1); // Reset to default colored components
+            color: inherit;
 
             .nav-item {
                 > .nav-link {
@@ -1367,15 +1341,6 @@ header {
                         font-weight: bolder;
                     }
                 }
-            }
-            .o_header_mobile_buttons_wrap, .btn[data-bs-toggle="offcanvas"] {
-                color: inherit;
-            }
-            .navbar-toggler-icon {
-                background-color: currentColor;
-                background-image: none;
-                mask: $navbar-light-toggler-icon-bg;
-                -webkit-mask: $navbar-light-toggler-icon-bg;
             }
         }
     }
@@ -1666,12 +1631,6 @@ $ribbon-padding: 100px;
     flex: 1;
 }
 
-.o_cookies_bar_toggle {
-    inset-inline-end: 1rem;
-    inset-block-end: var(--cookies-bar-toggle-inset-block-end, 1rem);
-    z-index: $zindex-modal + 1; // Over the modal backdrop.
-}
-
 .o_website_btn_loading {
     opacity: $btn-disabled-opacity;
 
@@ -1776,7 +1735,7 @@ input[value*="data-oe-translation-initial-sha"] {
 .o_wanim_overflow_xy_hidden {
     overflow-x: hidden !important;
 
-    &.o_rtl, .o_rtl {
+    &.o_rtl {
         // Fix for Chrome and Edge bug: resolves slow/stuck scrolling during
         // left-overflowing animations on RTL web pages. Note: using overflow on
         // the main element hides animated elements outside of it (e.g. "Framed"

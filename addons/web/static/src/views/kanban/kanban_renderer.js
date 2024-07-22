@@ -444,12 +444,11 @@ export class KanbanRenderer extends Component {
      */
     async sortGroupDrop(dataGroupId, { previous }) {
         this.toggleProcessing(dataGroupId, true);
+
         const refId = previous ? previous.dataset.id : null;
-        try {
-            await this.props.list.resequence(dataGroupId, refId);
-        } finally {
-            this.toggleProcessing(dataGroupId, false);
-        }
+        await this.props.list.resequence(dataGroupId, refId);
+
+        this.toggleProcessing(dataGroupId, false);
     }
 
     /**
@@ -476,15 +475,13 @@ export class KanbanRenderer extends Component {
             }
             const refId = previous ? previous.dataset.id : null;
             const targetGroupId = parent?.dataset.id;
-            try {
-                await this.props.list.moveRecord(dataRecordId, dataGroupId, refId, targetGroupId);
-            } finally {
-                this.toggleProcessing(dataRecordId, false);
-            }
+            await this.props.list.moveRecord(dataRecordId, dataGroupId, refId, targetGroupId);
             if (dataGroupId !== targetGroupId) {
                 const group = this.props.list.groups.find((g) => g.id === dataGroupId);
                 this.props.progressBarState?.updateAggreagteGroup(group);
             }
+
+            this.toggleProcessing(dataRecordId, false);
         }
     }
 

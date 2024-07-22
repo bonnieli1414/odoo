@@ -2,7 +2,6 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import api, fields, models
-from odoo.tools.translate import html_translate
 
 
 class TestModel(models.Model):
@@ -14,14 +13,7 @@ class TestModel(models.Model):
     ]
     _description = 'Website Model Test'
 
-    name = fields.Char(required=True, translate=True)
-    website_description = fields.Html(
-        string="Description for the website",
-        translate=html_translate,
-        sanitize_overridable=True,
-        sanitize_attributes=False,
-        sanitize_form=False,
-    )
+    name = fields.Char(required=True)
 
     @api.model
     def _search_get_detail(self, website, order, options):

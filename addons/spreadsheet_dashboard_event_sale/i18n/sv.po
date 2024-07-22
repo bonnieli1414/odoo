@@ -53,28 +53,28 @@ msgstr "Datum"
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Event by Organizer"
-msgstr "Evenemang per arrangör"
+msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Event by Tags"
-msgstr "Händelse per tagg"
+msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Event by Template"
-msgstr "Händelse per mall"
+msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Event by Venue"
-msgstr "Evenemang per plats"
+msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
@@ -94,7 +94,7 @@ msgstr "Evenemang"
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Events Status"
-msgstr "Händelser Status"
+msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
@@ -166,7 +166,7 @@ msgstr "Mall"
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Top Organizers"
-msgstr "Bästa organisatörer"
+msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
@@ -180,14 +180,14 @@ msgstr "Toppnoteringar"
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Top Templates"
-msgstr "Toppmallar"
+msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Top Venues"
-msgstr "De bästa platserna"
+msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
@@ -202,28 +202,28 @@ msgstr "Mötesplats"
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "attendees - current"
-msgstr "deltagare - nuvarande"
+msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "attendees - previous"
-msgstr "deltagare - tidigare"
+msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "events - current"
-msgstr "händelser - aktuella"
+msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "events - previous"
-msgstr "händelser - tidigare"
+msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
@@ -239,11 +239,11 @@ msgstr "sedan föregående period"
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "untaxed revenue - current"
-msgstr "obeskattade intäkter - löpande"
+msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "untaxed revenue - previous"
-msgstr "obeskattade intäkter - tidigare"
+msgstr ""

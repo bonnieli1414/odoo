@@ -198,8 +198,6 @@ QUnit.module("ActionManager", (hooks) => {
         webClient.env.bus.trigger("test:hashchange", {
             action: "HelloWorldTest",
         });
-        await new Promise((r) => setTimeout(r)); // real "hashchange" event is triggered after a setTimeout [1]
-        // [1] https://github.com/odoo/odoo/blob/1882d8f89f760bd1ff8a2bf0ae798939402647a3/addons/web/static/tests/setup.js#L52
         await nextTick();
         await nextTick();
         assert.strictEqual(
@@ -219,7 +217,6 @@ QUnit.module("ActionManager", (hooks) => {
         webClient.env.bus.trigger("test:hashchange", {
             action: 1,
         });
-        await new Promise((r) => setTimeout(r)); // real "hashchange" event is triggered after a setTimeout [1]
         await nextTick();
         await nextTick();
         assert.containsOnce(target, ".o_control_panel");
@@ -242,7 +239,6 @@ QUnit.module("ActionManager", (hooks) => {
             id: 2,
             model: "partner",
         });
-        await new Promise((r) => setTimeout(r)); // real "hashchange" event is triggered after a setTimeout [1]
         await nextTick();
         await nextTick();
         assert.containsOnce(target, ".o_form_view");
@@ -285,7 +281,6 @@ QUnit.module("ActionManager", (hooks) => {
             model: "partner",
             view_type: "form",
         });
-        await new Promise((r) => setTimeout(r)); // real "hashchange" event is triggered after a setTimeout [1]
         await nextTick();
         await nextTick();
         assert.containsOnce(target, ".o_form_view");
@@ -307,7 +302,6 @@ QUnit.module("ActionManager", (hooks) => {
             action: 3,
             view_type: "kanban",
         });
-        await new Promise((r) => setTimeout(r)); // real "hashchange" event is triggered after a setTimeout [1]
         await nextTick();
         await nextTick();
         assert.containsNone(target, ".o_list_view");
@@ -409,7 +403,6 @@ QUnit.module("ActionManager", (hooks) => {
             action: 3,
             view_type: "kanban",
         });
-        await new Promise((r) => setTimeout(r)); // real "hashchange" event is triggered after a setTimeout [1]
         await nextTick();
         await nextTick();
         assert.containsNone(target, ".o_list_view");
@@ -420,7 +413,6 @@ QUnit.module("ActionManager", (hooks) => {
             id: 4,
             view_type: "form",
         });
-        await new Promise((r) => setTimeout(r)); // real "hashchange" event is triggered after a setTimeout [1]
         await nextTick();
         await nextTick();
         assert.containsNone(target, ".o_kanban_view");
@@ -456,7 +448,6 @@ QUnit.module("ActionManager", (hooks) => {
             id: 4,
             view_type: "form",
         });
-        await new Promise((r) => setTimeout(r)); // real "hashchange" event is triggered after a setTimeout [1]
         await nextTick();
         await nextTick();
         assert.containsOnce(target, ".o_form_view");

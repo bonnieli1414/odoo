@@ -772,41 +772,6 @@ class TestPacking(TestPackingCommon):
         pick_picking.move_line_ids.quantity = 3
         first_pack = pick_picking.action_put_in_pack()
 
-    def test_serial_partial_put_in_pack(self):
-        """ Create a simple delivery order with a serial tracked product. Then split the move lines into two
-         different packages. """
-        self.productA.tracking = 'serial'
-        self.warehouse.delivery_steps = 'ship_only'
-        serials = self.env['stock.lot'].create([{
-            'product_id': self.productA.id,
-            'name': f'SN{i}',
-            'company_id': self.warehouse.company_id.id
-        } for i in range(1, 6)])
-        for serial in serials:
-            self.env['stock.quant']._update_available_quantity(self.productA, self.stock_location, 1.0, lot_id=serial)
-
-        picking = self.env['stock.picking'].create({
-            'picking_type_id': self.warehouse.out_type_id.id,
-        })
-        picking_form = Form(picking)
-        with picking_form.move_ids_without_package.new() as move:
-            move.product_id = self.productA
-            move.product_uom_qty = 5.0
-        picking = picking_form.save()
-
-        picking.action_confirm()
-        picking.action_assign()
-        move_lines = picking.move_line_ids
-        mls_part_1, mls_part_2 = move_lines[:3], move_lines[3:]
-        mls_part_1.action_put_in_pack()
-
-        self.assertEqual(len(mls_part_1.result_package_id), 1, 'First three move lines should be assigned a destination package')
-        self.assertEqual(len(mls_part_2.result_package_id), 0, 'Other move lines should not be affected')
-
-        mls_part_2.action_put_in_pack()
-        self.assertEqual(len(mls_part_2.result_package_id), 1, 'Other move lines should be assigned a package now')
-        self.assertNotEqual(mls_part_1.result_package_id, mls_part_2.result_package_id, 'There should be two different packages')
-
     def test_action_assign_package_level(self):
         """calling _action_assign on move does not erase lines' "result_package_id"
         At the end of the method ``StockMove._action_assign()``, the method
@@ -1738,45 +1703,6 @@ class TestPacking(TestPackingCommon):
         (picking1 | picking2).with_context(default_picking_type_id=self.ref('stock.picking_type_out'))._compute_hide_picking_type()
         self.assertTrue(picking1.hide_picking_type)
         self.assertFalse(picking2.hide_picking_type)
-
-    def test_put_in_pack_partial_different_destinations(self):
-        """ Test putting some of the move lines of a pikcing with different destinations in a package """
-        self.productA.tracking = 'serial'
-
-        picking = self.env['stock.picking'].create({
-            'picking_type_id': self.warehouse.in_type_id.id,
-        })
-        picking_form = Form(picking)
-        with picking_form.move_ids_without_package.new() as move:
-            move.product_id = self.productA
-            move.product_uom_qty = 5.0
-        picking = picking_form.save()
-        picking.action_confirm()
-
-        serial_wizard_dict = picking.move_ids_without_package.action_assign_serial()
-        serial_wizard = self.env[serial_wizard_dict['res_model']].with_context(serial_wizard_dict['context']).create({
-            'next_serial_number': '1',
-            'next_serial_count': 5,
-        })
-        serial_wizard.generate_serial_numbers()
-
-        self.assertItemsEqual(picking.move_line_ids.mapped('quantity'), [1.0] * 5)
-
-        sub_location = self.env['stock.location'].create({
-            'name': 'Sub Location',
-            'location_id': self.stock_location.id,
-        })
-        picking.move_line_ids[0].location_dest_id = sub_location
-
-        destination_wizard_dict = picking.move_line_ids[0:2].action_put_in_pack()
-        destination_wizard = self.env[destination_wizard_dict['res_model']].with_context(destination_wizard_dict['context']).browse(destination_wizard_dict['res_id'])
-        self.assertEqual(len(destination_wizard.move_line_ids), 2)
-        destination_wizard.action_done()
-
-        self.assertEqual(len(picking.move_line_ids[0:2].result_package_id), 1)
-        self.assertEqual(picking.move_line_ids[0].result_package_id, picking.move_line_ids[1].result_package_id)
-        self.assertEqual(len(picking.move_line_ids[2:].result_package_id), 0)
-        self.assertEqual(picking.move_line_ids[0:2].location_dest_id, destination_wizard.location_dest_id)
 
 
 @odoo.tests.tagged('post_install', '-at_install')

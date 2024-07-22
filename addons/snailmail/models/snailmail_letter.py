@@ -4,7 +4,7 @@ import re
 import base64
 import io
 
-from PyPDF2 import PdfFileReader, PdfFileWriter
+from PyPDF2 import PdfFileReader, PdfFileMerger, PdfFileWriter
 from reportlab.platypus import Frame, Paragraph, KeepInFrame
 from reportlab.lib.units import mm
 from reportlab.lib.pagesizes import A4
@@ -175,7 +175,7 @@ class SnailmailLetter(models.Model):
             :param bin_pdf : binary content of the pdf file
         """
         pages = 0
-        for match in re.compile(rb"/Count\s+(\d+)").finditer(bin_pdf):
+        for match in re.compile(b"/Count\s+(\d+)").finditer(bin_pdf):
             pages = int(match.group(1))
         return pages
 
@@ -456,7 +456,6 @@ class SnailmailLetter(models.Model):
         return all(record[key] for key in required_keys)
 
     def _append_cover_page(self, invoice_bin: bytes):
-        out_writer = PdfFileWriter()
         address_split = self.partner_id.with_context(show_address=True, lang='en_US').display_name.split('\n')
         address_split[0] = self.partner_id.name or self.partner_id.parent_id and self.partner_id.parent_id.name or address_split[0]
         address = '<br/>'.join(address_split)
@@ -479,16 +478,13 @@ class SnailmailLetter(models.Model):
         invoice = PdfFileReader(io.BytesIO(invoice_bin))
         cover_bin = io.BytesIO(cover_buf.getvalue())
         cover_file = PdfFileReader(cover_bin)
-        out_writer.appendPagesFromReader(cover_file)
+        merger = PdfFileMerger()
 
-        # Add a blank buffer page to avoid printing behind the cover page
-        if self.duplex:
-            out_writer.addBlankPage()
-
-        out_writer.appendPagesFromReader(invoice)
+        merger.append(cover_file, import_bookmarks=False)
+        merger.append(invoice, import_bookmarks=False)
 
         out_buff = io.BytesIO()
-        out_writer.write(out_buff)
+        merger.write(out_buff)
         return out_buff.getvalue()
 
     def _overwrite_margins(self, invoice_bin: bytes):

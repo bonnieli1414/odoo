@@ -33,7 +33,6 @@ export function insertChartInSpreadsheet(
  * @param {Object} params
  * @param {function} [params.definition]
  * @param {function} [params.mockRPC]
- * @param {object} [params.serverData]
  * @param {string} [params.type]
  * @param {import("./data").ServerData} [params.serverData]
  *

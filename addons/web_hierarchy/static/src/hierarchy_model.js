@@ -544,13 +544,6 @@ export class HierarchyModel extends Model {
         return fieldsToFetch;
     }
 
-    get context() {
-        return {
-            bin_size: true,
-            ...(this.config.context || {}),
-        };
-    }
-
     /**
      * Load the config and data for hierarchy view
      *
@@ -701,7 +694,7 @@ export class HierarchyModel extends Model {
             "hierarchy_read",
             [config.domain, this.fieldsToFetch, this.parentFieldName, this.childFieldName],
             {
-                context: this.context,
+                context: config.context,
             },
         );
         const resultStringified = JSON.stringify(result);
@@ -771,7 +764,7 @@ export class HierarchyModel extends Model {
             this.resModel,
             domain.toList({}),
             this.fieldsToFetch,
-            { context: this.context },
+            { context: this.config.context },
         );
         let managerData = {};
         const children = [];
@@ -807,7 +800,7 @@ export class HierarchyModel extends Model {
             this.resModel,
             childrenResIds,
             this.fieldsToFetch,
-            { context: this.context },
+            { context: this.config.context },
         )
         if (!this.childFieldName) {
             await this._fetchDescendants(data);
@@ -828,7 +821,7 @@ export class HierarchyModel extends Model {
                 [[this.parentFieldName, "in", resIds]],
                 ['id:array_agg'],
                 [this.parentFieldName],
-                { context: this.context },
+                { context: this.config.context || {} },
             );
             const childIdsPerId = Object.fromEntries(
                 fetchChildren.map((r) => [r[this.parentFieldName][0], r.id])
@@ -894,7 +887,7 @@ export class HierarchyModel extends Model {
                     this.resModel,
                     [node.resId],
                     { [this.parentFieldName]: parentResId || parentNode?.resId || false },
-                    { context: this.context }
+                    { context: this.config.context }
                 );
             });
             if (descendantsParentIds.length) {
@@ -907,7 +900,7 @@ export class HierarchyModel extends Model {
                     this.resModel,
                     domain,
                     this.fieldsToFetch,
-                    { context: this.context },
+                    { context: this.config.context },
                 );
                 const children = [];
                 for (const d of data) {

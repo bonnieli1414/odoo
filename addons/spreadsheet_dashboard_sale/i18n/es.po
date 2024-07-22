@@ -25,14 +25,14 @@ msgstr ""
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #, python-format
 msgid "Average Order"
-msgstr "Pedido medio"
+msgstr "Orden promedio"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #, python-format
 msgid "Average order amount"
-msgstr "Importe medio de pedido"
+msgstr "Importe promedio de pedido"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
@@ -46,49 +46,49 @@ msgstr "Mejor categoría"
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
 #, python-format
 msgid "Best Seller"
-msgstr "Producto más vendido"
+msgstr "Mejor comercial"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
 #, python-format
 msgid "Best Sellers by Revenue"
-msgstr "Productos más vendidos por ingresos"
+msgstr "Mejor comercial por ingresos"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
 #, python-format
 msgid "Best Sellers by Units Sold"
-msgstr "Productos más vendidos por unidades vendidas"
+msgstr "Mejor comercial por unidades vendidas"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
 #, python-format
 msgid "Best Selling Categories"
-msgstr "Categorías más vendidas"
+msgstr "Mejores categorías de venta"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
 #, python-format
 msgid "Best Selling Products"
-msgstr "Productos más vendidos"
+msgstr "Mejores productos vendidos"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
 #, python-format
 msgid "Best selling category"
-msgstr "Categoría más vendida"
+msgstr "Mejor categoría de venta"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
 #, python-format
 msgid "Best selling product"
-msgstr "Producto más vendido"
+msgstr "Mejor producto vendido"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
@@ -184,7 +184,7 @@ msgstr "Orden"
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #, python-format
 msgid "Orders"
-msgstr "Pedidos"
+msgstr "Órdenes"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
@@ -323,14 +323,14 @@ msgstr "Análisis de ventas por comercial"
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #, python-format
 msgid "Sales Analysis by Source"
-msgstr "Análisis de ventas por origen"
+msgstr "Análisis de ventas por fuente"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #, python-format
 msgid "Sales Orders by Untaxed Amount"
-msgstr "Pedidos de venta por base imponible"
+msgstr "Órdenes de venta por base imponible"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
@@ -405,7 +405,7 @@ msgstr "Presupuestos principales"
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #, python-format
 msgid "Top Sales Orders"
-msgstr "Pedidos de venta principales"
+msgstr "Órdenes de venta principales"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
@@ -426,14 +426,14 @@ msgstr "Comerciales principales"
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #, python-format
 msgid "Top Sources"
-msgstr "Orígenes principales"
+msgstr "Recursos principales"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #, python-format
 msgid "Total orders"
-msgstr "Total de pedidos"
+msgstr "Total de órdenes"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
@@ -466,7 +466,7 @@ msgstr "desde el último periodo"
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #, python-format
 msgid "so stats - current"
-msgstr "estadísticas de pedidos de venta - actual"
+msgstr "estadísticas de órdenes de venta - actual"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript

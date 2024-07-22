@@ -192,12 +192,11 @@ class StockMove(models.Model):
         for move in self:
             move.product_uom = move.product_id.uom_id.id
 
-    @api.depends('has_tracking', 'picking_type_id.use_create_lots', 'picking_type_id.use_existing_lots', 'product_id')
+    @api.depends('has_tracking', 'picking_type_id.use_create_lots', 'picking_type_id.use_existing_lots')
     def _compute_display_assign_serial(self):
         for move in self:
             move.display_import_lot = (
                 move.has_tracking != 'none' and
-                move.product_id and
                 move.picking_type_id.use_create_lots and
                 not move.origin_returned_move_id.id and
                 move.state not in ('done', 'cancel')
@@ -358,7 +357,6 @@ class StockMove(models.Model):
 
     def _set_quantity(self):
         def _process_decrease(move, quantity):
-            mls_to_unlink = set()
             for ml in move.move_line_ids:
                 if float_is_zero(quantity, precision_rounding=move.product_uom.rounding):
                     break
@@ -366,11 +364,10 @@ class StockMove(models.Model):
                 if float_is_zero(qty_ml_dec, precision_rounding=ml.product_uom_id.rounding):
                     continue
                 if float_compare(ml.quantity, qty_ml_dec, precision_rounding=ml.product_uom_id.rounding) == 0 and ml.state not in ['done', 'cancel']:
-                    mls_to_unlink.add(ml.id)
+                    ml.unlink()
                 else:
                     ml.quantity -= qty_ml_dec
                 quantity -= move.product_uom._compute_quantity(qty_ml_dec, move.product_uom, round=False)
-            self.env['stock.move.line'].browse(mls_to_unlink).unlink()
 
         def _process_increase(move, quantity):
             # move._action_assign(quantity)
@@ -475,8 +472,7 @@ Please change the quantity done or the rounding precision of your unit of measur
 
     def _set_date_deadline(self, new_deadline):
         # Handle the propagation of `date_deadline` fields (up and down stream - only update by up/downstream documents)
-        already_propagate_ids = self.env.context.get('date_deadline_propagate_ids', set())
-        already_propagate_ids.update(self.ids)
+        already_propagate_ids = self.env.context.get('date_deadline_propagate_ids', set()) | set(self.ids)
         self = self.with_context(date_deadline_propagate_ids=already_propagate_ids)
         for move in self:
             moves_to_update = (move.move_dest_ids | move.move_orig_ids)
@@ -540,7 +536,7 @@ Please change the quantity done or the rounding precision of your unit of measur
                     move_line.quantity = 1
             move.write({'move_line_ids': move_lines_commands})
 
-    @api.depends('picking_type_id.reservation_method', 'picking_type_id', 'date', 'priority', 'state')
+    @api.depends('picking_type_id', 'date', 'priority', 'state')
     def _compute_reservation_date(self):
         for move in self:
             if move.picking_type_id.reservation_method == 'by_date' and move.state in ['draft', 'confirmed', 'waiting', 'partially_available']:
@@ -548,8 +544,6 @@ Please change the quantity done or the rounding precision of your unit of measur
                 if move.priority == '1':
                     days = move.picking_type_id.reservation_days_before_priority
                 move.reservation_date = fields.Date.to_date(move.date) - timedelta(days=days)
-            else:
-                move.reservation_date = False
 
     @api.depends('has_tracking', 'picking_type_id.use_create_lots', 'picking_type_id.use_existing_lots', 'state', 'origin_returned_move_id', 'product_id.detailed_type', 'picking_code')
     def _compute_show_info(self):
@@ -616,8 +610,6 @@ Please change the quantity done or the rounding precision of your unit of measur
             picking_id = self.env['stock.picking'].browse(vals.get('picking_id'))
             if picking_id.group_id and 'group_id' not in vals:
                 vals['group_id'] = picking_id.group_id.id
-            if vals.get('state') == 'done':
-                vals['picked'] = True
         return super().create(vals_list)
 
     def write(self, vals):
@@ -754,6 +746,25 @@ Please change the quantity done or the rounding precision of your unit of measur
             ),
         }
 
+    def action_assign_serial_show_details(self):
+        """ On `self.move_line_ids`, assign `lot_name` according to
+        `self.next_serial` before returning `self.action_show_details`.
+        """
+        self.ensure_one()
+        if not self.next_serial:
+            raise UserError(_("You need to set a Serial Number before generating more."))
+        self._generate_serial_numbers()
+        return self.action_show_details()
+
+    def action_clear_lines_show_details(self):
+        """ Unlink `self.move_line_ids` before returning `self.action_show_details`.
+        Useful for if a user creates too many SNs by accident via action_assign_serial_show_details
+        since there's no way to undo the action.
+        """
+        self.ensure_one()
+        self.move_line_ids.unlink()
+        return self.action_show_details()
+
     def action_assign_serial(self):
         """ Opens a wizard to assign SN's name on each move lines.
         """
@@ -819,36 +830,9 @@ Please change the quantity done or the rounding precision of your unit of measur
             location_id = self.location_dest_id
         lot_names = self.env['stock.lot'].generate_lot_names(next_serial, next_serial_count or self.next_serial_count)
         field_data = [{'lot_name': lot_name['lot_name'], 'quantity': 1} for lot_name in lot_names]
-        if self.picking_type_id.use_existing_lots:
-            self._create_lot_ids_from_move_line_vals(field_data, self.product_id.id, self.company_id.id)
         move_lines_commands = self._generate_serial_move_line_commands(field_data)
         self.move_line_ids = move_lines_commands
         return True
-
-    def _create_lot_ids_from_move_line_vals(self, vals_list, product_id, company_id):
-        """ This method will search or create the lot_id from the lot_name and set it in the vals_list
-        """
-        lot_names = {vals['lot_name'] for vals in vals_list if vals.get('lot_name')}
-        lot_ids = self.env['stock.lot'].search([
-            ('product_id', '=', product_id),
-            ('company_id', '=', company_id),
-            ('name', 'in', list(lot_names)),
-        ])
-
-        lot_names -= set(lot_ids.mapped('name'))  # lot_names not found to create
-        lots_to_create_vals = [
-            {'product_id': product_id, 'name': lot_name, 'company_id': company_id}
-            for lot_name in lot_names
-        ]
-        lot_ids |= self.env['stock.lot'].create(lots_to_create_vals)
-
-        lot_id_by_name = {lot.name: lot.id for lot in lot_ids}
-        for vals in vals_list:
-            lot_name = vals.get('lot_name', None)
-            if not lot_name:
-                continue
-            vals['lot_id'] = lot_id_by_name[lot_name]
-            vals['lot_name'] = False
 
     @api.model
     def split_lots(self, lots):
@@ -886,13 +870,24 @@ Please change the quantity done or the rounding precision of your unit of measur
                     # don't try to guess and simply use the full string as the lot name.
                     move_line_vals['lot_name'] = lot_text
                     break
+            if self.picking_type_id.use_existing_lots:
+                lot_id = self.env['stock.lot'].search([
+                    ('product_id', '=', self.product_id.id),
+                    ('name', '=', lot_text),
+                    ('company_id', '=', self.company_id.id),
+                ])
+                if not lot_id:
+                    lot_id = self.env['stock.lot'].create({
+                        'product_id': self.product_id.id,
+                        'name': lot_text,
+                        'company_id': self.company_id.id,
+                    })
+                move_line_vals['lot_id'] = lot_id.id
             move_lines_vals.append(move_line_vals)
         return move_lines_vals
 
     @api.model
     def action_generate_lot_line_vals(self, context, mode, first_lot, count, lot_text):
-        if not context.get('default_product_id'):
-            raise UserError(_("No product found to generate Serials/Lots for."))
         assert mode in ('serial', 'import')
         default_vals = {}
         # Get default values
@@ -920,10 +915,6 @@ Please change the quantity done or the rounding precision of your unit of measur
                              'location_dest_id': loc_dest.id,
                              'product_uom_id': product.uom_id.id,
                             })
-        if default_vals.get('picking_type_id'):
-            picking_type = self.env['stock.picking.type'].browse(default_vals['picking_type_id'])
-            if picking_type.use_existing_lots:
-                self._create_lot_ids_from_move_line_vals(vals_list, default_vals['product_id'], default_vals['company_id'])
         # format many2one values for webclient, id + display_name
         for values in vals_list:
             for key, value in values.items():
@@ -1109,11 +1100,9 @@ Please change the quantity done or the rounding precision of your unit of measur
             return 'assigned'
         # The picking should be the same for all moves.
         if moves_todo[:1].picking_id and moves_todo[:1].picking_id.move_type == 'one':
-            if all(not m.product_uom_qty for m in moves_todo):
-                return 'assigned'
             most_important_move = moves_todo[0]
             if most_important_move.state == 'confirmed':
-                return 'confirmed'
+                return 'confirmed' if most_important_move.product_uom_qty else 'assigned'
             elif most_important_move.state == 'partially_available':
                 return 'confirmed'
             else:
@@ -1826,7 +1815,7 @@ Please change the quantity done or the rounding precision of your unit of measur
     def _action_done(self, cancel_backorder=False):
         moves = self.filtered(
             lambda move: move.state == 'draft'
-            or float_is_zero(move.product_uom_qty, precision_rounding=move.product_uom.rounding)
+            or float_is_zero(move.product_uom_qty, precision_digits=move.product_uom.rounding)
         )._action_confirm(merge=False)  # MRP allows scrapping draft moves
         moves = (self | moves).exists().filtered(lambda x: x.state not in ('done', 'cancel'))
         moves_ids_todo = OrderedSet()
@@ -2038,14 +2027,14 @@ Please change the quantity done or the rounding precision of your unit of measur
             taken_qty = min(qty, ml_qty)
             # Convert taken qty into move line uom
             if ml.product_uom_id != self.product_uom:
-                taken_qty = self.product_uom._compute_quantity(taken_qty, ml.product_uom_id, round=False)
+                taken_qty = self.product_uom._compute_quantity(ml_qty, ml.product_uom_id, round=False)
 
             # Assign qty_done and explicitly round to make sure there is no inconsistency between
             # ml.qty_done and qty.
             taken_qty = float_round(taken_qty, precision_rounding=ml.product_uom_id.rounding)
             res.append((1, ml.id, {'quantity': taken_qty}))
             if ml.product_uom_id != self.product_uom:
-                taken_qty = ml.product_uom_id._compute_quantity(taken_qty, self.product_uom, round=False)
+                taken_qty = ml.product_uom_id._compute_quantity(ml_qty, self.product_uom, round=False)
             qty -= taken_qty
 
         if float_compare(qty, 0.0, precision_rounding=self.product_uom.rounding) > 0:
@@ -2162,33 +2151,10 @@ Please change the quantity done or the rounding precision of your unit of measur
             domains.append([('product_id', '=', move.product_id.id), ('location_id', '=', move.location_dest_id.id)])
         static_domain = [('state', 'in', ['confirmed', 'partially_available']),
                          ('procure_method', '=', 'make_to_stock'),
-                         '|',
-                            ('reservation_date', '<=', fields.Date.today()),
-                            ('picking_type_id.reservation_method', '=', 'at_confirm')
-                        ]
+                         ('reservation_date', '<=', fields.Date.today())]
         moves_to_reserve = self.env['stock.move'].search(expression.AND([static_domain, expression.OR(domains)]),
-                                                         order='priority desc, date asc, id asc')
+                                                         order='reservation_date, priority desc, date asc, id asc')
         moves_to_reserve._action_assign()
-
-    def _rollup_move_dests_fetch(self):
-        seen = set(self.ids)
-        self.fetch(['move_dest_ids'])
-        move_dest_ids = set(self.move_dest_ids.ids)
-        while not move_dest_ids.issubset(seen):
-            seen |= move_dest_ids
-            to_visit = self.browse(move_dest_ids)
-            to_visit.fetch(['move_dest_ids'])
-            move_dest_ids = set(to_visit.move_dest_ids.ids)
-
-    def _rollup_move_origs_fetch(self):
-        seen = set(self.ids)
-        self.fetch(['move_orig_ids'])
-        move_orig_ids = set(self.move_orig_ids.ids)
-        while not move_orig_ids.issubset(seen):
-            seen |= move_orig_ids
-            to_visit = self.browse(move_orig_ids)
-            to_visit.fetch(['move_orig_ids'])
-            move_orig_ids = set(to_visit.move_orig_ids.ids)
 
     def _rollup_move_dests(self, seen=False):
         if not seen:

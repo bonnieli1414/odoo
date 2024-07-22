@@ -3,7 +3,6 @@
 import { shallowEqual } from "@web/core/utils/arrays";
 import { evaluate, formatAST, parseExpr } from "./py_js/py";
 import { toPyValue } from "./py_js/py_utils";
-import { escapeRegExp } from "@web/core/utils/strings";
 
 /**
  * @typedef {import("./py_js/py_parser").AST} AST
@@ -325,8 +324,8 @@ function matchCondition(record, condition) {
     }
     let likeRegexp, ilikeRegexp;
     if (["like", "not like", "ilike", "not ilike"].includes(operator)) {
-        likeRegexp = new RegExp(`(.*)${escapeRegExp(value).replaceAll("%", "(.*)")}(.*)`, "g");
-        ilikeRegexp = new RegExp(`(.*)${escapeRegExp(value).replaceAll("%", "(.*)")}(.*)`, "gi");
+        likeRegexp = new RegExp(`(.*)${value.replaceAll("%", "(.*)")}(.*)`, "g");
+        ilikeRegexp = new RegExp(`(.*)${value.replaceAll("%", "(.*)")}(.*)`, "gi");
     }
     const fieldValue = typeof field === "number" ? field : record[field];
     switch (operator) {
@@ -376,7 +375,7 @@ function matchCondition(record, condition) {
             if (fieldValue === false) {
                 return false;
             }
-            return new RegExp(escapeRegExp(value).replace(/%/g, ".*")).test(fieldValue);
+            return new RegExp(value.replace(/%/g, ".*")).test(fieldValue);
         case "ilike":
             if (fieldValue === false) {
                 return false;
@@ -391,7 +390,7 @@ function matchCondition(record, condition) {
             if (fieldValue === false) {
                 return false;
             }
-            return new RegExp(escapeRegExp(value).replace(/%/g, ".*"), "i").test(fieldValue);
+            return new RegExp(value.replace(/%/g, ".*"), "i").test(fieldValue);
     }
     throw new InvalidDomainError("could not match domain");
 }

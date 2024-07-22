@@ -484,25 +484,7 @@ function _isMobileView(targetEl) {
  * @returns {string}
  */
 function _getLinkLabel(linkEl) {
-    return linkEl.textContent.replaceAll("\u200B", "").replaceAll("\uFEFF", "");
-}
-/**
- * Forwards an image source to its carousel thumbnail.
- * @param {HTMLElement} imgEl
- */
-function _forwardToThumbnail(imgEl) {
-    const carouselEl = imgEl.closest(".carousel");
-    if (carouselEl) {
-        const carouselInnerEl = imgEl.closest(".carousel-inner");
-        const carouselItemEl = imgEl.closest(".carousel-item");
-        if (carouselInnerEl && carouselItemEl) {
-            const imageIndex = [...carouselInnerEl.children].indexOf(carouselItemEl);
-            const miniatureEl = carouselEl.querySelector(`.carousel-indicators [data-bs-slide-to="${imageIndex}"]`);
-            if (miniatureEl && miniatureEl.style.backgroundImage) {
-                miniatureEl.style.backgroundImage = `url(${imgEl.getAttribute("src")})`;
-            }
-        }
-    }
+    return linkEl.textContent.replaceAll("\u200B", "");
 }
 
 export default {
@@ -533,5 +515,4 @@ export default {
     shouldEditableMediaBeEditable: _shouldEditableMediaBeEditable,
     isMobileView: _isMobileView,
     getLinkLabel: _getLinkLabel,
-    forwardToThumbnail: _forwardToThumbnail,
 };

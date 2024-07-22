@@ -7,8 +7,8 @@
 # Jolien De Paepe, 2024
 # Martin Trigaux, 2024
 # Wil Odoo, 2024
-# Larissa Manderfeld, 2024
 # Erwin van der Ploeg <erwin@odooexperts.nl>, 2024
+# Larissa Manderfeld, 2024
 # 
 msgid ""
 msgstr ""
@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-29 10:44+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
-"Last-Translator: Erwin van der Ploeg <erwin@odooexperts.nl>, 2024\n"
+"Last-Translator: Larissa Manderfeld, 2024\n"
 "Language-Team: Dutch (https://app.transifex.com/odoo/teams/41243/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,26 +49,6 @@ msgstr "\"%s formulierinzending\" <%s>"
 #, python-format
 msgid "\"URL from\" can not be empty."
 msgstr "\"URL van\" mag niet leeg zijn."
-
-#. module: website
-#. odoo-python
-#: code:addons/website/models/website_rewrite.py:0
-#, python-format
-msgid ""
-"\"URL to\" cannot be set to \"/\". To change the homepage content, use the "
-"\"Homepage URL\" field in the website settings or the page properties on any"
-" custom page."
-msgstr ""
-"\"URL naar\" kan niet worden ingesteld op \"/\". Om de inhoud van de "
-"homepage te wijzigen, gebruik je het veld \"Homepage URL\" in de website-"
-"instellingen of de paginagegevens van een aangepaste pagina."
-
-#. module: website
-#. odoo-python
-#: code:addons/website/models/website_rewrite.py:0
-#, python-format
-msgid "\"URL to\" cannot be set to an existing page."
-msgstr "\"URL naar\" kan niet worden ingesteld op een bestaande pagina."
 
 #. module: website
 #. odoo-python
@@ -169,7 +149,7 @@ msgstr ""
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
 msgid "&amp;lt;head&amp;gt; and &amp;lt;/body&amp;gt;"
-msgstr "&amp;lt;header&amp;gt; en &amp;lt;/body&amp;gt;"
+msgstr "&amp;lt;hoofd&amp;gt; en &amp;lt;/lichaam&amp;gt;"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.list_website_public_pages
@@ -284,6 +264,8 @@ msgid "...and switch the timeline contents to fit your needs."
 msgstr "... en verander de inhoud van de de tijdlijn naar wens."
 
 #. module: website
+#: model:website,contact_us_button_url:website.default_website
+#: model:website,contact_us_button_url:website.website2
 #: model_terms:ir.ui.view,arch_db:website.layout
 #: model_terms:ir.ui.view,arch_db:website.snippets
 msgid "/contactus"
@@ -886,7 +868,7 @@ msgid ""
 "<i class=\"s_mega_menu_little_icons_icon fa fa-headphones fa-fw me-2\"/>\n"
 "                            <b>Help center</b>"
 msgstr ""
-"<i class=\"s_mega_menu_little_icons_icon fa fa-headphones fa-fw me-2\"/>\n"
+"<i class=\"s_mega_menu_little_icons_icon fa fa-hoofdtelefoon fa-fw me-2\"/>\n"
 "                            <b>Helpcentrum</b>"
 
 #. module: website
@@ -1654,6 +1636,11 @@ msgid "Access to this page"
 msgstr "Toegang tot deze pagina"
 
 #. module: website
+#: model:ir.model.constraint,message:website.constraint_website_visitor_access_token_unique
+msgid "Access token should be unique."
+msgstr "Toegangstoken moet uniek zijn."
+
+#. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_mega_menu_menus_logos
 #: model_terms:ir.ui.view,arch_db:website.s_mega_menu_odoo_menu
 msgid "Accessories"
@@ -1733,7 +1720,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:website.s_image_gallery_options
 #, python-format
 msgid "Add"
-msgstr "Toevoegen:"
+msgstr "Toevoegen"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.grid_layout_options
@@ -6074,13 +6061,6 @@ msgid "Hide For"
 msgstr "Verbergen voor"
 
 #. module: website
-#. odoo-javascript
-#: code:addons/website/static/src/snippets/s_popup/000.js:0
-#, python-format
-msgid "Hide the cookies bar"
-msgstr "Verberg de cookiesbalk"
-
-#. module: website
 #: model_terms:ir.ui.view,arch_db:website.website_page_properties_view_form
 msgid "Hide this page from search results"
 msgstr "Verberg deze pagina in de zoekresultaten"
@@ -6372,6 +6352,17 @@ msgid ""
 msgstr ""
 "Als je analyse- of marketingtags moet toevoegen, injecteer dan code in je "
 "<head> of <body> in plaats daarvan."
+
+#. module: website
+#. odoo-javascript
+#: code:addons/website/static/src/components/resource_editor/resource_editor_warning.xml:0
+#, python-format
+msgid ""
+"If you need to add analytics or marketing tags, inject code in your header "
+"or body instead."
+msgstr ""
+"Als je analyse- of marketingtags moet toevoegen, injecteer dan code in je "
+"header of body."
 
 #. module: website
 #. odoo-javascript
@@ -6999,6 +6990,7 @@ msgstr "Laat leeg om standaardwaarde te gebruiken"
 #. module: website
 #: model:ir.model.fields,field_description:website.field_ir_asset__key
 #: model:ir.model.fields,field_description:website.field_ir_attachment__key
+#: model:ir.model.fields,field_description:website.field_product_document__key
 #: model:ir.model.fields,field_description:website.field_theme_ir_asset__key
 #: model:ir.model.fields,field_description:website.field_theme_ir_attachment__key
 #: model:ir.model.fields,field_description:website.field_theme_ir_ui_view__key
@@ -8362,6 +8354,12 @@ msgid "None"
 msgstr "Geen"
 
 #. module: website
+#: model:website,prevent_zero_price_sale_text:website.default_website
+#: model:website,prevent_zero_price_sale_text:website.website2
+msgid "Not Available For Sale"
+msgstr "Niet beschikbaar voor verkoop"
+
+#. module: website
 #: model_terms:ir.ui.view,arch_db:website.website_pages_kanban_view
 msgid "Not Published"
 msgstr "Niet gepubliceerd"
@@ -8940,10 +8938,7 @@ msgid "Page Layout"
 msgstr "Pagina layout"
 
 #. module: website
-#. odoo-javascript
-#: code:addons/website/static/src/components/dialog/page_properties.xml:0
 #: model_terms:ir.ui.view,arch_db:website.website_page_properties_view_form
-#, python-format
 msgid "Page Name"
 msgstr "Paginanaam"
 
@@ -9219,7 +9214,7 @@ msgstr "Plausible auth-sleutel"
 #: code:addons/website/static/src/snippets/s_website_form/000.js:0
 #, python-format
 msgid "Please fill in the form correctly."
-msgstr "Graag het formulier correct invullen."
+msgstr "Graag het formulier correct in te vullen."
 
 #. module: website
 #. odoo-javascript
@@ -9293,13 +9288,6 @@ msgstr "Prepend"
 #: model_terms:ir.ui.view,arch_db:website.color_combinations_debug_view
 msgid "Preset"
 msgstr "Voorinstellen"
-
-#. module: website
-#. odoo-javascript
-#: code:addons/website/static/src/components/fullscreen_indication/fullscreen_indication.js:0
-#, python-format
-msgid "Press %(key)s to exit full screen"
-msgstr "Druk%(key)s om het volledige scherm te verlaten"
 
 #. module: website
 #. odoo-javascript
@@ -10523,13 +10511,6 @@ msgid "Show site map"
 msgstr "Toon plattegrond"
 
 #. module: website
-#. odoo-javascript
-#: code:addons/website/static/src/snippets/s_popup/000.js:0
-#, python-format
-msgid "Show the cookies bar"
-msgstr "Toon de cookiesbalk"
-
-#. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
 msgid "Show/Hide on Desktop"
 msgstr "Weergeven/verbergen op bureaublad"
@@ -11506,6 +11487,7 @@ msgstr "Themakleuren"
 #: model:ir.model.fields,field_description:website.field_ir_asset__theme_template_id
 #: model:ir.model.fields,field_description:website.field_ir_attachment__theme_template_id
 #: model:ir.model.fields,field_description:website.field_ir_ui_view__theme_template_id
+#: model:ir.model.fields,field_description:website.field_product_document__theme_template_id
 #: model:ir.model.fields,field_description:website.field_website_controller_page__theme_template_id
 #: model:ir.model.fields,field_description:website.field_website_menu__theme_template_id
 #: model:ir.model.fields,field_description:website.field_website_page__theme_template_id
@@ -12536,7 +12518,7 @@ msgstr "Video"
 #: model:ir.model.fields,field_description:website.field_website_page__view_id
 #: model_terms:ir.ui.view,arch_db:website.website_controller_pages_form_view
 msgid "View"
-msgstr "Weergave"
+msgstr "Bekijk"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_controller_page__arch
@@ -12547,7 +12529,7 @@ msgstr "Hiërarchie bekijken"
 #. module: website
 #: model:ir.actions.client,name:website.action_website_view_hierarchy
 msgid "View Hierarchy"
-msgstr "Bekijk hiërarchie"
+msgstr "Zie hiërarchie"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_controller_page__name
@@ -12913,6 +12895,7 @@ msgstr "Web bezoekers"
 #: model:ir.model.fields,field_description:website.field_ir_asset__website_id
 #: model:ir.model.fields,field_description:website.field_ir_attachment__website_id
 #: model:ir.model.fields,field_description:website.field_ir_ui_view__website_id
+#: model:ir.model.fields,field_description:website.field_product_document__website_id
 #: model:ir.model.fields,field_description:website.field_res_company__website_id
 #: model:ir.model.fields,field_description:website.field_res_partner__website_id
 #: model:ir.model.fields,field_description:website.field_res_users__website_id
@@ -12958,6 +12941,11 @@ msgstr "Functie van websiteconfigurator"
 #: model:ir.model.fields,field_description:website.field_website__domain
 msgid "Website Domain"
 msgstr "Websitedomein"
+
+#. module: website
+#: model:ir.model.constraint,message:website.constraint_website_domain_unique
+msgid "Website Domain should be unique."
+msgstr "Websitedomein moet uniek zijn."
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website__favicon
@@ -13390,6 +13378,7 @@ msgstr "Je kunt bewerken, dupliceren..."
 #. module: website
 #. odoo-python
 #: code:addons/website/models/res_users.py:0
+#: model:ir.model.constraint,message:website.constraint_res_users_login_key
 #, python-format
 msgid "You can not have two users with the same login!"
 msgstr "Je kunt niet twee gebruikers met dezelfde login hebben!"
@@ -13428,7 +13417,13 @@ msgstr ""
 "de instellingen te wijzigen"
 
 #. module: website
-#. odoo-python
+#. odoo-javascript
+#: code:addons/website/static/src/snippets/s_website_form/options.js:0
+#, python-format
+msgid "You cannot duplicate this field."
+msgstr "Je kan dit veld niet dupliceren."
+
+#. module: website
 #: code:addons/website/models/website_menu.py:0
 #, python-format
 msgid ""
@@ -13438,13 +13433,6 @@ msgstr ""
 "Je kunt dit websitemenu niet verwijderen, aangezien dit fungeert als het "
 "standaard bovenliggende menu voor nieuwe websites (bijvoorbeeld /shop, "
 "/event, ...)."
-
-#. module: website
-#. odoo-javascript
-#: code:addons/website/static/src/snippets/s_website_form/options.js:0
-#, python-format
-msgid "You cannot duplicate this field."
-msgstr "Je kan dit veld niet dupliceren."
 
 #. module: website
 #. odoo-python
@@ -13470,6 +13458,13 @@ msgid ""
 msgstr ""
 "Je hebt deze pagina verborgen van de zoekresultaten. De pagina wordt niet "
 "geïndexeerd door zoekmachines."
+
+#. module: website
+#. odoo-python
+#: code:addons/website/models/res_config_settings.py:0
+#, python-format
+msgid "You haven't defined your domain"
+msgstr "Je hebt je domein niet gedefinieerd"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.cookie_policy
@@ -13780,7 +13775,7 @@ msgstr "btn-secondary"
 #: code:addons/website/static/src/client_actions/configurator/configurator.xml:0
 #, python-format
 msgid "business"
-msgstr " "
+msgstr ","
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippets

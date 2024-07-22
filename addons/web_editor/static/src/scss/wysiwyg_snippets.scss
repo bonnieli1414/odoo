@@ -524,10 +524,6 @@
                 display: none; // remove ballon
             }
 
-            .fa {
-                font-size: $o-we-sidebar-font-size;
-            }
-
             .btn {
                 @extend %we-generic-button;
                 display: flex;
@@ -609,11 +605,11 @@
                 }
                 .dropdown {
                     position: unset;
-                    width: 100%;
+                    width: -webkit-fill-available;
 
                     .dropdown-toggle {
                         padding: 0;
-                        width: 100%;
+                        width: inherit;
 
                         &::after {
                             display: none;
@@ -622,17 +618,8 @@
                     .dropdown-menu.show {
                         position: absolute !important;
                         padding: 0;
-                        width: 100%;
-                        border-color: $o-we-dropdown-border-color;
-
-                        &[data-popper-placement$="start"] {
-                            left: -$o-we-sidebar-content-padding-base !important;
-                        }
 
                         we-button:not(.fa) {
-                            display: flex;
-                            align-items: center;
-                            height: $o-we-sidebar-content-field-dropdown-item-height;
                             text-align: left;
                             font-family: $o-we-font-family;
                             font-size: 12px;
@@ -641,10 +628,6 @@
                             div {
                                 width: 100%;
                             }
-                        }
-
-                        .dropdown-item::before {
-                            display: none;
                         }
                     }
                 }
@@ -2437,7 +2420,6 @@ we-select.o_we_border_preview_aligned_select {
 
                 &.readonly {
                     cursor: default;
-                    pointer-events: none;
 
                     &.o_column_handle.o_side_y {
                         border: none;

@@ -24,10 +24,9 @@
 # Martin Trigaux, 2023
 # Kristoffer Grundström <lovaren@gmail.com>, 2024
 # Daniel Löfgren, 2024
+# Lasse L, 2024
 # Anders Wallenquist <anders.wallenquist@vertel.se>, 2024
 # Wil Odoo, 2024
-# Lasse L, 2024
-# Larissa Manderfeld, 2024
 # 
 msgid ""
 msgstr ""
@@ -35,7 +34,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-29 10:45+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
-"Last-Translator: Larissa Manderfeld, 2024\n"
+"Last-Translator: Wil Odoo, 2024\n"
 "Language-Team: Swedish (https://app.transifex.com/odoo/teams/41243/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -226,9 +225,9 @@ msgstr ""
 "        <span style=\"font-weight:bold;\" t-out=\"format_amount(transaction_sudo.amount, object.currency_id) or ''\">$ 10.00</span>\n"
 "        för din beställning\n"
 "        <span style=\"font-weight:bold;\" t-out=\"object.name or ''\">S00049</span>\n"
-"        <t t-if=\"transaction_sudo and transaction_sudo.state == 'pending'\">\n"
+"        <t t-if=\"transaktion_sudo och transaktion_sudo.state == 'väntande'\">\n"
 "            är väntande.\n"
-"            <br>\n"
+"            <br> <t\n"
 "            <t t-if=\"object.currency_id.compare_amounts(object.amount_paid + transaction_sudo.amount, object.amount_total) &gt;= 0 and object.state in ('draft', 'sent')\">\n"
 "                Din beställning kommer att bekräftas när betalningen har bekräftats.\n"
 "            </t>\n"
@@ -456,7 +455,7 @@ msgstr ""
 "            har bekräftats.<br>\n"
 "            Tack för ditt förtroende!\n"
 "        </t>\n"
-"        <t t-elif=\"tx_sudo and tx_sudo.state == 'pending'\">\n"
+"        <t t-elif=\"tx_sudo och tx_sudo.state == 'pending'\">\n"
 "            är väntande. Det kommer att bekräftas när betalningen har mottagits.\n"
 "            <t t-if=\"object.reference\">\n"
 "                Din betalningsreferens är <span style=\"font-weight:bold;\" t-out=\"object.reference or ''\"></span>.\n"
@@ -486,7 +485,8 @@ msgstr ""
 "                            Moms Inkl.\n"
 "                        </t>\n"
 "                    <span> </span>\n"
-"                </td> </t> </td\n"
+"                </td> </t\n"
+"            </tr> </td\n"
 "        </tabell> <t\n"
 "        <t t-foreach=\"object.order_line\" t-as=\"line\">\n"
 "            <t t-if=\"(not hasattr(line, 'is_delivery') or not line.is_delivery) and line.display_type in ['line_section', 'line_note']\">\n"
@@ -501,7 +501,8 @@ msgstr ""
 "                            <t t-elif=\"line.display_type == 'line_note'\">\n"
 "                                <i t-out=\"line.name or ''\">Kurs i skötsel av träd</i>\n"
 "                            </t>\n"
-"                        </td> </tr> </tr> </td\n"
+"                        </td> </tr> </tr\n"
+"                    </tr> </td\n"
 "                </tabell> </t> </td\n"
 "            </t>\n"
 "            <t t-elif=\"(not hasattr(line, 'is_delivery') or not line.is_delivery)\">\n"
@@ -594,7 +595,8 @@ msgstr ""
 "        <table width=\"100%\" style=\"color: #454748; font-size: 12px;\">\n"
 "            <tr> <td\n"
 "                <td> <tr\n"
-"                    <br> </span>Sänd till:</span>\n"
+"                    <br> </span\n"
+"                    <span style=\"font-weight:bold;\">Sänd till:</span>\n"
 "                    <t t-out=\"object.partner_shipping_id.street or ''\">1201 S Figueroa St</t>\n"
 "                    <t t-out=\"object.partner_shipping_id.city or ''\">Los Angeles</t>\n"
 "                    <t t-out=\"object.partner_shipping_id.state_id.name or ''\">Kalifornien</t>\n"
@@ -623,7 +625,8 @@ msgstr ""
 "                </td> <td> <strong>Fraktbeskrivning\n"
 "            </tr> </tabell\n"
 "        </tabell> </d>.\n"
-"    </div> </t> </td>\n"
+"    </div> </t> </td\n"
+"</t>\n"
 "</div> </t> </div> </t> </div"
 
 #. module: sale
@@ -762,7 +765,7 @@ msgstr "<i class=\"fa fa-fw fa-check\"/> Betalning"
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content
 msgid "<i class=\"fa fa-fw fa-check\"/> Reversed"
-msgstr "<i class=\"fa fa-fw fa-check\"/> Upphävd"
+msgstr ""
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.portal_my_quotations
@@ -5563,7 +5566,7 @@ msgstr "Du kan inte avbryta en låst order. Lås upp den först."
 #: code:addons/sale/models/sale_order.py:0
 #, python-format
 msgid "You cannot change the pricelist of a confirmed order !"
-msgstr "Du kan inte ändra prislistan för en bekräftad order!"
+msgstr ""
 
 #. module: sale
 #. odoo-python

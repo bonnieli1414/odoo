@@ -244,6 +244,8 @@ class BaseAutomationTestUi(HttpCase):
                     {"default_model_id": model.id, "default_usage": "base_automation"},
                 )
             if onchange_link_passes == 2:
+                self.assertFalse(res["value"], "No change should be triggered here")
+            if onchange_link_passes == 3:
                 self.assertEqual(res["value"]["name"], "Add followers: ")
 
             return res
@@ -257,7 +259,7 @@ class BaseAutomationTestUi(HttpCase):
             "test_form_view_resequence_actions",
             login="admin",
         )
-        self.assertEqual(onchange_link_passes, 2)
+        self.assertEqual(onchange_link_passes, 3)
         self.assertEqual(
             automation.action_server_ids.mapped("name"),
             ["Update Active 2", "Update Active 0", "Update Active 1"],

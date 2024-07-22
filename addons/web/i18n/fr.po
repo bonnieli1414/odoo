@@ -7,7 +7,6 @@
 # Jolien De Paepe, 2024
 # Asia Ba, 2024
 # Martin Trigaux, 2024
-# Manon Rondou, 2024
 # Wil Odoo, 2024
 # 
 msgid ""
@@ -1833,12 +1832,12 @@ msgstr "Cliquable"
 
 #. module: web
 #. odoo-javascript
-#: code:addons/web/static/src/core/datetime/datetime_picker_popover.xml:0
 #: code:addons/web/static/src/core/debug/debug_menu_items.xml:0
 #: code:addons/web/static/src/core/debug/debug_menu_items.xml:0
 #: code:addons/web/static/src/core/dialog/dialog.xml:0
 #: code:addons/web/static/src/core/dialog/dialog.xml:0
 #: code:addons/web/static/src/core/domain_selector_dialog/domain_selector_dialog.xml:0
+#: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
@@ -3576,7 +3575,7 @@ msgstr "signe je t'aime"
 #: code:addons/web/static/src/views/fields/datetime/datetime_field.js:0
 #, python-format
 msgid "ISO-formatted date (e.g. \"2018-12-31\") or \"%s\"."
-msgstr "Date formatée ISO (par ex \"2018-12-31\") ou \"%s\"."
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -5089,7 +5088,7 @@ msgstr "Etat non actif, cliquez pour changer"
 #: code:addons/web/static/src/views/fields/many2many_binary/many2many_binary_field.js:0
 #, python-format
 msgid "Number of files"
-msgstr "Nombre de fichiers"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -5985,10 +5984,10 @@ msgid ""
 "\n"
 "Think twice before you click that 'Delete' button!"
 msgstr ""
-"Prêt à faire disparaître votre enregistrement ? Vous êtes sur ?\n"
-"Il disparaît à jamais !\n"
+"Prêt à faire disparaître vos données? Vous êtes sûr?\n"
+"Elles disparaîtront à jamais!\n"
 "\n"
-"Réfléchissez à deux fois avant de cliquer sur le bouton 'Supprimer' !"
+"Réfléchissez-y à deux fois avant de cliquer sur le bouton 'Supprimer'!"
 
 #. module: web
 #. odoo-javascript
@@ -6943,7 +6942,6 @@ msgstr "t-shirt"
 
 #. module: web
 #. odoo-javascript
-#: code:addons/web/static/src/core/commands/command_items.xml:0
 #: code:addons/web/static/src/webclient/user_menu/user_menu_items.xml:0
 #, python-format
 msgid "TIP"
@@ -7143,6 +7141,19 @@ msgstr ""
 "développeur qui doit être corrigée pour l'ensemble de la base de données "
 "avant de continuer à travailler. Consultez les journaux du serveur ou la "
 "console du navigateur pour obtenir plus de détails."
+
+#. module: web
+#. odoo-javascript
+#: code:addons/web/static/src/core/errors/error_dialogs.xml:0
+#, python-format
+msgid ""
+"The style compilation failed, see the error below. This is an administrator "
+"or developer error that must be fixed for the entire database before "
+"continuing working."
+msgstr ""
+"La compilation du style a échoué, voir l'erreur ci-dessous. Il s'agit d'une "
+"erreur d'administrateur ou de développeur qui doit être corrigée pour "
+"l'ensemble de la base de données avant de continuer à travailler."
 
 #. module: web
 #. odoo-python
@@ -8531,7 +8542,7 @@ msgstr "montre de l'espace"
 #: code:addons/web/static/src/core/tree_editor/tree_editor.xml:0
 #, python-format
 msgid "all"
-msgstr "tous"
+msgstr "toutes les"
 
 #. module: web
 #. odoo-javascript
@@ -8625,7 +8636,6 @@ msgstr "ancre"
 
 #. module: web
 #. odoo-javascript
-#: code:addons/web/static/src/core/commands/command_items.xml:0
 #: code:addons/web/static/src/core/domain_selector/utils.js:0
 #: code:addons/web/static/src/core/tree_editor/utils.js:0
 #, python-format
@@ -8747,7 +8757,7 @@ msgstr "visage anxieux avec goutte de sueur"
 #: code:addons/web/static/src/core/tree_editor/tree_editor.xml:0
 #, python-format
 msgid "any"
-msgstr "au moins un"
+msgstr "une des"
 
 #. module: web
 #. odoo-javascript
@@ -33605,13 +33615,6 @@ msgstr "zombie"
 #, python-format
 msgid "— press"
 msgstr "— appuyer sur"
-
-#. module: web
-#. odoo-javascript
-#: code:addons/web/static/src/core/commands/command_items.xml:0
-#, python-format
-msgid "— search for"
-msgstr "— rechercher"
 
 #. module: web
 #. odoo-javascript

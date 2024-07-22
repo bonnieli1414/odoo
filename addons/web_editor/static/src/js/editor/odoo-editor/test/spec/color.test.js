@@ -106,9 +106,8 @@ describe('applyColor', () => {
         await testEditor(BasicEditor, {
             contentBefore: unformat(`
                 <table><tbody>
-                    <tr><td class="o_selected_td">[ab</td></tr>
-                    <tr><td contenteditable="false" class="o_selected_td">cd</td></tr>
-                    <tr><td class="o_selected_td">ef]</td></tr>
+                    <tr><td>[ab</td></tr>
+                    <tr><td contenteditable="false">cd]</td></tr>
                 </tbody></table>
             `),
             stepFunction: setColor('rgb(255, 0, 0)', 'backgroundColor'),
@@ -116,7 +115,6 @@ describe('applyColor', () => {
                 <table><tbody>
                     <tr><td style="background-color: rgb(255, 0, 0);">[]ab</td></tr>
                     <tr><td contenteditable="false">cd</td></tr>
-                    <tr><td style="background-color: rgb(255, 0, 0);">ef</td></tr>
                 </tbody></table>
             `),
         });

@@ -3,7 +3,6 @@
 
 from odoo.addons.stock.tests.common import TestStockCommon
 from odoo.tests import Form
-from odoo.exceptions import UserError
 
 
 class StockMoveLine(TestStockCommon):
@@ -111,50 +110,3 @@ class StockMoveLine(TestStockCommon):
             ml.quant_id = self.quant
 
         self.assertEqual(move.move_line_ids.quantity, 0)
-
-    def test_pick_from_5(self):
-        """ check small quantities get handled correctly """
-        precision = self.env.ref('product.decimal_product_uom')
-        precision.digits = 6
-        self.product.uom_id = self.uom_kg
-        move = self.env['stock.move'].create({
-            'name': 'Test move',
-            'product_id': self.product.id,
-            'location_id': self.stock_location,
-            'location_dest_id': self.stock_location,
-            'product_uom_qty': 1e-5,
-        })
-        move_form = Form(move, view='stock.view_stock_move_operations')
-        with move_form.move_line_ids.new() as ml:
-            ml.quant_id = self.quant
-        move = move_form.save()
-        self.assertAlmostEqual(
-            move.move_line_ids.quantity,
-            1e-5,
-            delta=1e-6,
-            msg="Small line quantity should get detected",
-        )
-
-    def test_put_in_pack_with_several_move_lines(self):
-        """
-        Testing putting several move lines with different pickings into a pack should trigger a ValueError.
-        """
-        picking1 = self.env['stock.picking'].create({
-            'name': 'Picking 1',
-            'location_id': self.env.ref('stock.stock_location_stock').id,
-            'location_dest_id': self.env.ref('stock.stock_location_customers').id,
-            'picking_type_id': self.env.ref('stock.picking_type_out').id,
-        })
-        picking2 = picking1.copy({'name': 'picking 2'})
-        move_line1 = self.env['stock.move.line'].create({
-            'picking_id': picking1.id,
-            'product_id': self.productA.id,
-            'quantity': 1,
-        })
-        move_line2 = self.env['stock.move.line'].create({
-            'picking_id': picking2.id,
-            'product_id': self.productA.id,
-            'quantity': 1,
-        })
-        with self.assertRaises(UserError):
-            (move_line1 | move_line2).action_put_in_pack()

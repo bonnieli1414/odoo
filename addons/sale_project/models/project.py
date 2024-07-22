@@ -96,9 +96,7 @@ class Project(models.Model):
         for project in self:
             sale_order_lines = sale_order_items_per_project_id.get(project.id, self.env['sale.order.line'])
             project.sale_order_line_count = len(sale_order_lines)
-
-            # Use sudo to avoid AccessErrors when the SOLs belong to different companies.
-            project.sale_order_count = len(sale_order_lines.sudo().order_id)
+            project.sale_order_count = len(sale_order_lines.order_id)
 
     def _compute_invoice_count(self):
         query = self.env['account.move.line']._search([('move_id.move_type', 'in', ['out_invoice', 'out_refund'])])
@@ -139,7 +137,6 @@ class Project(models.Model):
                 'show_sale': True,
                 'link_to_project': self.id,
                 'form_view_ref': 'sale_project.sale_order_line_view_form_editable', # Necessary for some logic in the form view
-                'action_view_sols': True,
                 'default_partner_id': self.partner_id.id,
                 'default_company_id': self.company_id.id,
                 'default_order_id': self.sale_order_id.id,
@@ -160,8 +157,7 @@ class Project(models.Model):
 
     def action_view_sos(self):
         self.ensure_one()
-        # Use sudo to avoid AccessErrors when the SOLs belong to different companies.
-        all_sale_orders = self._fetch_sale_order_items({'project.task': [('state', 'in', self.env['project.task'].OPEN_STATES)]}).sudo().order_id
+        all_sale_orders = self._fetch_sale_order_items({'project.task': [('state', 'in', self.env['project.task'].OPEN_STATES)]}).order_id
         action_window = {
             "type": "ir.actions.act_window",
             "res_model": "sale.order",
@@ -342,11 +338,7 @@ class Project(models.Model):
         )
 
         SaleOrderLine = self.env['sale.order.line']
-        sale_order_line_domain = [
-            '&',
-            ('order_id', 'any', [('analytic_account_id', 'in', self.analytic_account_id.ids)]),
-            ('display_type', '=', False),
-        ]
+        sale_order_line_domain = [('order_id', 'any', [('analytic_account_id', 'in', self.analytic_account_id.ids)])]
         sale_order_line_query = SaleOrderLine._where_calc(sale_order_line_domain)
         sale_order_line_sql = sale_order_line_query.select(
             f'{SaleOrderLine._table}.project_id AS id',

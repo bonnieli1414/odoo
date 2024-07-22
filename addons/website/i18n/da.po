@@ -59,26 +59,6 @@ msgstr "\"URL fra\" kan ikke være tom."
 #. odoo-python
 #: code:addons/website/models/website_rewrite.py:0
 #, python-format
-msgid ""
-"\"URL to\" cannot be set to \"/\". To change the homepage content, use the "
-"\"Homepage URL\" field in the website settings or the page properties on any"
-" custom page."
-msgstr ""
-"\"URL til\" kan ikke sættes til \"/\". For at ændre hjemmesidens indhold "
-"skal du bruge feltet \"Startsidens URL\" i hjemmesidens indstillinger eller "
-"sideegenskaberne på en hvilken som helst tilpasset side."
-
-#. module: website
-#. odoo-python
-#: code:addons/website/models/website_rewrite.py:0
-#, python-format
-msgid "\"URL to\" cannot be set to an existing page."
-msgstr "\"URL til\" kan ikke sættes til en eksisterende side."
-
-#. module: website
-#. odoo-python
-#: code:addons/website/models/website_rewrite.py:0
-#, python-format
 msgid "\"URL to\" can not be empty."
 msgstr "\"URL til\" kan ikke være tom."
 
@@ -284,6 +264,8 @@ msgid "...and switch the timeline contents to fit your needs."
 msgstr ".. og skift tidslinje indholdet så de passer til dine behov."
 
 #. module: website
+#: model:website,contact_us_button_url:website.default_website
+#: model:website,contact_us_button_url:website.website2
 #: model_terms:ir.ui.view,arch_db:website.layout
 #: model_terms:ir.ui.view,arch_db:website.snippets
 msgid "/contactus"
@@ -1653,6 +1635,11 @@ msgid "Access to this page"
 msgstr "Adgang til denne side"
 
 #. module: website
+#: model:ir.model.constraint,message:website.constraint_website_visitor_access_token_unique
+msgid "Access token should be unique."
+msgstr "Adgangs token bør være unik."
+
+#. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_mega_menu_menus_logos
 #: model_terms:ir.ui.view,arch_db:website.s_mega_menu_odoo_menu
 msgid "Accessories"
@@ -1869,7 +1856,7 @@ msgstr "Tilføj et nyt felt til slut"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.view_view_form_extend
 msgid "Add groups in the \"Access Rights\" tab below."
-msgstr "Tilføj grupper i fanen \"Adgangsrettigheder\" nedenfor."
+msgstr ""
 
 #. module: website
 #. odoo-python
@@ -1890,7 +1877,7 @@ msgstr "Tilføj ny %s"
 #: code:addons/website/static/src/components/dialog/add_page_dialog.xml:0
 #, python-format
 msgid "Add page template"
-msgstr "Tilføj sideskabelon"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.external_snippets
@@ -2477,7 +2464,7 @@ msgstr "Baggrundsform"
 #: code:addons/website/static/src/xml/website.background.video.xml:0
 #, python-format
 msgid "Background video"
-msgstr "Baggrundsvideo"
+msgstr ""
 
 #. module: website
 #. odoo-javascript
@@ -3260,7 +3247,7 @@ msgstr "Tøj"
 #: code:addons/website/static/src/client_actions/configurator/configurator.xml:0
 #, python-format
 msgid "Clothes, Marketing, ..."
-msgstr "Tøj, marketing,..."
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.res_config_settings_view_form
@@ -3970,7 +3957,7 @@ msgstr "Standard adgangsrettigheder"
 #: code:addons/website/static/src/snippets/s_searchbar/options.js:0
 #, python-format
 msgid "Default Input Style"
-msgstr "Standard inputstil"
+msgstr ""
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website__default_lang_id
@@ -4418,8 +4405,6 @@ msgid ""
 "Do not copy/paste code you do not understand, this could put your data at "
 "risk."
 msgstr ""
-"Undlad at kopiere/indsætte kode, som du ikke forstår, dette kan bringe dine "
-"data i fare."
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_mega_menu_cards
@@ -5062,7 +5047,7 @@ msgstr "Ekstra link"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.footer_custom
 msgid "Extra page"
-msgstr "Ekstra side"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
@@ -5766,8 +5751,6 @@ msgid ""
 "Google doesn't need to be pinged anymore. It will automatically fetch your "
 "/sitemap.xml."
 msgstr ""
-"Google behøver ikke at blive pinget længere. Den vil automatisk hente dit "
-"/sitemap.xml."
 
 #. module: website
 #: model:ir.model.fields,help:website.field_res_config_settings__google_search_console
@@ -6059,13 +6042,6 @@ msgid "Hide For"
 msgstr "Skjul For"
 
 #. module: website
-#. odoo-javascript
-#: code:addons/website/static/src/snippets/s_popup/000.js:0
-#, python-format
-msgid "Hide the cookies bar"
-msgstr "Skjul cookies-baren"
-
-#. module: website
 #: model_terms:ir.ui.view,arch_db:website.website_page_properties_view_form
 msgid "Hide this page from search results"
 msgstr "Skjul denne side fra søgeresultater"
@@ -6354,8 +6330,17 @@ msgid ""
 "If you need to add analytics or marketing tags, inject code in your <head> "
 "or <body> instead."
 msgstr ""
-"Hvis du har brug for at tilføje analyse- eller marketingtags, skal du "
-"indsætte kode i din <head>eller <body>i stedet."
+
+#. module: website
+#. odoo-javascript
+#: code:addons/website/static/src/components/resource_editor/resource_editor_warning.xml:0
+#, python-format
+msgid ""
+"If you need to add analytics or marketing tags, inject code in your header "
+"or body instead."
+msgstr ""
+"Hvis du har brug for at tilføje analyse- eller marketingtags, skal du i "
+"stedet indsætte kode i din header eller krop."
 
 #. module: website
 #. odoo-javascript
@@ -6979,6 +6964,7 @@ msgstr "Hold tom for at bruge standardværdi"
 #. module: website
 #: model:ir.model.fields,field_description:website.field_ir_asset__key
 #: model:ir.model.fields,field_description:website.field_ir_attachment__key
+#: model:ir.model.fields,field_description:website.field_product_document__key
 #: model:ir.model.fields,field_description:website.field_theme_ir_asset__key
 #: model:ir.model.fields,field_description:website.field_theme_ir_attachment__key
 #: model:ir.model.fields,field_description:website.field_theme_ir_ui_view__key
@@ -7649,7 +7635,7 @@ msgstr "Medie sidehoved"
 #: code:addons/website/static/src/js/content/snippets.animation.js:0
 #, python-format
 msgid "Media video"
-msgstr "Medie video"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_three_columns_menu
@@ -7692,7 +7678,7 @@ msgstr "Mega menu indhold"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_mega_menu_menu_image_menu
 msgid "Mega menu default image"
-msgstr "Mega menu standardbillede"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_mega_menu_menus_logos
@@ -8248,7 +8234,7 @@ msgstr "Næste"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.step_wizard
 msgid "Next:"
-msgstr "Næste:"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_tabs_options
@@ -8339,6 +8325,12 @@ msgstr "Ingen hjemmeside domæne konfigureret til denne hjemmeside."
 #: model_terms:ir.ui.view,arch_db:website.snippet_options_shadow_widgets
 msgid "None"
 msgstr "Ingen"
+
+#. module: website
+#: model:website,prevent_zero_price_sale_text:website.default_website
+#: model:website,prevent_zero_price_sale_text:website.website2
+msgid "Not Available For Sale"
+msgstr "Ikke tilgængelig for salg"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.website_pages_kanban_view
@@ -8685,7 +8677,7 @@ msgstr "Anden information:"
 #: code:addons/website/static/src/snippets/s_social_media/options.js:0
 #, python-format
 msgid "Other social network"
-msgstr "Andre sociale netværk"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.new_page_template_landing_s_text_image
@@ -8919,10 +8911,7 @@ msgid "Page Layout"
 msgstr "Side Layout"
 
 #. module: website
-#. odoo-javascript
-#: code:addons/website/static/src/components/dialog/page_properties.xml:0
 #: model_terms:ir.ui.view,arch_db:website.website_page_properties_view_form
-#, python-format
 msgid "Page Name"
 msgstr "Sidenavn"
 
@@ -9149,7 +9138,7 @@ msgstr "Piller"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_share
 msgid "Pinterest"
-msgstr "Pinterest"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_website_form_options
@@ -9272,13 +9261,6 @@ msgstr "Foranstil"
 #: model_terms:ir.ui.view,arch_db:website.color_combinations_debug_view
 msgid "Preset"
 msgstr "Forudinstilling"
-
-#. module: website
-#. odoo-javascript
-#: code:addons/website/static/src/components/fullscreen_indication/fullscreen_indication.js:0
-#, python-format
-msgid "Press %(key)s to exit full screen"
-msgstr "Tryk på %(key)s for at afslutte fuld skærm"
 
 #. module: website
 #. odoo-javascript
@@ -10502,13 +10484,6 @@ msgid "Show site map"
 msgstr "Vis side kort"
 
 #. module: website
-#. odoo-javascript
-#: code:addons/website/static/src/snippets/s_popup/000.js:0
-#, python-format
-msgid "Show the cookies bar"
-msgstr "Vis cookies-baren"
-
-#. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
 msgid "Show/Hide on Desktop"
 msgstr "Vis/skjul på skrivebordet"
@@ -11270,8 +11245,6 @@ msgid ""
 "The company %(company_name)r cannot be archived because it has a linked website %(website_name)r.\n"
 "Change that website's company first."
 msgstr ""
-"Virksomheden %(company_name)r kan ikke arkiveres, fordi den har en linket hjemmeside %(website_name)r.\n"
-"Skift først hjemmesidens virksomhed."
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.res_config_settings_view_form
@@ -11480,6 +11453,7 @@ msgstr "Tema Farver"
 #: model:ir.model.fields,field_description:website.field_ir_asset__theme_template_id
 #: model:ir.model.fields,field_description:website.field_ir_attachment__theme_template_id
 #: model:ir.model.fields,field_description:website.field_ir_ui_view__theme_template_id
+#: model:ir.model.fields,field_description:website.field_product_document__theme_template_id
 #: model:ir.model.fields,field_description:website.field_website_controller_page__theme_template_id
 #: model:ir.model.fields,field_description:website.field_website_menu__theme_template_id
 #: model:ir.model.fields,field_description:website.field_website_page__theme_template_id
@@ -11698,12 +11672,12 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,website_meta_description:website.contactus
 msgid "This is the contact us page of the website"
-msgstr "Dette er hjemmesidens kontakt os side"
+msgstr ""
 
 #. module: website
 #: model:ir.ui.view,website_meta_description:website.homepage
 msgid "This is the homepage of the website"
-msgstr "Dette er hjemmesidens startside"
+msgstr ""
 
 #. module: website
 #. odoo-python
@@ -11790,7 +11764,7 @@ msgstr "Miniaturebilleder"
 #: model_terms:ir.ui.view,arch_db:website.s_social_media
 #, python-format
 msgid "TikTok"
-msgstr "TikTok"
+msgstr ""
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website__social_tiktok
@@ -12878,6 +12852,7 @@ msgstr "Web besøgende"
 #: model:ir.model.fields,field_description:website.field_ir_asset__website_id
 #: model:ir.model.fields,field_description:website.field_ir_attachment__website_id
 #: model:ir.model.fields,field_description:website.field_ir_ui_view__website_id
+#: model:ir.model.fields,field_description:website.field_product_document__website_id
 #: model:ir.model.fields,field_description:website.field_res_company__website_id
 #: model:ir.model.fields,field_description:website.field_res_partner__website_id
 #: model:ir.model.fields,field_description:website.field_res_users__website_id
@@ -12923,6 +12898,11 @@ msgstr "Funktion til hjemmeside konfigurator"
 #: model:ir.model.fields,field_description:website.field_website__domain
 msgid "Website Domain"
 msgstr "Hjemmesidens domæne"
+
+#. module: website
+#: model:ir.model.constraint,message:website.constraint_website_domain_unique
+msgid "Website Domain should be unique."
+msgstr "Hjemmeside domæne skal være unikt."
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website__favicon
@@ -13356,6 +13336,7 @@ msgstr "Du kan redigere, duplikere..."
 #. module: website
 #. odoo-python
 #: code:addons/website/models/res_users.py:0
+#: model:ir.model.constraint,message:website.constraint_res_users_login_key
 #, python-format
 msgid "You can not have two users with the same login!"
 msgstr "Du kan ikke have to brugere med det samme login!"
@@ -13392,20 +13373,19 @@ msgstr ""
 "indstillingerne"
 
 #. module: website
-#. odoo-python
+#. odoo-javascript
+#: code:addons/website/static/src/snippets/s_website_form/options.js:0
+#, python-format
+msgid "You cannot duplicate this field."
+msgstr "Du kan ikke duplikere dette felt."
+
+#. module: website
 #: code:addons/website/models/website_menu.py:0
 #, python-format
 msgid ""
 "You cannot delete this website menu as this serves as the default parent "
 "menu for new websites (e.g., /shop, /event, ...)."
 msgstr ""
-
-#. module: website
-#. odoo-javascript
-#: code:addons/website/static/src/snippets/s_website_form/options.js:0
-#, python-format
-msgid "You cannot duplicate this field."
-msgstr "Du kan ikke duplikere dette felt."
 
 #. module: website
 #. odoo-python
@@ -13431,6 +13411,13 @@ msgid ""
 msgstr ""
 "Du har gemt denne side fra søgeresultater. Den vil ikke blive indekseret af "
 "søgemaskiner."
+
+#. module: website
+#. odoo-python
+#: code:addons/website/models/res_config_settings.py:0
+#, python-format
+msgid "You haven't defined your domain"
+msgstr "Du har ikke angivet dit domæne"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.cookie_policy

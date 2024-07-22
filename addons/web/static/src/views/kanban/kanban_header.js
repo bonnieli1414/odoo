@@ -153,13 +153,17 @@ export class KanbanHeader extends Component {
         this.dialog.add(ConfirmationDialog, {
             body: _t("Are you sure that you want to archive all the records from this column?"),
             confirmLabel: _t("Archive All"),
-            confirm: () => this.group.list.archive(),
+            confirm: async () => {
+                await this.group.list.archive();
+                this.props.progressBarState?.updateCounts(this.group);
+            },
             cancel: () => {},
         });
     }
 
     unarchiveGroup() {
         this.group.list.unarchive();
+        this.props.progressBarState?.updateCounts(this.group);
     }
 
     deleteGroup() {

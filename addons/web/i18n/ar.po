@@ -1823,12 +1823,12 @@ msgstr "يمكن النقر عليه "
 
 #. module: web
 #. odoo-javascript
-#: code:addons/web/static/src/core/datetime/datetime_picker_popover.xml:0
 #: code:addons/web/static/src/core/debug/debug_menu_items.xml:0
 #: code:addons/web/static/src/core/debug/debug_menu_items.xml:0
 #: code:addons/web/static/src/core/dialog/dialog.xml:0
 #: code:addons/web/static/src/core/dialog/dialog.xml:0
 #: code:addons/web/static/src/core/domain_selector_dialog/domain_selector_dialog.xml:0
+#: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
@@ -3559,7 +3559,7 @@ msgstr "أحبك "
 #: code:addons/web/static/src/views/fields/datetime/datetime_field.js:0
 #, python-format
 msgid "ISO-formatted date (e.g. \"2018-12-31\") or \"%s\"."
-msgstr "تاريخ بتنسيق ISO (مثال: \"31-12-2018\") أو \"%s\". "
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -5066,7 +5066,7 @@ msgstr "ليس في الحالة نشط، انقر لتغيير ذلك "
 #: code:addons/web/static/src/views/fields/many2many_binary/many2many_binary_field.js:0
 #, python-format
 msgid "Number of files"
-msgstr "عدد الملفات "
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -6914,7 +6914,6 @@ msgstr "قميص "
 
 #. module: web
 #. odoo-javascript
-#: code:addons/web/static/src/core/commands/command_items.xml:0
 #: code:addons/web/static/src/webclient/user_menu/user_menu_items.xml:0
 #, python-format
 msgid "TIP"
@@ -7111,6 +7110,18 @@ msgstr ""
 "لقد فشلت تركيبة الشكل المطلوبة. هذا خطأ مدير أو مطور ويجب إصلاحه في قاعدة "
 "البيانات بأكملها قبل متابعة العمل. ألقِ نظرة على أداة المتصفح أو سجلات "
 "الخادم للمزيد من التفاصيل. "
+
+#. module: web
+#. odoo-javascript
+#: code:addons/web/static/src/core/errors/error_dialogs.xml:0
+#, python-format
+msgid ""
+"The style compilation failed, see the error below. This is an administrator "
+"or developer error that must be fixed for the entire database before "
+"continuing working."
+msgstr ""
+"لقد فشلت تركيبة الشكل المطلوبة، ألقِ نظرة على الخطأ أدناه. هذا خطأ مدير أو "
+"مطور ويجب إصلاحه في قاعدة البيانات بأكملها قبل متابعة العمل. "
 
 #. module: web
 #. odoo-python
@@ -8573,7 +8584,6 @@ msgstr "مرساة "
 
 #. module: web
 #. odoo-javascript
-#: code:addons/web/static/src/core/commands/command_items.xml:0
 #: code:addons/web/static/src/core/domain_selector/utils.js:0
 #: code:addons/web/static/src/core/tree_editor/utils.js:0
 #, python-format
@@ -33552,13 +33562,6 @@ msgstr "زومبي "
 #, python-format
 msgid "— press"
 msgstr "— اضغط "
-
-#. module: web
-#. odoo-javascript
-#: code:addons/web/static/src/core/commands/command_items.xml:0
-#, python-format
-msgid "— search for"
-msgstr "— ابحث عن "
 
 #. module: web
 #. odoo-javascript

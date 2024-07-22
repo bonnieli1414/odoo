@@ -1,6 +1,6 @@
 /** @odoo-module **/
 
-import { reactive } from "@odoo/owl";
+import { onWillStart, onWillUpdateProps, reactive, useComponent } from "@odoo/owl";
 import { Domain } from "@web/core/domain";
 import { _t } from "@web/core/l10n/translation";
 import { extractInfoFromGroupData } from "@web/model/relational_model/utils";
@@ -51,19 +51,16 @@ class ProgressBarState {
 
     getGroupInfo(group) {
         if (!this._groupsInfo[group.id]) {
-            const aggValues = _findGroup(
-                this._aggregateValues,
-                group.groupByField,
-                group.serverValue
-            );
-            const index = this._aggregateValues.indexOf(aggValues);
-            if (index > -1) {
-                this._aggregateValues.splice(index, 1);
+            if (
+                !Object.keys(
+                    _findGroup(this._aggregateValues, group.groupByField, group.serverValue)
+                ).length
+            ) {
+                this._aggregateValues.push({
+                    ...group.aggregates,
+                    [group.groupByField.name]: group.serverValue,
+                });
             }
-            this._aggregateValues.push({
-                ...group.aggregates,
-                [group.groupByField.name]: group.serverValue,
-            });
             let groupValue = group.displayName || group.value;
             if (groupValue === true) {
                 groupValue = "True";
@@ -296,15 +293,23 @@ class ProgressBarState {
         }
     }
 
-    async loadProgressBar({ context, domain, groupBy, resModel }) {
-        if (groupBy.length) {
+    async loadProgressBar(props = {}) {
+        const groupBy = props.groupBy || this.model.root.groupBy;
+        const defaultGroupBy =
+            props.defaultGroupBy || (this.model.root && this.model.root.defaultGroupBy);
+        if (groupBy.length || defaultGroupBy) {
+            const resModel = props.resModel || this.model.root.resModel;
+            const domain = props.domain || this.model.root.domain;
+            const context = props.context || this.model.root.context;
             const { colors, fieldName: field, help } = this.progressAttributes;
             const res = await this.model.orm.call(resModel, "read_progress_bar", [], {
                 domain,
-                group_by: groupBy[0],
+                group_by: groupBy.length ? groupBy[0] : defaultGroupBy,
                 progress_bar: { colors, field, help },
                 context,
             });
+            this._groupsInfo = {};
+            this._aggregateValues = [];
             this._pbCounts = res;
         }
     }
@@ -321,26 +326,22 @@ class ProgressBarState {
 }
 
 export function useProgressBar(progressAttributes, model, aggregateFields, activeBars) {
-    const progressBarState = reactive(
-        new ProgressBarState(progressAttributes, model, aggregateFields, activeBars)
+    const component = useComponent();
+
+    const progressBarState = new ProgressBarState(
+        progressAttributes,
+        model,
+        aggregateFields,
+        activeBars
     );
 
-    let prom;
-    const onWillLoadRoot = model.hooks.onWillLoadRoot;
-    model.hooks.onWillLoadRoot = (config) => {
-        onWillLoadRoot();
-        prom = progressBarState.loadProgressBar({
-            context: config.context,
-            domain: config.domain,
-            groupBy: config.groupBy,
-            resModel: config.resModel,
-        });
-    };
-    const onRootLoaded = model.hooks.onRootLoaded;
-    model.hooks.onRootLoaded = async () => {
-        await onRootLoaded();
-        return prom;
-    };
+    // FIXME: maybe this can be do directly on the readGroup
+    onWillStart(() => {
+        return progressBarState.loadProgressBar(component.props);
+    });
+    onWillUpdateProps((nextProps) => {
+        progressBarState.loadProgressBar(nextProps);
+    });
 
-    return progressBarState;
+    return reactive(progressBarState);
 }

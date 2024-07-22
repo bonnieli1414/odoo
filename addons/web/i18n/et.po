@@ -22,12 +22,9 @@
 # Leaanika Randmets, 2023
 # Katrin Kampura, 2023
 # Mihkel avalah, 2023
+# Anna, 2024
 # Arma Gedonsky <armagedonsky@hot.ee>, 2024
 # Eneli Õigus <enelioigus@gmail.com>, 2024
-# Tairi Tiimann, 2024
-# Stevin Lilla, 2024
-# Anna, 2024
-# Siim Raasuke, 2024
 # 
 msgid ""
 msgstr ""
@@ -35,7 +32,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-29 10:46+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
-"Last-Translator: Siim Raasuke, 2024\n"
+"Last-Translator: Eneli Õigus <enelioigus@gmail.com>, 2024\n"
 "Language-Team: Estonian (https://app.transifex.com/odoo/teams/41243/et/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1835,12 +1832,12 @@ msgstr ""
 
 #. module: web
 #. odoo-javascript
-#: code:addons/web/static/src/core/datetime/datetime_picker_popover.xml:0
 #: code:addons/web/static/src/core/debug/debug_menu_items.xml:0
 #: code:addons/web/static/src/core/debug/debug_menu_items.xml:0
 #: code:addons/web/static/src/core/dialog/dialog.xml:0
 #: code:addons/web/static/src/core/dialog/dialog.xml:0
 #: code:addons/web/static/src/core/domain_selector_dialog/domain_selector_dialog.xml:0
+#: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
@@ -2417,7 +2414,7 @@ msgstr "Vaikeväärtus"
 #: code:addons/web/static/src/search/custom_favorite_item/custom_favorite_item.xml:0
 #, python-format
 msgid "Default filter"
-msgstr "Vaikimisi filter"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -4403,7 +4400,7 @@ msgstr ""
 #: code:addons/web/static/src/views/fields/gauge/gauge_field.js:0
 #, python-format
 msgid "Max: "
-msgstr "Max: "
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -4521,7 +4518,7 @@ msgstr "Mudeli salvestusreeglid"
 #: code:addons/web/static/src/views/fields/reference/reference_field.js:0
 #, python-format
 msgid "Model field"
-msgstr "Mudeliväli"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -4751,7 +4748,7 @@ msgstr "Uus omadus"
 #: code:addons/web/static/src/core/tree_editor/tree_editor.xml:0
 #, python-format
 msgid "New Rule"
-msgstr "Uus Reegel"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -4804,28 +4801,28 @@ msgstr "Järgmine (paremnool)"
 #: code:addons/web/static/src/core/datetime/datetime_picker.js:0
 #, python-format
 msgid "Next century"
-msgstr "Järgmine sajand"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/datetime/datetime_picker.js:0
 #, python-format
 msgid "Next decade"
-msgstr "Järgmine aastakümme"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/datetime/datetime_picker.js:0
 #, python-format
 msgid "Next month"
-msgstr "Järgmine kuu"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/datetime/datetime_picker.js:0
 #, python-format
 msgid "Next year"
-msgstr "Järgmine aasta"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -4886,7 +4883,7 @@ msgstr "Käsk ei ole leitud."
 #: code:addons/web/static/src/views/list/list_renderer.js:0
 #, python-format
 msgid "No currency provided"
-msgstr "Valuutat ei ole antud"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -4992,7 +4989,7 @@ msgstr "Ühtegi vaadet tüübile '%s' ei ole leitud praeguse tegevuse ajal. "
 #: code:addons/web/static/src/views/list/list_controller.js:0
 #, python-format
 msgid "No, keep it"
-msgstr "Ei, jäta alles"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -5195,7 +5192,7 @@ msgstr "Odoo hoiatus"
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.webclient_offline
 msgid "Odoo logo"
-msgstr "Odoo logo"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -5222,7 +5219,7 @@ msgstr "Võrguühenduseta"
 #: code:addons/web/static/src/views/form/form_error_dialog/form_error_dialog.xml:0
 #, python-format
 msgid "Oh snap!"
-msgstr "Oh sa poiss!"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -5306,7 +5303,7 @@ msgstr "Ava vaade"
 #: code:addons/web/static/src/core/debug/debug_menu.xml:0
 #, python-format
 msgid "Open developer tools"
-msgstr "Ava arendaja tööriistad"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -5622,7 +5619,7 @@ msgstr ""
 #: code:addons/web/static/src/views/kanban/kanban_column_quick_create.xml:0
 #, python-format
 msgid "Press"
-msgstr "Vajuta"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -5652,7 +5649,7 @@ msgstr "Sisemise aruande eelvaade"
 #: code:addons/web/static/src/views/fields/pdf_viewer/pdf_viewer_field.js:0
 #, python-format
 msgid "Preview image"
-msgstr "Eelvaata pilti"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -5704,28 +5701,28 @@ msgstr "Eelmine aasta"
 #: code:addons/web/static/src/core/datetime/datetime_picker.js:0
 #, python-format
 msgid "Previous century"
-msgstr "Eelmine sajand"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/datetime/datetime_picker.js:0
 #, python-format
 msgid "Previous decade"
-msgstr "Eelmine aastakümme"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/datetime/datetime_picker.js:0
 #, python-format
 msgid "Previous month"
-msgstr "Eelmine kuu"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/datetime/datetime_picker.js:0
 #, python-format
 msgid "Previous year"
-msgstr "Eelmine aasta"
+msgstr ""
 
 #. module: web
 #: model:ir.model.fields,field_description:web.field_base_document_layout__primary_color
@@ -5770,7 +5767,7 @@ msgstr "Edenemisriba"
 #: code:addons/web/static/src/views/view_components/column_progress.xml:0
 #, python-format
 msgid "Progress bar"
-msgstr "Edenemisriba"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -6364,7 +6361,7 @@ msgstr "Otsi menüüd..."
 #: code:addons/web/static/src/core/emoji_picker/emoji_picker.xml:0
 #, python-format
 msgid "Search for an emoji"
-msgstr "Otsi emojit"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -6378,7 +6375,7 @@ msgstr "Otsi kasutajat..."
 #: code:addons/web/static/src/views/fields/many2many_tags_avatar/many2many_tags_avatar_field.js:0
 #, python-format
 msgid "Search users..."
-msgstr "Otsi kasutajaid..."
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -6445,7 +6442,7 @@ msgstr ""
 #: code:addons/web/static/src/core/install_prompt/install_prompt.xml:0
 #, python-format
 msgid "Select \"Add to home screen\""
-msgstr "Vali \"Lisa kodulehele\""
+msgstr ""
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.login
@@ -6489,14 +6486,14 @@ msgstr "Vali kõik"
 #: code:addons/web/static/src/core/datetime/datetime_picker.js:0
 #, python-format
 msgid "Select century"
-msgstr "Vali sajand"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/datetime/datetime_picker.js:0
 #, python-format
 msgid "Select decade"
-msgstr "Vali aastakümme"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -6510,7 +6507,7 @@ msgstr "Vali väli"
 #: code:addons/web/static/src/core/datetime/datetime_picker.js:0
 #, python-format
 msgid "Select month"
-msgstr "Vali kuu"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -6524,7 +6521,7 @@ msgstr "Vali kirje"
 #: code:addons/web/static/src/core/datetime/datetime_picker.js:0
 #, python-format
 msgid "Select year"
-msgstr "Vali aasta"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -6877,7 +6874,6 @@ msgstr "T-särk"
 
 #. module: web
 #. odoo-javascript
-#: code:addons/web/static/src/core/commands/command_items.xml:0
 #: code:addons/web/static/src/webclient/user_menu/user_menu_items.xml:0
 #, python-format
 msgid "TIP"
@@ -7064,6 +7060,16 @@ msgid ""
 "The style compilation failed. This is an administrator or developer error "
 "that must be fixed for the entire database before continuing working. See "
 "browser console or server logs for details."
+msgstr ""
+
+#. module: web
+#. odoo-javascript
+#: code:addons/web/static/src/core/errors/error_dialogs.xml:0
+#, python-format
+msgid ""
+"The style compilation failed, see the error below. This is an administrator "
+"or developer error that must be fixed for the entire database before "
+"continuing working."
 msgstr ""
 
 #. module: web
@@ -8009,7 +8015,7 @@ msgstr "Siin ei ole lubatud manuseid üles laadida."
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.webclient_offline
 msgid "You are offline"
-msgstr "Olete ühenduseta"
+msgstr ""
 
 #. module: web
 #. odoo-javascript
@@ -8512,7 +8518,6 @@ msgstr "anchor"
 
 #. module: web
 #. odoo-javascript
-#: code:addons/web/static/src/core/commands/command_items.xml:0
 #: code:addons/web/static/src/core/domain_selector/utils.js:0
 #: code:addons/web/static/src/core/tree_editor/utils.js:0
 #, python-format
@@ -33491,13 +33496,6 @@ msgstr "zombi"
 #, python-format
 msgid "— press"
 msgstr "— vajuta"
-
-#. module: web
-#. odoo-javascript
-#: code:addons/web/static/src/core/commands/command_items.xml:0
-#, python-format
-msgid "— search for"
-msgstr ""
 
 #. module: web
 #. odoo-javascript
