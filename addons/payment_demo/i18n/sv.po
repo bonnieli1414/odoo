@@ -10,7 +10,6 @@
 # Lasse L, 2023
 # Martin Trigaux, 2023
 # Anders Wallenquist <anders.wallenquist@vertel.se>, 2023
-# Jakob Krabbe <jakob.krabbe@vertel.se>, 2024
 # 
 msgid ""
 msgstr ""
@@ -18,7 +17,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-26 21:56+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
-"Last-Translator: Jakob Krabbe <jakob.krabbe@vertel.se>, 2024\n"
+"Last-Translator: Anders Wallenquist <anders.wallenquist@vertel.se>, 2023\n"
 "Language-Team: Swedish (https://app.transifex.com/odoo/teams/41243/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,70 +43,56 @@ msgid ""
 "                    </option>\n"
 "                </select>"
 msgstr ""
-"<select id=\"simulated_payment_state\" class=\"form-select\">\n"
-"                    <option value=\"done\" title=\"Framgångsrik betalning\">\n"
-"                        Framgångsrik\n"
-"                    </option>\n"
-"                    <option value=\"pending\" title=\"Betalningsbehandling\">\n"
-"                        Avvaktande\n"
-"                    </option>\n"
-"                    <option value=\"cancel\" title=\"Betalning avbruten av kund\">\n"
-"                        Avbruten\n"
-"                    </option>\n"
-"                    <option value=\"error\" title=\"Behandlingsfel\">\n"
-"                        Fel\n"
-"                    </option>\n"
-"                </select>"
 
 #. module: payment_demo
 #: model_terms:ir.ui.view,arch_db:payment_demo.express_inline_form
 msgid "<small><b>City</b></small>"
-msgstr "<small><b>Stad</b></small>"
+msgstr ""
 
 #. module: payment_demo
 #: model_terms:ir.ui.view,arch_db:payment_demo.express_inline_form
 msgid "<small><b>Country</b></small>"
-msgstr "<small><b>Land</b></small>"
+msgstr ""
 
 #. module: payment_demo
 #: model_terms:ir.ui.view,arch_db:payment_demo.express_inline_form
 msgid "<small><b>Name</b></small>"
-msgstr "<small><b>Namn</b></small>"
+msgstr ""
 
 #. module: payment_demo
 #: model_terms:ir.ui.view,arch_db:payment_demo.express_inline_form
 msgid "<small><b>Street and Number</b></small>"
-msgstr "<small><b>Gata och nummer</b></small>"
+msgstr ""
 
 #. module: payment_demo
 #: model_terms:ir.ui.view,arch_db:payment_demo.express_inline_form
 msgid "<small><b>Zip Code</b></small>"
-msgstr "<small><b>Postnummer</b></small>"
+msgstr ""
 
 #. module: payment_demo
 #: model_terms:ir.ui.view,arch_db:payment_demo.express_inline_form
 msgid "<small>Email</small>"
-msgstr "<small>E-post</small>"
+msgstr ""
 
 #. module: payment_demo
 #: model_terms:ir.ui.view,arch_db:payment_demo.payment_details
 msgid "<small>Payment Details (test data)</small>"
-msgstr "<small>Betalningsuppgifter (testdata)</small>"
+msgstr ""
 
 #. module: payment_demo
 #: model_terms:ir.ui.view,arch_db:payment_demo.payment_details
 msgid "<small>Payment Status</small>"
-msgstr "<small>Betalningsstatus</small>"
+msgstr ""
 
 #. module: payment_demo
 #: model_terms:ir.ui.view,arch_db:payment_demo.express_inline_form
 msgid "<small>Street 2</small>"
-msgstr "<small>Street 2</small>"
+msgstr ""
 
 #. module: payment_demo
 #: model_terms:ir.ui.view,arch_db:payment_demo.payment_transaction_form
 msgid "Authorize"
-msgstr "Auktorisera"
+msgstr ""
 
 #. module: payment_demo
 #: model_terms:ir.ui.view,arch_db:payment_demo.payment_transaction_form
@@ -122,7 +107,7 @@ msgstr "Avbruten"
 #. module: payment_demo
 #: model:ir.model.fields,field_description:payment_demo.field_payment_transaction__capture_manually
 msgid "Capture Amount Manually"
-msgstr "Fånga upp belopp manuellt"
+msgstr ""
 
 #. module: payment_demo
 #: model:ir.model.fields,help:payment_demo.field_payment_transaction__capture_manually
@@ -131,9 +116,6 @@ msgid ""
 "Use this if you want to charge your customers cards only when\n"
 "you are sure you can ship the goods to them."
 msgstr ""
-"Fånga upp beloppet från Odoo när leveransen är klar.\n"
-"Använd detta om du vill debitera dina kunders kort först när du är\n"
-"du är säker på att du kan skicka varorna till dem."
 
 #. module: payment_demo
 #: model_terms:ir.ui.view,arch_db:payment_demo.express_checkout_form
@@ -163,14 +145,14 @@ msgstr "Demo"
 #. module: payment_demo
 #: model_terms:ir.ui.view,arch_db:payment_demo.express_checkout_form
 msgid "Demo Express Checkout"
-msgstr "Demo Express Checkout"
+msgstr ""
 
 #. module: payment_demo
 #. odoo-python
 #: code:addons/payment_demo/models/payment_provider.py:0
 #, python-format
 msgid "Demo providers should never be enabled."
-msgstr "Demoleverantörer ska aldrig aktiveras."
+msgstr ""
 
 #. module: payment_demo
 #: model:ir.model.fields.selection,name:payment_demo.selection__payment_token__demo_simulated_state__error
@@ -192,7 +174,7 @@ msgstr "Betala"
 #. module: payment_demo
 #: model_terms:ir.ui.view,arch_db:payment_demo.express_checkout_form
 msgid "Pay with Demo"
-msgstr "Betala med demo"
+msgstr ""
 
 #. module: payment_demo
 #: model:ir.model,name:payment_demo.model_payment_provider
@@ -214,14 +196,12 @@ msgstr "Betalningstransaktion"
 #: code:addons/payment_demo/static/src/js/payment_demo_mixin.js:0
 #, python-format
 msgid "Payment processing failed"
-msgstr "Betalningshanteringen misslyckades"
+msgstr ""
 
 #. module: payment_demo
 #: model_terms:ir.ui.view,arch_db:payment_demo.token_inline_form
 msgid "Payments made with this payment method will be <b>successful</b>."
 msgstr ""
-"Betalningar som görs med denna betalningsmetod kommer att vara "
-"<b>framgångsrika</b>."
 
 #. module: payment_demo
 #: model_terms:ir.ui.view,arch_db:payment_demo.token_inline_form
@@ -229,15 +209,11 @@ msgid ""
 "Payments made with this payment method will be automatically "
 "<b>canceled</b>."
 msgstr ""
-"Betalningar som görs med denna betalningsmetod kommer automatiskt att "
-"<b>annulleras</b>."
 
 #. module: payment_demo
 #: model_terms:ir.ui.view,arch_db:payment_demo.token_inline_form
 msgid "Payments made with this payment method will remain <b>pending</b>."
 msgstr ""
-"Betalningar som görs med denna betalningsmetod kommer att förbli "
-"<b>avvaktande</b>."
 
 #. module: payment_demo
 #: model_terms:ir.ui.view,arch_db:payment_demo.token_inline_form
@@ -245,8 +221,6 @@ msgid ""
 "Payments made with this payment method will simulate a processing "
 "<b>error</b>."
 msgstr ""
-"Betalningar som görs med denna betalningsmetod kommer att simulera ett "
-"<b>fel</b> i behandlingen."
 
 #. module: payment_demo
 #: model:ir.model.fields.selection,name:payment_demo.selection__payment_token__demo_simulated_state__pending
@@ -256,12 +230,12 @@ msgstr "Avvaktande"
 #. module: payment_demo
 #: model_terms:ir.ui.view,arch_db:payment_demo.payment_transaction_form
 msgid "Set to Error"
-msgstr "Ställ in på fel"
+msgstr ""
 
 #. module: payment_demo
 #: model:ir.model.fields,field_description:payment_demo.field_payment_token__demo_simulated_state
 msgid "Simulated State"
-msgstr "Simulerat tillstånd"
+msgstr ""
 
 #. module: payment_demo
 #: model_terms:ir.ui.view,arch_db:payment_demo.express_checkout_form
@@ -272,8 +246,6 @@ msgstr "Testläge"
 #: model:ir.model.fields,help:payment_demo.field_payment_token__demo_simulated_state
 msgid "The state in which transactions created from this token should be set."
 msgstr ""
-"Tillståndet i vilket transaktioner skapade från denna poletten ska ställas "
-"in."
 
 #. module: payment_demo
 #: model:ir.model.fields,help:payment_demo.field_payment_provider__code
@@ -295,11 +267,11 @@ msgstr "Opublicerad"
 #. module: payment_demo
 #: model_terms:ir.ui.view,arch_db:payment_demo.payment_details
 msgid "XXXX XXXX XXXX XXXX"
-msgstr "XXXX XXXX XXXX XXXX XXXX"
+msgstr ""
 
 #. module: payment_demo
 #. odoo-python
 #: code:addons/payment_demo/models/payment_transaction.py:0
 #, python-format
 msgid "You selected the following demo payment status: %s"
-msgstr "Du valde följande betalningsstatus för demo: %s"
+msgstr ""

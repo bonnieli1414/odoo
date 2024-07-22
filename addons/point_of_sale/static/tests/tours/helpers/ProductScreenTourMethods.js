@@ -390,24 +390,6 @@ export function addCustomerNote(note) {
     );
 }
 
-export function addInternalNote(note) {
-    return inLeftSide(
-        [
-            {
-                content: "click more button",
-                trigger: ".mobile-more-button",
-                mobile: true,
-            },
-            {
-                content: "click customer note button",
-                trigger: '.control-buttons .control-button span:contains("Internal Note")',
-            },
-            TextAreaPopup.inputText(note),
-            TextAreaPopup.clickConfirm(),
-        ].flat()
-    );
-}
-
 export function checkOrderlinesNumber(number) {
     return [
         {
@@ -421,13 +403,4 @@ export function checkOrderlinesNumber(number) {
             },
         },
     ];
-}
-
-export function checkTaxAmount(number) {
-    return inLeftSide([
-        {
-            content: `check order tax amount`,
-            trigger: `.subentry:contains("${number}")`,
-        },
-    ]);
 }

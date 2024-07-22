@@ -28,15 +28,6 @@ server {
      proxy_pass http://127.0.0.1:8069;
     }
 
-    error_page 502 /502.html;
-    location /502.html {
-        root /var/www/html;
-    }
-
-    location /odoo-logs/ {
-        alias /var/log/odoo/;
-        autoindex on;
-    }
 
         # SSL configuration
         #
@@ -95,15 +86,5 @@ server {
 
        location / {
             proxy_pass http://127.0.0.1:8069;
-       }
-
-       error_page 502 /502.html;
-       location /502.html {
-           root /var/www/html;
-        }
-
-       location /odoo-logs/ {
-            alias /var/log/odoo/;
-            autoindex on;
        }
 }

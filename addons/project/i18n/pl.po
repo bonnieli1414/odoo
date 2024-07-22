@@ -4,7 +4,6 @@
 # 
 # Translators:
 # Wil Odoo, 2024
-# Damian Ratus, 2024
 # 
 msgid ""
 msgstr ""
@@ -12,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-29 10:44+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
-"Last-Translator: Damian Ratus, 2024\n"
+"Last-Translator: Wil Odoo, 2024\n"
 "Language-Team: Polish (https://app.transifex.com/odoo/teams/41243/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -89,7 +88,7 @@ msgstr ""
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.portal_tasks_list
 msgid "#{task.stage_id.name}"
-msgstr "#{task.stage_id.name}"
+msgstr ""
 
 #. module: project
 #. odoo-python
@@ -103,7 +102,7 @@ msgstr ""
 #: code:addons/project/models/project_project.py:0
 #, python-format
 msgid "%(closed_task_count)s / %(task_count)s (%(closed_rate)s%%)"
-msgstr "%(closed_task_count)s / %(task_count)s (%(closed_rate)s%%)"
+msgstr ""
 
 #. module: project
 #. odoo-python
@@ -366,7 +365,7 @@ msgstr "<i class=\"fa fa-warning\"/>&amp;nbsp;"
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.project_sharing_project_task_view_form
 msgid "<i class=\"oi oi-arrow-right me-1\"/>Back to edit mode"
-msgstr "<i class=\"oi oi-arrow-right me-1\"/>Powrót do trybu edycji"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.view_task_kanban
@@ -386,7 +385,7 @@ msgstr ""
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.portal_my_task
 msgid "<small class=\"text-muted\">Customer</small>"
-msgstr "<small class=\"text-muted\">Klient</small>"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.view_project_kanban
@@ -611,7 +610,7 @@ msgstr "Dekoracja wyjątku aktywności"
 #: model:ir.actions.act_window,name:project.mail_activity_plan_action_config_project_task_plan
 #: model:ir.ui.menu,name:project.mail_activity_plan_menu_config_project
 msgid "Activity Plans"
-msgstr "Plany działania"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__activity_state
@@ -715,12 +714,12 @@ msgstr "Domena aliasu"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__alias_domain
 msgid "Alias Domain Name"
-msgstr "Alias Domain Name"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__alias_full_name
 msgid "Alias Email"
-msgstr "Alias Email"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__alias_name
@@ -1271,7 +1270,7 @@ msgstr ""
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.portal_my_task
 msgid "Communication history"
-msgstr "Historia komunikacji"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__company_id
@@ -2051,12 +2050,12 @@ msgstr "Zwinięty w Kanban"
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.portal_my_home
 msgid "Follow and comments tasks of your projects"
-msgstr "Śledzenie i komentowanie zadań w projektach"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.portal_my_home
 msgid "Follow the evolution of your projects"
-msgstr "Śledź rozwój swoich projektów"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.edit_project
@@ -2499,7 +2498,7 @@ msgstr "Wersja problemu"
 #. module: project
 #: model:ir.model.fields,help:project.field_project_task__duration_tracking
 msgid "JSON that maps ids from a many2one field to seconds spent"
-msgstr "JSON, który mapuje identyfikatory z pola many2one na spędzone sekundy"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.actions.act_window,help:project.act_project_project_2_project_task_all
@@ -2689,7 +2688,7 @@ msgstr "Na żywo"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__alias_incoming_local
 msgid "Local-part based incoming detection"
-msgstr "Wykrywanie przychodzących połączeń w oparciu o części lokalne"
+msgstr ""
 
 #. module: project
 #. odoo-javascript
@@ -4440,7 +4439,7 @@ msgstr ""
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__duration_tracking
 msgid "Status time"
-msgstr "Czas stanu"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__subtask_count
@@ -5699,7 +5698,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:project.edit_project
 #: model_terms:ir.ui.view,arch_db:project.project_project_view_form_simplified
 msgid "e.g. domain.com"
-msgstr "np. domain.com"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.project_project_view_form_simplified

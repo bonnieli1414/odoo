@@ -32,7 +32,7 @@ class StockWarehouse(models.Model):
                     'picking_type_id': self.in_type_id.id,
                     'group_propagation_option': 'none',
                     'company_id': self.company_id.id,
-                    'route_id': self._find_or_create_global_route('purchase_stock.route_warehouse0_buy', _('Buy')).id,
+                    'route_id': self._find_global_route('purchase_stock.route_warehouse0_buy', _('Buy'), raise_if_not_found=False).id,
                     'propagate_cancel': self.reception_steps != 'one_step',
                 },
                 'update_values': {
@@ -175,7 +175,6 @@ class Orderpoint(models.Model):
                         'url': f'#action={action.id}&id={order.id}&model=purchase.order',
                     }],
                     'sticky': False,
-                    'next': {'type': 'ir.actions.act_window_close'},
                 }
             }
         return super()._get_replenishment_order_notification()

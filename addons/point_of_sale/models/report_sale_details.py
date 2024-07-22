@@ -189,7 +189,7 @@ class ReportSaleDetails(models.AbstractModel):
                         payment['cash_moves'] = cash_in_out_list
                         payment['count'] = True
             if not is_cash_method:
-                cash_name = _('Cash') + ' ' + str(session.name)
+                cash_name = 'Cash ' + str(session.name)
                 payments.insert(0, {
                     'name': cash_name,
                     'total': 0,
@@ -274,10 +274,6 @@ class ReportSaleDetails(models.AbstractModel):
             })
             invoiceTotal += session._get_total_invoice()
 
-        for payment in payments:
-            if payment.get('id'):
-                payment['name'] = self.env['pos.payment.method'].browse(payment['id']).name + ' ' + self.env['pos.session'].browse(payment['session']).name
-
         return {
             'opening_note': sessions[0].opening_notes if len(sessions) == 1 else False,
             'closing_note': sessions[0].closing_notes if len(sessions) == 1 else False,
@@ -304,17 +300,15 @@ class ReportSaleDetails(models.AbstractModel):
             'invoiceTotal': invoiceTotal,
         }
 
-    def _get_product_total_amount(self, line):
-        return line.currency_id.round(line.price_unit * line.qty * (100 - line.discount) / 100.0)
-
     def _get_products_and_taxes_dict(self, line, products, taxes, currency):
         key2 = (line.product_id, line.price_unit, line.discount)
-        key1 = line.product_id.product_tmpl_id.pos_categ_ids[0].name if len(line.product_id.product_tmpl_id.pos_categ_ids) else _('Not Categorized')
-        products.setdefault(key1, {})
-        products[key1].setdefault(key2, [0.0, 0.0, 0.0])
-        products[key1][key2][0] += line.qty
-        products[key1][key2][1] += self._get_product_total_amount(line)
-        products[key1][key2][2] += line.price_subtotal
+        keys1 = line.product_id.product_tmpl_id.pos_categ_ids.mapped("name") or [_('Not Categorized')]
+        for key1 in keys1:
+            products.setdefault(key1, {})
+            products[key1].setdefault(key2, [0.0, 0.0, 0.0])
+            products[key1][key2][0] += line.qty
+            products[key1][key2][1] += line.currency_id.round(line.price_unit * line.qty * (100 - line.discount) / 100.0)
+            products[key1][key2][2] += line.price_subtotal
 
         if line.tax_ids_after_fiscal_position:
             line_taxes = line.tax_ids_after_fiscal_position.sudo().compute_all(line.price_unit * (1-(line.discount or 0.0)/100.0), currency, line.qty, product=line.product_id, partner=line.order_id.partner_id or False)
@@ -345,8 +339,8 @@ class ReportSaleDetails(models.AbstractModel):
             category_dict['qty'] = qty_cat
         # IMPROVEMENT: It would be better if the `products` are grouped by pos.order.line.id.
         unique_products = list({tuple(sorted(product.items())): product for category in categories for product in category['products']}.values())
-        all_qty = sum(product['quantity'] for product in unique_products)
-        all_total = sum(product['base_amount'] for product in unique_products)
+        all_qty = sum([product['quantity'] for product in unique_products])
+        all_total = sum([product['base_amount'] for product in unique_products])
 
         return categories, {'total': all_total, 'qty': all_qty}
 

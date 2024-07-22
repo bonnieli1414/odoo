@@ -71,14 +71,7 @@ export function useCashierSelector(
                     };
                 });
             if (!employeesList.length) {
-                if (!pos.get_cashier().id) {
-                    await popup.add(ErrorPopup, {
-                        title: _t("No Cashiers"),
-                        body: _t("There are no employees to select as cashier. Please create one."),
-                    });
-                    this.pos.redirectToBackend();
-                }
-                return
+                return;
             }
             const { confirmed, payload: employee } = await popup.add(SelectionPopup, {
                 title: _t("Change Cashier"),

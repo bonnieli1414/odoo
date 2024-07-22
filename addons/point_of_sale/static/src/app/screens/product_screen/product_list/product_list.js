@@ -50,7 +50,8 @@ export class ProductsWidget extends Component {
         return (
             this.pos.show_category_images &&
             Object.values(this.pos.db.category_by_id).some((category) => category.has_image) &&
-            !this.ui.isSmall
+            !this.ui.isSmall &&
+            this.state.height >= 720
         );
     }
 

@@ -2,7 +2,6 @@
 
 import { usePos } from "@point_of_sale/app/store/pos_hook";
 import { useService } from "@web/core/utils/hooks";
-import { isMobileOS } from "@web/core/browser/feature_detection";
 
 import { CashierName } from "@point_of_sale/app/navbar/cashier_name/cashier_name";
 import { CustomerFacingDisplayButton } from "@point_of_sale/app/navbar/customer_facing_display_button/customer_facing_display_button";
@@ -47,7 +46,7 @@ export class Navbar extends Component {
     }
 
     get customerFacingDisplayButtonIsShown() {
-        return this.pos.config.iface_customer_facing_display && !isMobileOS();
+        return this.pos.config.iface_customer_facing_display;
     }
     get showCashMoveButton() {
         return Boolean(this.pos?.config?.cash_control && this.pos?.config?.has_cash_move_permission);
@@ -103,7 +102,7 @@ export class Navbar extends Component {
 
     async closeSession() {
         const info = await this.pos.getClosePosInfo();
-        this.popup.add(ClosePosPopup, { ...info });
+        this.popup.add(ClosePosPopup, { ...info, keepBehind: true });
     }
 
     showBackButton() {

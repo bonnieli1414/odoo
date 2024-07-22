@@ -34,10 +34,8 @@ class PaymentTransaction(models.Model):
         if self.provider_code != 'razorpay':
             return res
 
-        if self.operation in ('online_token', 'offline'):
-            return {}
-
-        customer_id = self._razorpay_create_customer()['id']
+        customer_is_required = self.tokenize or self.operation in ('online_token', 'offline')
+        customer_id = customer_is_required and self._razorpay_create_customer()['id']
         order_id = self._razorpay_create_order(customer_id)['id']
         return {
             'razorpay_key_id': self.provider_id.razorpay_key_id,
@@ -54,8 +52,8 @@ class PaymentTransaction(models.Model):
         """
         payload = {
             'name': self.partner_name,
-            'email': self.partner_email or '',
-            'contact': self.partner_phone and self._validate_phone_number(self.partner_phone) or '',
+            'email': self.partner_email,
+            'contact': self._validate_phone_number(self.partner_phone),
             'fail_existing': '0',  # Don't throw an error if the customer already exists.
         }
         _logger.info(
@@ -77,12 +75,12 @@ class PaymentTransaction(models.Model):
         :return str: The formatted phone number.
         :raise ValidationError: If the phone number is missing or incorrect.
         """
-        if not phone and self.tokenize:
+        if not phone:
             raise ValidationError("Razorpay: " + _("The phone number is missing."))
 
         try:
             phone = self._phone_format(
-                number=phone, country=self.partner_country_id, raise_exception=self.tokenize
+                number=phone, country=self.partner_country_id, raise_exception=True
             )
         except Exception:
             raise ValidationError("Razorpay: " + _("The phone number is invalid."))
@@ -121,10 +119,11 @@ class PaymentTransaction(models.Model):
         payload = {
             'amount': converted_amount,
             'currency': self.currency_id.name,
-            **({'method': pm_code} if pm_code != 'wallets_india' else {}),
+            'method': pm_code,
         }
         if self.operation in ['online_direct', 'validation']:
-            payload['customer_id'] = customer_id  # Required for only non-subsequent payments.
+            if customer_id:
+                payload['customer_id'] = customer_id  # Required for only non-subsequent payments.
             if self.tokenize:
                 payload['token'] = {
                     'max_amount': payment_utils.to_minor_currency_units(
@@ -389,9 +388,7 @@ class PaymentTransaction(models.Model):
         payment_method_type = entity_data.get('method', '')
         if payment_method_type == 'card':
             payment_method_type = entity_data.get('card', {}).get('network').lower()
-        payment_method = self.env['payment.method']._get_from_code(
-            payment_method_type, mapping=const.PAYMENT_METHODS_MAPPING
-        )
+        payment_method = self.env['payment.method']._get_from_code(payment_method_type)
         self.payment_method_id = payment_method or self.payment_method_id
 
         # Update the payment state.
@@ -405,12 +402,8 @@ class PaymentTransaction(models.Model):
             if self.provider_id.capture_manually:
                 self._set_authorized()
         elif entity_status in const.PAYMENT_STATUS_MAPPING['done']:
-            if (
-                not self.token_id
-                and entity_data.get('token_id')
-                and self.provider_id.allow_tokenization
-            ):
-                self._razorpay_tokenize_from_notification_data(entity_data)
+            if self.tokenize:
+                self._razorpay_tokenize_from_notification_data(notification_data)
             self._set_done()
 
             # Immediately post-process the transaction if it is a refund, as the post-processing

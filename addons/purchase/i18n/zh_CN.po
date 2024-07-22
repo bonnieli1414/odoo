@@ -3,10 +3,10 @@
 # 	* purchase
 # 
 # Translators:
+# Wil Odoo, 2023
 # 山西清水欧度(QQ:54773801) <54773801@qq.com>, 2023
 # Chloe Wang, 2024
 # 湘子 南 <1360857908@qq.com>, 2024
-# Wil Odoo, 2024
 # Jeffery CHEN <jeffery9@gmail.com>, 2024
 # 
 msgid ""
@@ -556,7 +556,7 @@ msgstr "接受"
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_order__access_warning
 msgid "Access warning"
-msgstr "访问警告"
+msgstr "访问警告信息"
 
 #. module: purchase
 #: model:ir.model.fields,help:purchase.field_purchase_order_line__qty_received_method
@@ -721,7 +721,7 @@ msgstr "分析精度"
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.purchase_order_form
 msgid "Approve Order"
-msgstr "批准订单"
+msgstr "审批单"
 
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_order__message_attachment_count
@@ -1160,11 +1160,6 @@ msgid "Discount (%)"
 msgstr "折扣 (%)"
 
 #. module: purchase
-#: model_terms:ir.ui.view,arch_db:purchase.purchase_order_form
-msgid "Discount:"
-msgstr "折扣:"
-
-#. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_bill_union__display_name
 #: model:ir.model.fields,field_description:purchase.field_purchase_order__display_name
 #: model:ir.model.fields,field_description:purchase.field_purchase_order_line__display_name
@@ -1278,7 +1273,7 @@ msgstr "来自电子文档"
 #. module: purchase
 #: model:ir.model.fields.selection,name:purchase.selection__purchase_order__invoice_status__invoiced
 msgid "Fully Billed"
-msgstr "完全开单"
+msgstr "已完全开单"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.purchase_order_view_search
@@ -2330,7 +2325,7 @@ msgstr "重新发送邮件"
 #: model:ir.model.fields,field_description:purchase.field_res_partner__receipt_reminder_email
 #: model:ir.model.fields,field_description:purchase.field_res_users__receipt_reminder_email
 msgid "Receipt Reminder"
-msgstr "收貨提醒"
+msgstr "单据提醒"
 
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_order__receipt_reminder_email

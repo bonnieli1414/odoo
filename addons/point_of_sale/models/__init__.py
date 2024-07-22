@@ -7,7 +7,6 @@ from . import account_journal
 from . import account_tax
 from . import account_move
 from . import barcode_rule
-from . import binary
 from . import chart_template
 from . import digest
 from . import pos_category

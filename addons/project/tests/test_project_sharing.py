@@ -145,7 +145,6 @@ class TestProjectSharing(TestProjectSharingCommon):
             self.assertEqual(task.name, 'Test')
             self.assertEqual(task.project_id, self.project_portal)
             self.assertFalse(task.portal_user_names)
-            self.assertTrue(task.stage_id)
 
             # Check creating a sub-task while creating the parent task works as expected.
             self.assertEqual(task.child_ids.name, 'Test Subtask')

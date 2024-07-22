@@ -8,7 +8,7 @@
 # Kari Lindgren <kari.lindgren@emsystems.fi>, 2023
 # Tuomas Lyyra <tuomas.lyyra@legenda.fi>, 2023
 # Eino Mäkitalo <eino.makitalo@netitbe.fi>, 2023
-# Ossi Mantylahti <ossi.mantylahti@obs-solutions.fi>, 2024
+# Ossi Mantylahti <ossi.mantylahti@obs-solutions.fi>, 2023
 # Jarmo Kortetjärvi <jarmo.kortetjarvi@gmail.com>, 2024
 # 
 msgid ""
@@ -28,7 +28,7 @@ msgstr ""
 #. module: onboarding
 #: model_terms:ir.ui.view,arch_db:onboarding.onboarding_step
 msgid "#{alt}"
-msgstr "#{alt}"
+msgstr ""
 
 #. module: onboarding
 #: model:ir.model.fields,help:onboarding.field_onboarding_onboarding__progress_ids
@@ -51,7 +51,7 @@ msgstr ""
 #. module: onboarding
 #: model:ir.model.fields,field_description:onboarding.field_onboarding_onboarding_step__step_image_alt
 msgid "Alt Text for the Step Image"
-msgstr "Vaihekuvan Alt-teksti"
+msgstr ""
 
 #. module: onboarding
 #. odoo-python
@@ -61,13 +61,11 @@ msgid ""
 "An \"Opening Action\" is required for the following steps to be linked to an"
 " onboarding panel: %(step_titles)s"
 msgstr ""
-"Seuraavat vaiheet on liitettävä aloituspaneliin, jotta ne voidaan liittää "
-"\"avaamistoimeksi\" (Opening Action): %(step_titles)s"
 
 #. module: onboarding
 #: model_terms:ir.ui.view,arch_db:onboarding.onboarding_container
 msgid "Are you sure you want to hide these configuration steps?"
-msgstr "Oletko varma, että haluat piilottaa nämä määritysvaiheet?"
+msgstr ""
 
 #. module: onboarding
 #: model:ir.model.fields,field_description:onboarding.field_onboarding_onboarding_step__button_text
@@ -87,7 +85,7 @@ msgstr "Sulje"
 #. module: onboarding
 #: model_terms:ir.ui.view,arch_db:onboarding.onboarding_container
 msgid "Close Panel"
-msgstr "Sulje paneeli"
+msgstr ""
 
 #. module: onboarding
 #: model_terms:ir.ui.view,arch_db:onboarding.onboarding_container
@@ -156,12 +154,12 @@ msgstr "Font Awesome -kuvake kun valmis"
 #. module: onboarding
 #: model_terms:ir.ui.view,arch_db:onboarding.onboarding_container
 msgid "Get them out of my sight!"
-msgstr "Vie ne pois silmistäni!"
+msgstr ""
 
 #. module: onboarding
 #: model_terms:ir.ui.view,arch_db:onboarding.onboarding_container
 msgid "Hide Onboarding Tips"
-msgstr "Piilota perehdytyksen vinkit"
+msgstr ""
 
 #. module: onboarding
 #: model:ir.model.fields,field_description:onboarding.field_onboarding_onboarding__id
@@ -174,7 +172,7 @@ msgstr "ID"
 #. module: onboarding
 #: model:ir.model.fields,field_description:onboarding.field_onboarding_onboarding_step__is_per_company
 msgid "Is per company"
-msgstr "On yrityskohtainen"
+msgstr ""
 
 #. module: onboarding
 #: model:ir.model.fields.selection,name:onboarding.selection__onboarding_onboarding__current_onboarding_state__just_done
@@ -211,7 +209,7 @@ msgstr "Eiköhän tehdä tämä"
 #. module: onboarding
 #: model:ir.model.fields,field_description:onboarding.field_onboarding_onboarding__text_completed
 msgid "Message at completion"
-msgstr "Viesti valmistumisen yhteydessä"
+msgstr ""
 
 #. module: onboarding
 #: model:ir.model.fields,field_description:onboarding.field_onboarding_onboarding__name
@@ -373,7 +371,7 @@ msgstr "Pitäisikö tehdä yrityskohtaisesti?"
 #. module: onboarding
 #: model:ir.model.fields,help:onboarding.field_onboarding_onboarding_step__step_image_alt
 msgid "Show when impossible to load the image"
-msgstr "Näytä, kun kuvaa ei voi ladata"
+msgstr ""
 
 #. module: onboarding
 #. odoo-python
@@ -385,12 +383,12 @@ msgstr "Vaihe valmis!"
 #. module: onboarding
 #: model:ir.model.fields,field_description:onboarding.field_onboarding_onboarding_step__step_image
 msgid "Step Image"
-msgstr "Vaiheen kuva"
+msgstr ""
 
 #. module: onboarding
 #: model:ir.model.fields,field_description:onboarding.field_onboarding_onboarding_step__step_image_filename
 msgid "Step Image Filename"
-msgstr "Vaiheen kuvan tiedostonimi"
+msgstr ""
 
 #. module: onboarding
 #: model:ir.model.fields,field_description:onboarding.field_onboarding_onboarding_step__current_progress_step_id
@@ -410,7 +408,7 @@ msgstr "Teksti paneelin painikkeesta käynnistääksesi tämän askeleen"
 #. module: onboarding
 #: model:ir.model.fields,help:onboarding.field_onboarding_onboarding__text_completed
 msgid "Text shown on onboarding when completed"
-msgstr "Teksti, joka näytetään perehdytyksessä, kun se on suoritettu"
+msgstr ""
 
 #. module: onboarding
 #: model:ir.model.fields,field_description:onboarding.field_onboarding_onboarding_step__done_text

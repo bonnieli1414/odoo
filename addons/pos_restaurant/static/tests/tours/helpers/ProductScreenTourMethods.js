@@ -32,6 +32,10 @@ export function clickPrintBillButton() {
             content: "click print bill button",
             trigger: ".control-buttons .control-button.order-printbill",
         },
+        {
+            content: "Close printing error",
+            trigger: ".popup-error .cancel",
+        },
     ];
 }
 export function clickSubmitButton() {
@@ -97,14 +101,6 @@ export function orderBtnIsPresent() {
             content: "Order button is here",
             trigger: ".actionpad .button.submit-order",
             run: function () {}, // it's a check
-        },
-    ];
-}
-export function tableNameShown(table_name) {
-    return [
-        {
-            content: "Table name is shown",
-            trigger: `.table-name:contains(${table_name})`,
         },
     ];
 }

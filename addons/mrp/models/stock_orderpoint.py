@@ -35,7 +35,6 @@ class StockWarehouseOrderpoint(models.Model):
                         'url': f'#action={action.id}&id={production.id}&model=mrp.production'
                     }],
                     'sticky': False,
-                    'next': {'type': 'ir.actions.act_window_close'},
                 }
             }
         return super()._get_replenishment_order_notification()

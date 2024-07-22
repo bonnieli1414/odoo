@@ -104,7 +104,7 @@ patch(PosStore.prototype, {
             }
             const couponRules = nomenclatureRules.filter((rule) => rule.type === "coupon");
             const isValidCoupon = couponRules.some((rule) => {
-                const patterns = rule.pattern.split("|");
+                let patterns = rule.pattern.split("|");
                 return patterns.some((pattern) => trimmedCode.startsWith(pattern));
             });
             if (isValidCoupon) {
@@ -173,17 +173,15 @@ patch(PosStore.prototype, {
         const result = [];
         for (const couponProgram of allCouponPrograms) {
             const program = this.program_by_id[couponProgram.program_id];
-            if (
-                program.pricelist_ids.length > 0 &&
-                (!order.pricelist || !program.pricelist_ids.includes(order.pricelist.id))
-            ) {
+            if (program.pricelist_ids.length > 0
+                && (!order.pricelist || !program.pricelist_ids.includes(order.pricelist.id))) {
                 continue;
             }
 
             const points = order._getRealCouponPoints(couponProgram.coupon_id);
             const hasLine = order.orderlines.filter((line) => !line.is_reward_line).length > 0;
             for (const reward of program.rewards.filter(
-                (reward) => reward.reward_type == "product" && reward.reward_product_ids.length > 0
+                (reward) => reward.reward_type == "product"
             )) {
                 if (points < reward.required_points) {
                     continue;
@@ -227,7 +225,7 @@ patch(PosStore.prototype, {
             reward.all_discount_product_ids = new Set(reward.all_discount_product_ids);
         }
 
-        this.fieldTypes = loadedData["field_types"];
+        this.fieldTypes = loadedData['field_types'];
         await super._processData(loadedData);
         this.productId2ProgramIds = loadedData["product_id_to_program_ids"];
         this.programs = loadedData["loyalty.program"] || []; //TODO: rename to `loyaltyPrograms` etc
@@ -317,7 +315,7 @@ patch(PosStore.prototype, {
         // When an order is selected, it doesn't always contain the reward lines.
         // And the list of active programs are not always correct. This is because
         // of the use of DropPrevious in _updateRewards.
-        if (order && !order.finalized) {
+        if (order) {
             order._updateRewards();
         }
         return result;

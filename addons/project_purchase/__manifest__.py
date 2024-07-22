@@ -10,11 +10,6 @@
     'demo': [
         'data/project_purchase_demo.xml',
     ],
-    'assets': {
-        'web.assets_backend': [
-            'project_purchase/static/src/product_catalog/kanban_record.js',
-        ],
-    },
     'auto_install': True,
     'license': 'LGPL-3',
 }

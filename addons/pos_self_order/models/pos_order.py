@@ -33,6 +33,12 @@ class PosOrderLine(models.Model):
             del vals['combo_parent_uuid']
         return super().write(vals)
 
+    def _export_for_ui(self, orderline):
+        return {
+            'note': orderline.note,
+            **super()._export_for_ui(orderline),
+        }
+
 class PosOrder(models.Model):
     _inherit = "pos.order"
 

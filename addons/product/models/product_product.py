@@ -18,7 +18,6 @@ class ProductProduct(models.Model):
     _inherits = {'product.template': 'product_tmpl_id'}
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'priority desc, default_code, name, id'
-    _check_company_domain = models.check_company_domain_parent_of
 
     # price_extra: catalog extra value only, sum of variant extra attributes
     price_extra = fields.Float(
@@ -305,12 +304,9 @@ class ProductProduct(models.Model):
 
     def _compute_variant_item_count(self):
         for product in self:
-            domain = [
-                ('pricelist_id.active', '=', True),
-                '|',
-                    '&', ('product_tmpl_id', '=', product.product_tmpl_id.id), ('applied_on', '=', '1_product'),
-                    '&', ('product_id', '=', product.id), ('applied_on', '=', '0_product_variant'),
-            ]
+            domain = ['|',
+                '&', ('product_tmpl_id', '=', product.product_tmpl_id.id), ('applied_on', '=', '1_product'),
+                '&', ('product_id', '=', product.id), ('applied_on', '=', '0_product_variant')]
             product.pricelist_item_count = self.env['product.pricelist.item'].search_count(domain)
 
     def _compute_product_document_count(self):
@@ -555,7 +551,7 @@ class ProductProduct(models.Model):
                 domain2 = expression.AND([domain, domain2])
                 product_ids = list(self._search(domain2, limit=limit, order=order))
             if not product_ids and operator in positive_operators:
-                ptrn = re.compile(r'(\[(.*?)\])')
+                ptrn = re.compile('(\[(.*?)\])')
                 res = ptrn.search(name)
                 if res:
                     product_ids = list(self._search([('default_code', '=', res.group(2))] + domain, limit=limit, order=order))
@@ -631,8 +627,7 @@ class ProductProduct(models.Model):
     #=== BUSINESS METHODS ===#
 
     def _prepare_sellers(self, params=False):
-        sellers = self.seller_ids.filtered(lambda s: s.partner_id.active and (not s.product_id or s.product_id == self))
-        return sellers.sorted(lambda s: (s.sequence, -s.min_qty, s.price, s.id))
+        return self.seller_ids.filtered(lambda s: s.partner_id.active).sorted(lambda s: (s.sequence, -s.min_qty, s.price, s.id))
 
     def _get_filtered_sellers(self, partner_id=False, quantity=0.0, date=None, uom_id=False, params=False):
         self.ensure_one()

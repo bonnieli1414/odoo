@@ -24,11 +24,7 @@ export class ProjectTaskKanbanRenderer extends KanbanRenderer {
     }
 
     isProjectTasksContext() {
-        return (
-            ["project.project", "project.task.type.delete.wizard"].includes(
-                this.props.list.context.active_model
-            ) && !!this.props.list.context.default_project_id
-        );
+        return this.props.list.context.active_model === "project.project" && !!this.props.list.context.default_project_id;
     }
 }
 

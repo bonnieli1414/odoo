@@ -7,8 +7,6 @@ from odoo.http import request
 from odoo.tools import consteq, float_round, ustr
 from odoo.tools.misc import hmac as hmac_tool
 
-from odoo.addons.payment.const import CURRENCY_MINOR_UNITS
-
 
 # Access token management
 
@@ -92,7 +90,7 @@ def to_major_currency_units(minor_amount, currency, arbitrary_decimal_number=Non
     """
     if arbitrary_decimal_number is None:
         currency.ensure_one()
-        decimal_number = CURRENCY_MINOR_UNITS.get(currency.name, currency.decimal_places)
+        decimal_number = currency.decimal_places
     else:
         decimal_number = arbitrary_decimal_number
     return float_round(minor_amount, precision_digits=0) / (10**decimal_number)
@@ -116,7 +114,7 @@ def to_minor_currency_units(major_amount, currency, arbitrary_decimal_number=Non
     """
     if arbitrary_decimal_number is None:
         currency.ensure_one()
-        decimal_number = CURRENCY_MINOR_UNITS.get(currency.name, currency.decimal_places)
+        decimal_number = currency.decimal_places
     else:
         decimal_number = arbitrary_decimal_number
     return int(float_round(major_amount * (10**decimal_number), precision_digits=0))

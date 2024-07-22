@@ -6,8 +6,8 @@
 # JonathanStein <jstein@image.dk>, 2023
 # Mads Søndergaard, 2023
 # Mads Søndergaard, 2023
+# lhmflexerp <lhm@flexerp.dk>, 2023
 # Martin Trigaux, 2023
-# lhmflexerp <lhm@flexerp.dk>, 2024
 # Sanne Kristensen <sanne@vkdata.dk>, 2024
 # 
 msgid ""
@@ -101,21 +101,21 @@ msgstr ""
 #: code:addons/project/models/project_project.py:0
 #, python-format
 msgid "%(closed_task_count)s / %(task_count)s"
-msgstr "%(closed_task_count)s / %(task_count)s"
+msgstr ""
 
 #. module: project
 #. odoo-python
 #: code:addons/project/models/project_project.py:0
 #, python-format
 msgid "%(closed_task_count)s / %(task_count)s (%(closed_rate)s%%)"
-msgstr "%(closed_task_count)s / %(task_count)s (%(closed_rate)s%%)"
+msgstr ""
 
 #. module: project
 #. odoo-python
 #: code:addons/project/models/project_project.py:0
 #, python-format
 msgid "%(name)s"
-msgstr "%(name)s"
+msgstr ""
 
 #. module: project
 #. odoo-python
@@ -178,8 +178,6 @@ msgid ""
 ",\n"
 "    <br/><br/>"
 msgstr ""
-",\n"
-"    <br/><br/>"
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.milestone_deadline
@@ -315,18 +313,6 @@ msgid ""
 "</div>\n"
 "        "
 msgstr ""
-"<div>\n"
-"    Kære <t t-out=\"object.partner_id.name or 'customer'\">Brandon Freeman</t>,<br>\n"
-"    Tak for din henvendelse.<br>\n"
-"    Hvis du har spørgsmål, så sig endelig til.\n"
-"    <br><br>\n"
-"    Tak.\n"
-"    <t t-if=\"user.signature\">\n"
-"        <br>\n"
-"        <t t-out=\"user.signature or ''\">--<br>Mitchell Admin</t>\n"
-"    </t>\n"
-"</div>\n"
-"        "
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.view_task_form2
@@ -335,9 +321,6 @@ msgid ""
 "                            <i class=\"fa fa-fw o_button_icon fa-meh-o text-warning\" invisible=\"rating_avg &lt; 2.33 or rating_avg &gt;= 3.66\" title=\"Okay\"/>\n"
 "                            <i class=\"fa fa-fw o_button_icon fa-frown-o text-danger\" invisible=\"rating_avg &gt;= 2.33\" title=\"Dissatisfied\"/>"
 msgstr ""
-"<i class=\"fa fa-fw o_button_icon fa-smile-o text-success\" invisible=\"rating_avg &lt; 3.66\" title=\"Satisfied\"/>\n"
-"                            <i class=\"fa fa-fw o_button_icon fa-meh-o text-warning\" invisible=\"rating_avg &lt; 2.33 or rating_avg &gt;= 3.66\" title=\"Okay\"/>\n"
-"                            <i class=\"fa fa-fw o_button_icon fa-frown-o text-danger\" invisible=\"rating_avg &gt;= 2.33\" title=\"Dissatisfied\"/>"
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.edit_project
@@ -371,7 +354,7 @@ msgstr ""
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.view_task_kanban
 msgid "<i title=\"Private Task\" class=\"fa fa-lock\"/>"
-msgstr "<i title=\"Private Task\" class=\"fa fa-lock\"/>"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.portal_my_task
@@ -391,7 +374,7 @@ msgstr ""
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.view_project_kanban
 msgid "<span class=\"fa fa-clock-o me-2\" title=\"Dates\"/>"
-msgstr "<span class=\"fa fa-clock-o me-2\" title=\"Dates\"/>"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.view_project_kanban
@@ -399,13 +382,11 @@ msgid ""
 "<span class=\"fa fa-envelope-o me-2\" aria-label=\"Domain Alias\" "
 "title=\"Domain Alias\"/>"
 msgstr ""
-"<span class=\"fa fa-envelope-o me-2\" aria-label=\"Domain Alias\" "
-"title=\"Domain Alias\"/>"
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.view_project_kanban
 msgid "<span class=\"fa fa-user me-2\" aria-label=\"Partner\" title=\"Partner\"/>"
-msgstr "<span class=\"fa fa-user me-2\" aria-label=\"Partner\" title=\"Partner\"/>"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.project_milestone_view_form
@@ -502,7 +483,7 @@ msgstr "<u>Milepæle</u>"
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.project_update_default_description
 msgid "=&gt;"
-msgstr "=&gt;"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,help:project.field_project_project__alias_defaults
@@ -782,7 +763,7 @@ msgstr "Analysekonto"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_res_config_settings__analytic_plan_id
 msgid "Analytic Plan"
-msgstr "Analytisk plan"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,help:project.field_project_project__analytic_account_id
@@ -2003,7 +1984,7 @@ msgstr "Favorit"
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.view_task_search_form_base
 msgid "Favorite Projects"
-msgstr "Favorit projekter"
+msgstr ""
 
 #. module: project
 #. odoo-javascript
@@ -3632,7 +3613,7 @@ msgstr ""
 #. module: project
 #: model:mail.template,name:project.mail_template_data_project_task
 msgid "Project: Request Acknowledgment"
-msgstr "Projeck: Modtagelse af henvendelse"
+msgstr ""
 
 #. module: project
 #: model:ir.actions.server,name:project.ir_cron_rating_project_ir_actions_server
@@ -3827,7 +3808,7 @@ msgstr "Skrivebeskyttet"
 #. module: project
 #: model:mail.template,subject:project.mail_template_data_project_task
 msgid "Reception of {{ object.name }}"
-msgstr "Modtagelse af {{ object.name }}"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_share_wizard__partner_ids
@@ -4202,7 +4183,7 @@ msgstr "Vis alle poster, hvor den næste aktivitetsdato er før i dag"
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.project_update_default_description
 msgid "Since"
-msgstr "Siden"
+msgstr ""
 
 #. module: project
 #. odoo-javascript

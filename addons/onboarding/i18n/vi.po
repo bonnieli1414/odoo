@@ -148,12 +148,12 @@ msgstr "Biểu tượng phông chữ tuyệt vời khi hoàn thành"
 #. module: onboarding
 #: model_terms:ir.ui.view,arch_db:onboarding.onboarding_container
 msgid "Get them out of my sight!"
-msgstr "Hãy loại bỏ!"
+msgstr ""
 
 #. module: onboarding
 #: model_terms:ir.ui.view,arch_db:onboarding.onboarding_container
 msgid "Hide Onboarding Tips"
-msgstr "Ẩn mẹo hướng dẫn"
+msgstr ""
 
 #. module: onboarding
 #: model:ir.model.fields,field_description:onboarding.field_onboarding_onboarding__id

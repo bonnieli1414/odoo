@@ -3,7 +3,7 @@
 import { Order } from "@point_of_sale/app/store/models";
 import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
-import { deserializeDateTime, formatDateTime, parseDateTime } from "@web/core/l10n/dates";
+import { deserializeDateTime, formatDateTime } from "@web/core/l10n/dates";
 import { parseFloat } from "@web/views/fields/parsers";
 import { _t } from "@web/core/l10n/translation";
 
@@ -170,7 +170,7 @@ export class TicketScreen extends Component {
             }
         }
         if (this.pos.isOpenOrderShareable()) {
-            await this.pos._removeOrdersFromServer();
+            this.pos._removeOrdersFromServer();
         }
         return true;
     }
@@ -237,25 +237,19 @@ export class TicketScreen extends Component {
                 const quantity = Math.abs(parseFloat(buffer));
                 if (quantity > refundableQty) {
                     this.numberBuffer.reset();
-                    if (!toRefundDetail.orderline.comboParent) {
-                        this.popup.add(ErrorPopup, {
-                            title: _t("Maximum Exceeded"),
-                            body: _t(
-                                "The requested quantity to be refunded is higher than the ordered quantity. %s is requested while only %s can be refunded.",
-                                quantity,
-                                refundableQty
-                            ),
-                        });
-                    }
+                    this.popup.add(ErrorPopup, {
+                        title: _t("Maximum Exceeded"),
+                        body: _t(
+                            "The requested quantity to be refunded is higher than the ordered quantity. %s is requested while only %s can be refunded.",
+                            quantity,
+                            refundableQty
+                        ),
+                    });
                 } else {
                     toRefundDetail.qty = quantity;
                 }
             }
         }
-    }
-    async addAdditionalRefundInfo(order, destinationOrder) {
-        // used by L10N, e.g: add a refund reason using a specific L10N field
-        return Promise.resolve();
     }
     async onDoRefund() {
         const order = this.getSelectedOrder();
@@ -282,20 +276,14 @@ export class TicketScreen extends Component {
 
         const invoicedOrderIds = new Set(
             allToRefundDetails
-                .filter(
-                    (detail) =>
-                        this._state.syncedOrders.cache[detail.orderline.orderBackendId]?.state ===
-                        "invoiced"
-                )
-                .map((detail) => detail.orderline.orderBackendId)
+                .filter(detail => this._state.syncedOrders.cache[detail.orderline.orderBackendId].state === "invoiced")
+                .map(detail => detail.orderline.orderBackendId)
         );
 
         if (invoicedOrderIds.size > 1) {
             this.popup.add(ErrorPopup, {
-                title: _t("Multiple Invoiced Orders Selected"),
-                body: _t(
-                    "You have selected orderlines from multiple invoiced orders. To proceed refund, please select orderlines from the same invoiced order."
-                ),
+                title: _t('Multiple Invoiced Orders Selected'),
+                body: _t('You have selected orderlines from multiple invoiced orders. To proceed refund, please select orderlines from the same invoiced order.')
             });
             return;
         }
@@ -311,34 +299,13 @@ export class TicketScreen extends Component {
                 : this._getEmptyOrder(partner);
 
         // Add orderline for each toRefundDetail to the destinationOrder.
-        const originalToDestinationLineMap = new Map();
-
-        // First pass: add all products to the destination order
         for (const refundDetail of allToRefundDetails) {
             const product = this.pos.db.get_product_by_id(refundDetail.orderline.productId);
             const options = this._prepareRefundOrderlineOptions(refundDetail);
-            const newOrderline = await destinationOrder.add_product(product, options);
-            originalToDestinationLineMap.set(refundDetail.orderline.id, newOrderline);
+            await destinationOrder.add_product(product, options);
             refundDetail.destinationOrderUid = destinationOrder.uid;
         }
-        // Second pass: update combo relationships in the destination order
-        for (const refundDetail of allToRefundDetails) {
-            const originalOrderline = refundDetail.orderline;
-            const destinationOrderline = originalToDestinationLineMap.get(originalOrderline.id);
-            if (originalOrderline.comboParent) {
-                const comboParentLine = originalToDestinationLineMap.get(
-                    originalOrderline.comboParent.id
-                );
-                if (comboParentLine) {
-                    destinationOrderline.comboParent = comboParentLine;
-                }
-            }
-            if (originalOrderline.comboLines && originalOrderline.comboLines.length > 0) {
-                destinationOrderline.comboLines = originalOrderline.comboLines.map((comboLine) => {
-                    return originalToDestinationLineMap.get(comboLine.id);
-                });
-            }
-        }
+
         //Add a check too see if the fiscal position exist in the pos
         if (order.fiscal_position_not_found) {
             this.showPopup("ErrorPopup", {
@@ -356,7 +323,6 @@ export class TicketScreen extends Component {
         if (this.pos.get_order().cid !== destinationOrder.cid) {
             this.pos.set_order(destinationOrder);
         }
-        await this.addAdditionalRefundInfo(order, destinationOrder);
 
         this.closeTicketScreen();
     }
@@ -439,7 +405,7 @@ export class TicketScreen extends Component {
     }
     getStatus(order) {
         if (order.locked) {
-            return order.state === "invoiced" ? _t("Invoiced") : _t("Paid");
+            return order.state === 'invoiced' ? _t('Invoiced') : _t("Paid");
         } else {
             const screen = order.get_screen_data();
             return this._getOrderStates().get(this._getScreenToStatusMap()[screen.name]).text;
@@ -614,8 +580,6 @@ export class TicketScreen extends Component {
                           return { lot_name: lot.lot_name };
                       })
                     : false,
-                comboParent: orderline.comboParent,
-                comboLines: orderline.comboLines,
             },
             destinationOrderUid: false,
         };
@@ -696,20 +660,6 @@ export class TicketScreen extends Component {
                 repr: (order) => formatDateTime(order.date_order),
                 displayName: _t("Date"),
                 modelField: "date_order",
-                formatSearch: (searchTerm) => {
-                    const includesTime = searchTerm.includes(':');
-                    let parsedDateTime;
-                    try {
-                        parsedDateTime = parseDateTime(searchTerm);
-                    } catch {
-                        return searchTerm;
-                    }
-                    if (includesTime) {
-                        return parsedDateTime.toUTC().toFormat("yyyy-MM-dd HH:mm:ss");
-                    } else {
-                        return parsedDateTime.toFormat("yyyy-MM-dd");
-                    }
-                }
             },
             PARTNER: {
                 repr: (order) => order.get_partner_name(),
@@ -771,16 +721,13 @@ export class TicketScreen extends Component {
     }
     //#region SEARCH SYNCED ORDERS
     _computeSyncedOrdersDomain() {
-        let { fieldName, searchTerm } = this._state.ui.searchDetails;
+        const { fieldName, searchTerm } = this._state.ui.searchDetails;
         if (!searchTerm) {
             return [];
         }
-        const searchField = this._getSearchFields()[fieldName];
-        if (searchField) {
-            if (searchField.formatSearch) {
-                searchTerm = searchField.formatSearch(searchTerm);
-            }
-            return [[searchField.modelField, "ilike", `%${searchTerm}%`]];
+        const modelField = this._getSearchFields()[fieldName].modelField;
+        if (modelField) {
+            return [[modelField, "ilike", `%${searchTerm}%`]];
         } else {
             return [];
         }

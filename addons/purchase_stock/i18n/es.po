@@ -4,7 +4,6 @@
 # 
 # Translators:
 # Wil Odoo, 2023
-# Pedro M. Baeza <pedro.baeza@tecnativa.com>, 2024
 # Larissa Manderfeld, 2024
 # 
 msgid ""
@@ -88,7 +87,7 @@ msgid ""
 msgstr ""
 "De acuerdo con la configuración del proyecto, la cantidad recibida se puede calcular automáticamente con el mecanismo:\n"
 "- Manual: la cantidad se establece manualmente en la línea\n"
-"- Movimientos de stock: la cantidad viene de los albaranes confirmados\n"
+"- Movimientos de stock: la cantidad se establece según los productos que ha recibido\n"
 
 #. module: purchase_stock
 #: model:ir.model.fields,field_description:purchase_stock.field_stock_rule__action
@@ -150,7 +149,7 @@ msgstr "No se encontró la recepción correspondiente."
 #. module: purchase_stock
 #: model:ir.model.fields,field_description:purchase_stock.field_stock_move__created_purchase_line_ids
 msgid "Created Purchase Order Lines"
-msgstr "Líneas de pedido de compra creadas"
+msgstr "Líneas de la orden de compra creadas"
 
 #. module: purchase_stock
 #. odoo-python
@@ -158,7 +157,7 @@ msgstr "Líneas de pedido de compra creadas"
 #: code:addons/purchase_stock/models/stock_move.py:0
 #, python-format
 msgid "Currency exchange rate difference"
-msgstr "Diferencia en tipo de cambio de moneda"
+msgstr "Diferencia en tasa de cambio de moneda"
 
 #. module: purchase_stock
 #: model:ir.model.fields,field_description:purchase_stock.field_purchase_order_line__product_description_variants
@@ -168,15 +167,15 @@ msgstr "Descripción personalizada"
 #. module: purchase_stock
 #: model_terms:ir.ui.view,arch_db:purchase_stock.res_config_settings_view_form_stock
 msgid "Days needed to confirm a PO"
-msgstr "Días necesarios para confirmar un pedido de compra"
+msgstr "Días necesarios para confirmar una orden de compra"
 
 #. module: purchase_stock
 #: model:ir.model.fields,help:purchase_stock.field_res_company__days_to_purchase
 #: model:ir.model.fields,help:purchase_stock.field_res_config_settings__days_to_purchase
 msgid "Days needed to confirm a PO, define when a PO should be validated"
 msgstr ""
-"Días que se necesitan para confirmar un pedido de compra, define cuándo se "
-"debería de validar el pedido de compra"
+"Días que se necesitan para confirmar una orden de compra, define cuándo se "
+"debería de validar la orden de compra"
 
 #. module: purchase_stock
 #. odoo-python
@@ -242,7 +241,7 @@ msgstr "Fecha efectiva del ultimo año"
 #. module: purchase_stock
 #: model_terms:ir.ui.view,arch_db:purchase_stock.exception_on_po
 msgid "Exception(s) occurred on the purchase order(s):"
-msgstr "Excepción(es) ocurrida(s) en el/los pedido(s) de compra"
+msgstr "Excepción(es) ocurrida(s) en las órdenes de compra:"
 
 #. module: purchase_stock
 #: model_terms:ir.ui.view,arch_db:purchase_stock.exception_on_po
@@ -282,14 +281,14 @@ msgstr "Recibido totalmente"
 #: code:addons/purchase_stock/static/src/js/tours/purchase_stock.js:0
 #, python-format
 msgid "Generate the draft vendor bill."
-msgstr "Genere el borrador de la factura de proveedor."
+msgstr "Generar la factura de proveedor."
 
 #. module: purchase_stock
 #. odoo-javascript
 #: code:addons/purchase_stock/static/src/js/tours/purchase_stock.js:0
 #, python-format
 msgid "Go back to the purchase order to generate the vendor bill."
-msgstr "Regrese al pedido de compra para generar la factura del proveedor."
+msgstr "Regrese a la orden de compra para generar la factura del proveedor"
 
 #. module: purchase_stock
 #: model:ir.model.fields,field_description:purchase_stock.field_vendor_delay_report__id
@@ -314,7 +313,7 @@ msgstr "Ubicación del Incoterm"
 #. module: purchase_stock
 #: model:ir.model.fields,field_description:purchase_stock.field_purchase_order__is_shipped
 msgid "Is Shipped"
-msgstr "Está enviado"
+msgstr "Es enviado"
 
 #. module: purchase_stock
 #: model:ir.model.fields,field_description:purchase_stock.field_res_config_settings__is_installed_sale
@@ -359,7 +358,7 @@ msgid ""
 " to cope with unexpected vendor delays."
 msgstr ""
 "Margen de error para los plazos de entrega del proveedor. Cuando el sistema "
-"genera pedidos de compra para reabastecer productos, se programarán muchos "
+"genera órdenes de compra para reabastecer productos, se programarán muchos "
 "días antes para hacer frente a los retrasos inesperados de los proveedores."
 
 #. module: purchase_stock
@@ -430,7 +429,7 @@ msgstr "Tasa de puntualidad "
 #. module: purchase_stock
 #: model:ir.model.fields,field_description:purchase_stock.field_purchase_order_line__orderpoint_id
 msgid "Orderpoint"
-msgstr "Punto de pedido"
+msgstr "Punto de Pedido"
 
 #. module: purchase_stock
 #: model:ir.model.fields,help:purchase_stock.field_purchase_order__on_time_rate
@@ -442,13 +441,13 @@ msgid ""
 "purchase_stock.on_time_delivery_days or the default 365"
 msgstr ""
 "Durante los últimos x días; el número de productos recibidos a tiempo divido"
-" entre el número de products.x pedidos es el parámetro "
+" entre el número de products.x ordenados es el parámetro "
 "purchase_stock.on_time_delivery_days del sistema o 365."
 
 #. module: purchase_stock
 #: model:ir.model.fields,field_description:purchase_stock.field_product_product__purchase_order_line_ids
 msgid "PO Lines"
-msgstr "Líneas de pedido de compra"
+msgstr "Líneas de orden de compra"
 
 #. module: purchase_stock
 #: model:ir.model.fields.selection,name:purchase_stock.selection__purchase_order__receipt_status__partial
@@ -517,20 +516,20 @@ msgstr "Líneas de compra"
 #. module: purchase_stock
 #: model:ir.model,name:purchase_stock.model_purchase_order
 msgid "Purchase Order"
-msgstr "Pedido de compra"
+msgstr "Orden de compra"
 
 #. module: purchase_stock
 #: model:ir.model,name:purchase_stock.model_purchase_order_line
 #: model:ir.model.fields,field_description:purchase_stock.field_stock_move__purchase_line_id
 msgid "Purchase Order Line"
-msgstr "Línea de pedido de compra"
+msgstr "Línea de orden de compra"
 
 #. module: purchase_stock
 #: model:ir.model.fields,field_description:purchase_stock.field_stock_lot__purchase_order_ids
 #: model:ir.model.fields,field_description:purchase_stock.field_stock_picking__purchase_id
 #: model_terms:ir.ui.view,arch_db:purchase_stock.stock_production_lot_view_form
 msgid "Purchase Orders"
-msgstr "Pedidos de compra"
+msgstr "Órdenes de compra"
 
 #. module: purchase_stock
 #: model:ir.model,name:purchase_stock.model_purchase_report
@@ -542,7 +541,7 @@ msgstr "Informe de compras"
 #: code:addons/purchase_stock/models/stock_rule.py:0
 #, python-format
 msgid "Purchase Security Lead Time"
-msgstr "Plazo de seguridad para compras"
+msgstr "Plazo de antelación de seguridad para la compra"
 
 #. module: purchase_stock
 #: model:ir.model.fields,field_description:purchase_stock.field_stock_warehouse_orderpoint__purchase_visibility_days
@@ -552,7 +551,7 @@ msgstr "Días de visibilidad de compra"
 #. module: purchase_stock
 #: model:ir.model.fields,field_description:purchase_stock.field_stock_lot__purchase_order_count
 msgid "Purchase order count"
-msgstr "Número de pedidos de compra"
+msgstr "Número de órdenes de compra"
 
 #. module: purchase_stock
 #: model:ir.model.fields,help:purchase_stock.field_purchase_order__dest_address_id
@@ -571,7 +570,7 @@ msgstr "Recepción"
 #. module: purchase_stock
 #: model:ir.model.fields,field_description:purchase_stock.field_purchase_order__receipt_status
 msgid "Receipt Status"
-msgstr "Estado de recepción"
+msgstr "Estado de entrega"
 
 #. module: purchase_stock
 #: model_terms:ir.ui.view,arch_db:purchase_stock.purchase_order_view_form_inherit
@@ -583,7 +582,7 @@ msgstr "Recibir productos"
 #: code:addons/purchase_stock/static/src/js/tours/purchase_stock.js:0
 #, python-format
 msgid "Receive the ordered products."
-msgstr "Reciba los productos pedidos."
+msgstr "Recibir los productos ordenados"
 
 #. module: purchase_stock
 #: model:ir.model.fields,field_description:purchase_stock.field_purchase_order_line__qty_received_method
@@ -615,7 +614,7 @@ msgstr "Reserva"
 #. module: purchase_stock
 #: model:ir.model,name:purchase_stock.model_stock_return_picking
 msgid "Return Picking"
-msgstr "Albarán de devolución"
+msgstr "Recolección de devolución"
 
 #. module: purchase_stock
 #: model:ir.model.fields,field_description:purchase_stock.field_product_product__route_ids
@@ -637,7 +636,7 @@ msgstr "Configurado como proveedor"
 #. module: purchase_stock
 #: model:ir.model.fields,field_description:purchase_stock.field_product_supplierinfo__show_set_supplier_button
 msgid "Show Set Supplier Button"
-msgstr "Mostrar el botón de configurar como proveedor"
+msgstr "Mostrar el botón de configurar proveedor"
 
 #. module: purchase_stock
 #: model:ir.model.fields,field_description:purchase_stock.field_product_replenish__show_vendor
@@ -703,7 +702,7 @@ msgstr "Información del proveedor"
 #. module: purchase_stock
 #: model:ir.model.fields,help:purchase_stock.field_purchase_order__default_location_dest_id_usage
 msgid "Technical field used to display the Drop Ship Address"
-msgstr "Campo técnico utilizado para mostrar la dirección de Dropshipping"
+msgstr "Campo técnico utilizado para mostrar la dirección de envió directo"
 
 #. module: purchase_stock
 #. odoo-python
@@ -720,7 +719,7 @@ msgid ""
 "The quantities on your purchase order indicate less than billed. You should "
 "ask for a refund."
 msgstr ""
-"Las cantidades en su pedido de compra son menos que las facturadas. Debería "
+"Las cantidades en su orden de compra son menos que las facturadas. Debería "
 "pedir un reembolso. "
 
 #. module: purchase_stock
@@ -746,7 +745,7 @@ msgid ""
 "validating this vendor bill."
 msgstr ""
 "Esta cuenta se utiliza en la valoración de inventario automatizada para "
-"registrar la diferencia de precio entre un pedido de compra y su factura de "
+"registrar la diferencia de precio entre una orden de compra y su factura de "
 "proveedor relacionada al validar esta factura de proveedor."
 
 #. module: purchase_stock
@@ -770,7 +769,7 @@ msgstr ""
 "Esto agrega una ruta de dropshipping aplicable a productos con el fin de "
 "solicitar a sus proveedores que entreguen directamente a sus clientes. Un "
 "producto para dropship generará una solicitud de presupuesto de compra una "
-"vez que se confirme el pedido de venta. Este es un flujo bajo demanda. La "
+"vez que se confirme la orden de venta. Este es un flujo bajo demanda. La "
 "dirección de entrega solicitada será la dirección de entrega del cliente y "
 "no su almacén."
 
@@ -815,8 +814,8 @@ msgid ""
 "Unable to cancel purchase order %s as some receptions have already been "
 "done."
 msgstr ""
-"No se puede cancelar el pedido de compra %s, ya que algunas recepciones se "
-"han completado."
+"No se puede cancelar la orden de compra %s, ya que ya se han completado "
+"algunas recepciones."
 
 #. module: purchase_stock
 #. odoo-javascript
@@ -893,14 +892,14 @@ msgid ""
 "Create a return first."
 msgstr ""
 "No puede disminuir la cantidad pedida por debajo de la cantidad recibida.\n"
-"Cree una devolución primero."
+"Crea un retorno primero."
 
 #. module: purchase_stock
 #. odoo-python
 #: code:addons/purchase_stock/models/purchase_order.py:0
 #, python-format
 msgid "You must set a Vendor Location for this partner %s"
-msgstr "Debe asignar una ubicación para este contacto %s"
+msgstr "Debe asignar una localización para este socio %s"
 
 #. module: purchase_stock
 #: model_terms:ir.ui.view,arch_db:purchase_stock.res_config_settings_view_form_stock
@@ -915,4 +914,4 @@ msgstr "de"
 #. module: purchase_stock
 #: model_terms:ir.ui.view,arch_db:purchase_stock.exception_on_po
 msgid "ordered instead of"
-msgstr "pedido en lugar de"
+msgstr "ordenado en lugar de"

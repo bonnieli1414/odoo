@@ -42,43 +42,9 @@ class TestPurchase(AccountTestInvoicingCommon):
         self.assertAlmostEqual(po.order_line[0].date_planned, po.date_planned, delta=timedelta(seconds=10))
 
         # Set an even earlier date planned on the other PO line and check that the PO expected date matches it.
-        # Also check that the other PO line's date planned is not modified.
-        new_date_planned_2 = orig_date_planned - timedelta(hours=72)
-        po_form = Form(po)
-        with po_form.order_line.edit(1) as po_line:
-            po_line.date_planned = new_date_planned_2
-        po = po_form.save()
+        new_date_planned = orig_date_planned - timedelta(hours=72)
+        po.order_line[1].date_planned = new_date_planned
         self.assertAlmostEqual(po.order_line[1].date_planned, po.date_planned, delta=timedelta(seconds=10))
-        self.assertAlmostEqual(po.order_line[0].date_planned, new_date_planned, delta=timedelta(seconds=10))
-
-    def test_date_planned_2(self):
-        """
-        Check that the date_planned of the onchange is correctly applied:
-        Create a PO, change its date_planned to tommorow and check that the date_planned of the lines are updated.
-        Create a new line (this will update the date_planned of the PO but should not alter the other lines).
-        """
-
-        po = self.env['purchase.order'].create({
-            'partner_id': self.partner_a.id,
-            'order_line': [Command.create({
-                'name': self.product_a.name,
-                'product_id': self.product_a.id,
-                'product_uom_qty': 10,
-                'product_uom': self.product_a.uom_id.id,
-                'price_unit': 1,
-            })],
-        })
-        with Form(po) as po_form:
-            po_form.date_planned = fields.Datetime.now() + timedelta(days=1)
-        self.assertEqual(po.order_line.date_planned, po.date_planned)
-
-        with Form(po) as po_form:
-            with po_form.order_line.new() as new_line:
-                new_line.product_id = self.product_b
-                new_line.product_qty = 10
-                new_line.price_unit = 200
-        self.assertEqual(po.order_line[1].date_planned, po.date_planned)
-        self.assertNotEqual(po.order_line[0].date_planned, po.date_planned)
 
     def test_purchase_order_sequence(self):
         PurchaseOrder = self.env['purchase.order'].with_context(tracking_disable=True)
@@ -149,8 +115,6 @@ class TestPurchase(AccountTestInvoicingCommon):
         po_tz = pytz.timezone(po.user_id.tz)
         localized_date_planned = po.date_planned.astimezone(po_tz)
         self.assertEqual(localized_date_planned, po.get_localized_date_planned())
-        # Ensure that the function get_localized_date_planned can accept a date in string format
-        self.assertEqual(localized_date_planned, po.get_localized_date_planned(po.date_planned.strftime('%Y-%m-%d %H:%M:%S')))
 
         # check vendor is a message recipient
         self.assertTrue(po.partner_id in po.message_partner_ids)
@@ -653,106 +617,3 @@ class TestPurchase(AccountTestInvoicingCommon):
             line.product_id = self.product_b
         po = po_form.save()
         self.assertEqual(po.order_line.name, '[Code 3] Name 3')
-
-    def test_purchase_order_line_product_taxes_on_branch(self):
-        """ Check taxes populated on PO lines from product on branch company.
-            Taxes from the branch company should be taken with a fallback on parent company.
-        """
-        # create the following branch hierarchy:
-        #     Parent company
-        #         |----> Branch X
-        #                   |----> Branch XX
-        company = self.env.company
-        branch_x = self.env['res.company'].create({
-            'name': 'Branch X',
-            'country_id': company.country_id.id,
-            'parent_id': company.id,
-        })
-        branch_xx = self.env['res.company'].create({
-            'name': 'Branch XX',
-            'country_id': company.country_id.id,
-            'parent_id': branch_x.id,
-        })
-        # create taxes for the parent company and its branches
-        tax_groups = self.env['account.tax.group'].create([{
-            'name': 'Tax Group',
-            'company_id': company.id,
-        }, {
-            'name': 'Tax Group X',
-            'company_id': branch_x.id,
-        }, {
-            'name': 'Tax Group XX',
-            'company_id': branch_xx.id,
-        }])
-        tax_a = self.env['account.tax'].create({
-            'name': 'Tax A',
-            'type_tax_use': 'purchase',
-            'amount_type': 'percent',
-            'amount': 10,
-            'tax_group_id': tax_groups[0].id,
-            'company_id': company.id,
-        })
-        tax_b = self.env['account.tax'].create({
-            'name': 'Tax B',
-            'type_tax_use': 'purchase',
-            'amount_type': 'percent',
-            'amount': 15,
-            'tax_group_id': tax_groups[0].id,
-            'company_id': company.id,
-        })
-        tax_x = self.env['account.tax'].create({
-            'name': 'Tax X',
-            'type_tax_use': 'purchase',
-            'amount_type': 'percent',
-            'amount': 20,
-            'tax_group_id': tax_groups[1].id,
-            'company_id': branch_x.id,
-        })
-        tax_xx = self.env['account.tax'].create({
-            'name': 'Tax XX',
-            'type_tax_use': 'purchase',
-            'amount_type': 'percent',
-            'amount': 25,
-            'tax_group_id': tax_groups[2].id,
-            'company_id': branch_xx.id,
-        })
-        # create several products with different taxes combination
-        product_all_taxes = self.env['product.product'].create({
-            'name': 'Product all taxes',
-            'supplier_taxes_id': [Command.set((tax_a + tax_b + tax_x + tax_xx).ids)],
-        })
-        product_no_xx_tax = self.env['product.product'].create({
-            'name': 'Product no tax from XX',
-            'supplier_taxes_id': [Command.set((tax_a + tax_b + tax_x).ids)],
-        })
-        product_no_branch_tax = self.env['product.product'].create({
-            'name': 'Product no tax from branch',
-            'supplier_taxes_id': [Command.set((tax_a + tax_b).ids)],
-        })
-        product_no_tax = self.env['product.product'].create({
-            'name': 'Product no tax',
-            'supplier_taxes_id': [],
-        })
-        # create a PO from Branch XX
-        po_form = Form(self.env['purchase.order'].with_company(branch_xx))
-        po_form.partner_id = self.partner_a
-        # add 4 PO lines with the different products:
-        # - Product all taxes           => tax from Branch XX should be set
-        # - Product no tax from XX      => tax from Branch X should be set
-        # - Product no tax from branch  => 2 taxes from parent company should be set
-        # - Product no tax              => no tax should be set
-        with po_form.order_line.new() as line:
-            line.product_id = product_all_taxes
-        with po_form.order_line.new() as line:
-            line.product_id = product_no_xx_tax
-        with po_form.order_line.new() as line:
-            line.product_id = product_no_branch_tax
-        with po_form.order_line.new() as line:
-            line.product_id = product_no_tax
-        po = po_form.save()
-        self.assertRecordValues(po.order_line, [
-            {'product_id': product_all_taxes.id, 'taxes_id': tax_xx.ids},
-            {'product_id': product_no_xx_tax.id, 'taxes_id': tax_x.ids},
-            {'product_id': product_no_branch_tax.id, 'taxes_id': (tax_a + tax_b).ids},
-            {'product_id': product_no_tax.id, 'taxes_id': []},
-        ])

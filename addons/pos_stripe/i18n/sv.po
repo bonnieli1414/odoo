@@ -6,7 +6,6 @@
 # Kim Asplund <kim.asplund@gmail.com>, 2023
 # Simon S, 2023
 # Chrille Hedberg <hedberg.chrille@gmail.com>, 2023
-# Jakob Krabbe <jakob.krabbe@vertel.se>, 2024
 # 
 msgid ""
 msgstr ""
@@ -14,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-26 21:55+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
-"Last-Translator: Jakob Krabbe <jakob.krabbe@vertel.se>, 2024\n"
+"Last-Translator: Chrille Hedberg <hedberg.chrille@gmail.com>, 2023\n"
 "Language-Team: Swedish (https://app.transifex.com/odoo/teams/41243/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +26,7 @@ msgstr ""
 #: code:addons/pos_stripe/models/pos_payment_method.py:0
 #, python-format
 msgid "Complete the Stripe onboarding for company %s."
-msgstr "Slutför Stripe-introduktionen för företaget %s."
+msgstr ""
 
 #. module: pos_stripe
 #. odoo-python
@@ -36,22 +35,20 @@ msgstr "Slutför Stripe-introduktionen för företaget %s."
 #: code:addons/pos_stripe/models/pos_payment_method.py:0
 #, python-format
 msgid "Do not have access to fetch token from Stripe"
-msgstr "Har inte tillgång till att hämta token från Stripe"
+msgstr ""
 
 #. module: pos_stripe
 #: model_terms:ir.ui.view,arch_db:pos_stripe.pos_payment_method_view_form_inherit_pos_stripe
 msgid ""
 "Don't forget to complete Stripe connect before using this payment method."
 msgstr ""
-"Glöm inte att slutföra Stripe connect innan du använder den här "
-"betalningsmetoden."
 
 #. module: pos_stripe
 #. odoo-javascript
 #: code:addons/pos_stripe/static/src/app/payment_stripe.js:0
 #, python-format
 msgid "Failed to discover: %s"
-msgstr "Misslyckades med att upptäcka: %s"
+msgstr ""
 
 #. module: pos_stripe
 #. odoo-javascript
@@ -59,21 +56,21 @@ msgstr "Misslyckades med att upptäcka: %s"
 #: code:addons/pos_stripe/static/src/app/payment_stripe.js:0
 #, python-format
 msgid "Failed to load resource: net::ERR_INTERNET_DISCONNECTED."
-msgstr "Misslyckades med att ladda resurs: net::ERR_INTERNET_DISCONNECTED."
+msgstr ""
 
 #. module: pos_stripe
 #. odoo-javascript
 #: code:addons/pos_stripe/static/src/app/payment_stripe.js:0
 #, python-format
 msgid "No available Stripe readers."
-msgstr "Inga tillgängliga Stripe-läsare."
+msgstr ""
 
 #. module: pos_stripe
 #. odoo-javascript
 #: code:addons/pos_stripe/static/src/app/payment_stripe.js:0
 #, python-format
 msgid "Payment canceled because not reader connected"
-msgstr "Betalning avbruten eftersom läsaren inte är ansluten"
+msgstr ""
 
 #. module: pos_stripe
 #: model:ir.model,name:pos_stripe.model_pos_payment_method
@@ -90,7 +87,7 @@ msgstr "Kassasession"
 #: code:addons/pos_stripe/static/src/app/payment_stripe.js:0
 #, python-format
 msgid "Reader disconnected"
-msgstr "Läsaren frånkopplad"
+msgstr ""
 
 #. module: pos_stripe
 #. odoo-python
@@ -104,33 +101,33 @@ msgstr "Stripe"
 #: code:addons/pos_stripe/static/src/app/payment_stripe.js:0
 #, python-format
 msgid "Stripe Error"
-msgstr "Stripe Fel"
+msgstr ""
 
 #. module: pos_stripe
 #: model:ir.model.fields,field_description:pos_stripe.field_pos_payment_method__stripe_serial_number
 msgid "Stripe Serial Number"
-msgstr "Stripe serienummer"
+msgstr ""
 
 #. module: pos_stripe
 #. odoo-python
 #: code:addons/pos_stripe/models/pos_payment_method.py:0
 #, python-format
 msgid "Stripe payment provider for company %s is missing"
-msgstr "Stripe-betalningsleverantör för företaget %s saknas"
+msgstr ""
 
 #. module: pos_stripe
 #. odoo-javascript
 #: code:addons/pos_stripe/static/src/app/payment_stripe.js:0
 #, python-format
 msgid "Stripe readers %s not listed in your account"
-msgstr "Stripe-läsare %s inte listade i ditt konto"
+msgstr ""
 
 #. module: pos_stripe
 #. odoo-python
 #: code:addons/pos_stripe/models/pos_payment_method.py:0
 #, python-format
 msgid "Terminal %s is already used on payment method %s."
-msgstr "Terminal %s används redan för betalningsmetod %s."
+msgstr ""
 
 #. module: pos_stripe
 #. odoo-python
@@ -138,9 +135,9 @@ msgstr "Terminal %s används redan för betalningsmetod %s."
 #: code:addons/pos_stripe/models/pos_payment_method.py:0
 #, python-format
 msgid "There are some issues between us and Stripe, try again later."
-msgstr "Det finns några problem mellan oss och Stripe, försök igen senare."
+msgstr ""
 
 #. module: pos_stripe
 #: model:ir.model.fields,help:pos_stripe.field_pos_payment_method__stripe_serial_number
 msgid "[Serial number of the stripe terminal], for example: WSC513105011295"
-msgstr "[Stripe-terminalens serienummer], t.ex: WSC513105011295"
+msgstr ""

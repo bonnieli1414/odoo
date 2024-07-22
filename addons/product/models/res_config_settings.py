@@ -46,9 +46,7 @@ class ResConfigSettings(models.TransientModel):
         if not self.group_product_pricelist:
             if self.group_sale_pricelist:
                 self.group_sale_pricelist = False
-            active_pricelist = self.env['product.pricelist'].sudo().search_count(
-                [('active', '=', True)], limit=1
-            )
+            active_pricelist = self.env['product.pricelist'].sudo().search([('active', '=', True)])
             if active_pricelist:
                 return {
                     'warning': {

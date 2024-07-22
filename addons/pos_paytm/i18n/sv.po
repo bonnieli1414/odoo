@@ -5,10 +5,10 @@
 # Translators:
 # Martin Trigaux, 2023
 # Chrille Hedberg <hedberg.chrille@gmail.com>, 2023
+# Jakob Krabbe <jakob.krabbe@vertel.se>, 2023
 # Robin Calvin, 2023
 # Kim Asplund <kim.asplund@gmail.com>, 2023
 # Anders Wallenquist <anders.wallenquist@vertel.se>, 2024
-# Jakob Krabbe <jakob.krabbe@vertel.se>, 2024
 # 
 msgid ""
 msgstr ""
@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-26 21:55+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
-"Last-Translator: Jakob Krabbe <jakob.krabbe@vertel.se>, 2024\n"
+"Last-Translator: Anders Wallenquist <anders.wallenquist@vertel.se>, 2024\n"
 "Language-Team: Swedish (https://app.transifex.com/odoo/teams/41243/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +27,7 @@ msgstr ""
 #. module: pos_paytm
 #: model:ir.model.fields,field_description:pos_paytm.field_pos_payment_method__accept_payment
 msgid "Accept Payment"
-msgstr "Acceptera betalning"
+msgstr ""
 
 #. module: pos_paytm
 #: model:ir.model.fields.selection,name:pos_paytm.selection__pos_payment_method__allowed_payment_modes__all
@@ -37,7 +37,7 @@ msgstr "Alla"
 #. module: pos_paytm
 #: model:ir.model.fields,field_description:pos_paytm.field_pos_payment_method__allowed_payment_modes
 msgid "Allowed Payment Modes"
-msgstr "Tillåtna betalningsmetoder"
+msgstr ""
 
 #. module: pos_paytm
 #: model:ir.model.fields.selection,name:pos_paytm.selection__pos_payment_method__accept_payment__auto
@@ -57,64 +57,64 @@ msgstr "Manuellt"
 #. module: pos_paytm
 #: model:ir.model.fields,field_description:pos_paytm.field_pos_payment_method__channel_id
 msgid "PayTM Channel ID"
-msgstr "PayTM kanal-ID"
+msgstr ""
 
 #. module: pos_paytm
 #. odoo-javascript
 #: code:addons/pos_paytm/static/src/js/payment_paytm.js:0
 #, python-format
 msgid "PayTM Error"
-msgstr "PayTM-fel"
+msgstr ""
 
 #. module: pos_paytm
 #: model:ir.model.fields,field_description:pos_paytm.field_pos_payment_method__paytm_merchant_key
 msgid "PayTM Merchant API Key"
-msgstr "PayTM Merchant API-nyckel"
+msgstr ""
 
 #. module: pos_paytm
 #: model:ir.model.fields,field_description:pos_paytm.field_pos_payment_method__paytm_mid
 msgid "PayTM Merchant ID"
-msgstr "PayTM Handlar-ID"
+msgstr ""
 
 #. module: pos_paytm
 #: model:ir.model.fields,field_description:pos_paytm.field_pos_payment_method__paytm_tid
 msgid "PayTM Terminal ID"
-msgstr "PayTM Terminal ID"
+msgstr ""
 
 #. module: pos_paytm
 #: model:ir.model.fields,field_description:pos_paytm.field_pos_payment_method__paytm_test_mode
 msgid "PayTM Test Mode"
-msgstr "PayTM Testläge"
+msgstr ""
 
 #. module: pos_paytm
 #: model:ir.model.fields,field_description:pos_paytm.field_pos_payment__paytm_authcode
 msgid "Paytm APPR Code"
-msgstr "Paytm APPR-kod"
+msgstr ""
 
 #. module: pos_paytm
 #: model:ir.model.fields,field_description:pos_paytm.field_pos_payment__paytm_card_scheme
 msgid "Paytm Card Scheme"
-msgstr "Paytm-kortschema"
+msgstr ""
 
 #. module: pos_paytm
 #: model:ir.model.fields,field_description:pos_paytm.field_pos_payment__paytm_issuer_card_no
 msgid "Paytm Issue Mask Card No."
-msgstr "Paytm utfärdar mask kort nr."
+msgstr ""
 
 #. module: pos_paytm
 #: model:ir.model.fields,field_description:pos_paytm.field_pos_payment__paytm_issuer_bank
 msgid "Paytm Issuer Bank"
-msgstr "Paytm utgivarbank"
+msgstr ""
 
 #. module: pos_paytm
 #: model:ir.model.fields,field_description:pos_paytm.field_pos_payment__paytm_reference_no
 msgid "Paytm Merchant Reference No."
-msgstr "Paytm Handlarens referensnr."
+msgstr ""
 
 #. module: pos_paytm
 #: model:ir.model.fields,field_description:pos_paytm.field_pos_payment__paytm_payment_method
 msgid "Paytm Payment Method"
-msgstr "Paytm betalningsmetod"
+msgstr ""
 
 #. module: pos_paytm
 #: model:ir.model,name:pos_paytm.model_pos_order
@@ -134,53 +134,53 @@ msgstr "Kassa-betalningar"
 #. module: pos_paytm
 #: model:ir.model.fields.selection,name:pos_paytm.selection__pos_payment_method__allowed_payment_modes__qr
 msgid "QR"
-msgstr "QR"
+msgstr ""
 
 #. module: pos_paytm
 #. odoo-javascript
 #: code:addons/pos_paytm/static/src/js/payment_paytm.js:0
 #, python-format
 msgid "Reference number mismatched"
-msgstr "Referensnumret stämmer inte överens"
+msgstr ""
 
 #. module: pos_paytm
 #. odoo-python
 #: code:addons/pos_paytm/models/pos_payment_method.py:0
 #, python-format
 msgid "Something went wrong with paytm request. Please try later."
-msgstr "Något gick fel med paytm-begäran. Vänligen försök senare."
+msgstr ""
 
 #. module: pos_paytm
 #. odoo-python
 #: code:addons/pos_paytm/models/pos_payment_method.py:0
 #, python-format
 msgid "This Payment Terminal is only valid for INR Currency"
-msgstr "Denna betalterminal är endast giltig för valutan INR"
+msgstr ""
 
 #. module: pos_paytm
 #. odoo-python
 #: code:addons/pos_paytm/models/pos_payment_method.py:0
 #, python-format
 msgid "makePaymentRequest expected resultCode not found in the response"
-msgstr "makePaymentRequest förväntad resultCode hittades inte i svaret"
+msgstr ""
 
 #. module: pos_paytm
 #. odoo-python
 #: code:addons/pos_paytm/models/pos_payment_method.py:0
 #, python-format
 msgid "paymentFetchRequest expected resultCode not found in the response"
-msgstr "paymentFetchRequest förväntad resultCode hittades inte i svaret"
+msgstr ""
 
 #. module: pos_paytm
 #. odoo-python
 #: code:addons/pos_paytm/models/pos_payment_method.py:0
 #, python-format
 msgid "paytm transaction failure"
-msgstr "paytm transaktionsfel"
+msgstr ""
 
 #. module: pos_paytm
 #. odoo-python
 #: code:addons/pos_paytm/models/pos_payment_method.py:0
 #, python-format
 msgid "paytm transaction request declined"
-msgstr "paytm transaktionsbegäran avvisad"
+msgstr ""

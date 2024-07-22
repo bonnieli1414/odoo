@@ -186,35 +186,3 @@ registry
         PaymentScreen.clickValidate(),
     ].flat(),
 });
-
-registry
-    .category("web_tour.tours")
-    .add('PosQuotationSaving', {
-        test: true,
-        url: '/pos/ui',
-        steps: () => [
-            ProductScreen.confirmOpeningPopup(),
-            ProductScreen.clickQuotationButton(),
-            ProductScreen.selectFirstOrder(),
-            ProductScreen.selectedOrderlineHas('Product', '4.00', '40.00'),
-            ProductScreen.clickSave(),
-        ].flat(),
-    });
-
-registry
-    .category("web_tour.tours")
-    .add('PosOrderDoesNotRemainInList', {
-        test: true,
-        url: '/pos/ui',
-        steps: () => [
-            ProductScreen.confirmOpeningPopup(),
-            ProductScreen.clickQuotationButton(),
-            ProductScreen.selectFirstOrder(),
-            ProductScreen.clickPayButton(),
-            PaymentScreen.clickPaymentMethod('Bank'),
-            PaymentScreen.clickValidate(),
-            ReceiptScreen.clickNextOrder(),
-            ProductScreen.clickQuotationButton(),
-            ProductScreen.checkOrdersListEmpty(),
-        ].flat(),
-    });

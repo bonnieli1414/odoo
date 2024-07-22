@@ -261,14 +261,9 @@ class StockMove(models.Model):
                                     order='id desc',
                                     limit=1
                                 )
-                                if quant:
-                                    ml_vals.update({
-                                        'quant_id': quant.id,
-                                    })
-                                else:
-                                    ml_vals.update({
-                                        'lot_name': existing_lot.name,
-                                    })
+                            ml_vals.update({
+                                'quant_id': quant.id,
+                            })
                         else:
                             ml_vals.update({'lot_name': lot.lot_name})
                         move_lines_to_create.append(ml_vals)

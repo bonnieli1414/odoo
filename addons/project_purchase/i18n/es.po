@@ -4,7 +4,6 @@
 # 
 # Translators:
 # Wil Odoo, 2023
-# Pedro M. Baeza <pedro.baeza@tecnativa.com>, 2024
 # Larissa Manderfeld, 2024
 # 
 msgid ""
@@ -24,7 +23,7 @@ msgstr ""
 #. module: project_purchase
 #: model:ir.model.fields,field_description:project_purchase.field_project_project__purchase_orders_count
 msgid "# Purchase Orders"
-msgstr "# Pedidos de compra"
+msgstr "# Órdenes de compra"
 
 #. module: project_purchase
 #: model:ir.model,name:project_purchase.model_project_project
@@ -36,12 +35,12 @@ msgstr "Proyecto"
 #: code:addons/project_purchase/models/project_project.py:0
 #, python-format
 msgid "Purchase Order Items"
-msgstr "Elementos del pedido de compra"
+msgstr "Artículos de la orden de compra"
 
 #. module: project_purchase
 #: model:ir.model,name:project_purchase.model_purchase_order_line
 msgid "Purchase Order Line"
-msgstr "Línea de pedido de compra"
+msgstr "Línea de orden de compra"
 
 #. module: project_purchase
 #. odoo-python
@@ -50,4 +49,4 @@ msgstr "Línea de pedido de compra"
 #: code:addons/project_purchase/models/project_project.py:0
 #, python-format
 msgid "Purchase Orders"
-msgstr "Pedidos de compra"
+msgstr "Órdenes de compra"

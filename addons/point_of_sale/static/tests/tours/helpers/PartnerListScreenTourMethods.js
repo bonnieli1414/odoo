@@ -18,20 +18,3 @@ export function isShown() {
         },
     ];
 }
-
-export function clickPartnerDetailsButton(name) {
-    return [
-        {
-            content: `click partner details '${name}' from partner list screen`,
-            trigger: `.partner-line:contains('${name}') .edit-partner-button`,
-        },
-    ];
-}
-
-export function clickBack() {
-    return [
-        {
-            trigger: ".partnerlist-screen .button.back",
-        },
-    ];
-}

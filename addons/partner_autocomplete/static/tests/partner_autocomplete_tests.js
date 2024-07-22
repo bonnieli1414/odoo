@@ -4,11 +4,11 @@ import { browser } from "@web/core/browser/browser";
 import { registry } from "@web/core/registry";
 import {
     click,
-    editInput,
     editSelect,
     getFixture,
     patchWithCleanup,
     triggerEvent,
+    editInput,
 } from "@web/../tests/helpers/utils";
 import { makeView, setupViewRegistries } from "@web/../tests/views/helpers";
 import { loadJS } from "@web/core/assets";
@@ -348,20 +348,18 @@ QUnit.module('partner_autocomplete', {
         }
     });
 
-    QUnit.test("Click out after edition", async function (assert) {
-        assert.expect(2);
+    QUnit.test("Show confirmation dialog on input blur", async function (assert) {
+        assert.expect(1);
         await makeView(makeViewParams);
         const input = target.querySelector("[name=parent_id] input.o-autocomplete--input.o_input");
         await triggerEvent(input, null, "focus");
         await click(input);
         await editInput(input, null, "go");
-        assert.strictEqual(input.value, "go");
-        await triggerEvent(target, null, "pointerdown");
         await triggerEvent(input, null, "blur");
-        assert.strictEqual(input.value, "");
+        assert.containsOnce(target, ".o_dialog");
     });
 
-    QUnit.test("Hide auto complete suggestion for no create", async function (assert) {
+    QUnit.test("Hide auto complate suggestion for no create", async function (assert) {
         const partnerMakeViewParams = {
             ...makeViewParams,
             arch:

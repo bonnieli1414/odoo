@@ -2,7 +2,6 @@
 /* global AdyenCheckout */
 
 import { _t } from '@web/core/l10n/translation';
-import { pyToJsLocale } from '@web/core/l10n/utils';
 import paymentForm from '@payment/js/payment_form';
 import { RPCError } from '@web/core/network/rpc_service';
 
@@ -64,7 +63,7 @@ paymentForm.include({
                     paymentMethodsResponse: response,
                     clientKey: inlineFormValues['client_key'],
                     amount: formattedAmount,
-                    locale: pyToJsLocale(this._getContext().lang || 'en-US'),
+                    locale: (this._getContext().lang || 'en-US').replace('_', '-'),
                     environment: providerState === 'enabled' ? 'live' : 'test',
                     onAdditionalDetails: this._adyenOnSubmitAdditionalDetails.bind(this),
                     onError: this._adyenOnError.bind(this),

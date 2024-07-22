@@ -64,7 +64,6 @@ PAYMENT_METHODS_MAPPING = {
     'apple_pay': 'applepay',
     'card': 'creditcard',
     'bank_transfer': 'banktransfer',
-    'kbc_cbc': 'kbc',
     'p24': 'przelewy24',
     'sepa_direct_debit': 'directdebit',
 }
