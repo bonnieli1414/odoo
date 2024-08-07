@@ -2191,4 +2191,3 @@ class TestUi(TestPointOfSaleHttpCommon):
             "PosLoyaltyGiftCardNoPoints",
             login="accountman",
         )
->>>>>>> upstream/17.0

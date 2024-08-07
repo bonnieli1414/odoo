@@ -1743,7 +1743,6 @@ export class Wysiwyg extends Component {
 =======
             // Refocus again to save updates when calling `_onWysiwygBlur`
             this.odooEditor.editable.focus();
->>>>>>> upstream/17.0
         } else {
             return this.odooEditor.execCommand('insert', element);
         }

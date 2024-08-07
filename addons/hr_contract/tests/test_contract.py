@@ -263,4 +263,3 @@ class TestHrContracts(TestContractCommon):
             calendar2,
             "Leave under active contract should update",
         )
->>>>>>> upstream/17.0

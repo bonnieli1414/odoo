@@ -647,4 +647,3 @@ class TestBatchPicking(TransactionCase):
         self.assertEqual(wave.state, 'done')
         self.assertRecordValues(picking_1.move_ids, [{'state': 'confirmed', 'quantity': 0.0, 'picked': False}])
         self.assertRecordValues(picking_2.move_ids, [{'state': 'done', 'quantity': 3.0, 'picked': True}])
->>>>>>> upstream/17.0

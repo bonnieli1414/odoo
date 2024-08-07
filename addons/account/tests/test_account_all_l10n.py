@@ -56,7 +56,6 @@ def test_all_l10n(env):
 =======
         # We can't make it disappear from the list, but we raise a UserError if it's not already the COA
         and template_code not in ('syscohada', 'syscebnl')
->>>>>>> upstream/17.0
     ]
     companies = env['res.company'].create([
         {

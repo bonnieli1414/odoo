@@ -266,4 +266,3 @@ registry.category("web_tour.tours").add("PoSDownPaymentLinesPerTax", {
             }),
         ].flat(),
 });
->>>>>>> upstream/17.0

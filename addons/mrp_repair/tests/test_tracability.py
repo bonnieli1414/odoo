@@ -142,8 +142,6 @@ class TestRepairTraceability(TestMrpCommon):
         mo = produce_one(finished, component)
         self.assertEqual(mo.state, 'done')
         self.assertEqual(mo.move_raw_ids.lot_ids, sn_lot)
-<<<<<<< HEAD
-=======
         # Now, we will test removing the component and putting it back in stock,
         # then placing it back into the product and removing it a second time.
         # The user should be able to use the component in a new MO.

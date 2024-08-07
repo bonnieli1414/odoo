@@ -115,78 +115,12 @@ class AccountEdiProxyClientUser(models.Model):
                     ('type', '=', 'purchase')
                 ], limit=1)
 
-<<<<<<< HEAD
-            for uuid, content in all_messages.items():
-                enc_key = content["enc_key"]
-                document_content = content["document"]
-                filename = content["filename"] or 'attachment' # default to attachment, which should not usually happen
-                partner_endpoint = content["accounting_supplier_party"]
-                decoded_document = edi_user._decrypt_data(document_content, enc_key)
-
-                journal_id = company.peppol_purchase_journal_id
-                # use the first purchase journal if the Peppol journal is not set up
-                # to create the move anyway
-                if not journal_id:
-                    journal_id = self.env['account.journal'].search([
-                        *self.env['account.journal']._check_company_domain(company),
-                        ('type', '=', 'purchase')
-                    ], limit=1)
-
-                attachment_vals = {
-                    'name': f'{filename}.xml',
-                    'raw': decoded_document,
-                    'type': 'binary',
-                    'mimetype': 'application/xml',
-                }
-
-                try:
-                    attachment = self.env['ir.attachment'].create(attachment_vals)
-                    move = journal_id\
-                        .with_context(
-                            default_move_type='in_invoice',
-                            default_peppol_move_state=content['state'],
-                            default_extract_can_show_send_button=False,
-                            default_peppol_message_uuid=uuid,
-                        )\
-                        ._create_document_from_attachment(attachment.id)
-                    if partner_endpoint:
-                        move._message_log(body=_(
-                            'Peppol document has been received successfully. Sender endpoint: %s', partner_endpoint))
-                    else:
-                        move._message_log(body=_('Peppol document has been received successfully'))
-                # pylint: disable=broad-except
-                except Exception:
-                    # if the invoice creation fails for any reason,
-                    # we want to create an empty invoice with the attachment
-                    move = self.env['account.move'].create({
-                        'move_type': 'in_invoice',
-                        'peppol_move_state': 'done',
-                        'company_id': company.id,
-                        'extract_can_show_send_button': False,
-                        'peppol_message_uuid': uuid,
-                    })
-                    attachment_vals.update({
-                        'res_model': 'account.move',
-                        'res_id': move.id,
-                    })
-                    self.env['ir.attachment'].create(attachment_vals)
-
-                proxy_acks.append(uuid)
-
-            if not tools.config['test_enable']:
-                self.env.cr.commit()
-            if proxy_acks:
-                edi_user._make_request(
-                    f"{edi_user._get_server_url()}/api/peppol/1/ack",
-                    {'message_uuids': proxy_acks},
-=======
             for uuids in split_every(BATCH_SIZE, message_uuids):
                 proxy_acks = []
                 # retrieve attachments for filtered messages
                 all_messages = edi_user._make_request(
                     f"{edi_user._get_server_url()}/api/peppol/1/get_document",
                     {'message_uuids': uuids},
->>>>>>> upstream/17.0
                 )
 
                 for uuid, content in all_messages.items():
@@ -269,13 +203,6 @@ class AccountEdiProxyClientUser(models.Model):
                         edi_user_moves._message_log_batch(bodies={move.id: log_message for move in edi_user_moves})
                         break
 
-<<<<<<< HEAD
-                move = message_uuids[uuid]
-                if content.get('error'):
-                    move.peppol_move_state = 'error'
-                    move._message_log(body=_("Peppol error: %s", content['error']['message']))
-                    continue
-=======
                     move = message_uuids[uuid]
                     if content.get('error'):
                         # "Peppol request not ready" error:
@@ -289,7 +216,6 @@ class AccountEdiProxyClientUser(models.Model):
 
                     move.peppol_move_state = content['state']
                     move._message_log(body=_('Peppol status update: %s', content['state']))
->>>>>>> upstream/17.0
 
                 edi_user._make_request(
                     f"{edi_user._get_server_url()}/api/peppol/1/ack",

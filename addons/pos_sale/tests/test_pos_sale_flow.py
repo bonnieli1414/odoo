@@ -688,4 +688,3 @@ class TestPoSSale(TestPointOfSaleHttpCommon):
 
         self.main_pos_config.open_ui()
         self.start_tour("/pos/ui?config_id=%d" % self.main_pos_config.id, 'PosSettleDraftOrder', login="accountman")
->>>>>>> upstream/17.0

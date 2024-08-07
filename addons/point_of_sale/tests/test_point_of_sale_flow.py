@@ -2215,4 +2215,3 @@ class TestPointOfSaleFlow(TestPointOfSaleCommon):
         product_form.detailed_type = "combo"
         product = product_form.save()
         self.assertFalse(product.taxes_id)
->>>>>>> upstream/17.0

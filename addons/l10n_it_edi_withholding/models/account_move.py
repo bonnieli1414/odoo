@@ -216,25 +216,6 @@ class AccountMove(models.Model):
             text_element = other_data_element.xpath("./RiferimentoTesto")
             if not data_kind_element or not text_element:
                 continue
-<<<<<<< HEAD
-            data_kind, data_text, number_text = data_kind_element[0].text.lower(), text_element[0].text.lower(), number_element[0].text
-            if data_kind != 'cassa-prev' or ('enasarco' not in data_text and 'tc07' not in data_text):
-                continue
-            enasarco_amount = float(number_text)
-            enasarco_percentage = -self.env.company.currency_id.round(enasarco_amount / price_subtotal * 100)
-            enasarco_tax = self._l10n_it_edi_search_tax_for_import(
-                company,
-                enasarco_percentage,
-                [('l10n_it_pension_fund_type', '=', 'TC07')] + type_tax_use_domain,
-                vat_only=False)
-            if enasarco_tax:
-                move_line_form.tax_ids |= enasarco_tax
-            else:
-                messages_to_log.append("%s<br/>%s" % (
-                    _("Enasarco tax not found for line with description '%s'", move_line_form.name),
-                    self.env['account.move']._compose_info_message(other_data_element, '.'),
-                ))
-=======
             data_kind, data_text = data_kind_element[0].text.lower(), text_element[0].text.lower()
             if data_kind == 'cassa-prev' and ('enasarco' in data_text or 'tc07' in data_text):
                 number_element = other_data_element.xpath("./RiferimentoNumero")
@@ -258,6 +239,5 @@ class AccountMove(models.Model):
                 for pension_fund_tax in extra_info.get('pension_fund_taxes', []):
                     if pension_fund_tax.l10n_it_pension_fund_type.lower() in data_text:
                         move_line_form.tax_ids |= pension_fund_tax
->>>>>>> upstream/17.0
 
         return messages_to_log

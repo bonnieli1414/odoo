@@ -11,7 +11,6 @@ from odoo.tests import tagged
 =======
 from odoo.tests import tagged, Form
 from odoo.exceptions import ValidationError
->>>>>>> upstream/17.0
 
 from odoo.addons.hr_holidays.tests.common import TestHrHolidaysCommon
 

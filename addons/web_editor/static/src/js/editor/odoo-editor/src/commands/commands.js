@@ -58,7 +58,6 @@ import {
     paragraphRelatedElements,
     lastLeaf,
     firstLeaf,
->>>>>>> upstream/17.0
 } from '../utils/utils.js';
 
 const TEXT_CLASSES_REGEX = /\btext-[^\s]*\b/;

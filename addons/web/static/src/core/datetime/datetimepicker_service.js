@@ -466,8 +466,6 @@ export const datetimePickerService = {
                                 editableInputs++;
                             }
                         }
-<<<<<<< HEAD
-=======
                         const calendarIconGroupEl = getInput(0)?.parentElement.querySelector(
                             ".input-group-text .fa-calendar"
                         )?.parentElement;

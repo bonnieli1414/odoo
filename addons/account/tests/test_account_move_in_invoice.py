@@ -2738,4 +2738,3 @@ class TestAccountMoveInInvoiceOnchanges(AccountTestInvoicingCommon):
         bill = self.init_invoice(move_type='in_invoice', products=[product])
         bill_uom = bill.invoice_line_ids[0].product_uom_id
         self.assertEqual(bill_uom, uom_kgm)
->>>>>>> upstream/17.0

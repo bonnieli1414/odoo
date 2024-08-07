@@ -129,4 +129,3 @@ def new_get_soap_client(wsdlurl, timeout=30):
 
 if util:
     util.get_soap_client = new_get_soap_client
->>>>>>> upstream/17.0

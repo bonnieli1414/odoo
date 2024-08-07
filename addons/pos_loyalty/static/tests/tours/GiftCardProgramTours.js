@@ -153,4 +153,3 @@ registry.category("web_tour.tours").add("PosLoyaltyGiftCardNoPoints", {
             PosLoyalty.finalizeOrder("Cash", "5"),
         ].flat(),
 });
->>>>>>> upstream/17.0

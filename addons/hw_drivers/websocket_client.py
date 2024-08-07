@@ -43,12 +43,8 @@ def on_message(ws, messages):
     messages = json.loads(messages)
     _logger.debug("websocket received a message: %s", pprint.pformat(messages))
     for document in messages:
-<<<<<<< HEAD
-        if (document['message']['type'] == 'print'):
-=======
         message_type = document['message']['type']
         if message_type in ['print', 'iot_action']:
->>>>>>> upstream/17.0
             payload = document['message']['payload']
             iot_mac = helpers.get_mac_address()
             if iot_mac in payload['iotDevice']['iotIdentifiers']:

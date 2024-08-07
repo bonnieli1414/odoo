@@ -902,10 +902,6 @@ class StockQuant(models.Model):
             quantity_move_uom = product_id.uom_id._compute_quantity(quantity, uom_id, rounding_method='DOWN')
             quantity = uom_id._compute_quantity(quantity_move_uom, product_id.uom_id, rounding_method='HALF-UP')
 
-<<<<<<< HEAD
-        if self.product_id.tracking == 'serial':
-            if float_compare(quantity, int(quantity), precision_digits=rounding) != 0:
-=======
         if quants.product_id.tracking == 'serial':
             if float_compare(quantity, int(quantity), precision_rounding=rounding) != 0:
 >>>>>>> upstream/17.0

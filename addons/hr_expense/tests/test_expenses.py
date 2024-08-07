@@ -1031,8 +1031,6 @@ class TestExpenses(TestExpenseCommon):
         }])
         expense_state = Expense.get_expense_dashboard()
         self.assertEqual(expense_state['to_submit']['amount'], 3000.00)
-<<<<<<< HEAD
-=======
 
     def test_expense_mandatory_analytic_plan_product_category(self):
         """

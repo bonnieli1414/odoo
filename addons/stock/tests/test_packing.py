@@ -1801,7 +1801,6 @@ class TestPacking(TestPackingCommon):
             {'package_id': pack3.id, 'state': 'assigned', 'is_done': True},
         ])
 
->>>>>>> upstream/17.0
 
 @odoo.tests.tagged('post_install', '-at_install')
 class TestPackagePropagation(TestPackingCommon):

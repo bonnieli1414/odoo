@@ -52,8 +52,6 @@ msgstr ""
 #. odoo-python
 #: code:addons/website/models/website_rewrite.py:0
 #, python-format
-<<<<<<< HEAD
-=======
 msgid ""
 "\"URL to\" cannot be set to \"/\". To change the homepage content, use the "
 "\"Homepage URL\" field in the website settings or the page properties on any"
@@ -71,7 +69,6 @@ msgstr ""
 #. odoo-python
 #: code:addons/website/models/website_rewrite.py:0
 #, python-format
->>>>>>> upstream/17.0
 msgid "\"URL to\" cannot contain parameter %s which is not used in \"URL from\"."
 msgstr ""
 
@@ -12874,7 +12871,6 @@ msgid "You didn't provide a valid Facebook link"
 msgstr ""
 
 #. module: website
->>>>>>> upstream/17.0
 #. odoo-python
 #: code:addons/website/models/mixins.py:0
 #, python-format

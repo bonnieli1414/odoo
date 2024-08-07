@@ -320,16 +320,6 @@ class Applicant(models.Model):
             if not applicant.partner_id:
                 if not applicant.partner_name:
                     raise UserError(_('You must define a Contact Name for this applicant.'))
-<<<<<<< HEAD
-                applicant.partner_id = self.env['res.partner'].create({
-                    'is_company': False,
-                    'name': applicant.partner_name,
-                    'email': applicant.email_from,
-                    'mobile': applicant.partner_mobile,
-                    'phone': applicant.partner_phone,
-                })
-            else:
-=======
                 applicant.partner_id = self.env['res.partner'].with_context(default_lang=self.env.lang).find_or_create(applicant.email_from)
             if applicant.partner_name and not applicant.partner_id.name:
                 applicant.partner_id.name = applicant.partner_name

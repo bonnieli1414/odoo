@@ -116,7 +116,6 @@ class TestStructure(TransactionCase):
             doc = Document(location=None, transport=Transport())
             new_get_soap_client(doc, 30)
 
->>>>>>> upstream/17.0
 
 @tagged('-standard', 'external')
 class TestStructureVIES(TestStructure):

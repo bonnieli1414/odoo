@@ -11,10 +11,6 @@
                 <label
                     t-if="this.props.attribute_values.length === 1 &amp;&amp; isSelectedPTAVCustom() || this.props.attribute_values.length &gt; 1"
                     t-out="this.props.attribute.name"
-<<<<<<< HEAD
-                    t-attf-class="fw-bold text-break #{this.props.attribute_values.length === 1 &amp;&amp; hasPTAVCustom() ? '' : 'w-lg-25'}"/>
-                <t t-if="this.props.attribute_values.length > 1" t-call="{{getPTAVTemplate()}}"/>
-=======
                     t-attf-class="fw-bold text-break #{this.props.attribute_values.length === 1
                         &amp;&amp; hasPTAVCustom() ? '' : 'col-lg-3'}"/>
                 <t t-if="showValuesChoice" t-call="{{getPTAVTemplate()}}"/>

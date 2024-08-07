@@ -392,4 +392,3 @@ class TestAngloSaxonFlow(TestAngloSaxonCommon):
         res = self.pos_order_pos0.action_pos_order_invoice()
         invoice = self.env['account.move'].browse(res['res_id'])
         self.assertTrue('Price discount from 100.00 -> 95.00' in invoice.invoice_line_ids.filtered(lambda l: l.display_type == "line_note").display_name)
->>>>>>> upstream/17.0

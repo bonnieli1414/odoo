@@ -320,4 +320,3 @@ class TestManualConsumption(TestMrpCommon):
         self.assertEqual(mo.move_raw_ids.mapped('manual_consumption'), [True, False])
         self.assertEqual(components[0].stock_quant_ids.reserved_quantity, 3.0)
         self.assertRecordValues(mo.move_raw_ids, [{'quantity': 3.0, 'picked': True}, {'quantity': 2.0, 'picked': True}])
->>>>>>> upstream/17.0

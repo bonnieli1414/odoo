@@ -383,4 +383,3 @@ class TestVirtualAvailable(TestStockCommon):
         self.picking_out.button_validate()
         with self.assertRaises(UserError):
             self.product_3.write({'type': 'consu'})
->>>>>>> upstream/17.0

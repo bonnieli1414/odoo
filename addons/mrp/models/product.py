@@ -38,10 +38,6 @@ class ProductTemplate(models.Model):
 
     @api.depends_context('company')
     def _compute_is_kits(self):
-<<<<<<< HEAD
-        domain = [('product_tmpl_id', 'in', self.ids), ('type', '=', 'phantom')]
-        bom_mapping = self.env['mrp.bom'].search_read(domain, ['product_tmpl_id'])
-=======
         domain = [('product_tmpl_id', 'in', self.ids), ('type', '=', 'phantom'), '|', ('company_id', '=', False), ('company_id', '=', self.env.company.id)]
         bom_mapping = self.env['mrp.bom'].sudo().search_read(domain, ['product_tmpl_id'])
 >>>>>>> upstream/17.0

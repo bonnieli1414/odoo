@@ -71,7 +71,6 @@ try:
         # https://github.com/daviddrysdale/python-phonenumbers/blob/v8.13.40/python/phonenumbers/data/region_KE.py
         phonenumbers.phonemetadata.PhoneMetadata.register_region_loader('KE', _local_load_region)
 
->>>>>>> upstream/17.0
     # MONKEY PATCHING phonemetadata to fix Brazilian phonenumbers following 2016 changes
     def _hook_load_region(code):
         phonenumbers.data._load_region(code)

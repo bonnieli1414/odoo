@@ -44,8 +44,6 @@
             }
         },
         {
-<<<<<<< HEAD
-=======
             content: "Check Create Report Button, but not click on it",
             trigger: "button.o_switch_view.o_kanban.active",
             run() {

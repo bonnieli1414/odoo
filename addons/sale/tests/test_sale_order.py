@@ -907,4 +907,3 @@ class TestSalesTeam(SaleCommon):
         self.env.flush_all()
         self.assertEqual(so.amount_tax, 12.36)
         self.assertEqual(so.amount_total, 135.96)
->>>>>>> upstream/17.0

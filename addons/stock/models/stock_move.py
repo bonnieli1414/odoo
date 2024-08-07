@@ -619,7 +619,6 @@ Please change the quantity done or the rounding precision of your unit of measur
         res = super().create(vals_list)
         res._update_orderpoints()
         return res
->>>>>>> upstream/17.0
 
     def write(self, vals):
         # Handle the write on the initial demand by updating the reserved quantity and logging

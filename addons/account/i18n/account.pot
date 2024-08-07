@@ -492,10 +492,6 @@ msgid ""
 msgstr ""
 
 #. module: account
-<<<<<<< HEAD
-#: model_terms:ir.ui.view,arch_db:account.view_account_payment_register_form
-msgid "<b>Early Payment Discount applied.</b>"
-=======
 #: model_terms:ir.ui.view,arch_db:account.report_invoice_document
 msgid "<br/> on this account:"
 >>>>>>> upstream/17.0
@@ -13565,8 +13561,6 @@ msgid "The company this distribution line belongs to."
 msgstr ""
 
 #. module: account
-<<<<<<< HEAD
-=======
 #. odoo-python
 #: code:addons/account/models/partner.py:0
 #, python-format
@@ -14585,19 +14579,10 @@ msgid "This recurring move will be posted up to and including this date."
 msgstr ""
 
 #. module: account
-<<<<<<< HEAD
-#. odoo-python
-#: code:addons/account/models/account_tax.py:0
-#, python-format
-msgid ""
-"This tax has been used in transactions. For that reason, it is forbidden to "
-"modify this field."
-=======
 #: model_terms:ir.ui.view,arch_db:account.view_move_form
 msgid ""
 "This will update all taxes and accounts based on the currently selected "
 "fiscal position."
->>>>>>> upstream/17.0
 msgstr ""
 
 #. module: account
@@ -15947,6 +15932,15 @@ msgstr ""
 msgid ""
 "You can't register payments for journal items being either all inbound, "
 "either all outbound."
+msgstr ""
+
+#. module: account
+#. odoo-python
+#: code:addons/account/models/account_move.py:0
+#, python-format
+msgid ""
+"You can't reset to draft those journal entries. You need to request a "
+"cancellation instead."
 msgstr ""
 
 #. module: account

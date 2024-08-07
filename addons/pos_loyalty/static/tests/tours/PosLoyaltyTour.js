@@ -506,4 +506,3 @@ registry.category("web_tour.tours").add("PosLoyaltyArchivedRewardProductsActive"
             PosLoyalty.finalizeOrder("Cash", "100"),
         ].flat(),
 });
->>>>>>> upstream/17.0

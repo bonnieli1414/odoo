@@ -8,6 +8,8 @@ from odoo.exceptions import UserError
 
 bypass_token = object()
 
+bypass_token = object()
+
 
 class Message(models.Model):
     _inherit = 'mail.message'
