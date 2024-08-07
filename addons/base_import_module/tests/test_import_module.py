@@ -57,7 +57,14 @@ class TestImportModule(odoo.tests.TransactionCase):
                 </data>
             """),
         ]
+<<<<<<< HEAD
         self.import_zipfile(files)
+=======
+        self.env['res.lang']._activate_lang('fr_FR')
+        with self.assertLogs('odoo.addons.base_import_module.models.ir_module') as log_catcher:
+            self.import_zipfile(files)
+            self.assertIn('INFO:odoo.addons.base_import_module.models.ir_module:module foo: no translation for language fr_FR', log_catcher.output)
+>>>>>>> upstream/17.0
         self.assertEqual(self.env.ref('foo.foo')._name, 'res.partner')
         self.assertEqual(self.env.ref('foo.foo').name, 'foo')
         self.assertEqual(self.env.ref('foo.bar')._name, 'res.partner')

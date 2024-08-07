@@ -44,6 +44,20 @@
             }
         },
         {
+<<<<<<< HEAD
+=======
+            content: "Check Create Report Button, but not click on it",
+            trigger: "button.o_switch_view.o_kanban.active",
+            run() {
+                const button = Array.from(document.querySelectorAll('.btn-secondary'))
+                    .filter(element => element.textContent.includes('Create Report'));
+                if(!button) {
+                    console.error('Missing Create Report button in My Expenses to Report > Kanban View');
+                }
+            }
+        },
+        {
+>>>>>>> upstream/17.0
             content: "Go to Reporting",
             trigger: 'a[data-menu-xmlid="hr_expense.menu_hr_expense_reports"]',
         },

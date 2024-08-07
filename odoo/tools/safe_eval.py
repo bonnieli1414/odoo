@@ -100,6 +100,8 @@ _CONST_OPCODES = set(to_opcodes([
     'COPY', 'SWAP',
     # Added in 3.11 https://docs.python.org/3/whatsnew/3.11.html#new-opcodes
     'RESUME',
+    # 3.12 https://docs.python.org/3/whatsnew/3.12.html#cpython-bytecode-changes
+    'RETURN_CONST',
 ])) - _BLACKLIST
 
 # operations which are both binary and inplace, same order as in doc'
@@ -124,6 +126,10 @@ _EXPR_OPCODES = _CONST_OPCODES.union(to_opcodes([
     'GEN_START',  # added in 3.10 but already removed from 3.11.
     # Added in 3.11, replacing all BINARY_* and INPLACE_*
     'BINARY_OP',
+<<<<<<< HEAD
+=======
+    'BINARY_SLICE',
+>>>>>>> upstream/17.0
 ])) - _BLACKLIST
 
 _SAFE_OPCODES = _EXPR_OPCODES.union(to_opcodes([
@@ -167,6 +173,15 @@ _SAFE_OPCODES = _EXPR_OPCODES.union(to_opcodes([
     'PUSH_EXC_INFO',
     'NOP',
     'FORMAT_VALUE', 'BUILD_STRING',
+<<<<<<< HEAD
+=======
+    # 3.12 https://docs.python.org/3/whatsnew/3.12.html#cpython-bytecode-changes
+    'END_FOR',
+    'LOAD_FAST_AND_CLEAR', 'LOAD_FAST_CHECK',
+    'POP_JUMP_IF_NOT_NONE', 'POP_JUMP_IF_NONE',
+    'CALL_INTRINSIC_1',
+])) - _BLACKLIST
+>>>>>>> upstream/17.0
 
 ])) - _BLACKLIST
 

@@ -391,6 +391,7 @@ export class Message extends Component {
     /**
      * @param {MouseEvent} ev
      */
+<<<<<<< HEAD
     onClick(ev) {
         const model = ev.target.dataset.oeModel;
         const id = Number(ev.target.dataset.oeId);
@@ -418,6 +419,10 @@ export class Message extends Component {
                     res_id: id,
                 });
             }
+=======
+    async onClick(ev) {
+        if (this.store.handleClickOnLink(ev, this.props.thread)) {
+>>>>>>> upstream/17.0
             return;
         }
         if (

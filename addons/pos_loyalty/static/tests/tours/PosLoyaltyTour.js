@@ -368,14 +368,6 @@ registry.category("web_tour.tours").add('PosLoyaltyTour11.2', {
             PosLoyalty.isRewardButtonHighlighted(true),
             PosLoyalty.clickRewardButton(),
             SelectionPopup.clickItem('Free Product'),
-            PosLoyalty.hasRewardLine('Free Product', '-1.00'),
-            PosLoyalty.isRewardButtonHighlighted(true),
-            PosLoyalty.clickRewardButton(),
-            SelectionPopup.clickItem('Free Product'),
-            PosLoyalty.hasRewardLine('Free Product', '-2.00'),
-            PosLoyalty.isRewardButtonHighlighted(true),
-            PosLoyalty.clickRewardButton(),
-            SelectionPopup.clickItem('Free Product'),
             PosLoyalty.hasRewardLine('Free Product', '-3.00'),
             PosLoyalty.isRewardButtonHighlighted(false),
             ProductScreen.totalAmountIs('50.00'),
@@ -428,3 +420,90 @@ registry.category("web_tour.tours").add('PosLoyaltyMinAmountAndSpecificProductTo
             PosLoyalty.orderTotalIs('66.00'),
         ].flat(),
 });
+<<<<<<< HEAD
+=======
+
+function createOrderCoupon(totalAmount, couponName, couponAmount, loyaltyPoints) {
+    return [
+        ProductScreen.confirmOpeningPopup(),
+        ProductScreen.clickHomeCategory(),
+        ProductScreen.clickPartnerButton(),
+        ProductScreen.clickCustomer("AAAA"),
+        ProductScreen.addOrderline("product_a", "1"),
+        ProductScreen.addOrderline("product_b", "1"),
+        PosLoyalty.enterCode("promocode"),
+        PosLoyalty.hasRewardLine(`${couponName}`, `${couponAmount}`),
+        PosLoyalty.orderTotalIs(`${totalAmount}`),
+        PosLoyalty.pointsAwardedAre(`${loyaltyPoints}`),
+        PosLoyalty.finalizeOrder("Cash", `${totalAmount}`),
+    ].flat();
+}
+
+registry.category("web_tour.tours").add("PosLoyaltyPointsDiscountNoDomainProgramNoDomain", {
+    test: true,
+    url: "/pos/web",
+    steps: () => [createOrderCoupon("135.00", "10% on your order", "-15.00", "135")].flat(),
+});
+
+registry.category("web_tour.tours").add("PosLoyaltyPointsDiscountNoDomainProgramDomain", {
+    test: true,
+    url: "/pos/web",
+    steps: () => [createOrderCoupon("135.00", "10% on your order", "-15.00", "100")].flat(),
+});
+
+registry.category("web_tour.tours").add("PosLoyaltyPointsDiscountWithDomainProgramDomain", {
+    test: true,
+    url: "/pos/web",
+    steps: () => [createOrderCoupon("140.00", "10% on food", "-10.00", "90")].flat(),
+});
+
+registry.category("web_tour.tours").add("PosLoyaltyPointsGlobalDiscountProgramNoDomain", {
+    test: true,
+    url: "/pos/web",
+    steps: () =>
+        [
+            ProductScreen.confirmOpeningPopup(),
+            ProductScreen.clickHomeCategory(),
+            ProductScreen.clickPartnerButton(),
+            ProductScreen.clickCustomer("AAAA"),
+            ProductScreen.addOrderline("product_a", "1"),
+            PosLoyalty.hasRewardLine("10% on your order", "-10.00"),
+            PosLoyalty.orderTotalIs("90"),
+            PosLoyalty.pointsAwardedAre("90"),
+            PosLoyalty.finalizeOrder("Cash", "90"),
+        ].flat(),
+});
+
+registry.category("web_tour.tours").add("PosLoyaltyArchivedRewardProductsInactive", {
+    test: true,
+    url: "/pos/web",
+    steps: () =>
+        [
+            ProductScreen.confirmOpeningPopup(),
+            ProductScreen.clickHomeCategory(),
+
+            ProductScreen.clickPartnerButton(),
+            ProductScreen.clickCustomer("AAAA"),
+
+            ProductScreen.clickDisplayedProduct("Test Product A"),
+            PosLoyalty.checkNoClaimableRewards(),
+            ProductScreen.selectedOrderlineHas('Test Product A', '1.00', '100.00'),
+            PosLoyalty.finalizeOrder("Cash", "100"),
+        ].flat(),
+});
+
+registry.category("web_tour.tours").add("PosLoyaltyArchivedRewardProductsActive", {
+    test: true,
+    url: "/pos/web",
+    steps: () =>
+        [
+            ProductScreen.clickPartnerButton(),
+            ProductScreen.clickCustomer("AAAA"),
+
+            ProductScreen.clickDisplayedProduct("Test Product A"),
+            PosLoyalty.isRewardButtonHighlighted(true),
+            ProductScreen.selectedOrderlineHas('Test Product A', '1.00', '100.00'),
+            PosLoyalty.finalizeOrder("Cash", "100"),
+        ].flat(),
+});
+>>>>>>> upstream/17.0

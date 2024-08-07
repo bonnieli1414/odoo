@@ -390,6 +390,27 @@ export function addCustomerNote(note) {
     );
 }
 
+<<<<<<< HEAD
+=======
+export function addInternalNote(note) {
+    return inLeftSide(
+        [
+            {
+                content: "click more button",
+                trigger: ".mobile-more-button",
+                mobile: true,
+            },
+            {
+                content: "click internal note button",
+                trigger: '.control-buttons .control-button span:contains("Internal Note")',
+            },
+            ...( note ?  TextAreaPopup.inputText(note) : []),
+            TextAreaPopup.clickConfirm(),
+        ].flat()
+    );
+}
+
+>>>>>>> upstream/17.0
 export function checkOrderlinesNumber(number) {
     return [
         {

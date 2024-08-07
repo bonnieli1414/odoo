@@ -935,6 +935,7 @@ def _extract_translatable_qweb_terms(element, callback):
                 and el.get("t-translation", '').strip() != "off"):
 
             _push(callback, el.text, el.sourceline)
+<<<<<<< HEAD
             # Do not export terms contained on the Component directive of OWL
             # attributes in this context are most of the time variables,
             # not real HTML attributes.
@@ -947,6 +948,14 @@ def _extract_translatable_qweb_terms(element, callback):
                 for att in ('title', 'alt', 'label', 'placeholder', 'aria-label'):
                     if att in el.attrib:
                         _push(callback, el.attrib[att], el.sourceline)
+=======
+            # heuristic: tags with names starting with an uppercase letter are
+            # component nodes
+            is_component = el.tag[0].isupper() or "t-component" in el.attrib or "t-set-slot" in el.attrib
+            for attr in el.attrib:
+                if (not is_component and attr in TRANSLATED_ATTRS) or (is_component and attr.endswith(".translate")):
+                    _push(callback, el.attrib[attr], el.sourceline)
+>>>>>>> upstream/17.0
             _extract_translatable_qweb_terms(el, callback)
         _push(callback, el.tail, el.sourceline)
 

@@ -127,6 +127,11 @@ export const MassMailingSnippetsMenu = snippetsEditor.SnippetsMenu.extend({
         if (!$oEditable.find('.oe_drop_zone.oe_insert:not(.oe_vertical):only-child').length) {
             $oEditable.attr('contenteditable', true);
         }
+<<<<<<< HEAD
+=======
+        // Refocus again to save updates when calling `_onWysiwygBlur`
+        this.$editable.focus();
+>>>>>>> upstream/17.0
     },
     /**
      * @override

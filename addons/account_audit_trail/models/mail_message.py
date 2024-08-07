@@ -6,6 +6,8 @@ from markupsafe import Markup
 from odoo import fields, models, _
 from odoo.exceptions import UserError
 
+bypass_token = object()
+
 
 class Message(models.Model):
     _inherit = 'mail.message'
@@ -67,8 +69,30 @@ class Message(models.Model):
             raise UserError(_('Operation not supported'))
         return [('model', '=', 'account.move')] + res_id_domain
 
+<<<<<<< HEAD
     def _search_show_audit_log(self, operator, value):
         if operator not in ['=', '!='] or not isinstance(value, bool):
             raise UserError(_('Operation not supported'))
         move_query = self.env['account.move']._search([('company_id.check_account_audit_trail', operator, value)])
         return [('model', '=', 'account.move'), ('res_id', 'in', move_query)]
+=======
+    @api.ondelete(at_uninstall=True)
+    def _except_audit_log(self):
+        if self.env.context.get('bypass_audit') is bypass_token:
+            return
+        for message in self:
+            if message.show_audit_log and not (
+                message.account_audit_log_move_id
+                and not message.account_audit_log_move_id.posted_before
+            ):
+                raise UserError(_("You cannot remove parts of the audit trail. Archive the record instead."))
+
+    def write(self, vals):
+        if (
+            vals.keys() & {'res_id', 'res_model', 'message_type', 'subtype_id'}
+            or ('subject' in vals and any(self.mapped('subject')))
+            or ('body' in vals and any(self.mapped('body')))
+        ):
+            self._except_audit_log()
+        return super().write(vals)
+>>>>>>> upstream/17.0

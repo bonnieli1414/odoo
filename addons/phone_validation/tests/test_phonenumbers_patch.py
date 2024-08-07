@@ -44,9 +44,40 @@ class TestPhonenumbersPatch(BaseCase):
         self.assertEqual(parsed_phonenumber_1.national_number, 20253551, "The national part of the phonenumber should be 22522586")
         self.assertEqual(parsed_phonenumber_1.country_code, 225, "The country code of Ivory Coast is 225")
 
+<<<<<<< HEAD
         parsed_phonenumber_2 = phonenumbers.parse("+225 22 52 25 86 ", region="CI", keep_raw_input=True)
         self.assertEqual(parsed_phonenumber_2.national_number, 22522586, "The national part of the phonenumber should be 22522586")
         self.assertEqual(parsed_phonenumber_2.country_code, 225, "The country code of Ivory Coast is 225")
+=======
+    def test_region_CO_monkey_patch(self):
+        """Makes sure that patch for Colombian phone numbers work"""
+        parse_test_lines_CO = (
+            self.PhoneInputOutputLine("3241234567", "CO"),
+            self.PhoneInputOutputLine("+57 324 1234567"),
+        )
+        self._assert_parsing_phonenumbers(parse_test_lines_CO)
+
+    def test_region_IL_monkey_patch(self):
+        """ Makes sure that patch for Israeli phone numbers work
+            Example of wrong phone number: +972 55 731 1234
+        """
+        parse_test_lines_IL = (
+            self.PhoneInputOutputLine("055 294 1234", "IL"),
+            self.PhoneInputOutputLine("+972 55 295 1235"),
+        )
+        self._assert_parsing_phonenumbers(parse_test_lines_IL)
+
+    def test_region_MA_monkey_patch(self):
+        """Makes sure that patch for Morocco phone numbers work"""
+        parse_test_lines_MA = (
+            self.PhoneInputOutputLine("+212 6 23 24 56 28"),
+            self.PhoneInputOutputLine("+212603190852"),
+            self.PhoneInputOutputLine("+212780137429"),
+            self.PhoneInputOutputLine("+212546547649"),
+            self.PhoneInputOutputLine("+212690979618"),
+        )
+        self._assert_parsing_phonenumbers(parse_test_lines_MA)
+>>>>>>> upstream/17.0
 
     def test_region_MU_monkey_patch(self):
         """Makes sure that patch for Mauritius phone numbers work"""
@@ -71,6 +102,23 @@ class TestPhonenumbersPatch(BaseCase):
                 self.assertTrue(phonenumbers.is_valid_number(parsed_phonenumber))
                 self.assertEqual(parsed_phonenumber.national_number, exp_national_number)
                 self.assertEqual(parsed_phonenumber.country_code, exp_country_code)
+
+    def test_region_KE_monkey_patch(self):
+        """Makes sure that patch for kenyan phone numbers work"""
+        gt_KE_number = 711123456  # what national number we expect after parsing
+        gt_KE_code = 254  # what country code we expect after parsing
+
+        parse_test_lines_KE = (
+            self.PhoneInputOutputLine("+254711123456", gt_national_number=gt_KE_number, gt_country_code=gt_KE_code),
+            self.PhoneInputOutputLine("+254 711 123 456", gt_national_number=gt_KE_number, gt_country_code=gt_KE_code),
+            self.PhoneInputOutputLine("+254-711-123-456", gt_national_number=gt_KE_number, gt_country_code=gt_KE_code),
+            self.PhoneInputOutputLine("+254 711/123/456", gt_national_number=gt_KE_number, gt_country_code=gt_KE_code),
+            self.PhoneInputOutputLine("0711123456", region="KE", gt_national_number=gt_KE_number, gt_country_code=gt_KE_code),
+            self.PhoneInputOutputLine("0711 123 456", region="KE", gt_national_number=gt_KE_number, gt_country_code=gt_KE_code),
+            self.PhoneInputOutputLine("0711-123-456", region="KE", gt_national_number=gt_KE_number, gt_country_code=gt_KE_code),
+            self.PhoneInputOutputLine("0711/123/456", region="KE", gt_national_number=gt_KE_number, gt_country_code=gt_KE_code),
+        )
+        self._assert_parsing_phonenumbers(parse_test_lines_KE)
 
     def test_region_PA_monkey_patch(self):
         """Makes sure that patch for Panama's phone numbers work"""

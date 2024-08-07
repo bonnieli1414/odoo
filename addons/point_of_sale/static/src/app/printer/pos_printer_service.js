@@ -39,6 +39,7 @@ class PosPrinterService extends PrinterService {
         try {
             return await super.printHtml(...arguments);
         } catch (error) {
+<<<<<<< HEAD
             const { confirmed } = await this.popup.add(ConfirmPopup, {
                 title: error.title || _t("Printing error"),
                 body: error.body + _t("Do you want to print using the web printer? "),
@@ -52,6 +53,24 @@ class PosPrinterService extends PrinterService {
             return await this.printWeb(...arguments);
         }
     }
+=======
+            return this.printHtmlAlternative(error, ...arguments);
+        }
+    }
+    async printHtmlAlternative(error, ...args) {
+        const { confirmed } = await this.popup.add(ConfirmPopup, {
+            title: error.title || _t("Printing error"),
+            body: error.body + _t("Do you want to print using the web printer? "),
+        });
+        if (!confirmed) {
+            return false;
+        }
+        // We want to call the _printWeb when the popup is fully gone
+        // from the screen which happens after the next animation frame.
+        await new Promise(requestAnimationFrame);
+        return this.printWeb(...args);
+    }
+>>>>>>> upstream/17.0
 }
 
 registry.category("services").add("printer", posPrinterService);

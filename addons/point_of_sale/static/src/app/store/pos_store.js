@@ -1924,7 +1924,7 @@ export class PosStore extends Reactive {
         }
         this.get_order() || this.add_new_order();
 
-        options = { ...options, ...(await product.getAddProductOptions()) };
+        options = { ...(await product.getAddProductOptions()), ...options };
 
         if (!Object.keys(options).length) {
             return;

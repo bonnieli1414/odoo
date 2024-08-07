@@ -320,6 +320,7 @@ class Applicant(models.Model):
             if not applicant.partner_id:
                 if not applicant.partner_name:
                     raise UserError(_('You must define a Contact Name for this applicant.'))
+<<<<<<< HEAD
                 applicant.partner_id = self.env['res.partner'].create({
                     'is_company': False,
                     'name': applicant.partner_name,
@@ -328,6 +329,14 @@ class Applicant(models.Model):
                     'phone': applicant.partner_phone,
                 })
             else:
+=======
+                applicant.partner_id = self.env['res.partner'].with_context(default_lang=self.env.lang).find_or_create(applicant.email_from)
+            if applicant.partner_name and not applicant.partner_id.name:
+                applicant.partner_id.name = applicant.partner_name
+            if tools.email_normalize(applicant.email_from) != tools.email_normalize(applicant.partner_id.email):
+                # change email on a partner will trigger other heavy code, so avoid to change the email when
+                # it is the same. E.g. "email@example.com" vs "My Email" <email@example.com>""
+>>>>>>> upstream/17.0
                 applicant.partner_id.email = applicant.email_from
                 applicant.partner_id.mobile = applicant.partner_mobile
                 applicant.partner_id.phone = applicant.partner_phone

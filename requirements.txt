@@ -1,10 +1,15 @@
 # The officially supported versions of the following packages are their
 # python3-* equivalent distributed in Ubuntu 22.04 and Debian 11
-Babel==2.9.1  # min version = 2.6.0 (Focal with security backports)
-chardet==4.0.0
-cryptography==3.4.8
-decorator==4.4.2
-docutils==0.17
+Babel==2.9.1 ; python_version < '3.11'  # min version = 2.6.0 (Focal with security backports)
+Babel==2.10.3 ; python_version >= '3.11'
+chardet==4.0.0 ; python_version < '3.11'  # (Jammy)
+chardet==5.2.0 ; python_version >= '3.11'
+cryptography==3.4.8; python_version < '3.12'  # incompatibility between pyopenssl 19.0.0 and cryptography>=37.0.0
+cryptography==42.0.8 ; python_version >= '3.12'  # (Noble) min 41.0.7, pinning 42.0.8 for security fixes
+decorator==4.4.2  ; python_version < '3.11'  # (Jammy)
+decorator==5.1.1  ; python_version >= '3.11'
+docutils==0.17 ; python_version < '3.11'  # (Jammy)
+docutils==0.20.1 ; python_version >= '3.11'
 ebaysdk==2.1.5
 freezegun==1.1.0
 geoip2==2.9.0

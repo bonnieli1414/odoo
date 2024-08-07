@@ -5,7 +5,7 @@ import collections
 from datetime import timedelta
 from itertools import groupby
 import operator as py_operator
-from odoo import fields, models, _
+from odoo import api, fields, models, _
 from odoo.tools import groupby
 from odoo.tools.float_utils import float_round, float_is_zero
 
@@ -36,9 +36,15 @@ class ProductTemplate(models.Model):
         for product in self:
             product.bom_count = self.env['mrp.bom'].search_count(['|', ('product_tmpl_id', '=', product.id), ('byproduct_ids.product_id.product_tmpl_id', '=', product.id)])
 
+    @api.depends_context('company')
     def _compute_is_kits(self):
+<<<<<<< HEAD
         domain = [('product_tmpl_id', 'in', self.ids), ('type', '=', 'phantom')]
         bom_mapping = self.env['mrp.bom'].search_read(domain, ['product_tmpl_id'])
+=======
+        domain = [('product_tmpl_id', 'in', self.ids), ('type', '=', 'phantom'), '|', ('company_id', '=', False), ('company_id', '=', self.env.company.id)]
+        bom_mapping = self.env['mrp.bom'].sudo().search_read(domain, ['product_tmpl_id'])
+>>>>>>> upstream/17.0
         kits_ids = set(b['product_tmpl_id'][0] for b in bom_mapping)
         for template in self:
             template.is_kits = (template.id in kits_ids)
@@ -114,8 +120,11 @@ class ProductProduct(models.Model):
         for product in self:
             product.bom_count = self.env['mrp.bom'].search_count(['|', '|', ('byproduct_ids.product_id', '=', product.id), ('product_id', '=', product.id), '&', ('product_id', '=', False), ('product_tmpl_id', '=', product.product_tmpl_id.id)])
 
+    @api.depends_context('company')
     def _compute_is_kits(self):
-        domain = ['&', ('type', '=', 'phantom'),
+        domain = ['&', '&', ('type', '=', 'phantom'),
+                       '|', ('company_id', '=', False),
+                            ('company_id', '=', self.env.company.id),
                        '|', ('product_id', 'in', self.ids),
                             '&', ('product_id', '=', False),
                                  ('product_tmpl_id', 'in', self.product_tmpl_id.ids)]
